@@ -22,6 +22,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `apex-vs-mffu-2026` | Apex vs MyFundedFutures (2026): Honest Side-by-Side Comparison | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `earn2trade-vs-topstep-2026` | Earn2Trade vs Topstep (2026): Same Lock, Different Lifecycle | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `bulenox-vs-tradeify-2026` | Bulenox vs Tradeify (2026): Same Lock, Opposite Everything Else | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
+| `aurafy-vs-tradersync-2026` | Aurafy vs TraderSync (2026): Honest Side-by-Side for Futures Traders | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy

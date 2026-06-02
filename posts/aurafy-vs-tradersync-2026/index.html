@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurafy vs TraderSync (2026): Honest Side-by-Side for Futures Traders</title>
+<meta name="description" content="Honest comparison of Aurafy and TraderSync in 2026. Pricing tiers, screen recording, prop-firm rule tracking, broker imports, mistake tagging, simulator. Which one a futures trader should actually pick.">
+<link rel="canonical" href="https://aurafy.dev/blog/aurafy-vs-tradersync-2026/">
+<style>
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0b0d10;color:#e8edf2;margin:0;padding:0;line-height:1.65}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 60px}
+  h1{font-size:1.85rem;line-height:1.25;margin:0 0 8px;color:#fff}
+  h2{font-size:1.3rem;margin:36px 0 12px;color:#fff;border-bottom:1px solid #1f252d;padding-bottom:6px}
+  h3{font-size:1.05rem;margin:24px 0 8px;color:#fff}
+  p{margin:0 0 14px;color:#cfd6df}
+  a{color:#5b8def}
+  .meta{color:#8a94a3;font-size:0.9rem;margin:0 0 24px}
+  .tldr{background:#13171c;border:1px solid #222932;border-radius:10px;padding:16px 18px;margin:18px 0 24px}
+  .tldr h3{margin-top:0;color:#fff}
+  .verdict{display:grid;grid-template-columns:1fr;gap:10px;margin:14px 0}
+  .v{background:#0e1216;border-left:3px solid #5b8def;padding:10px 14px;border-radius:0 8px 8px 0}
+  .v strong{color:#fff}
+  .disclaimer{background:#1a1408;border:1px solid #3a2a10;border-radius:8px;padding:12px 14px;color:#e0c89a;font-size:0.92rem;margin:18px 0}
+  table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:0.92rem}
+  th,td{border:1px solid #222932;padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:#13171c;color:#fff;font-weight:600}
+  td{color:#cfd6df}
+  td.win{background:rgba(91,141,239,0.08)}
+  ul{margin:0 0 14px;padding-left:22px;color:#cfd6df}
+  li{margin-bottom:6px}
+  .example{background:#0e1216;border:1px solid #1f252d;border-radius:8px;padding:14px 16px;margin:14px 0}
+  .example h4{margin:0 0 6px;color:#fff;font-size:0.98rem}
+  .cta{background:linear-gradient(135deg,#13171c 0%,#1a2030 100%);border:1px solid #2a3550;border-radius:12px;padding:22px;margin:32px 0;text-align:center}
+  .cta h3{margin:0 0 8px;color:#fff}
+  .cta p{color:#a3acba;margin:0 0 14px}
+  .cta a.btn{display:inline-block;background:#5b8def;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600}
+  .cta a.btn:hover{background:#4a7ade}
+  .small{color:#8a94a3;font-size:0.85rem}
+  .faq{background:#13171c;border:1px solid #222932;border-radius:8px;padding:6px 18px;margin:14px 0}
+  .faq h3{margin:18px 0 6px;color:#fff;font-size:1rem}
+  .related{background:#0e1216;border:1px solid #1f252d;border-radius:8px;padding:14px 16px;margin:18px 0}
+  .related h3{margin-top:0}
+  .related ul{padding-left:18px}
+  footer{margin-top:40px;padding-top:18px;border-top:1px solid #1f252d;color:#8a94a3;font-size:0.85rem;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Aurafy vs TraderSync (2026): Honest Side-by-Side for Futures Traders</h1>
+<p class="meta">Updated June 2026 · ~11 min read · Written by the Aurafy team — we have a side. We tried to keep this fair.</p>
+
+<div class="disclaimer"><strong>Transparency:</strong> We make Aurafy. We are not affiliated with TraderSync, have no referral relationship with them, and didn't copy their marketing. Pricing and feature details below are current as of June 2026 — both products change, so verify on the live sites before signing up. If you find an inaccuracy, tell us and we'll fix it.</div>
+
+<div class="tldr">
+<h3>TL;DR — different products for different traders</h3>
+<div class="verdict">
+  <div class="v"><strong>You trade futures only (especially at a prop firm):</strong> Aurafy. Native screen recording + prop-firm trailing-drawdown / consistency tracking for Topstep, Apex 4.0, MFFU. The $19 founder seat is the cheapest "real" tier in the journal market in 2026.</div>
+  <div class="v"><strong>You trade across stocks, options, futures, forex, or crypto and want the most thorough mistake-tagging journal:</strong> TraderSync. It's the multi-asset workhorse — broader broker coverage and the best granular mistake/setup tagging system in the journal space.</div>
+  <div class="v"><strong>You want a simulator inside the same product:</strong> TraderSync. Their built-in trade simulator on higher tiers is something Aurafy doesn't ship today (our bar-replay backtester is in build).</div>
+</div>
+</div>
+
+<h2>Quick verdict box</h2>
+<table>
+<thead><tr><th>Dimension</th><th>Aurafy</th><th>TraderSync</th></tr></thead>
+<tbody>
+  <tr><td>Best for</td><td class="win">Futures + prop-firm traders</td><td>Multi-asset traders who want deep mistake tagging</td></tr>
+  <tr><td>Free tier</td><td class="win">"Trial that never expires" — 1 account, 3 playbooks, last 30 days, no card</td><td>Free starter tier with a low monthly trade cap</td></tr>
+  <tr><td>Paid (monthly)</td><td class="win">$49 (or $19 founder — first 50 only)</td><td>Pro Basic ~$30 / Pro Premium ~$50 / Pro Elite ~$80</td></tr>
+  <tr><td>Paid (annual)</td><td class="win">$490</td><td>Discounted on yearly plans</td></tr>
+  <tr><td>Native screen recording</td><td class="win">Yes (Aurafy Recorder)</td><td>No</td></tr>
+  <tr><td>Trade replay / chart playback</td><td>Bar-replay backtester (coming soon)</td><td class="win">Trade replay with chart at entry/exit</td></tr>
+  <tr><td>Built-in simulator</td><td>No</td><td class="win">Yes (on higher tiers)</td></tr>
+  <tr><td>Prop-firm rule tracking (trailing DD, consistency, DLL)</td><td class="win">Built-in for Topstep, Apex 4.0, MFFU</td><td>No — generic multi-asset journal</td></tr>
+  <tr><td>Broker imports</td><td>Tradovate, NinjaTrader, Sierra Chart, Rithmic</td><td class="win">~80+ brokers across stocks/options/futures/FX/crypto</td></tr>
+  <tr><td>Asset classes</td><td>Futures only</td><td class="win">Stocks, options, futures, forex, crypto</td></tr>
+  <tr><td>Mistake / setup tagging</td><td>Structured playbooks + tags</td><td class="win">Industry-leading granular mistake/setup library</td></tr>
+  <tr><td>UI / UX</td><td class="win">Modern (2025+)</td><td>Dense, dashboard-heavy</td></tr>
+  <tr><td>Track record</td><td>Newer (2025–2026)</td><td class="win">Established ~2017</td></tr>
+</tbody>
+</table>
+
+<h2>1) Price + tiers</h2>
+<p>TraderSync has three paid tiers; Aurafy has one (plus the capped founder seat). Both have a free tier you can use without a card.</p>
+<ul>
+  <li><strong>Aurafy free:</strong> 1 account, 3 playbooks, last 30 days of trades, no card. Old trades roll off after 30 days, so it's a "trial that never expires" rather than an unlimited free tier.</li>
+  <li><strong>TraderSync free:</strong> low monthly trade cap (verify the exact number on their pricing page — it has changed over the years). Functional for very low volume.</li>
+  <li><strong>Aurafy Pro:</strong> $49/mo, $490/yr, or the <strong>$19/mo founder plan</strong> (first 50, locked for life).</li>
+  <li><strong>TraderSync Pro Basic:</strong> ~$30/mo — unlocks unlimited trades + most analytics.</li>
+  <li><strong>TraderSync Pro Premium:</strong> ~$50/mo — adds advanced analytics + auto-import on more brokers.</li>
+  <li><strong>TraderSync Pro Elite:</strong> ~$80/mo — full feature set including the simulator.</li>
+</ul>
+<p>At $19/mo founder, Aurafy is cheaper than every TraderSync paid tier. At standard $49/mo Aurafy and TraderSync Pro Basic ($30) compete on different dimensions: TraderSync gives you broader broker imports + mistake tagging maturity; Aurafy gives you screen recording + prop-firm rule tracking. The right answer depends entirely on what you trade.</p>
+
+<h2>2) Screen recording — the biggest functional difference</h2>
+<p>TraderSync does not offer screen recording in any tier, including Pro Elite. If you want to capture your screen during the session you pair it with Loom (~$15/mo) or OBS (free).</p>
+<p>Aurafy ships <strong>Aurafy Recorder</strong> as part of the product. It captures your full screen while you trade and ties the recording to each trade automatically — entries, exits, the moment you sized up after a loss, the news pop that froze you. We wrote the long version in <a href="https://aurafy.dev/blog/trade-replay-vs-screen-recording/">Trade Replay vs Screen Recording</a>: chart replay (which TraderSync does) shows what the chart did; screen recording shows what <em>you</em> did. Eval failures and blown funded accounts are almost always behavioral, so we built the behavioral layer first.</p>
+<p>If your review process is purely chart-based — re-watching your setup against the bars — TraderSync's built-in chart replay is solid and you don't need a separate Loom subscription. If your bleed is behavioral (hesitation, oversizing, revenge trades, news freezes), TraderSync alone won't surface it without a sidecar recorder.</p>
+
+<h2>3) Prop-firm rule tracking</h2>
+<p>TraderSync treats every account the same — it logs trades, runs analytics, tags mistakes. It does not know what "Apex 4.0 EOD trailing drawdown" is, or that MFFU Core requires 40% consistency, or that Topstep enforces a $1K/$2K/$3K daily loss limit by account size. You log the trades; you do the prop-firm math.</p>
+<p>Aurafy was built for prop-firm traders specifically. It tracks:</p>
+<ul>
+  <li>Trailing drawdown — intraday HWM (Topstep Combine, Apex 4.0 intraday plans) <em>and</em> EOD HWM (Topstep XFA, Apex 4.0 EOD plans, MFFU Core).</li>
+  <li>Lock thresholds — Topstep locks at Starting Balance; Apex 4.0 + MFFU lock at SB + $100.</li>
+  <li>Consistency rule — Topstep 50%, Apex 4.0 30%, MFFU Core 40%. Aurafy flags when a single day is about to break the rule and block the payout.</li>
+  <li>Daily loss limit — Topstep $1K/$2K/$3K by size, alerted in-session.</li>
+</ul>
+<p>You can replicate most of this in TraderSync with tags + a spreadsheet, but if you're at Topstep / Apex / MFFU, the prop-firm focus is what Aurafy is for. If you're trading your own equities account or a forex prop firm, this difference is irrelevant.</p>
+<p>You can also use Aurafy's free prop-firm calculators standalone (no login) alongside TraderSync: the <a href="https://aurafy.dev/tools/trailing-drawdown-calculator/">trailing-drawdown calculator</a> and <a href="https://aurafy.dev/tools/consistency-rule-calculator/">consistency calculator</a> work with any journal.</p>
+
+<h2>4) Broker imports + asset class coverage</h2>
+<p>TraderSync is straightforwardly ahead here, and the right answer if you trade more than just futures.</p>
+<ul>
+  <li><strong>TraderSync:</strong> ~80+ brokers across stocks, options, futures, forex, and crypto. Interactive Brokers, TD Ameritrade / Schwab, E*TRADE, Tastytrade, Tradovate, NinjaTrader, MT4/MT5, OANDA, Binance, Coinbase, and many more. Auto-import on most.</li>
+  <li><strong>Aurafy:</strong> futures-focused pipes only — Tradovate, NinjaTrader, Sierra Chart, Rithmic. Covers the four most common prop-firm broker routes. Does not import equities, options, FX, or crypto.</li>
+</ul>
+<p>Hard line: if your trading day touches anything other than futures — equities, options, FX, crypto, or any combination — Aurafy is the wrong product today and TraderSync (or TradeZella) is the right one. We're honest about that.</p>
+
+<h2>5) Mistake tagging + analytics depth</h2>
+<p>This is where TraderSync has built genuine product depth over years. Its mistake / setup tagging system is widely considered the most granular in the journal market — you can tag every trade with multiple "mistakes made" (chased entry, moved stop, ignored plan, oversized, etc.) and every "setup taken," then slice your P&amp;L by any combination. The analytics screens then surface which mistakes cost you the most money. This is the loop a lot of TraderSync power users live in.</p>
+<p>Aurafy has structured <strong>playbooks</strong> (named strategies with rules) and tags, which cover the basic version of this, but we haven't matched TraderSync's tag-library depth or the analytics permutations on it. We made a deliberate trade: spend the product budget on screen recording + prop-firm rules first because that's what futures + prop-firm traders ask for. If your single highest priority is "I want to slice my mistakes 40 ways," TraderSync today does that better.</p>
+
+<h2>6) Simulator</h2>
+<p>TraderSync's higher tiers include a trade simulator — practice mode against historical data. Aurafy's bar-replay backtester is in build but not shipped yet, so today TraderSync wins this dimension clearly.</p>
+<p>Honest note: most futures + prop-firm traders we talk to don't use simulators as their main review tool — they use real evals (cheap on Apex / Topstep / MFFU). If you specifically want a simulator inside the journal, TraderSync's is real and Aurafy's isn't, yet.</p>
+
+<h2>Two worked examples</h2>
+
+<div class="example">
+<h4>Example A — Multi-asset retail trader (stocks + options + a little FX)</h4>
+<p>You trade Interactive Brokers stocks/options and an MT5 forex account on the side. You want one journal that catches everything and helps you find which mistakes cost you the most.</p>
+<p><strong>Pick TraderSync.</strong> Broader broker imports + multi-asset support + the granular mistake-tag analytics are exactly what you need. Aurafy doesn't import IBKR equities or MT5 forex tickets, so it would simply not work for you.</p>
+</div>
+
+<div class="example">
+<h4>Example B — Apex 4.0 100K trader running 1 PA, scaling out of a copy account</h4>
+<p>You're working an Apex 4.0 100K PA, intraday plan, 8–15 trades a day on NQ. You keep hitting the lock then bleeding back into trailing-DD trouble. You can't tell if it's a setup problem or a behavioral one.</p>
+<p><strong>Pick Aurafy.</strong> The trailing-drawdown tracker tells you in-session how much intraday DD headroom you have before the kill point; the screen recording surfaces the actual behavioral pattern (entries after a 3-tick loss, sizing up on rev-trades). TraderSync would log the trades but neither track the SB+$100 lock math nor show you the on-screen behavior — you'd still be flying blind on the "why."</p>
+</div>
+
+<h2>"Which one should I pick?" — decision blocks</h2>
+<div class="verdict">
+  <div class="v"><strong>You're a futures-only prop-firm trader:</strong> Aurafy. Prop-firm rule tracking + screen recording are uniquely ours.</div>
+  <div class="v"><strong>You trade stocks/options/FX/crypto, alone or alongside futures:</strong> TraderSync. Multi-asset support + broker breadth are why it exists.</div>
+  <div class="v"><strong>Your #1 review obsession is granular mistake/setup analytics:</strong> TraderSync. Its tag library + slicing is the strongest in the journal space.</div>
+  <div class="v"><strong>You want a built-in simulator:</strong> TraderSync Pro Elite. Aurafy's bar-replay backtester is coming but not shipped.</div>
+  <div class="v"><strong>You already pay for Loom alongside a journal:</strong> Aurafy. Native screen recording, lower total bill.</div>
+  <div class="v"><strong>You want the cheapest "real" paid tier:</strong> Aurafy $19 founder seat (first 50 only). Otherwise TraderSync Pro Basic at ~$30/mo.</div>
+  <div class="v"><strong>You blow funded accounts on rule violations, not setups:</strong> Aurafy. The trailing-DD tracker + consistency alerts are built for exactly that bleed.</div>
+</div>
+
+<h2>Frequently asked questions</h2>
+<div class="faq">
+<h3>Is TraderSync still being actively developed in 2026?</h3>
+<p>Yes — it has shipped continuously since ~2017 and remains one of the "big three" journals alongside TradeZella and Tradervue. The mistake-tagging and analytics screens have been refined over many releases.</p>
+
+<h3>Does TraderSync track Apex 4.0 / Topstep / MFFU rules?</h3>
+<p>Not natively. It treats every account the same. You'd track trailing drawdown and consistency manually with tags + a sidecar spreadsheet. Aurafy is built around those rules and surfaces them in-session.</p>
+
+<h3>Does TraderSync have screen recording?</h3>
+<p>No. Its trade replay shows your entries and exits on a chart, which is useful for chart-based review but doesn't capture what you were doing on your screen (size selection, hesitation, news pop, revenge trade). For session screen recording with TraderSync you'd pair it with Loom (~$15/mo) or OBS (free).</p>
+
+<h3>Which is better for mistake analysis?</h3>
+<p>TraderSync's mistake-tagging system is the most granular in the journal market and has more analytics permutations than Aurafy's playbook-based system today. If your single biggest goal is "slice my mistakes every way possible," TraderSync wins.</p>
+
+<h3>TraderSync Pro Premium vs Aurafy Pro at the same ~$50?</h3>
+<p>If you trade futures and prop-firm rules apply, Aurafy. If you trade across asset classes, want broader broker auto-imports, or live in mistake-tag analytics, TraderSync Pro Premium. They're not the same product even at the same price.</p>
+
+<h3>Can I import my TraderSync history into Aurafy?</h3>
+<p>Not directly. If you re-import your broker history (Tradovate / NinjaTrader / Sierra / Rithmic) into Aurafy you'll get the same trades from source. TraderSync tags and journal notes don't carry over.</p>
+
+<h3>Which is best for forex / MT4 / MT5 traders?</h3>
+<p>TraderSync. Aurafy doesn't import FX broker tickets at all today. If you're on MT4/MT5, OANDA, or a forex prop firm, Aurafy is the wrong tool.</p>
+</div>
+
+<div class="related">
+<h3>Related on Aurafy</h3>
+<ul>
+  <li><a href="https://aurafy.dev/blog/aurafy-vs-tradezella-2026/">Aurafy vs TradeZella (2026)</a> — the same honest treatment for the dominant journal.</li>
+  <li><a href="https://aurafy.dev/blog/aurafy-vs-tradervue-2026/">Aurafy vs Tradervue (2026)</a> — the longest-running pure journal.</li>
+  <li><a href="https://aurafy.dev/blog/trade-replay-vs-screen-recording/">Trade Replay vs Screen Recording (2026)</a> — the pillar explainer on the two approaches.</li>
+  <li><a href="https://aurafy.dev/blog/best-prop-firms-2026/">Best Prop Firms for Futures Traders (2026)</a> — honest ranking.</li>
+  <li><a href="https://aurafy.dev/tools/trailing-drawdown-calculator/">Free Trailing Drawdown Calculator</a> — Topstep + Apex 4.0 presets.</li>
+  <li><a href="https://aurafy.dev/tools/consistency-rule-calculator/">Free Consistency Rule Calculator</a> — Topstep 50% / Apex 30% / MFFU 40%.</li>
+  <li><a href="https://aurafy.dev/tools/futures-pnl-calculator/">Free Futures P&amp;L Calculator</a> — 30+ contracts preloaded.</li>
+</ul>
+</div>
+
+<div class="cta">
+<h3>Try Aurafy free — see if the futures + prop-firm focus is what you've been missing</h3>
+<p>30-day window, 1 account, 3 playbooks. No card. If you're blowing evals or can't pinpoint the leak, the screen recording usually catches what tagging alone misses.</p>
+<a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=aurafy-vs-tradersync&utm_campaign=competitor-comparison">Start free at aurafy.dev</a>
+<p class="small" style="margin-top:14px">Or grab a <strong>$19/mo founder seat</strong> (first 50, locked for life) at the same link.</p>
+</div>
+
+<footer>
+  Aurafy — futures trading journal + screen recording. Independent of TraderSync; no affiliate relationship. Pricing and features verified June 2026 — both products evolve, so confirm on the live sites before signing up.
+</footer>
+
+</div>
+</body>
+</html>
