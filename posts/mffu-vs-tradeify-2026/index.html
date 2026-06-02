@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>MFFU vs Tradeify (2026): Sibling Lock, Different Forks | Aurafy</title>
+<meta name="description" content="MyFundedFutures vs Tradeify — both lock at SB + $100 and both fork at signup. MFFU bundles trail-type with consistency per plan (Core/Rapid/Pro). Tradeify keeps trail uniform and forks on consistency archetype only. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/mffu-vs-tradeify-2026/" />
+<meta property="og:title" content="MFFU vs Tradeify (2026): Sibling Lock, Different Forks" />
+<meta property="og:description" content="MFFU and Tradeify both lock at SB + $100 and both fork the rule set at signup. MFFU bundles trail+consistency per plan; Tradeify isolates the consistency archetype. Honest 2026 breakdown with worked examples." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --mffu:#5b8def;
+    --tradeify:#3ddc97;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-mffu{color:var(--mffu);font-weight:600}
+  .firm-tradeify{color:var(--tradeify);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--red);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.mffu{border-left:3px solid var(--mffu)}
+  .pick.tradeify{border-left:3px solid var(--tradeify)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.mffu{border-top:2px solid var(--mffu)}
+  .axis-side.t{border-top:2px solid var(--tradeify)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>MFFU vs Tradeify (2026): Sibling Lock, Different Forks</h1>
+  <p class="lede">MyFundedFutures (MFFU) and Tradeify share the same <strong>SB + $100 lock family</strong> and both make you commit to a plan at signup. The difference is what the signup-fork actually decides. MFFU bundles trail-type and consistency together per plan. Tradeify keeps the trail uniform and forks only on the consistency archetype. Same lock floor, different decision shape. Here's the honest 2026 breakdown.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Prop-firm rules change &mdash; always verify on each firm's current rulebook (<a href="https://myfundedfutures.com">myfundedfutures.com</a>, <a href="https://tradeify.co">tradeify.co</a>) before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#fork">The signup-fork story</a>
+  <a href="#lock">Lock archetype</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#consistency">Consistency</a>
+  <a href="#payouts">Payouts &amp; cost</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR verdict</h2>
+
+<div class="verdict">
+  <strong class="firm-mffu"><a href="https://aurafy.dev/prop-firms/myfundedfutures/">MyFundedFutures (MFFU)</a> &mdash; pick if you want trail-type and consistency bundled into a single plan choice and you need NinjaTrader or TradingView.</strong>
+  Three plans at signup: <strong>Core</strong> (50K only, EOD trail, 40% consistency on both eval and funded), <strong>Rapid</strong> (50K + 100K, intraday trail, no consistency rule), <strong>Pro</strong> (instant-funding). <strong>No daily loss limit on any plan</strong> &mdash; only trailing drawdown enforces risk. $0 activation fee. NinjaTrader 8, Tradovate, Rithmic, TradingView supported. Locks at <strong>SB + $100</strong>.
+</div>
+
+<div class="verdict">
+  <strong class="firm-tradeify"><a href="https://aurafy.dev/prop-firms/tradeify/">Tradeify</a> &mdash; pick if you want a uniform EOD trail across the lifecycle and you can stay off NinjaTrader.</strong>
+  Three parallel programs at signup: Growth (eval-free consistency &rarr; funded 35%), Select (eval 40% &rarr; funded-free), Lightning instant-funded (progressive 20% &rarr; 25% &rarr; 30%). <strong>EOD trail uniform across all three programs.</strong> $0 activation. Tradesea (Rithmic), Tradovate, WealthCharts &mdash; <strong>no NinjaTrader / TradingView / MetaTrader</strong>. Locks at <strong>SB + $100</strong> &mdash; same lock family as MFFU.
+</div>
+
+<div class="verdict">
+  <strong>The signup-fork is the story.</strong> Both firms freeze the trail floor at the same point (SB + $100), so the math of "when does my drawdown stop tightening" is identical. After that, the fork shape differs: MFFU's plan choice <em>bundles</em> trail type with consistency (Core = EOD + strict 40%; Rapid = intraday + nothing; Pro = instant-funded). Tradeify's program choice <em>isolates</em> consistency as the only fork variable (trail always EOD; consistency direction inverts by program). Same lock, two different ways to commit at signup.
+</div>
+
+<h2 id="sidebyside">Side-by-side: MFFU vs Tradeify (2026)</h2>
+
+<table>
+  <thead>
+    <tr><th>Axis</th><th><span class="firm-mffu">MFFU</span></th><th><span class="firm-tradeify">Tradeify</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Structure</td><td>3 plans at signup: Core / Rapid / Pro</td><td>3 parallel programs at signup: Growth / Select / Lightning</td></tr>
+    <tr><td class="label">Eval format</td><td>Core: 1-step eval &middot; Rapid: 1-step eval &middot; Pro: instant-funded (no eval)</td><td>Growth: 1-step (1d min) &middot; Select: 1-step (3d min) &middot; Lightning: instant-funded</td></tr>
+    <tr><td class="label">Trail type</td><td><strong>Bundled by plan:</strong> Core EOD / Rapid intraday / Pro varies</td><td><strong>Uniform EOD</strong> across all three programs</td></tr>
+    <tr><td class="label">Lock archetype</td><td>Locks at <strong>SB + $100</strong> (e.g. 100K Rapid: floor freezes at $100,100)</td><td>Locks at <strong>SB + $100</strong> &mdash; same family as MFFU</td></tr>
+    <tr><td class="label">Consistency rule</td><td>Core: <strong>40% on eval AND funded</strong> (strictest in this dataset) &middot; Rapid: <strong>none</strong> &middot; Pro: subject to first-payout consistency</td><td>Growth: eval-free / funded 35% &middot; Select: eval 40% / funded-free &middot; Lightning: progressive 20&rarr;25&rarr;30%</td></tr>
+    <tr><td class="label">Account sizes</td><td>Core: 50K only &middot; Rapid: 50K + 100K &middot; Pro: varies</td><td>4 sizes per program: 25K / 50K / 100K / 150K</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>None on any plan</strong> &mdash; only trailing drawdown enforces risk</td><td>Growth eval has DLL; Lightning has DLL on 50K+; Select has none</td></tr>
+    <tr><td class="label">Activation fee</td><td><strong>$0</strong></td><td><strong>$0</strong> baseline; Select can upgrade ($1,500 daily / $4,000 flex)</td></tr>
+    <tr><td class="label">Profit split</td><td>80&ndash;90% (tier-dependent &mdash; verify on current rulebook)</td><td>90/10 after first $15K on Simulated Funded; 80/20 on Elite Live</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Every 5 days (48h after first payout)</td><td>5-day default; Select upgrades possible (daily/flex); 60-min processing</td></tr>
+    <tr><td class="label">Platforms</td><td>NinjaTrader 8, Tradovate, Rithmic, TradingView</td><td>Tradesea (Rithmic), Tradovate, WealthCharts &mdash; <strong>NO NinjaTrader / TradingView / MetaTrader</strong></td></tr>
+    <tr><td class="label">News trading</td><td>Permitted (verify per current rulebook)</td><td><strong>Permitted</strong> &mdash; Tradeify explicitly allows news</td></tr>
+    <tr><td class="label">Microscalping floor</td><td>No explicit holding-time floor</td><td>&gt;50% of trades AND &gt;50% of profit must come from positions held &gt;10 seconds</td></tr>
+    <tr><td class="label">Overnight holds</td><td>Banned</td><td>Banned &mdash; flat by 5 PM ET; cannot hold through 5&ndash;6 PM ET maintenance window</td></tr>
+    <tr><td class="label">Max funded accounts</td><td>Not capped at a hard small number &mdash; verify on MFFU rulebook</td><td>5 (total funded size capped at $1M)</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact">Both firms lock the trail floor at <strong>SB + $100</strong>, both charge <strong>$0 activation</strong>, and both ban overnight holds. After that the wedges open: <strong>MFFU has no daily loss limit on any plan</strong>, <strong>Tradeify supports neither NinjaTrader nor TradingView</strong>, and the signup-fork makes you commit to a different thing on each firm.</div>
+
+<h2 id="fork">The signup-fork: bundle vs isolate</h2>
+
+<p>Both firms make you choose a plan at signup, but the plan choice decides different things. Understanding the shape of the fork is the difference between picking the right plan and trading the wrong rule for your style.</p>
+
+<div class="axis">
+  <div class="axis-side mffu">
+    <strong>MFFU &mdash; the plan bundles trail + consistency</strong>
+    <p style="margin:0">MFFU's three plans aren't just price tiers &mdash; they're different rule sets. Core: EOD trail + 40% consistency on both eval and funded. Rapid: intraday trail + no consistency rule. Pro: instant-funded, with first-payout consistency. You pick the bundle that matches your trading style, and you live with the bundle. Want EOD with no consistency? Doesn't exist. Want intraday with consistency? Doesn't exist. <strong>The two rule axes are coupled per plan.</strong></p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; the program isolates consistency</strong>
+    <p style="margin:0">Tradeify's three programs share <em>one</em> trail type (EOD across all). The only fork variable is consistency direction: Growth (no-eval / 35%-funded), Select (40%-eval / no-funded), Lightning (progressive). You pick the consistency archetype that matches the part of your lifecycle you want easier. <strong>The trail axis is fixed; only consistency forks.</strong></p>
+  </div>
+</div>
+
+<p>Two implications for picking:</p>
+
+<ul>
+  <li><strong>If your trading style needs intraday trail tracking</strong> (you want the floor to advance on every new equity high so you can lock in gains intraday without waiting for a 4:59 PM snapshot), MFFU Rapid is the only one of the six plans across both firms that gives you that. All Tradeify programs are EOD, and MFFU Core is EOD &mdash; only Rapid is intraday.</li>
+  <li><strong>If your trading style benefits from "no consistency rule on the phase I most struggle with"</strong>, the better option splits by phase. Most-painful-on-eval: Tradeify Growth (no eval consistency). Most-painful-on-funded: Tradeify Select (no funded consistency) or MFFU Rapid (no consistency anywhere). The "no consistency anywhere" option only exists on MFFU Rapid.</li>
+</ul>
+
+<div class="warn"><strong>MFFU Core's 40% consistency rule applies on both eval AND funded</strong> &mdash; the only plan in this dataset where the same threshold persists across the full lifecycle <em>and</em> is as high as 40%. If your edge is lumpy and you tend to have a single big day per week, Core can punish you on both sides of the lifecycle. Rapid removes the consistency rule entirely, which is the standard alternative on MFFU for lumpy-day traders.</div>
+
+<h2 id="lock">Lock archetype: identical floor, no MFFU DLL pairing</h2>
+
+<p>Both firms use a trailing drawdown that locks once equity clears a threshold. The lock <em>point</em> is the same. The DLL <em>pairing</em> is not.</p>
+
+<div class="axis">
+  <div class="axis-side mffu">
+    <strong>MFFU &mdash; locks at SB + $100, no DLL anywhere</strong>
+    <p style="margin:0">Trail floor stops moving once equity exceeds (Starting Balance + Drawdown + $100). E.g. 100K Rapid with $4,000 drawdown: floor advances until equity hits $104,100, then it freezes at $100,100. <strong>MFFU has no daily loss limit on any plan</strong>, so the trail is the single guardrail on the account. Once you blow the trail, the account is done; there's no second tripwire to catch you.</p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; locks at SB + $100, DLL by program</strong>
+    <p style="margin:0">Trail floor stops moving once equity exceeds (Starting Balance + Drawdown + $100). E.g. 100K Growth with $3,500 drawdown: floor advances until equity hits $103,600, then it freezes at $100,100. Growth eval has a DLL; Lightning has a DLL on 50K+; Select has no DLL. So Tradeify gives you a second tripwire on some programs but not all.</p>
+  </div>
+</div>
+
+<p>Two consequences worth pricing in:</p>
+
+<ul>
+  <li><strong>The actual lock point is identical:</strong> $100,100 on a 100K account, $50,100 on a 50K. The equity threshold that triggers the lock differs by drawdown size: MFFU Rapid 100K has a $4,000 drawdown so the lock-trigger equity is $104,100; Tradeify Growth 100K has a $3,500 drawdown so the lock-trigger equity is $103,600. Tradeify Growth's tighter drawdown means the floor freezes at a slightly lower equity high &mdash; useful if you climb gradually, less useful if you spike up and back down.</li>
+  <li><strong>MFFU has no second tripwire:</strong> trail is the only rule that can kill the account on a single bad session. That's simpler to reason about than a DLL-paired account but also means a $1 trail breach is fatal with no daily cushion to absorb it. Plan accordingly &mdash; on MFFU, the trail floor IS the daily loss limit.</li>
+</ul>
+
+<div class="cta">
+  <h3>See the lock point side-by-side on your size</h3>
+  <p>Our free trailing-drawdown calculator presets MFFU (Core / Rapid) and Tradeify (Growth / Select / Lightning) on the same lock-at-SB+$100 family. Switch between them and watch the lock point converge.</p>
+  <a class="btn" href="/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=mffu-vs-tradeify&utm_content=trail-calc">Open Trailing-Drawdown Calculator</a>
+</div>
+
+<h2 id="platforms">Platforms: the biggest gotcha</h2>
+
+<p>Same warning we give for every Tradeify comparison: Tradeify does not support the two most popular futures platforms.</p>
+
+<div class="axis">
+  <div class="axis-side mffu">
+    <strong>MFFU supports:</strong>
+    <p style="margin:0">NinjaTrader 8, TradingView, Tradovate, Rithmic. The full spectrum of prop-firm-trader-default platforms.</p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify supports:</strong>
+    <p style="margin:0">Tradesea (Rithmic data feed), Tradovate, WealthCharts. <strong>NinjaTrader, TradingView, and MetaTrader are NOT supported.</strong></p>
+  </div>
+</div>
+
+<div class="warn"><strong>If you trade on NinjaTrader 8 or TradingView, Tradeify is off the table.</strong> The right comparison for you is MFFU against another NT8/TradingView-supporting firm (Apex / Topstep / TPT), not MFFU vs Tradeify. If you don't have a strong platform attachment, Tradeify's Tradovate + WealthCharts combo is solid &mdash; just know what you're committing to before signup.</div>
+
+<h2 id="consistency">Consistency: bundled vs isolated</h2>
+
+<p>The behavioral-rule shape is the cleanest expression of the signup-fork.</p>
+
+<table>
+  <thead>
+    <tr><th>Phase / Plan</th><th><span class="firm-mffu">MFFU</span></th><th><span class="firm-tradeify">Tradeify</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Eval phase</td><td>Core: <strong>40%</strong> &middot; Rapid: <strong>none</strong> &middot; Pro: no eval (instant-funded)</td><td>Growth: <strong>none</strong> &middot; Select: 40% &middot; Lightning: no eval (instant-funded)</td></tr>
+    <tr><td class="label">Funded phase</td><td>Core: <strong>40%</strong> (same as eval &mdash; uniform-strict) &middot; Rapid: <strong>none</strong> &middot; Pro: first-payout consistency</td><td>Growth: 35% &middot; Select: <strong>none</strong> &middot; Lightning: tightens 20&rarr;25&rarr;30% across payouts</td></tr>
+    <tr><td class="label">Direction across lifecycle</td><td><strong>Uniform per plan</strong> &mdash; Core stays strict; Rapid stays free</td><td><strong>Inverts per program</strong> &mdash; Growth loosens; Select tightens</td></tr>
+  </tbody>
+</table>
+
+<p>Quick formula refresher: <strong>max safe single-day P&amp;L = total profit &times; threshold / (1 &minus; threshold)</strong>. At 40% (MFFU Core, Tradeify Select eval) that's <strong>0.667 &times; total</strong>. At 35% (Tradeify Growth funded) that's <strong>0.538 &times; total</strong>. At 0% (MFFU Rapid, Tradeify Growth eval, Tradeify Select funded) there's no ceiling. The 40% threshold is the most permissive non-zero number in this dataset &mdash; you can have a much bigger single day before tripping &mdash; but MFFU Core forces you to live with it on both phases, while Tradeify lets you choose which phase to keep rule-free.</p>
+
+<div class="cta">
+  <h3>Plan your safe daily profit ceiling for both firms</h3>
+  <p>Our consistency calculator presets MFFU Core's 40% and Tradeify's Growth / Select / Lightning rules. Enter your phase total, see the max safe single-day P&amp;L before a violation.</p>
+  <a class="btn" href="/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=mffu-vs-tradeify&utm_content=consistency-calc">Open Consistency Calculator</a>
+</div>
+
+<h2 id="payouts">Payouts and total cost</h2>
+
+<div class="axis">
+  <div class="axis-side mffu">
+    <strong>MFFU &mdash; $0 activation, 5-day cadence, 80&ndash;90% split</strong>
+    <p style="margin:0">No activation fee. First payout requires the standard payout window; thereafter, payouts run every 5 days (48 hours after the first). Profit split is in the 80&ndash;90% range depending on tier and payout history &mdash; verify the current breakpoints on MFFU's payout page. No DLL anywhere means the trail is the only rule that can void a payout request.</p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; $0 baseline, 5-day default, 90/10 from $15K</strong>
+    <p style="margin:0">No activation fee on the base programs. Payouts are 5-day cadence by default. Select offers two optional upgrades &mdash; $1,500 one-time for daily payouts, or $4,000 for "flex" payouts. 60-minute guaranteed processing. Split is 90/10 on Simulated Funded after the first $15K of profits, 80/20 on Elite Live. Max 5 funded accounts, total funded size capped at $1M.</p>
+  </div>
+</div>
+
+<p>The cost shape is closer here than on most firm comparisons. Both firms baseline at $0 activation, both run a 5-day payout cadence, and both top out in the 80&ndash;90% split range. The pricing differentiator on Tradeify is the Select payout upgrades (daily $1,500, flex $4,000), which buy faster cadence at a real fixed cost. MFFU has no equivalent paid-upgrade lane &mdash; you get the 5-day cadence baked in.</p>
+
+<h2 id="examples">Worked examples</h2>
+
+<h3>Example 1 &mdash; A 100K trader takes an intraday spike to +$2,800 that closes back at +$1,400</h3>
+
+<p>Identical session across firms: equity wicks to +$2,800 intraday, gives back $1,400, closes the day at +$1,400. Compare the trail-floor outcome.</p>
+
+<ul>
+  <li><strong>MFFU Core (50K only, $2,000 drawdown):</strong> Core is only sold at 50K so the literal 100K comparison doesn't apply &mdash; but the mechanic is EOD. On a 50K account with the same proportional spike, the EOD floor recalculates once at session close. The intraday wick is ignored.</li>
+  <li><strong>MFFU Rapid 100K ($4,000 trail):</strong> Intraday trail advances on every new equity high. New floor = max(prior, 100,000 + 2,800 &minus; 4,000) = <strong>$98,800</strong>. The wick costs you $1,400 of trail headroom even though the close is the same.</li>
+  <li><strong>Tradeify Growth 100K ($3,500 trail):</strong> EOD across all programs. New floor = 100,000 + 1,400 &minus; 3,500 = <strong>$97,900</strong>. The wick is ignored. Same EOD logic on Select and Lightning at their respective drawdowns.</li>
+</ul>
+
+<div class="key-fact">MFFU Rapid is the only plan across both firms where the intraday wick costs you trail headroom. Every Tradeify program and MFFU Core ignore the wick because they trail end-of-day. <strong>If you tend to spike up and give back on the same session, EOD is the safer trail mechanic &mdash; which means MFFU Core, any Tradeify program, but NOT MFFU Rapid.</strong></div>
+
+<h3>Example 2 &mdash; A 50K eval trader hits a single +$1,200 day</h3>
+
+<p>Same eval-stage trader takes a single $1,200 winning day on a 50K account. Profit targets are $3,000 on all four (MFFU Core, MFFU Rapid, Tradeify Growth, Tradeify Select).</p>
+
+<ul>
+  <li><strong>MFFU Core 50K (40% eval consistency):</strong> To keep $1,200 within the 40% rule, phase-total profit needs to be at least $1,200 &divide; 0.40 = $3,000 &mdash; exactly the profit target. Hit the target with this single best day and you pass right at the consistency line.</li>
+  <li><strong>MFFU Rapid 50K (no consistency):</strong> $1,200 day counts in full toward the $3,000 profit target. Pass as fast as the eval minimum allows; no consistency ceiling.</li>
+  <li><strong>Tradeify Growth 50K eval (no consistency):</strong> Same as MFFU Rapid &mdash; $1,200 day counts in full, no consistency ceiling on eval.</li>
+  <li><strong>Tradeify Select 50K eval (40% consistency):</strong> Same math as MFFU Core &mdash; needs $3,000 of total profit, exactly the profit target.</li>
+</ul>
+
+<div class="key-fact">For a lumpy-day eval trader, MFFU Rapid and Tradeify Growth are the two easiest paths to pass. MFFU Core and Tradeify Select share the strictest 40% consistency ceiling. The four plans cluster cleanly into two camps: rule-free (Rapid, Growth) vs 40%-strict (Core, Select). <strong>Pick the rule-free plan if you've ever had your "best day" wreck a previous prop firm's consistency calculation.</strong></div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick mffu">
+    <h4 class="firm-mffu">Pick MFFU if&hellip;</h4>
+    <ul>
+      <li>You trade on <strong>NinjaTrader 8</strong> or <strong>TradingView</strong> (Tradeify supports neither)</li>
+      <li>You want the option of <strong>intraday trail</strong> (only MFFU Rapid offers it across these two firms)</li>
+      <li>You want a <strong>no-consistency plan</strong> across the full lifecycle (only MFFU Rapid)</li>
+      <li>You're fine with <strong>no DLL safety net</strong> (the trail floor IS your daily loss rule)</li>
+      <li>You only need 50K or 100K sizes (MFFU's available sizes are narrower than Tradeify's)</li>
+    </ul>
+  </div>
+  <div class="pick tradeify">
+    <h4 class="firm-tradeify">Pick Tradeify if&hellip;</h4>
+    <ul>
+      <li>You trade on <strong>Tradovate</strong> or <strong>WealthCharts</strong> (and don't need NT8 / TradingView)</li>
+      <li>You want a <strong>uniform EOD trail</strong> across all programs (no trail-type choice)</li>
+      <li>You want to <strong>invert which phase has consistency</strong> (Growth loosens eval, Select loosens funded)</li>
+      <li>You want <strong>4 account sizes</strong> (25K / 50K / 100K / 150K) per program</li>
+      <li>You can hold positions for <strong>more than 10 seconds</strong> (microscalping floor)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>Run MFFU and Tradeify side-by-side</h3>
+  <p>Aurafy auto-detects which trail mode applies to each account (MFFU Core EOD, MFFU Rapid intraday, or Tradeify EOD) and tracks the SB+$100 lock floor live. The same journal works across all your prop-firm accounts and surfaces your consistency ratio in real time. Native screen recording. Free tier. No card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=mffu-vs-tradeify&utm_content=cta-mid">Try Aurafy free</a>
+  <a class="btn ghost" href="/tools/?utm_source=blog&utm_medium=mffu-vs-tradeify&utm_content=tools-mid">Browse free tools</a>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Do MFFU and Tradeify really lock at the same point?</summary>
+  <p>Yes &mdash; both freeze the trail floor at <strong>Starting Balance + $100</strong> once the trigger condition is met. On a 100K account both lock the floor at $100,100. The trigger conditions differ slightly because MFFU's and Tradeify's drawdown numbers per size are different. This puts both firms in the same lock family as Apex 4.0 and Bulenox &mdash; opposite of Topstep / TPT funded, which lock at the starting balance exactly.</p>
+</details>
+
+<details>
+  <summary>Why does MFFU not have a daily loss limit?</summary>
+  <p>By design. MFFU's risk model treats the trailing drawdown as the single rule that can void an account on a single bad session. Most other firms layer a DLL on top so you can blow a "max day" without blowing the trail. MFFU's stance is that one rule is enough &mdash; if your daily loss puts you on the wrong side of the trail, the account is done; if it doesn't, you can keep trading. Cleaner mental model, but less margin for a single bad session because the trail is also tighter than a typical DLL would be.</p>
+</details>
+
+<details>
+  <summary>Can I switch MFFU plans after signup?</summary>
+  <p>No &mdash; the plan choice (Core / Rapid / Pro) is per-account. If you want a different rule bundle, the standard path is to buy a new account on the other plan. Some traders run a Core and a Rapid in parallel to see which fits their style on real money before committing to one as their main account.</p>
+</details>
+
+<details>
+  <summary>Which firm has the easier path to first payout?</summary>
+  <p>MFFU Pro and Tradeify Lightning are both instant-funded, so they tie on raw days-to-first-cash if you can pass each one's first-payout requirements. Among the eval-required plans, MFFU Rapid is the loosest (no consistency rule, intraday trail with no DLL) for a trader who hits clean profitable days but has lumpy P&amp;L. Tradeify Growth is the loosest on the eval side specifically (no eval consistency) but adds a 35% consistency rule on funded. The "easiest" depends on which phase you struggle with more.</p>
+</details>
+
+<details>
+  <summary>Why is MFFU Core's 40% consistency rule called "uniform-strict"?</summary>
+  <p>Because MFFU Core is the only plan in this dataset that applies a 40% consistency rule on <em>both</em> eval and funded. Tradeify Select also has a 40% rule, but only on eval (funded is rule-free). Apex's funded rule is 30%. Topstep is 50%. So MFFU Core sits at a unique combination: high threshold + persistent across the full lifecycle. If you got past the eval on Core, the same rule still applies on funded &mdash; no rule-flip surprise.</p>
+</details>
+
+<details>
+  <summary>What about overnight holds?</summary>
+  <p>Both firms ban overnight holds. Tradeify also bans holding through the 5:00&ndash;6:00 PM ET maintenance window &mdash; that's an extra hour beyond just "flat by close" that you need to respect. MFFU's rule is the simpler "no overnight" without the maintenance-window quirk, but verify the latest on each firm's rulebook before relying on it.</p>
+</details>
+
+<details>
+  <summary>Can I run an MFFU account and a Tradeify account at the same time?</summary>
+  <p>Yes &mdash; they're independent firms. Both ban cross-<em>account</em> hedging within the same firm. Cross-firm hedging isn't enforceable by either rulebook (neither can see the other firm's positions), but it's still bad risk practice &mdash; do not coordinate equal-and-opposite positions between them.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy auto-detects which trail mode is active for each account (MFFU Core EOD, MFFU Rapid intraday, or Tradeify EOD) and tracks the SB+$100 lock floor separately per account. Multi-firm, multi-account, single journal. Native screen recording (no competitor offers this) lets you review every session like a tape replay without rebuilding the bars. Free tier with no card required.</p>
+</details>
+
+<div class="cta">
+  <h3>Stop guessing your trail floor between firms</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=mffu-vs-tradeify&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=mffu-vs-tradeify&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with MyFundedFutures or Tradeify. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/prop-firms/myfundedfutures/">MFFU landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
