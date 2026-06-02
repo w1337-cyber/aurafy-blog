@@ -1,0 +1,15 @@
+{
+  "slug": "earn2trade-vs-topstep-2026",
+  "title": "Earn2Trade vs Topstep (2026): Same Lock, Different Lifecycle",
+  "description": "Earn2Trade vs Topstep — both lock the trail at Starting Balance, both drop consistency on funded. But payment model, platforms, and the LiveSim funded path are completely different. Honest 2026 side-by-side.",
+  "canonical": "https://aurafy.dev/blog/earn2trade-vs-topstep-2026/",
+  "published": "2026-06-02",
+  "updated": "2026-06-02",
+  "og": {
+    "title": "Earn2Trade vs Topstep (2026): Same Lock, Different Lifecycle",
+    "description": "Both lock at Starting Balance. Both drop consistency on funded. But Earn2Trade defers the activation fee to your first withdrawal and lets you stay on LiveSim forever. Here's how to pick.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "comparison", "earn2trade", "topstep", "2026"],
+  "source_path": "posts/earn2trade-vs-topstep-2026/index.html"
+}

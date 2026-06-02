@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Earn2Trade vs Topstep (2026): Same Lock, Different Lifecycle | Aurafy</title>
+<meta name="description" content="Earn2Trade vs Topstep — both lock the trail at Starting Balance, both drop consistency on funded. But payment model, platforms, and the LiveSim funded path are completely different. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/earn2trade-vs-topstep-2026/" />
+<meta property="og:title" content="Earn2Trade vs Topstep (2026): Same Lock, Different Lifecycle" />
+<meta property="og:description" content="Both lock at Starting Balance. Both drop consistency on funded. But Earn2Trade defers the activation fee to your first withdrawal and lets you stay on LiveSim forever. Here's how to pick." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --earn2trade:#5b8def;
+    --topstep:#ffb454;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-earn2trade{color:var(--earn2trade);font-weight:600}
+  .firm-topstep{color:var(--topstep);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--red);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.earn2trade{border-left:3px solid var(--earn2trade)}
+  .pick.topstep{border-left:3px solid var(--topstep)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.e{border-top:2px solid var(--earn2trade)}
+  .axis-side.t{border-top:2px solid var(--topstep)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Earn2Trade vs Topstep (2026): Same Lock, Different Lifecycle</h1>
+  <p class="lede">Both lock the trailing drawdown at Starting Balance. Both drop the consistency rule on the funded account. After those two facts, the firms diverge hard &mdash; payment timing, funded capital model, platform stack, even when the trail moves. Here's the honest side-by-side.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#trail">Trail mechanics</a>
+  <a href="#consistency">Consistency rules</a>
+  <a href="#payment">Payment model</a>
+  <a href="#livesim">LiveSim vs Live</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick Topstep if</strong> you want the most established US futures funding brand, you trade primarily on TopstepX or NinjaTrader 8, and you're comfortable paying the activation fee upfront on the way to a real-capital funded account.
+</div>
+<div class="verdict">
+  <strong>Pick Earn2Trade if</strong> you want zero upfront activation cost (the $139 fee is deducted from your first withdrawal instead), you want the choice to stay on LiveSim indefinitely or convert to Live, and you trade on Tradovate, R&#124;Trader, TradingView, or Finamark in addition to NinjaTrader.
+</div>
+<div class="verdict">
+  <strong>Same lock, same family:</strong> both firms lock the trailing drawdown at <strong>Starting Balance</strong>. Once your EOD balance crosses that threshold, your stop-out is fixed at the starting balance for the life of the account. Same lock-archetype family as TPT funded. NOT the same as Apex 4.0, MFFU, Tradeify, or Bulenox (which all lock at SB + $100).
+</div>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-earn2trade">Earn2Trade</th><th class="firm-topstep">Topstep</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Phase structure</td><td>1-step eval &rarr; LiveSim funded &rarr; (optional) Live capital</td><td>Combine eval &rarr; XFA (Express Funded) account</td></tr>
+    <tr><td class="label">Trail type (eval)</td><td>EOD only</td><td>Intraday (high-water mark on Combine)</td></tr>
+    <tr><td class="label">Trail type (funded)</td><td>EOD only</td><td>EOD only (XFA)</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance</td><td>Starting Balance</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>Yes &mdash; $550 / $1,100 / $2,200 / $3,300 / $4,400</td><td>Yes on NinjaTrader; removed on TopstepX (Aug 2024) for both Combine + XFA</td></tr>
+    <tr><td class="label">Consistency rule (eval)</td><td>30% &mdash; max safe day &asymp; total &times; 0.429</td><td>50% &mdash; max safe day &asymp; total &times; 1.0</td></tr>
+    <tr><td class="label">Consistency rule (funded)</td><td><strong>None</strong> &mdash; explicitly dropped</td><td><strong>None</strong> &mdash; not applied on XFA</td></tr>
+    <tr><td class="label">Min trading days</td><td>10</td><td>5 (most Combine tiers)</td></tr>
+    <tr><td class="label">Profit split</td><td>80 / 20 (LiveSim and Live)</td><td>100% first $5K, then 90 / 10</td></tr>
+    <tr><td class="label">Activation fee</td><td><strong>$139 deducted from first withdrawal</strong> (not upfront)</td><td>Upfront activation per account (varies)</td></tr>
+    <tr><td class="label">Monthly subscription</td><td>TCP $150&ndash;$350 &middot; GAU $170&ndash;$550</td><td>Monthly per Combine tier ($49+ promos common)</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Weekly Wednesdays ($100 min)</td><td>On request, ACH/Wire</td></tr>
+    <tr><td class="label">Platforms</td><td>NinjaTrader, Tradovate, R&#124;Trader, TradingView, Finamark</td><td>TopstepX (proprietary), NinjaTrader 8</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted</td><td>Permitted (XFA), with standard guidance</td></tr>
+    <tr><td class="label">Live capital path</td><td>Optional &mdash; 94.77% of 2025 passers stayed on LiveSim</td><td>XFA is real-capital funded</td></tr>
+    <tr><td class="label">2025 pass rate</td><td>8.89% (publicly disclosed)</td><td>Not publicly disclosed</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="trail">Trail mechanics: same lock, different timing</h2>
+
+<p>Both firms belong to the <strong>Starting-Balance lock family</strong> &mdash; once the trail catches up to your starting balance, it freezes there permanently. Same archetype as Take Profit Trader funded. Different from Apex 4.0, MFFU, Tradeify, and Bulenox, which all lock at SB + $100 (a $100 cushion that those four firms share and these two don't).</p>
+
+<p>On a 50K account, the lock fires at $52,000 of equity (50,000 + 2,000 drawdown) and the trail floor freezes at $50,000 forever. From that point on, profit no longer raises the floor &mdash; only the original starting balance can stop you out.</p>
+
+<h3>The difference: when does the trail move <em>before</em> the lock?</h3>
+<ul>
+  <li><strong>Topstep Combine (eval):</strong> Intraday high-water mark. Every new tick of unrealized profit pushes the floor up. A $1,200 intraday spike that closes at +$400 still moves the floor by the $1,200 high. Aggressive scale-out traders earn floor-headroom faster, but get punished for wicks.</li>
+  <li><strong>Topstep XFA (funded):</strong> EOD only. The floor only updates at session close on a new EOD equity high. Same forgiving mechanic as Earn2Trade.</li>
+  <li><strong>Earn2Trade (eval + funded):</strong> EOD only across both phases. Intraday wicks never push the trail; only the closing-balance high matters. Most forgiving for traders who take heat intraday and exit flat.</li>
+</ul>
+
+<div class="key-fact"><strong>The mechanic that bites:</strong> Topstep Combine punishes wicks during the eval &mdash; intraday spikes raise the trail and now the EOD has to hold above the higher floor. Earn2Trade and Topstep XFA both ignore intraday spikes. If you tend to spike intraday and close lower, an EOD-trail eval (Earn2Trade) is structurally easier to pass than an intraday-trail eval (Topstep Combine) at the same dollar drawdown.</div>
+
+<div class="cta">
+  <h3>Model the trail before you commit</h3>
+  <p>Our free trailing-drawdown calculator runs both Topstep Combine intraday and Earn2Trade / XFA EOD presets. No login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=trail-cta">Open the calculator</a>
+</div>
+
+<h2 id="consistency">Consistency rules: same posture, very different thresholds</h2>
+
+<p>This is one of the cleanest comparisons in the prop-firm cluster. Both firms apply consistency only on the evaluation and explicitly drop the rule once funded. That single design choice puts Earn2Trade and Topstep in their own family of two &mdash; Apex, MFFU, and Bulenox all keep consistency on the funded side. But the <em>thresholds</em> are very different.</p>
+
+<h3>Earn2Trade: 30% on the eval</h3>
+<ul>
+  <li>Applies at the point of passing the evaluation.</li>
+  <li>Single best day &divide; total profit &le; 0.30. Same threshold as Apex 4.0.</li>
+  <li>Max safe single-day P&amp;L formula: total &times; 0.30 &divide; (1 &minus; 0.30) = total &times; 0.429. If your total profits at submission are $3,000, no single day can be more than ~$1,286.</li>
+  <li>Once you pass and move to LiveSim or Live: the rule is gone.</li>
+</ul>
+
+<h3>Topstep: 50% on the Combine</h3>
+<ul>
+  <li>Applies during the Combine eval.</li>
+  <li>Single best day &divide; total profit &le; 0.50.</li>
+  <li>Max safe single-day P&amp;L formula: total &times; 0.50 &divide; (1 &minus; 0.50) = total &times; 1.00. If your total profits during the Combine are $3,000, your single best day can be up to the full $3,000 &mdash; in practice this is rarely the binding constraint at 50%.</li>
+  <li>XFA funded: no consistency rule.</li>
+</ul>
+
+<div class="key-fact"><strong>The honest take:</strong> Topstep's 50% threshold is permissive enough that most traders never hit it; their pass is gated by the trail and the profit target. Earn2Trade's 30% threshold actively shapes how you pace your eval &mdash; one big day can force you to grind several small days to get the ratio back below 0.30 before submission. If you trade in bursts, Topstep's eval is easier to plan around. If you trade in steady singles, Earn2Trade's 30% rule won't bother you.</div>
+
+<div class="cta">
+  <h3>Check your days against either threshold</h3>
+  <p>The consistency calculator runs Earn2Trade's 30%, Topstep's 50%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn't fail on geometry.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="payment">Payment model: this is the wedge</h2>
+
+<p>Every prop firm in the 7-firm cluster except Earn2Trade charges an <em>upfront activation fee</em> when you sign up for a Combine or eval. Earn2Trade is structurally different.</p>
+
+<div class="axis">
+  <div class="axis-side e">
+    <strong>Earn2Trade</strong>
+    Monthly subscription only ($150&ndash;$550 depending on product + size). The $139 activation fee is <em>deducted from your first withdrawal</em>, not paid upfront. If you never pass, you never pay activation. Total cost to attempt = monthly subscription &times; months until pass or quit.
+  </div>
+  <div class="axis-side t">
+    <strong>Topstep</strong>
+    Monthly Combine subscription per account size (the $49 starter price for the 50K Combine is the most-promoted tier). Activation fee is paid upfront when you pass the Combine and convert to an XFA account. Total cost to attempt = Combine subscription &times; months + upfront activation on pass.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The economic difference:</strong> Earn2Trade carries less downside risk if you fail (no sunk activation cost), but charges more per month while you're in eval. Topstep has the most-trusted brand in US futures funding and a lower monthly Combine subscription on its entry tier, but you pay the activation on top once you pass.</div>
+
+<h2 id="livesim">LiveSim vs Live capital: Earn2Trade's defining feature</h2>
+
+<p>Once you pass at Topstep, you go to an XFA &mdash; an Express Funded Account using <em>real firm capital</em>. There's no choice. Earn2Trade's funded model works differently.</p>
+
+<ul>
+  <li><strong>Earn2Trade LiveSim:</strong> Pass the eval and you're funded on <em>simulated capital</em>. You receive 80% of the profits in real dollars, paid out weekly. The firm hedges or absorbs your trades on its own book.</li>
+  <li><strong>Earn2Trade Live:</strong> Optionally convert to real-capital live trading. Same 80/20 split. Same payouts.</li>
+</ul>
+
+<p>The remarkable fact from Earn2Trade's 2025 public stats: <strong>94.77% of passers stayed on LiveSim</strong>. Only 5.23% converted to Live. Withdrawal participation is roughly equal across both groups (~18%). For nearly all funded Earn2Trade traders, the "funded" account is a simulated environment that pays real money &mdash; permanently.</p>
+
+<div class="key-fact"><strong>Why it matters:</strong> if you're a discretionary scalper or someone who values execution speed without slippage variability from a real broker fill, LiveSim is the path of least resistance. If you specifically want the experience of trading real-capital live (and being recognized by the firm as a real-capital trader for resume / track-record purposes), Topstep XFA is the cleaner answer.</div>
+
+<h2 id="platforms">Platforms: TopstepX vs an open stack</h2>
+
+<div class="axis">
+  <div class="axis-side e">
+    <strong>Earn2Trade supports</strong>
+    NinjaTrader 8, Tradovate, R&#124;Trader (Rithmic), TradingView, Finamark. Widest platform spread in this dataset.
+  </div>
+  <div class="axis-side t">
+    <strong>Topstep supports</strong>
+    TopstepX (proprietary, default), NinjaTrader 8. As of August 2024 TopstepX removed the default daily-loss-limit on Combine and XFA &mdash; NinjaTrader still enforces it.
+  </div>
+</div>
+
+<p>If your workflow is built around NinjaTrader 8, both firms work. If you're on Tradovate, TradingView, or any Rithmic-native interface besides NinjaTrader, only Earn2Trade is native. If you specifically want the no-DLL TopstepX experience, only Topstep offers it.</p>
+
+<h2 id="examples">Worked examples</h2>
+
+<h3>Example 1: 50K eval, $3,000 profit target, one big day</h3>
+<p>Trader has $3,000 in total Combine / eval profit. One day was $1,500. Other days summed to $1,500.</p>
+<ul>
+  <li><strong>Earn2Trade GAU50:</strong> 30% rule. $1,500 &divide; $3,000 = 50% &mdash; <strong>violates</strong>. Trader must grind small days until the ratio comes under 0.30 (need total profit &ge; $5,000 for that single $1,500 day to be inside the rule).</li>
+  <li><strong>Topstep 50K Combine:</strong> 50% rule. $1,500 &divide; $3,000 = 50% &mdash; <strong>exactly at the line</strong>. Most interpretations of the rule require strictly less, so plan for &le; 49% to be safe. Need at minimum total profit &ge; $3,001 with no additional outlier day.</li>
+</ul>
+
+<h3>Example 2: 100K eval, intraday wick</h3>
+<p>Trader on a 100K eval spikes to +$2,500 intraday and closes the day at +$800. Drawdown specs: Earn2Trade GAU100 has $3,500 EOD trail; Topstep 100K Combine has $3,000 intraday trail.</p>
+<ul>
+  <li><strong>Earn2Trade GAU100:</strong> EOD only. The intraday wick is ignored. Floor advances based on the $800 close: max(prior floor, 100,000 + 800 &minus; 3,500) = $97,300 (assuming under the lock trigger).</li>
+  <li><strong>Topstep 100K Combine:</strong> Intraday HWM. The $2,500 wick pushes the floor: max(prior floor, 100,000 + 2,500 &minus; 3,000) = $99,500. Now your EOD has to stay above $99,500 to survive &mdash; tighter than Earn2Trade by $2,200.</li>
+</ul>
+
+<div class="key-fact">At the same $3,000-class drawdown, an EOD trail (Earn2Trade) is structurally more forgiving of intraday volatility than an intraday trail (Topstep Combine). Topstep XFA &mdash; the funded account &mdash; uses EOD and removes this difference.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick earn2trade">
+    <h4 class="firm-earn2trade">Pick Earn2Trade if&hellip;</h4>
+    <ul>
+      <li>You want zero upfront activation cost (deferred to first withdrawal)</li>
+      <li>You trade on Tradovate, TradingView, R&#124;Trader, or Finamark (not native at Topstep)</li>
+      <li>You're fine staying on LiveSim funded indefinitely (most 2025 passers did)</li>
+      <li>You prefer an EOD trail through the eval &mdash; no intraday-spike penalty</li>
+      <li>You want a published 2025 pass rate (8.89%) for honest expectation-setting</li>
+      <li>You value the 30% consistency discipline as a training constraint</li>
+    </ul>
+  </div>
+  <div class="pick topstep">
+    <h4 class="firm-topstep">Pick Topstep if&hellip;</h4>
+    <ul>
+      <li>You want the most established US futures funding brand</li>
+      <li>You trade on TopstepX (proprietary) or NinjaTrader 8</li>
+      <li>You want the no-DLL TopstepX experience on Combine and XFA</li>
+      <li>You want real-capital funded trading on XFA from day one</li>
+      <li>You like the permissive 50% consistency rule on the Combine</li>
+      <li>You want 100% of the first $5K profit paid to you before the 90/10 split kicks in</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I run an Earn2Trade account and a Topstep account at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent. Cross-firm hedging is not enforceable by either firm's rulebook (they can't see your other firm's positions), but cross-<em>account</em> hedging within the same firm is restricted at both. If you run accounts at both, do not coordinate equal-and-opposite positions between them.</p>
+</details>
+
+<details>
+  <summary>What is the actual cost to attempt at each firm?</summary>
+  <p>Earn2Trade: monthly subscription only ($150&ndash;$550 depending on product/size). The $139 activation only fires from your first withdrawal &mdash; if you never pass, you never pay it. Topstep: monthly Combine subscription (entry-tier 50K Combine is the cheapest, often promoted at $49) plus the upfront activation fee paid on Combine pass when converting to XFA. The activation amount has shifted historically &mdash; check Topstep's current pricing page before signup.</p>
+</details>
+
+<details>
+  <summary>Is the Earn2Trade LiveSim "real money"?</summary>
+  <p>The trading is on simulated capital &mdash; meaning your fills are not routed to a live exchange and Earn2Trade hedges or absorbs the trades on its own book. The <em>payouts</em> are real money. 80% of LiveSim profits, in real US dollars, paid weekly with a $100 minimum. The 94.77% of 2025 passers who stayed on LiveSim treated it as their permanent funded account.</p>
+</details>
+
+<details>
+  <summary>Does Topstep still have a daily loss limit?</summary>
+  <p>On TopstepX (the proprietary platform), the default DLL was removed for both Combine and XFA in August 2024. On NinjaTrader 8 connected to Topstep, the DLL is still enforced ($1,000 / $2,000 / $3,000 for 50K / 100K / 150K). Earn2Trade enforces a DLL on every account size, on every platform.</p>
+</details>
+
+<details>
+  <summary>Which firm pays out faster?</summary>
+  <p>Earn2Trade processes payouts weekly &mdash; submit by 2:00pm CT Friday, paid the following Wednesday. Topstep processes payouts on request, usually within a few business days, via ACH or Wire. Earn2Trade's cadence is more predictable; Topstep's is more flexible.</p>
+</details>
+
+<details>
+  <summary>What about Apex, MFFU, Tradeify, or Bulenox?</summary>
+  <p>All four lock the trail at <em>SB + $100</em>, not at the Starting Balance &mdash; a different lock-family from Earn2Trade and Topstep. They also all keep some form of consistency on the funded account (unlike the two firms in this post, which drop it). We cover each in a dedicated landing page: <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=faq-apex">Apex</a>, <a href="/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=faq-mffu">MFFU</a>, <a href="/prop-firms/tradeify/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=faq-tradeify">Tradeify</a>, <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=faq-bulenox">Bulenox</a>.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily loss against either firm's preset in real time as you upload Tradovate, NinjaTrader, or TopstepX fills. Multi-account, multi-firm &mdash; one journal across every prop firm you trade.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Earn2Trade + Topstep accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Earn2Trade or Topstep. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/prop-firms/earn2trade/">Earn2Trade landing</a> &middot; <a href="/prop-firms/topstep/">Topstep landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
