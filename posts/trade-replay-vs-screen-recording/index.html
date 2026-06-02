@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Trade Replay vs Screen Recording (2026): What's the Difference and Which One Actually Helps You Improve? | Aurafy</title>
+<meta name="description" content="Tick-data trade replay (FX Replay, NinjaTrader, TradingView) shows you the chart. Screen recording shows you the whole session — every click, every news pop, every hesitation. Honest comparison of both, when each one wins, and which one futures traders actually need." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/trade-replay-vs-screen-recording/" />
+<meta property="og:title" content="Trade Replay vs Screen Recording (2026): The Honest Comparison" />
+<meta property="og:description" content="Tick replay shows the chart. Screen recording shows the whole session. Which one actually helps you stop repeating the same mistake — and why most journals only give you half the picture." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --replay:#5b8def;
+    --record:#7c5cff;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .col-replay{color:var(--replay);font-weight:600}
+  .col-record{color:var(--record);font-weight:600}
+  .check{color:var(--green);font-weight:600}
+  .cross{color:var(--red);font-weight:600}
+  .partial{color:var(--amber);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px;color:#fff}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.replay{border-left:3px solid var(--replay)}
+  .pick.record{border-left:3px solid var(--record)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  .miss-list{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin:12px 0}
+  .miss-list ul{margin:8px 0 0;padding-left:22px;font-size:0.93rem;color:#d6dde6}
+  .miss-list li{margin-bottom:8px}
+  .miss-list strong{color:#fff}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .quote{border-left:3px solid var(--accent);background:var(--panel-2);padding:14px 18px;border-radius:6px;margin:14px 0;font-style:italic;color:#d6dde6;font-size:0.95rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Trade Replay vs Screen Recording: What's the Difference and Which One Actually Helps You Improve?</h1>
+  <p class="lede">Tick-data trade replay shows you the chart. Screen recording shows you the whole session &mdash; every click, every news pop, every five seconds of hesitation before you sized up the loser. They sound similar. They're not. Here's the honest difference, when each one wins, and why most futures journals only give you half the picture.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures + prop-firm traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>Independent perspective.</strong> Aurafy makes a journal that does native screen recording, so we have a horse in this race &mdash; but tick-replay tools are genuinely better at several things we'll call out. The goal here is to help you pick the right tool for the gap you're trying to close, not to sell you anything.
+</div>
+
+<div class="toc">
+  <strong style="color:#fff;margin-right:10px;">Jump to:</strong>
+  <a href="#definitions">Definitions</a>
+  <a href="#table">Comparison table</a>
+  <a href="#replay-wins">When replay wins</a>
+  <a href="#record-wins">When recording wins</a>
+  <a href="#blind-spots">What tick replay misses</a>
+  <a href="#tools">Tools today</a>
+  <a href="#pick">Which to use</a>
+  <a href="#faq">FAQ</a>
+</div>
+
+<h2 id="definitions">What each one actually is</h2>
+
+<p>The two get conflated in trader Twitter all the time. They solve different problems.</p>
+
+<h3 style="color:var(--replay)">Tick-data trade replay</h3>
+<p>You feed historical market data into a chart and the platform plays it back tick-by-tick (or bar-by-bar). You can pause, rewind, speed up, and drop simulated orders into the past as if it were live. The market is real. <strong>Your screen, your tools, your emotional state, and your hesitation are not part of the recording &mdash; they're being re-created by you, right now, while you watch.</strong></p>
+
+<p>This is what <strong>FX Replay</strong>, <strong>NinjaTrader Replay</strong>, <strong>TradingView Bar Replay</strong>, <strong>Sierra Chart replay</strong>, <strong>ThinkOrSwim OnDemand</strong>, and a dozen broker-bundled replay modes do. The category is sometimes called "bar replay" or "market replay."</p>
+
+<h3 style="color:var(--record)">Screen recording (session recording)</h3>
+<p>A piece of software records the pixels on your monitor while you trade live. The market is whatever happened that day. The recording captures everything that was on your screen &mdash; the chart, your DOM, the news ticker, your Discord, the YouTube tab in the corner, the order-entry panel, the time you spent hovering the buy button before you clicked. <strong>This is a video of <em>you</em>, not just a video of the market.</strong></p>
+
+<p>This is what <strong>Loom</strong> and <strong>OBS</strong> do for general video, what <strong>TopstepTV</strong>-style live-stream tools do for community sessions, and what <strong>Aurafy Recorder</strong> does inside a journal &mdash; tying each video clip to the actual trade row.</p>
+
+<div class="key-fact">
+  Tick replay re-creates the past market and asks "what would you have done?" Screen recording captures the past <em>you</em> and asks "what did you actually do, and why?" Both are useful. They answer different questions.
+</div>
+
+<h2 id="table">Side-by-side: what each tool actually shows you</h2>
+
+<table>
+  <thead>
+    <tr><th>What you can review</th><th class="col-replay">Tick replay</th><th class="col-record">Screen recording</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>The actual price action on the chart</td><td><span class="check">Yes &mdash; pristine tick data</span></td><td><span class="check">Yes &mdash; whatever was on screen</span></td></tr>
+    <tr><td>Test new entries you didn't take</td><td><span class="check">Yes &mdash; drop sim orders</span></td><td><span class="cross">No &mdash; market is in the past</span></td></tr>
+    <tr><td>Your actual entry/exit timing</td><td><span class="partial">Reconstructable from fills</span></td><td><span class="check">Visible &mdash; the click is on tape</span></td></tr>
+    <tr><td>Your hesitation, freeze, FOMO clicks</td><td><span class="cross">No</span></td><td><span class="check">Yes &mdash; including the 8-second stare</span></td></tr>
+    <tr><td>News headlines / squawks you reacted to</td><td><span class="cross">No</span></td><td><span class="check">Yes &mdash; if they were on screen</span></td></tr>
+    <tr><td>DOM / order-book reads</td><td><span class="partial">Some platforms simulate</span></td><td><span class="check">Yes &mdash; the actual DOM you saw</span></td></tr>
+    <tr><td>You moving your stop after entry</td><td><span class="cross">No record of the modification</span></td><td><span class="check">Yes &mdash; every click captured</span></td></tr>
+    <tr><td>The Discord / X tab you kept switching to</td><td><span class="cross">No</span></td><td><span class="check">Yes &mdash; including the distractions</span></td></tr>
+    <tr><td>Broker UI lag / fill errors</td><td><span class="cross">No</span></td><td><span class="check">Yes &mdash; great for disputes</span></td></tr>
+    <tr><td>"What if I'd shorted instead?"</td><td><span class="check">Yes &mdash; drop a sim short</span></td><td><span class="cross">No &mdash; can only watch</span></td></tr>
+    <tr><td>Pattern recognition training</td><td><span class="check">Excellent &mdash; rerun the same hour</span></td><td><span class="partial">Limited &mdash; only your sessions</span></td></tr>
+    <tr><td>Catching repeated emotional patterns</td><td><span class="cross">No</span></td><td><span class="check">Best tool for this</span></td></tr>
+    <tr><td>Sharing a clip with a mentor / coach</td><td><span class="partial">Static screenshots only</span></td><td><span class="check">Full video clip</span></td></tr>
+  </tbody>
+</table>
+
+<h2 id="replay-wins">When tick-data replay is the right tool</h2>
+
+<p>If anyone tells you screen recording replaces replay, ignore them. Replay is genuinely better for several jobs:</p>
+
+<ul>
+  <li><strong>Backtesting a new setup.</strong> You can run the same hour of price action ten times, take ten different versions of an entry, and compare. A recording of last Tuesday is one data point. Replay gives you reps.</li>
+  <li><strong>Training pattern recognition.</strong> Watching 200 NQ opening drives at 10&times; speed is a real skill builder. Recording your own sessions doesn't scale that way &mdash; you only have one session per day.</li>
+  <li><strong>Sim-trading a strategy before going live.</strong> Replay lets you drop simulated orders and see fills, slippage, risk:reward. Screen recording can't do this &mdash; the market in the recording is closed.</li>
+  <li><strong>Testing entries you <em>didn't</em> take.</strong> "What if I had bought the pullback instead of chasing the breakout?" Only replay can answer that, because only replay lets you intervene in the past.</li>
+  <li><strong>Studying rare events.</strong> You can replay FOMC day, NFP, a flash crash, an oil-inventory spike &mdash; events that happen too rarely to learn from your own sessions.</li>
+</ul>
+
+<p>If your gap is <em>"I don't read price action well enough"</em> &mdash; replay is your tool. FX Replay and NinjaTrader Replay are excellent at this. Nothing we do replaces them.</p>
+
+<h2 id="record-wins">When screen recording is the right tool</h2>
+
+<p>Screen recording wins anywhere the question is about <em>you</em>, not the market:</p>
+
+<ul>
+  <li><strong>"Why did I take that trade?"</strong> A chart screenshot tells you the setup. A video tells you what was on your other monitor, what the squawk just said, and how many seconds you stared at the button. That's the actual answer.</li>
+  <li><strong>"Why do I keep doing this?"</strong> Repeated mistakes &mdash; cutting winners early, moving stops, oversizing after a loss &mdash; only show up when you watch yourself across multiple sessions. The chart is the same; <em>you</em> are the variable.</li>
+  <li><strong>"What did I actually click?"</strong> Many traders insist their stop was at X. Tape says it was at Y, then moved to Z mid-trade. The video resolves it.</li>
+  <li><strong>"Was it the news that spooked me?"</strong> If the news ticker was on screen and you exited 0.4 seconds after a headline, the video shows the cause. Replay does not.</li>
+  <li><strong>Disputes with a broker or prop firm.</strong> A recording of the order-entry panel during a fill is the cleanest evidence you can present. We've seen multiple traders recover from incorrect liquidations because they had screen video.</li>
+  <li><strong>Coaching and review with someone else.</strong> A 90-second clip showing the whole context beats a paragraph trying to explain it. Mentors who charge by the hour love clips because they cut their setup time in half.</li>
+</ul>
+
+<p>If your gap is <em>"I know the setup but I keep self-sabotaging"</em> &mdash; recording is your tool. Most traders past the first six months have this gap, not a chart-reading gap.</p>
+
+<h2 id="blind-spots">What tick replay can never see</h2>
+
+<p>This is the wedge nobody talks about. Tick replay is incredible for the market &mdash; but the recording is <em>only the market</em>. It can't see anything that happens between your eyes and the screen.</p>
+
+<div class="miss-list">
+  <strong>Things tick replay misses about your trade, by definition:</strong>
+  <ul>
+    <li><strong>The 8-second stare.</strong> You saw the setup at 9:34:12 but didn't click until 9:34:20. Replay shows the candle, not the hesitation. Recording shows both.</li>
+    <li><strong>The competing screen.</strong> Half your day, your attention is on Discord, X, the firm leaderboard, or another chart. Replay rebuilds your "main" chart in a clean fresh window &mdash; not the actual cluttered desktop you traded from.</li>
+    <li><strong>The mid-trade stop move.</strong> Your fills tell replay where the stop ended up. Only the recording shows that you dragged it twice while the trade was alive.</li>
+    <li><strong>The news catalyst.</strong> If the trigger was a headline on the squawk, replay has no record of it &mdash; the squawk wasn't part of the tick data. The video does.</li>
+    <li><strong>The size you almost typed.</strong> Replay can't see the "8" in the contract field that you deleted and replaced with "12" right before clicking. Recording sees the keystroke.</li>
+    <li><strong>The platform bug.</strong> If your DOM froze for 1.2 seconds during a fast move, that's invisible in replay &mdash; replay assumes the platform worked perfectly. Recording captures the freeze.</li>
+    <li><strong>You, leaving your desk.</strong> Some of the worst trades are taken when the trader has been away and comes back behind the move. Replay can't see that. Recording does &mdash; there's no mouse cursor activity for 90 seconds before the click.</li>
+  </ul>
+</div>
+
+<p>None of this is to dunk on replay tools &mdash; they're great at the job they're built for. It's just that <em>your trading problem usually lives outside the chart</em>, especially once you're past beginner stage. Recording is the only thing that catches it.</p>
+
+<h2 id="tools">What's actually available in 2026</h2>
+
+<h3>Tick-data replay tools traders use</h3>
+<ul>
+  <li><strong>FX Replay</strong> &mdash; ~$39/mo. The dedicated category leader. Tick data across futures, FX, crypto. Built for replay-as-training.</li>
+  <li><strong>NinjaTrader Market Replay</strong> &mdash; free with NinjaTrader. Strong for futures, requires historical data download. Best if you already trade on NinjaTrader.</li>
+  <li><strong>TradingView Bar Replay</strong> &mdash; included with paid TradingView. Bar-level, not tick-level &mdash; lighter-weight but enough for many traders. Big advantage: you already pay for TradingView.</li>
+  <li><strong>Sierra Chart replay</strong> &mdash; bundled with Sierra. Very high fidelity if you have intraday data. Niche but excellent.</li>
+  <li><strong>ThinkOrSwim OnDemand</strong> &mdash; equity-focused but supports some futures. Bundled with TOS for free.</li>
+</ul>
+
+<h3>Screen recording tools traders use</h3>
+<ul>
+  <li><strong>OBS</strong> &mdash; free. Records anything. No trade association &mdash; you get a single huge video file per day and have to find the moment manually. Powerful but high friction for journaling.</li>
+  <li><strong>Loom</strong> &mdash; ~$15/mo. Clean UI, fast clips, but designed for general work video, not trading. Not tied to trades.</li>
+  <li><strong>Aurafy Recorder</strong> &mdash; included with Aurafy. Records during sessions, automatically segments by trade, and attaches the clip to the journal row. Built for futures trading specifically.</li>
+  <li><strong>Built-in OS recorders</strong> &mdash; Windows Game Bar, macOS QuickTime. Free, fine for one-off clips, no trade tagging.</li>
+</ul>
+
+<div class="key-fact">
+  <strong>The honest version:</strong> if you don't journal, OBS is fine &mdash; you'll just rarely watch what you recorded. The reason most traders abandon screen recording in week 3 isn't that it doesn't work; it's that finding the moment that mattered inside a 6-hour file is too painful. The "automatic clip per trade" piece is what makes recording stick as a habit.
+</div>
+
+<h2 id="pick">Which one should you use?</h2>
+
+<div class="pick-grid">
+  <div class="pick replay">
+    <h4>Use tick replay if</h4>
+    <ul>
+      <li>You're &lt;1 year in and your edge isn't fully defined yet</li>
+      <li>You need to backtest a new setup before risking real capital</li>
+      <li>You want to grind reps on opening-drive / FOMC / NFP patterns</li>
+      <li>You want to test "what if I had taken the other side?"</li>
+      <li>Your honest weakness is reading price action, not yourself</li>
+    </ul>
+  </div>
+  <div class="pick record">
+    <h4>Use screen recording if</h4>
+    <ul>
+      <li>You have an edge but keep self-sabotaging</li>
+      <li>You repeat the same mistake (cut winners, move stops, oversize on tilt) without knowing why</li>
+      <li>You're on a prop-firm evaluation and a single mistake can blow the account</li>
+      <li>You work with a coach or mentor and want to share full context fast</li>
+      <li>You want evidence in case of broker/firm disputes</li>
+    </ul>
+  </div>
+</div>
+
+<p style="margin-top:16px"><strong>Honest answer for most futures traders:</strong> you need both, eventually. Replay for skill building, recording for self-correction. They don't compete &mdash; they answer different questions. The mistake is thinking the trade-replay feature your journal includes (a re-render of the chart from your fills) is the same thing as a screen recording. It's not.</p>
+
+<h2>"Trade replay" inside journals is a third thing</h2>
+
+<p>Some journals (TradeZella, TradesViz, others) advertise "trade replay" as a feature. To be fair to the category, this usually means: <em>after</em> the trade closed, they re-render the chart and overlay your entry and exit on it. It's a useful visualization, especially for share-outs. But:</p>
+
+<ul>
+  <li>It's not interactive &mdash; you can't drop a sim order at a different time.</li>
+  <li>It's not tick-data replay &mdash; usually 1-min or 5-min bars reconstructed from broker data.</li>
+  <li>It's not screen recording &mdash; it's a chart re-render, so it shows nothing outside the chart.</li>
+</ul>
+
+<p>It's the lowest-effort version of replay. Useful as a visual aid, not a substitute for either real tool.</p>
+
+<h2>Aurafy's take (full disclosure)</h2>
+
+<p>We picked screen recording because, after looking at where traders actually leak money, <strong>most leaks aren't a chart-reading problem &mdash; they're a behavior problem</strong>. Cut winners. Move stops. Oversize on tilt. Skip the plan after a bad open. Trade tired. None of that shows up in a tick-replay rerun, because the chart isn't what failed.</p>
+
+<p>We don't build tick-data replay (yet). If you need it, FX Replay is the cleanest dedicated tool and we recommend it. The Aurafy Recorder is built for the other half of the problem &mdash; <em>watching yourself trade</em> &mdash; tied into the journal entry so you find the right clip in seconds, not by scrubbing a 6-hour file.</p>
+
+<div class="cta">
+  <h3>If you want screen recording wired into your journal</h3>
+  <p>Aurafy is a futures trading journal that includes native screen recording, auto-segmented per trade. Pro is $49/mo (or $19/mo for the first 50 founders &mdash; locked for life). Free tier has no card &mdash; last 30 days of trades, 1 account, 3 playbooks. Imports Tradovate, NinjaTrader, Sierra Chart, Rithmic.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=tools&utm_medium=replay-vs-record-pillar&utm_campaign=positioning">Try Aurafy free</a>
+  <a class="btn ghost" href="https://aurafy.dev/?utm_source=tools&utm_medium=replay-vs-record-pillar&utm_campaign=founder-offer">See the $19 founder offer</a>
+</div>
+
+<h2>Related reading</h2>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Best Prop Firms for Futures (2026)</h4>
+    <p>The ranking hub &mdash; Apex, Topstep, MFFU compared, with picks by trader type.</p>
+    <a href="https://w1337-cyber.github.io/aurafy-growth-assets/blog/best-prop-firms-2026/">Read the ranking &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Free Prop-Firm Calculators</h4>
+    <p>Trailing drawdown, consistency rule, futures P&amp;L &mdash; no login, mobile, presets for 2026 firm rules.</p>
+    <a href="https://w1337-cyber.github.io/aurafy-growth-assets/">See all tools &rarr;</a>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Is tick replay the same as paper trading?</summary>
+  <p>Related but not identical. Paper trading is forward sim on live market data. Tick replay is sim on <em>historical</em> data &mdash; you choose the date, drop sim orders, see fills. Replay is better for studying specific past events; paper trading is better for testing a strategy under current regime.</p>
+</details>
+
+<details>
+  <summary>Will screen recording slow down my trading PC?</summary>
+  <p>Modern recorders use hardware encoding (NVENC, Quick Sync) and typically take &lt;5% CPU at 1080p30. If you're running an 8-monitor setup with 6 charts and a backtester at the same time, you might feel it; otherwise no. Lower the framerate to 15fps if you're paranoid &mdash; you can still see every click.</p>
+</details>
+
+<details>
+  <summary>How much storage does screen recording use?</summary>
+  <p>At 1080p30 with hardware encoding, expect ~1&ndash;2 GB per trading hour. A 6-hour session is 6&ndash;12 GB. If your journal auto-segments clips per trade and discards the rest, you can drop that to a few hundred MB per day. Keep 30&ndash;60 days, prune the rest.</p>
+</details>
+
+<details>
+  <summary>Can I use Loom or OBS instead of a journal-integrated recorder?</summary>
+  <p>Yes, and it's better than nothing. The honest catch: you'll end up with one big file per day and almost never re-watch it because finding the moment that mattered takes too long. The advantage of recording inside a journal is that each clip auto-attaches to the trade row, so review takes seconds.</p>
+</details>
+
+<details>
+  <summary>Does TradeZella or TradesViz do screen recording?</summary>
+  <p>As of mid-2026, no &mdash; both offer chart-render "trade replay" (the after-the-fact chart visualization), not video screen recording. We're the only major journal in the futures space doing native screen recording, which is why we lead with it.</p>
+</details>
+
+<details>
+  <summary>Will recording myself feel weird at first?</summary>
+  <p>Yes, for about a week. Then you forget it's there. The first time you watch a clip of yourself fumbling a fill, it stings &mdash; which is exactly when the habit pays off. Most traders who stick with it for a month say they would never go back; most who quit do so in week one before any clip review has happened.</p>
+</details>
+
+<details>
+  <summary>Is tick replay good enough on its own for prop-firm prep?</summary>
+  <p>For building the chart-reading skill, yes. For surviving an evaluation under live pressure, no &mdash; the real failure mode on evaluations is behavioral (oversizing, revenge trading, freezing on the consistency rule). Recording is the only tool that surfaces those patterns clearly. Use both.</p>
+</details>
+
+<details>
+  <summary>What about Topstep's TV streams or trader-room video?</summary>
+  <p>Those are great for community and pattern exposure &mdash; you watch other traders work. Different category from both replay (chart sim) and screen recording (your own sessions). Useful supplement, not a replacement.</p>
+</details>
+
+<footer>
+  Last updated June 2026 &middot; Aurafy is independent &middot; mentions of FX Replay, NinjaTrader, TradingView, Sierra Chart, ThinkOrSwim, TradeZella, TradesViz, Loom, OBS, TopstepTV are for comparison only &mdash; no affiliate relationship with any of them. Verify pricing on the vendor's site as it can change.<br>
+  <a href="https://aurafy.dev">aurafy.dev</a> &middot; <a href="https://w1337-cyber.github.io/aurafy-growth-assets/">More tools &amp; guides</a>
+</footer>
+
+</div>
+</body>
+</html>

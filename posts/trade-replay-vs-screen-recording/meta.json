@@ -1,0 +1,15 @@
+{
+  "slug": "trade-replay-vs-screen-recording",
+  "title": "Trade Replay vs Screen Recording (2026): What's the Difference and Which One Actually Helps You Improve?",
+  "description": "Tick-data trade replay (FX Replay, NinjaTrader, TradingView) shows you the chart. Screen recording shows you the whole session — every click, every news pop, every hesitation. Honest comparison of both, when each one wins, and which one futures traders actually need.",
+  "canonical": "https://aurafy.dev/blog/trade-replay-vs-screen-recording/",
+  "published": "2026-06-02",
+  "updated": "2026-06-02",
+  "og": {
+    "title": "Trade Replay vs Screen Recording (2026): The Honest Comparison",
+    "description": "Tick replay shows the chart. Screen recording shows the whole session. Which one actually helps you stop repeating the same mistake — and why most journals only give you half the picture.",
+    "type": "article"
+  },
+  "tags": ["trade-replay", "screen-recording", "bar-replay", "futures", "wedge", "2026"],
+  "source_path": "posts/trade-replay-vs-screen-recording/index.html"
+}
