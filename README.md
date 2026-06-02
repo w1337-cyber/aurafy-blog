@@ -26,6 +26,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `aurafy-vs-tradervue-2026` | Aurafy vs Tradervue (2026): Honest Side-by-Side for Futures Traders | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `tpt-vs-tradeify-2026` | TPT vs Tradeify (2026): Both Shift the Rules on You — In Opposite Directions | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `trade-replay-vs-screen-recording` | Trade Replay vs Screen Recording (2026): What's the Difference and Which One Actually Helps You Improve? | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
+| `apex-4-0-eod-vs-intraday-2026` | Apex 4.0 EOD vs Intraday Drawdown (2026): The Day-One Choice You Can't Undo | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy

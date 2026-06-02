@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Apex 4.0 EOD vs Intraday Drawdown (2026): The Day-One Choice You Can't Undo | Aurafy</title>
+<meta name="description" content="Apex Trader Funding 4.0 lets you pick EOD or Intraday trailing drawdown at purchase — and you can't switch later. Honest 2026 breakdown of how each rule actually behaves, three worked examples, and how to choose without the marketing spin." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/apex-4-0-eod-vs-intraday-2026/" />
+<meta property="og:title" content="Apex 4.0 EOD vs Intraday Drawdown: The Day-One Choice You Can't Undo" />
+<meta property="og:description" content="The mechanic-level difference between Apex EOD and Apex Intraday, with three real scenarios that show which trader profile wins on each. Free trailing-DD calculator included." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --eod:#3ddc97;
+    --intra:#ff8a3d;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-eod{color:var(--eod);font-weight:600}
+  .firm-intra{color:var(--intra);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.eod{border-left:3px solid var(--eod)}
+  .pick.intra{border-left:3px solid var(--intra)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  .scenario{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0}
+  .scenario h4{margin:0 0 10px;font-size:1.02rem;color:#fff}
+  .timeline{font-family:var(--mono);font-size:0.88rem;color:#d6dde6;background:var(--panel-2);padding:12px 14px;border-radius:8px;margin:10px 0;line-height:1.65}
+  .timeline .ok{color:var(--green)}
+  .timeline .bad{color:var(--red)}
+  .timeline .warn{color:var(--amber)}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .related{display:grid;gap:10px;margin:14px 0}
+  @media(min-width:640px){.related{grid-template-columns:1fr 1fr}}
+  .related a{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:block;color:var(--text)}
+  .related a:hover{text-decoration:none;border-color:var(--accent)}
+  .related a strong{display:block;color:#fff;font-size:0.95rem;margin-bottom:4px}
+  .related a span{color:var(--muted);font-size:0.84rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Apex 4.0 EOD vs Intraday Drawdown: The Day-One Choice You Can't Undo</h1>
+  <p class="lede">Apex Trader Funding 4.0 makes you pick your trailing-drawdown type the moment you buy the eval — and you can't change it later for that account. Here&rsquo;s how each rule actually behaves, with three worked scenarios so you know which one matches your trading.</p>
+  <div class="meta">
+    <span>~8 min read</span>
+    <span>Audience: futures prop traders evaluating Apex 4.0</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>Independence + accuracy notice.</strong> Aurafy is a trading-journal SaaS, not an Apex affiliate &mdash; we earn nothing on Apex sign-ups. Apex 4.0 rules are accurate as of June 2026 per the public Apex rulebook, but firm rules change. <strong>Verify on apextraderfunding.com before purchasing</strong>. This is a planning aid, not financial or legal advice.
+</div>
+
+<nav class="toc">
+  <a href="#tldr">TL;DR</a>
+  <a href="#what-is-the-choice">The choice</a>
+  <a href="#eod-trail">EOD mechanics</a>
+  <a href="#intraday-trail">Intraday mechanics</a>
+  <a href="#side-by-side">Side-by-side</a>
+  <a href="#scenarios">Three scenarios</a>
+  <a href="#which-to-pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<section id="tldr" class="panel">
+  <h2 style="margin-top:0">TL;DR</h2>
+  <div class="verdict">
+    <strong class="firm-eod">Pick EOD if&hellip;</strong>
+    You hold positions through volatility, you scalp / day-trade in waves with deep mid-day heat, or you take news plays where the chart can swing $500&ndash;$1,500 against you before recovering. EOD only measures your <em>closing</em> equity, so unrealized red doesn&rsquo;t hurt the trail until the session is over. <strong>Cost: an Apex-specific Daily Loss Limit applies on EOD accounts that doesn&rsquo;t exist on Intraday.</strong>
+  </div>
+  <div class="verdict">
+    <strong class="firm-intra">Pick Intraday if&hellip;</strong>
+    You scalp tight stops, take quick in-and-out trades, and rarely sit in deep unrealized heat. Intraday trails on live equity high-water mark in real time, so a clean book never expands drawdown beyond what your closed P&amp;L would already cost. <strong>Cost: a 3-tick spike against an open position can liquidate you even when you would have eventually closed green.</strong>
+  </div>
+  <div class="verdict">
+    <strong>The irreversible part:</strong> Apex 4.0 makes you choose at purchase. Once that account is opened, the trail type is fixed for the life of that account. You can buy a <em>second</em> Apex account with the other rule type, but you can&rsquo;t toggle an existing account.
+  </div>
+</section>
+
+<section id="what-is-the-choice">
+<h2>What you&rsquo;re actually choosing</h2>
+
+<p>Both EOD and Intraday are <strong>trailing</strong> drawdowns &mdash; the floor moves up as your account grows, locks at <strong>Starting Balance + $100</strong> (Apex&rsquo;s safety net), and never moves down. The difference is <em>when</em> the floor recalculates and what equity number it tracks.</p>
+
+<div class="key-fact">
+  <strong>Both Apex trail types lock at the same place.</strong> On a 100K Apex account ($103,000 starting), the trail stops moving once your trailing threshold reaches <strong>$103,100</strong> &mdash; the Starting Balance plus the $100 safety buffer. After that lock event, the floor is fixed at $103,100 forever for that account. The choice between EOD and Intraday is about <em>how you get to lock</em>, not where lock lands.
+</div>
+
+<p>The mechanical difference matters most during the <strong>unrealized portion</strong> of a trading day:</p>
+
+<ul>
+  <li><strong class="firm-eod">EOD trail:</strong> The threshold recalculates <em>once per day, at 4:59:59pm ET session close</em>, off your <strong>closing balance</strong> (closed P&amp;L only). Unrealized swings during the session don&rsquo;t touch the trail floor. The next session, that fixed threshold is enforced in real-time against live equity.</li>
+  <li><strong class="firm-intra">Intraday trail:</strong> The threshold updates <em>continuously, in real time</em>, against your <strong>live equity high-water mark</strong> &mdash; closed AND unrealized P&amp;L. A position $1,000 in unrealized profit raises the trail $1,000 the instant the unrealized prints, then strands the trail there if you give back the gain.</li>
+</ul>
+</section>
+
+<section id="eod-trail">
+<h2 class="firm-eod">EOD trail in detail</h2>
+
+<p>An <strong>End-Of-Day</strong> trailing drawdown is recalculated once, at the 4:59:59pm ET session close, off your <em>closed</em> account balance. That number then becomes the threshold enforced in real-time the <strong>next</strong> session.</p>
+
+<h3>How it actually moves</h3>
+
+<ol>
+  <li>You start a 100K Apex EOD account at $100,000 balance.</li>
+  <li>Trail floor starts at <strong>$100,000 &minus; $3,000 = $97,000</strong>.</li>
+  <li>You close +$500 on Day 1. At 5pm ET, Apex recalculates: new closing balance $100,500. New trail floor: <strong>$100,500 &minus; $3,000 = $97,500</strong>.</li>
+  <li>Day 2 you go +$1,200 unrealized, then close +$300 on the day. At 5pm ET: closing balance $100,800. New trail floor: <strong>$97,800</strong>. The $1,200 spike never raised the trail.</li>
+  <li>This continues until your closing balance hits <strong>$103,100</strong>. At that 5pm recalc, the trail locks permanently at <strong>$100,100</strong> (i.e. Starting Balance + $100 minus drawdown amount of $3,000 &equals; $100,100? <em>No</em> &mdash; see correction below).</li>
+</ol>
+
+<div class="key-fact">
+  <strong>The Apex 4.0 lock-at math (correctly stated):</strong> the trail floor moves up daily until your closing balance is high enough that <em>floor &equals; Starting Balance + $100</em>. For 100K Apex: that&rsquo;s $103,100. To reach floor &equals; $103,100, your closing balance must reach <strong>$103,100 + $3,000 &equals; $106,100</strong>. At that EOD recalc, the floor locks at $103,100 and stops moving forever. From then on you only need to keep live equity above $103,100 &mdash; the trail is &ldquo;done.&rdquo;
+</div>
+
+<h3>The catch &mdash; the Daily Loss Limit</h3>
+
+<p>Apex 4.0 attaches a <strong>Daily Loss Limit (DLL)</strong> to EOD accounts specifically. The DLL is separate from the trail and represents the maximum you can lose in a single calendar day. If your day-loss exceeds the DLL, the account violates and is closed regardless of where your trailing threshold sits.</p>
+
+<p>This is the price of EOD&rsquo;s &ldquo;your trail isn&rsquo;t hurt by unrealized&rdquo; freedom. Apex protects itself against runaway intraday drawdowns by capping how much closed loss you can take in a day. The exact DLL is plan-specific &mdash; <strong>verify the current DLL for your account size on the Apex rulebook before purchase.</strong></p>
+
+<h3>Who EOD favors</h3>
+<ul>
+  <li><strong>Swing or position day-traders</strong> who hold a runner into the close and want the unrealized gain locked into a higher next-day floor.</li>
+  <li><strong>Scalpers in deep-volatility sessions</strong> (CPI prints, FOMC, NFP) who can stomach $1,500+ unrealized red and recover by close.</li>
+  <li><strong>Anyone whose chart-reading involves &ldquo;heat&rdquo;</strong> &mdash; positions that go against them before reverting. EOD lets the chart do its thing without the trail tightening underneath them mid-trade.</li>
+</ul>
+</section>
+
+<section id="intraday-trail">
+<h2 class="firm-intra">Intraday trail in detail</h2>
+
+<p>An <strong>Intraday</strong> trailing drawdown updates continuously, in real time, against your <strong>live equity high-water mark</strong> &mdash; meaning closed P&amp;L AND unrealized P&amp;L both push the threshold up the moment they print.</p>
+
+<h3>How it actually moves</h3>
+
+<ol>
+  <li>You start a 100K Apex Intraday account at $100,000 balance.</li>
+  <li>Trail floor starts at <strong>$100,000 &minus; $3,000 = $97,000</strong>.</li>
+  <li>You open a position. Live equity spikes to $101,500 unrealized (you&rsquo;re up $1,500 on the open).</li>
+  <li>Trail floor <strong>immediately</strong> jumps to $101,500 &minus; $3,000 &equals; <strong>$98,500</strong>.</li>
+  <li>The trade reverses. You give back the gain, end up closing flat for the day. Trail floor is now <strong>$98,500</strong> regardless &mdash; the unrealized spike permanently raised your floor.</li>
+  <li>You&rsquo;ve effectively eaten $1,500 of trail capacity for zero closed P&amp;L. The trail tightened around a profit that never landed.</li>
+</ol>
+
+<div class="key-fact">
+  <strong>Intraday&rsquo;s lock math:</strong> same destination, different path. For 100K Apex Intraday: trail locks once live equity high-water mark hits <strong>$106,100</strong> at any moment, even briefly. The floor locks at $103,100 from that instant onward. Unrealized counts for the lock event too &mdash; so a single big winner that briefly prints $6,100+ open profit could lock the trail even if you give some back before close. (Risky, but mechanically valid.)
+</div>
+
+<h3>The advantage &mdash; no Daily Loss Limit</h3>
+
+<p>Apex 4.0 Intraday accounts <strong>don&rsquo;t</strong> have a separate DLL. The trailing drawdown <em>is</em> your daily loss limit, effectively &mdash; if your live equity drops to the floor, you&rsquo;re done. But you can lose &ldquo;a lot&rdquo; in a single day as long as you stay above the trail.</p>
+
+<p>For a 100K Intraday account starting at $100,000 with trail at $97,000: you can take a $3,000 closed loss in a single session and still be alive (sitting exactly at the floor). On the EOD plan, the DLL would have shut you off long before you could lose $3,000 in one day.</p>
+
+<h3>The cost &mdash; tail-risk fills</h3>
+
+<p>Intraday tracks live equity, which means a <strong>spike fill</strong> against your open position can liquidate you instantly. If you&rsquo;re long ES with a stop a few ticks below market and a price spike on a thin print pulls you to the floor for half a second, the trail may register that low and the account is gone.</p>
+
+<p>Most chart-reading traders never see these prints because their charts smooth them. The firm&rsquo;s data feed doesn&rsquo;t. This is the <strong>biggest hidden cost of Intraday</strong>: you&rsquo;re exposed to the tick-by-tick noise floor, not the candle-by-candle one.</p>
+
+<h3>Who Intraday favors</h3>
+<ul>
+  <li><strong>Tight-stop scalpers</strong> whose trade plans never carry $500+ unrealized red &mdash; the &ldquo;heat&rdquo; vector that hurts Intraday simply isn&rsquo;t in their playbook.</li>
+  <li><strong>High-frequency in-and-out traders</strong> who close positions within minutes &mdash; minimal unrealized exposure means minimal trail-tightening cost.</li>
+  <li><strong>Traders who would otherwise be DLL-violated by Apex EOD</strong> &mdash; if your style routinely produces $1,500+ closed losses on bad days, the EOD DLL would kill you. Intraday gives you headroom equal to the trailing distance.</li>
+</ul>
+</section>
+
+<section id="side-by-side">
+<h2>Side-by-side: Apex 4.0 EOD vs Intraday</h2>
+
+<table>
+  <thead>
+    <tr><th>What</th><th class="firm-eod">EOD</th><th class="firm-intra">Intraday</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Trail recalc frequency</td><td>Once / day at 4:59:59pm ET</td><td>Continuous / real-time</td></tr>
+    <tr><td class="label">Equity base</td><td>Closed P&amp;L only (closing balance)</td><td>Closed + unrealized (live high-water mark)</td></tr>
+    <tr><td class="label">Locks at (100K example)</td><td>$103,100</td><td>$103,100</td></tr>
+    <tr><td class="label">Balance needed to lock</td><td>$106,100 closing balance</td><td>$106,100 live equity HWM</td></tr>
+    <tr><td class="label">Daily Loss Limit (separate)</td><td><strong>Yes</strong> &mdash; per-plan, verify on rulebook</td><td><strong>No</strong> &mdash; trail is your effective DLL</td></tr>
+    <tr><td class="label">Unrealized heat raises trail?</td><td>No</td><td>Yes (instantly)</td></tr>
+    <tr><td class="label">Spike-fill liquidation risk</td><td>Low (only closes count)</td><td>Higher (tick noise can hit floor)</td></tr>
+    <tr><td class="label">News / volatility tolerance</td><td>Higher (can ride heat)</td><td>Lower (any heat tightens trail)</td></tr>
+    <tr><td class="label">Locked at purchase?</td><td colspan="2" style="text-align:center"><strong>Yes &mdash; permanent for that account</strong></td></tr>
+  </tbody>
+</table>
+</section>
+
+<section id="scenarios">
+<h2>Three real scenarios: same trades, different outcomes</h2>
+
+<p>To make the difference concrete, here are three trading days played out on a 100K Apex account ($100,000 start, $3,000 trail, lock at $103,100). Each trader takes <em>the same closed P&amp;L</em>; the trail behavior diverges.</p>
+
+<div class="scenario">
+  <h4>Scenario 1 &mdash; The scalper with a clean book</h4>
+  <p><strong>Trader profile:</strong> Quick in-and-out ES trades, 3-tick stops, max unrealized exposure ~$200 per trade. Closes +$400 for the day across 8 trades.</p>
+  <div class="timeline">
+    <span class="ok">EOD outcome:</span>     end-of-day closing balance $100,400; new trail floor $97,400.<br>
+    <span class="ok">Intraday outcome:</span> equity HWM peaked at $100,500 mid-session; trail floor moved to $97,500 (slightly tighter).<br>
+    <span class="warn">Difference:</span>   ~$100 of additional trail tightening on Intraday. Negligible.
+  </div>
+  <p><strong>Verdict:</strong> Clean-book scalpers are functionally identical on both plans. <strong class="firm-intra">Intraday wins on a tie because it has no DLL exposure</strong> &mdash; a sudden $1,500 closed-loss disaster day doesn&rsquo;t auto-violate. The trail floor is the only fence.</p>
+</div>
+
+<div class="scenario">
+  <h4>Scenario 2 &mdash; The chart-reader with heat</h4>
+  <p><strong>Trader profile:</strong> Holds NQ trades through 10-15 point retracements waiting for trend continuation. Today: one position goes &minus;$1,800 unrealized at mid-session before reverting to close +$600 for the day.</p>
+  <div class="timeline">
+    <span class="ok">EOD outcome:</span>     closing balance $100,600. New trail floor $97,600. <span class="ok">Account fine.</span><br>
+    <span class="bad">Intraday outcome:</span> live equity HWM at session open was $100,000 with trail at $97,000. Mid-session spike to &minus;$1,800 means live equity dropped to $98,200. <strong>Still above $97,000 floor.</strong> But on the bounce-back to +$600 closed, the HWM at $100,600 moves trail to $97,600.<br>
+    <span class="warn">Difference:</span>   Trader survived both days. But on Intraday, <strong>they were $1,200 from death</strong> mid-session; on EOD they were never in danger. Same closed P&amp;L, very different stress profile.
+  </div>
+  <p><strong>Verdict:</strong> <strong class="firm-eod">EOD is materially safer for chart-readers with heat.</strong> Same +$600 day, EOD never made you sweat. If that &minus;$1,800 had been &minus;$3,100 instead, Intraday would have violated and EOD wouldn&rsquo;t have (assuming the close was still net positive and the DLL allowed it &mdash; verify).</p>
+</div>
+
+<div class="scenario">
+  <h4>Scenario 3 &mdash; The news trader (CPI day)</h4>
+  <p><strong>Trader profile:</strong> Trades the 8:30am ET CPI print. Long ES into the release, gets +$2,200 unrealized in 90 seconds, then the post-release fade gives back $1,000. Closes the position at +$1,200 net.</p>
+  <div class="timeline">
+    <span class="ok">EOD outcome:</span>     closing balance $101,200. Trail floor $98,200.<br>
+    <span class="bad">Intraday outcome:</span> live equity HWM hit $102,200 during the spike. Trail floor jumped to <strong>$99,200</strong> &mdash; even though only $1,200 actually landed in the account.<br>
+    <span class="warn">Difference:</span>   <strong>$1,000 of permanent trail capacity lost to unrealized exposure.</strong> The trader paid for trail movement they didn&rsquo;t keep.
+  </div>
+  <p><strong>Verdict:</strong> <strong class="firm-eod">News traders strongly favor EOD.</strong> Volatility creates large unrealized swings that don&rsquo;t fully convert to closed P&amp;L. Intraday taxes every spike whether or not you keep it. Over a Combine&rsquo;s worth of trading days that adds up to meaningful eaten capacity.</p>
+</div>
+</section>
+
+<div class="cta">
+  <h3>Model your own trade days against both rule types</h3>
+  <p>Our free Trailing-Drawdown Calculator preloads Apex 4.0 (and Topstep, MFFU) with both EOD and Intraday math. Plug in your account size and a P&amp;L sequence to see the trail floor evolve under each rule. No login.</p>
+  <a href="https://aurafy.dev/tools/trailing-drawdown-calculator/?firm=apex&amp;mode=both&amp;utm_source=blog&amp;utm_medium=apex-eod-vs-intraday&amp;utm_campaign=explainer" class="btn">Open the Trailing-DD Calculator &rarr;</a>
+  <a href="https://aurafy.dev?utm_source=blog&amp;utm_medium=apex-eod-vs-intraday&amp;utm_campaign=explainer" class="btn ghost">See Aurafy (free tier)</a>
+</div>
+
+<section id="which-to-pick">
+<h2>Which to pick &mdash; honest decision blocks</h2>
+
+<div class="pick-grid">
+  <div class="pick eod">
+    <h4 class="firm-eod">Pick EOD if you check any of these</h4>
+    <ul>
+      <li>You hold trades through retracements (chart-reader / trend-follower).</li>
+      <li>You trade news prints where the chart swings $500&ndash;$2,000+ unrealized.</li>
+      <li>You routinely have $1,000+ unrealized heat that reverts before close.</li>
+      <li>Your closed-loss days rarely exceed the Apex EOD plan&rsquo;s DLL (verify the DLL for your account size).</li>
+      <li>You think in &ldquo;closing balance&rdquo; not &ldquo;live equity.&rdquo;</li>
+    </ul>
+  </div>
+  <div class="pick intra">
+    <h4 class="firm-intra">Pick Intraday if you check any of these</h4>
+    <ul>
+      <li>You scalp with tight stops (1&ndash;5 ticks). Unrealized heat &lt;$200 per trade.</li>
+      <li>Your closed-loss days regularly approach or exceed the EOD DLL &mdash; you need the trail floor as your only fence.</li>
+      <li>You take 5+ trades per session, average hold time &lt;5 minutes.</li>
+      <li>You&rsquo;d rather have one rule (the trail) than two (trail + DLL).</li>
+      <li>You can stomach a spike-fill loss if it happens once in a hundred sessions.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="verdict">
+  <strong>If you&rsquo;re genuinely unsure, default to EOD.</strong> Most prop-firm traders who blow accounts blow them mid-session on heat or news volatility &mdash; not on closed losses. EOD removes the unrealized-heat vector. Yes, the DLL adds a second constraint, but for the median trader the DLL is rarely the binding cap. The trail is. EOD relaxes the trail under heat; Intraday tightens it. Default to relaxed.
+</div>
+
+<div class="verdict">
+  <strong>If you already trade live, look at your last 10 sessions.</strong> Find the deepest unrealized red on each. If the average is &gt; $500 &mdash; pick EOD. If it&rsquo;s &lt; $200 &mdash; you can pick Intraday safely. The decision is empirical, not philosophical.
+</div>
+</section>
+
+<section id="faq">
+<h2>FAQ</h2>
+
+<details>
+  <summary>Can I switch from EOD to Intraday (or vice versa) on an existing Apex account?</summary>
+  <p>No. The choice is locked at purchase for the life of that account. You can buy a second account with the other rule type, but you can&rsquo;t toggle an active one. Verify the current policy on Apex&rsquo;s rulebook before buying &mdash; the rule has been consistent through Apex 4.0&rsquo;s rollout but firms revise terms.</p>
+</details>
+
+<details>
+  <summary>Is the Apex DLL plan-specific?</summary>
+  <p>Yes &mdash; the DLL scales with account size on EOD plans. We deliberately don&rsquo;t print exact numbers here because firm tables update; check the live Apex rulebook for your account size before purchase. The point of this article is the mechanical choice between EOD and Intraday, not the DLL ladder.</p>
+</details>
+
+<details>
+  <summary>Does Apex have a consistency rule on both EOD and Intraday?</summary>
+  <p>Yes. Apex 4.0&rsquo;s 30% consistency rule applies to evaluation across both trail types &mdash; your highest single profitable day cannot be more than 30% of total profits at the moment you request the funded transition. The rule is the same regardless of EOD vs Intraday selection. See our free <a href="https://aurafy.dev/tools/consistency-rule-calculator/?firm=apex">Consistency Rule Calculator</a> for the exact math.</p>
+</details>
+
+<details>
+  <summary>What happens to my trail in overnight / Globex sessions?</summary>
+  <p>EOD: the 4:59:59pm ET recalc happens once per calendar trading day; overnight session activity that follows counts toward the <em>next</em> day&rsquo;s closing balance. Intraday: the trail continues to track live equity through the overnight session &mdash; a 3am ET spike against an open position can still hit the floor. <strong>This matters most for swing-style intraday traders</strong>; if you hold overnight on Apex Intraday, you&rsquo;re exposed to thin-liquidity tick noise.</p>
+</details>
+
+<details>
+  <summary>Which is more &ldquo;like Topstep&rdquo; &mdash; EOD or Intraday?</summary>
+  <p>Topstep Combine = Intraday-style trail. Topstep Express Funded (XFA) = EOD-style trail. So Apex EOD behaves most like a Topstep XFA (in trail mechanic), while Apex Intraday behaves most like a Topstep Combine. The big difference vs Topstep: Topstep locks the funded trail at Starting Balance ($100,000 on a 100K); Apex locks at SB + $100 ($103,100). Same shape, slightly more generous lock on Apex. See our <a href="https://aurafy.dev/blog/apex-vs-topstep-2026/">Apex vs Topstep comparison</a> for the full breakdown.</p>
+</details>
+
+<details>
+  <summary>Does the rule choice affect my payout cadence or split?</summary>
+  <p>No. Apex payouts are every 8 days, $500 minimum, 100% on the first $25K then 90% &mdash; regardless of EOD vs Intraday. The trail choice is a risk-management mechanic, not a payout mechanic.</p>
+</details>
+
+<details>
+  <summary>If I switch firms later (Topstep / MFFU), does my Apex rule choice carry over?</summary>
+  <p>No. Each firm sets its own trail mechanics. <a href="https://aurafy.dev/prop-firms/topstep/">Topstep</a> Combine = Intraday-only (no choice). Topstep XFA = EOD-only (no choice). <a href="https://aurafy.dev/prop-firms/myfundedfutures/">MFFU</a> Core = EOD; MFFU Rapid = Intraday; MFFU Pro = EOD. Apex 4.0 is unusual in offering the choice at all &mdash; most firms pre-decide. See our <a href="https://aurafy.dev/blog/best-prop-firms-2026/">best prop firms 2026 hub</a> for the full rule grid.</p>
+</details>
+
+<details>
+  <summary>How do I know what my current trail floor is mid-session on each rule?</summary>
+  <p>Apex&rsquo;s dashboard shows the current trail value. On EOD, the floor is fixed for the session &mdash; you just check it once. On Intraday, the floor moves up with every unrealized HWM tick &mdash; many traders journal the floor at session end to track it day-over-day. <strong>This is exactly the kind of mechanical bookkeeping Aurafy automates</strong> &mdash; we read your trade ticket history, calculate the trail under both rule types, and surface &ldquo;closest you got to violation today.&rdquo;</p>
+</details>
+
+</section>
+
+<div class="cta">
+  <h3>Aurafy tracks your Apex trail floor automatically</h3>
+  <p>Connect your Tradovate, NinjaTrader, or Rithmic feed and Aurafy calculates your trailing drawdown under either Apex 4.0 rule type, every session. The free tier covers 30 days + 1 account + 3 playbooks &mdash; enough to journal a full Combine. Pro is <strong>$49/mo</strong> for the full feature set; the first 50 founders get <strong>$19/mo locked for life</strong>.</p>
+  <a href="https://aurafy.dev?utm_source=blog&amp;utm_medium=apex-eod-vs-intraday&amp;utm_campaign=explainer-cta" class="btn">Start free &mdash; no card</a>
+  <a href="https://aurafy.dev/pricing?utm_source=blog&amp;utm_medium=apex-eod-vs-intraday&amp;utm_campaign=explainer-cta" class="btn ghost">See pricing</a>
+</div>
+
+<h2>Related reads</h2>
+<div class="related">
+  <a href="https://aurafy.dev/blog/apex-vs-topstep-2026/"><strong>Apex vs Topstep (2026)</strong><span>Side-by-side rule comparison &mdash; same product category, different mechanics.</span></a>
+  <a href="https://aurafy.dev/blog/apex-vs-mffu-2026/"><strong>Apex vs MyFundedFutures (2026)</strong><span>Both lock at SB + $100, but DLL and consistency differ sharply.</span></a>
+  <a href="https://aurafy.dev/blog/best-prop-firms-2026/"><strong>Best Prop Firms for Futures Traders (2026)</strong><span>Hub ranking with trader-archetype picks across Apex / Topstep / MFFU.</span></a>
+  <a href="https://aurafy.dev/prop-firms/apex-trader-funding/"><strong>Apex Trader Funding (2026) &mdash; full landing</strong><span>Plan structure, all rules, calculator presets.</span></a>
+  <a href="https://aurafy.dev/tools/trailing-drawdown-calculator/?firm=apex"><strong>Trailing-Drawdown Calculator</strong><span>Free tool. Apex / Topstep / MFFU presets, EOD + Intraday math.</span></a>
+  <a href="https://aurafy.dev/tools/consistency-rule-calculator/?firm=apex"><strong>Consistency Rule Calculator</strong><span>Apex 30% / Topstep 50% / MFFU 40% &mdash; check payout eligibility instantly.</span></a>
+</div>
+
+<footer>
+  <p>Aurafy is an independent trading-journal SaaS. We are not an Apex affiliate; we earn nothing from Apex sign-ups.<br>Rules accurate as of June 2026 per the public Apex rulebook &mdash; <strong>verify on apextraderfunding.com before purchase</strong>. Firm rules change.<br>This is a planning aid, not financial or legal advice.</p>
+  <p>&copy; 2026 <a href="https://aurafy.dev">Aurafy</a> &middot; Journal + Recorder + Replay for futures traders</p>
+</footer>
+
+</div>
+</body>
+</html>
