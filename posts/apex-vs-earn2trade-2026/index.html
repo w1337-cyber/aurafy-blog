@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Apex vs Earn2Trade (2026): Same 30% Consistency Rule, Opposite Lifetime | Aurafy</title>
+<meta name="description" content="Apex 4.0 vs Earn2Trade — both enforce a 30% consistency threshold. Apex applies it forever on the funded PA; Earn2Trade drops it the moment you pass. Different lock anchor, different sign-up economics, different funded state. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/apex-vs-earn2trade-2026/" />
+<meta property="og:title" content="Apex vs Earn2Trade (2026): Same 30% Consistency Rule, Opposite Lifetime" />
+<meta property="og:description" content="Same 30% threshold, opposite scope. Different lock anchor. Different sign-up economics. Different funded state. Here's how to pick between Apex 4.0 and Earn2Trade." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --apex:#ff5c7c;
+    --earn2trade:#3ddc97;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-apex{color:var(--apex);font-weight:600}
+  .firm-earn2trade{color:var(--earn2trade);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--red);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.apex{border-left:3px solid var(--apex)}
+  .pick.earn2trade{border-left:3px solid var(--earn2trade)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.a{border-top:2px solid var(--apex)}
+  .axis-side.b{border-top:2px solid var(--earn2trade)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Apex vs Earn2Trade (2026): Same 30% Consistency Rule, Opposite Lifetime</h1>
+  <p class="lede">Both firms enforce a 30% consistency threshold &mdash; the same number, run through the same formula. Apex applies it across the entire funded lifetime; Earn2Trade drops it the moment you pass eval. Different lock anchor, different sign-up economics, different funded state. Here's the honest side-by-side.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#consistency">Consistency rule scope</a>
+  <a href="#drawdown">Lock anchor + trail</a>
+  <a href="#signup">Sign-up economics</a>
+  <a href="#funded">Funded state</a>
+  <a href="#products">Programs &amp; sizes</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#payouts">Payouts</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/apex-trader-funding/?utm_source=blog&amp;utm_medium=apex-vs-earn2trade&amp;utm_content=tldr-apex">Apex 4.0</a> if</strong> you want a 1-step eval, the option to pick EOD or intraday trail per account, real Live capital from day one, the cluster's largest 100% first-$25K payout carve-out, and you trade fast enough that a 30% rule on the funded side doesn't bind hard.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/earn2trade/?utm_source=blog&amp;utm_medium=apex-vs-earn2trade&amp;utm_content=tldr-earn2trade">Earn2Trade</a> if</strong> you want the lowest-friction sign-up in the cluster ($139 activation deducted only from your first withdrawal, no upfront PA fee), a permanent LiveSim track that pays real money without the conversion-to-Live decision, and a consistency rule that <em>dies at the funded gate</em> instead of following you forever.
+</div>
+<div class="verdict">
+  <strong>Same threshold, opposite lifetime:</strong> both firms use a <strong>30% consistency rule</strong> with the same max-safe-day formula (total &times; 0.30 &divide; 0.70 = total &times; 0.4286). <strong>Apex applies it on the PA forever.</strong> <strong>Earn2Trade applies it only at the moment of passing eval and explicitly drops it on the funded account.</strong> Identical number, inverted scope.
+</div>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-apex">Apex 4.0</th><th class="firm-earn2trade">Earn2Trade (GAU)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Phase structure</td><td><strong>1-step eval</strong> &rarr; PA (Performance Account, real Live capital)</td><td><strong>1-step eval</strong> &rarr; LiveSim funded (default) <em>or</em> Live capital (opt-in)</td></tr>
+    <tr><td class="label">Trail type</td><td>EOD or intraday &mdash; <strong>chosen per-account at purchase</strong></td><td><strong>EOD only</strong> &mdash; no intraday option exists at any size</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance + $100</td><td>Starting Balance (exact &mdash; Topstep lock family)</td></tr>
+    <tr><td class="label">100K drawdown</td><td>$3,000</td><td>$3,500 (GAU100)</td></tr>
+    <tr><td class="label">50K drawdown</td><td>$2,000</td><td>$2,000 (GAU50)</td></tr>
+    <tr><td class="label">150K drawdown</td><td>$4,000</td><td>$4,500 (GAU150)</td></tr>
+    <tr><td class="label">Largest size</td><td>150K ($4,000 drawdown)</td><td>200K (GAU200, $6,000 drawdown)</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>EOD accounts: yes ($625&ndash;$2,500 by size)<br>Intraday: <strong>None</strong></td><td>Yes on every size ($1,100&ndash;$4,400 by GAU size)</td></tr>
+    <tr><td class="label">Consistency rule</td><td><strong>30% on PA &mdash; lifetime.</strong> One rule from day one of funded, never lifts.</td><td><strong>30% &mdash; eval only.</strong> Enforced at the point of passing; <em>explicitly dropped on the funded account</em>.</td></tr>
+    <tr><td class="label">Minimum trading days</td><td>7 on eval, 7 per PA payout window</td><td>10 on eval, none stated on funded payout</td></tr>
+    <tr><td class="label">Profit split (funded)</td><td>First $25K paid 100%, then 90/10</td><td>Flat <strong>80/20</strong> &mdash; on LiveSim AND on Live</td></tr>
+    <tr><td class="label">Sign-up cost</td><td>PA activation fee paid <strong>upfront</strong> per account ($85&ndash;$220 by size, separate from eval subscription)</td><td><strong>$139 activation deducted from FIRST WITHDRAWAL only</strong> &mdash; nothing paid upfront beyond monthly subscription</td></tr>
+    <tr><td class="label">Subscription model</td><td>Eval subscription (monthly until pass), then PA activation per account</td><td>Monthly subscription only ($170&ndash;$550/mo for GAU range)</td></tr>
+    <tr><td class="label">Payout cadence</td><td>2&times;/month per PA &mdash; payout windows from day 8 onward</td><td>Weekly &mdash; every Wednesday (deadline 2pm CT Friday prior)</td></tr>
+    <tr><td class="label">Funded form</td><td>Live capital (real broker positions)</td><td>LiveSim by default (94.77% of 2025 passers stayed) &mdash; or convert to Live (5.23%)</td></tr>
+    <tr><td class="label">Platforms</td><td><strong>Tradovate</strong>, NinjaTrader 8, Rithmic, R&#124;Trader, TradingView, Quantower, Sierra Chart</td><td>NinjaTrader, Tradovate, Finamark, R&#124;Trader, TradingView, Rithmic-compatible</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted on PA; eval high-impact 2 min window restriction &mdash; verify current rules</td><td>Permitted at evaluation stage with no restrictions</td></tr>
+    <tr><td class="label">Pass rate (2025, disclosed)</td><td>Not publicly disclosed</td><td><strong>8.89%</strong> &mdash; publicly disclosed</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="consistency">Consistency rule scope: same threshold, inverted scope</h2>
+
+<p>This is the load-bearing wedge between these two firms. Both use a 30% threshold. Both compute it the same way &mdash; single-day P&amp;L divided by total profit balance at the payout request. Both produce the same max-safe-single-day number: <strong>total &times; 0.4286</strong>.</p>
+
+<div class="key-fact"><strong>The arithmetic is identical &mdash; the lifecycle isn't.</strong> Apex's 30% rule lives on the PA forever; you trade against the ratio on every payout request you ever file. Earn2Trade's 30% rule lives only at the eval pass-gate; once you're funded, you can take a $5,000 day on a $5,200 funded profit balance without violating anything.</p></div>
+
+<h3>Apex 4.0 &mdash; 30% on PA (lifetime)</h3>
+<ul>
+  <li>One rule from day one of the PA. No phase where the rule is off.</li>
+  <li>Formula: max safe single-day P&amp;L &asymp; total &times; 0.30 &divide; (1 &minus; 0.30) = total &times; 0.4286.</li>
+  <li>On a $10,000 funded profit balance, no single day can be more than $4,286 without violating.</li>
+  <li>You either dilute big days with more small days or grow the total before the big day is too big a share.</li>
+</ul>
+
+<h3>Earn2Trade &mdash; 30% on eval (then off)</h3>
+<ul>
+  <li>Applied at the <em>moment of passing</em> the GAU evaluation. Cross-checked against the firm's rulebook: "Consistency rule applies at the point of passing."</li>
+  <li>Once you're on LiveSim funded (or Live), the 30% rule is <strong>not enforced</strong>. You can take asymmetric days without the ratio gate.</li>
+  <li>Topstep is the only other firm in this dataset that drops consistency post-eval. Apex, MFFU, Bulenox, Tradeify, and TPT all keep it on the funded side.</li>
+  <li>Same threshold as Apex, same formula at the eval pass-gate &mdash; but the funded side is rule-free.</li>
+</ul>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/apex-vs-mffu-2026/#consistency">Apex 30% vs MFFU 40% &mdash; how the threshold interacts with eval ladder design</a> &mdash; same Apex side, different counterpart firm; helps triangulate where Apex's 30% binds hardest.</p>
+
+<div class="cta">
+  <h3>Plot your days against the threshold before payout</h3>
+  <p>The consistency calculator has Apex 30% and Earn2Trade 30% eval-only presets built in &mdash; same formula, different scope flag.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="drawdown">Lock anchor + trail: SB+$100 vs SB exact</h2>
+
+<p>Both firms run trailing drawdowns that lock once the account hits a defined equity ceiling. Where the ceiling sits is the structural difference.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Apex 4.0 &mdash; SB+$100 lock</strong>
+    On 100K, lock fires at $103,100 of equity. Trail floor freezes at $100,100 forever. Same lock family as MFFU, Tradeify, Bulenox. EOD or intraday available per account at purchase &mdash; the trail type is fixed for that account's life.
+  </div>
+  <div class="axis-side b">
+    <strong>Earn2Trade &mdash; SB exact lock</strong>
+    On 100K (GAU100), lock fires at $103,500 of equity. Trail floor freezes at $100,000 exactly. Same lock family as Topstep funded. EOD only &mdash; no intraday option exists.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The $100 difference in lock anchor compounds with the trail trigger:</strong> Apex on EOD locks the floor at SB+$100, leaving you a slim margin above starting balance once it triggers. Earn2Trade GAU locks at SB exactly, so once it triggers the only stop-out is back to the starting balance &mdash; no buffer. The trade-off: GAU's drawdown is larger ($3,500 on 100K vs Apex's $3,000), so the path to the lock is longer. You give up $500 of breathing room before lock, gain $100 of breathing room after.</p></div>
+
+<h3>Trail type: choice vs no choice</h3>
+<p>Apex 4.0 is the only firm in this dataset that lets you pick EOD or intraday at every account purchase. Earn2Trade GAU is EOD-only across every size &mdash; same trail family as Topstep funded, MFFU, Tradeify EOD-archetype, and Bulenox Option 2. If you only trade intraday and rely on the wick-doesn't-count-til-close mechanic, Earn2Trade still gives you that &mdash; just without the intraday alternative if you ever want it.</p>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs intraday explainer</a> &mdash; how the per-account trail choice plays out under wicks, holds, and end-of-session profit-pulls.</p>
+
+<div class="cta">
+  <h3>Try the math before you commit</h3>
+  <p>Our free trailing-drawdown calculator models both Apex 4.0 (SB+$100, EOD or intraday) and Earn2Trade GAU (SB lock, EOD-only) presets.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_content=tool-cta">Open the calculator</a>
+</div>
+
+<h2 id="signup">Sign-up economics: upfront PA fee vs pay-from-first-withdrawal</h2>
+
+<p>Apex and Earn2Trade are on opposite ends of the cluster's sign-up cost spectrum. The numerical totals can end up similar over a full lifecycle; the cashflow timing diverges sharply.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Apex &mdash; pay upfront, fast cycle</strong>
+    Monthly eval subscription until you pass (sale-priced discounts common). Then a PA activation fee per account at funding ($85&ndash;$220 by size). Cash is out of pocket before any payout possibility. Standard cluster pattern &mdash; same as Topstep, MFFU, TPT, Tradeify, Bulenox.
+  </div>
+  <div class="axis-side b">
+    <strong>Earn2Trade &mdash; no PA fee, $139 from first withdrawal</strong>
+    Monthly subscription ($170&ndash;$550/mo for GAU). <strong>No upfront PA activation fee.</strong> A one-time $139 activation is <strong>deducted from your first withdrawal</strong> &mdash; not paid upfront. If you never withdraw, you never pay it. Unique pricing model in the cluster.
+  </div>
+</div>
+
+<div class="key-fact"><strong>What "pay from first withdrawal" actually means:</strong> the $139 is real money that comes out of your first payout, not a discount. But the cashflow timing matters &mdash; on Apex you pay activation before the first dollar of profit is yours; on Earn2Trade you only pay it once profit has cleared. If you bust before withdrawing, the $139 is never owed.</p></div>
+
+<h2 id="funded">Funded state: Live capital vs LiveSim-or-Live</h2>
+
+<p>This is the cluster's most unusual structural quirk and it's exclusive to Earn2Trade. After passing eval, every other firm in the dataset (Apex, Topstep, MFFU, TPT, Tradeify, Bulenox) puts you on a single funded track: real broker capital, real positions, real payouts. Earn2Trade gives you a fork.</p>
+
+<h3>Earn2Trade's two funded states</h3>
+<ul>
+  <li><strong>LiveSim funded (default):</strong> simulated capital. Real 80/20 payouts paid from firm balance sheet. You stay here as long as you want &mdash; indefinitely. 94.77% of 2025 passers stayed on LiveSim.</li>
+  <li><strong>Live capital (opt-in):</strong> convert to real broker capital. 5.23% of 2025 passers converted. 80/20 split is unchanged across the conversion.</li>
+  <li>Withdrawal participation roughly equal (~18%) across both states &mdash; converting doesn't materially change your odds of actually pulling money out.</li>
+</ul>
+
+<h3>Apex 4.0 &mdash; single track</h3>
+<ul>
+  <li>PA is real Live capital from the start of funding. No LiveSim option.</li>
+  <li>Risk = real broker positions, executions, fill quality from live order flow.</li>
+</ul>
+
+<div class="key-fact"><strong>Practical implication:</strong> on Earn2Trade you can run a multi-year career on LiveSim and never deal with a real-broker execution. Apex requires it from day one of funding. For some traders that's a feature (real fills, real spreads, real slippage); for others it's a friction (broker onboarding, KYC, IRS filings on real PnL). The choice belongs to you on Earn2Trade; Apex makes it for you.</p></div>
+
+<h2 id="products">Programs and sizes</h2>
+
+<p>Apex 4.0 is a single product across four account sizes. Earn2Trade splits into two product lines &mdash; GAU (Gauntlet Mini) and TCP (Trader Career Path) &mdash; with different lifecycles.</p>
+
+<h3>Apex 4.0 &mdash; one product, four sizes</h3>
+<ul>
+  <li>25K, 50K, 100K, 150K. Drawdowns $1,000 / $2,000 / $3,000 / $4,000.</li>
+  <li>Profit targets $1,500 / $3,000 / $6,000 / $9,000.</li>
+  <li>No internal scaling &mdash; each PA is a fixed-size account. Run up to 20 PAs in parallel for parallel sizing.</li>
+</ul>
+
+<h3>Earn2Trade GAU &mdash; fixed-size single-phase</h3>
+<ul>
+  <li>GAU50 / GAU100 / GAU150 / GAU200. Drawdowns $2,000 / $3,500 / $4,500 / $6,000.</li>
+  <li>Profit targets $3,000 / $6,000 / $9,000 / $11,000.</li>
+  <li>LiveSim transitions to Live at $5,000 cumulative profit but the account <strong>size does not change</strong>. No internal scaling.</li>
+</ul>
+
+<h3>Earn2Trade TCP &mdash; built-in growth scaling</h3>
+<ul>
+  <li>TCP25 / TCP50 / TCP100 start at 25K/50K/100K but the account <strong>scales internally</strong> as you hit profit milestones &mdash; up to $200k (TCP25) or $400k (TCP50/TCP100).</li>
+  <li>Distinct lifecycle from GAU. If you want the eval-to-funded mechanics described in this comparison, GAU is the closer analog to Apex's PA.</li>
+</ul>
+
+<div class="key-fact"><strong>Size comparison at 100K:</strong> Apex 4.0 100K has a $3,000 drawdown; Earn2Trade GAU100 has a $3,500 drawdown. On 50K they're identical at $2,000. On 150K Apex's $4,000 vs GAU150's $4,500 keeps the same $500 gap. Earn2Trade is the only firm in the cluster offering a 200K size &mdash; if you need that ceiling, GAU200 is the only path (or scale Apex by running multiple parallel PAs).</p></div>
+
+<div class="cta">
+  <h3>Size your contracts before you load the next eval</h3>
+  <p>Position-size calculator has both Apex 4.0 (SB+$100, EOD/intraday) and Earn2Trade GAU presets &mdash; punch in stop in ticks + risk per trade and get max contracts.</p>
+  <a class="btn" href="https://aurafy.dev/tools/position-size-calculator/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_content=position-size-cta">Open position-size calculator</a>
+</div>
+
+<h2 id="platforms">Platforms: overlapping with one structural difference</h2>
+
+<p>Both firms support Tradovate, NinjaTrader, and Rithmic. The structural difference is bundling, not coverage.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Apex 4.0 supports</strong>
+    Tradovate (native), NinjaTrader 8, Rithmic, R&#124;Trader Pro, TradingView (via bridge), Quantower, Sierra Chart, MotiveWave. NinjaTrader license: BYO or rent via third-party broker.
+  </div>
+  <div class="axis-side b">
+    <strong>Earn2Trade supports</strong>
+    NinjaTrader (free during eval &mdash; verify funded-side pricing), Tradovate, Finamark, R&#124;Trader / R&#124;Trader Pro, TradingView, other Rithmic-compatible (user-licensed).
+  </div>
+</div>
+
+<p>Either firm works for the standard NinjaTrader + Rithmic workflow. Tradovate-first traders are well-served by both. The platform axis isn't a decisive wedge here &mdash; consistency-scope and sign-up cost are the load-bearing decisions.</p>
+
+<h2 id="payouts">Payouts: cadence and split</h2>
+
+<table>
+  <thead><tr><th>Aspect</th><th class="firm-apex">Apex 4.0</th><th class="firm-earn2trade">Earn2Trade</th></tr></thead>
+  <tbody>
+    <tr><td class="label">Cadence</td><td>2&times;/month per PA &mdash; payout windows from day 8 onward</td><td>Weekly &mdash; every Wednesday, deadline 2pm CT Friday prior</td></tr>
+    <tr><td class="label">Split</td><td>First <strong>$25,000</strong> paid 100% to trader, then 90/10</td><td>Flat <strong>80/20</strong> on LiveSim AND Live &mdash; no carve-out, no escalator</td></tr>
+    <tr><td class="label">Minimum withdrawal</td><td>$500 (per PA)</td><td>$100</td></tr>
+    <tr><td class="label">Methods</td><td>ACH, Wire, PayPal</td><td>Rise ($50 fee non-US / 1.5% US), Deel ($50), Bayzat ($5&ndash;$40), direct crypto (0.735%)</td></tr>
+  </tbody>
+</table>
+
+<p>Apex's 100%-first-$25K carve-out is the cluster's largest dollar threshold before profit-split kicks in. Earn2Trade has the cluster's lowest minimum payout ($100 vs Apex's $500) and the fastest cadence (weekly vs bi-monthly), but the flat 80/20 split applies from dollar one &mdash; no escalator, no carve-out. The cashflow profile inverts: Apex front-loads cash via the carve-out + bi-monthly windows, Earn2Trade smooths cash via weekly $100-minimum micro-payouts at a flat 80%.</p>
+
+<div class="key-fact"><strong>Lifetime payout math at $25,000 of profit:</strong> Apex pays you 100% &times; $25,000 = <strong>$25,000</strong> across that range. Earn2Trade pays you 80% &times; $25,000 = <strong>$20,000</strong> &mdash; a $5,000 gap. Then Apex flips to 90/10 from $25,001 onward; Earn2Trade stays at 80/20. The gap widens with profit, narrows only when you factor in Apex's per-PA activation fees vs Earn2Trade's $139-from-first-withdrawal model.</p></div>
+
+<h2 id="examples">Worked examples</h2>
+
+<h3>Example 1: First payout after one big day on a 100K funded balance</h3>
+<p>Trader is funded on 100K (Apex PA or Earn2Trade GAU100 LiveSim). Racks up $4,500 of profit over 8 trading days. One day was $2,500; the other 7 averaged ~$285 each.</p>
+<ul>
+  <li><strong>Apex 4.0 PA (30% rule, lifetime):</strong> $2,500 &divide; $4,500 = 55.6% &mdash; <strong>violates</strong> the 30% rule. Must trade more days &lt;= $1,350 to bring the largest day's share under 30%, OR build total profit to where $2,500 represents &le;30% (need $8,334 total).</li>
+  <li><strong>Earn2Trade GAU LiveSim (30% rule, eval-only):</strong> No consistency rule applies on the funded account. The $2,500 day is fine. Request payout next Wednesday &mdash; expect $4,500 &times; 80% = <strong>$3,600</strong> wire.</li>
+  <li><strong>The eval-side equivalent:</strong> if those 8 days happened during the GAU eval phase, Earn2Trade's 30% rule WOULD apply &mdash; same $4,500 total &divide; $2,500 day = 55.6% would block passing. The rule scope is what differs, not the rule itself.</li>
+</ul>
+
+<h3>Example 2: 100K trail-floor math under EOD trail</h3>
+<p>Trader runs an EOD account up to +$2,000 of cumulative profit (equity $102,000 close-of-day).</p>
+<ul>
+  <li><strong>Apex 4.0 EOD (SB+$100 lock):</strong> Trail floor moves with EOD highs. New floor = 102,000 &minus; 3,000 = $99,000. Trail keeps moving up with EOD highs until equity hits $103,100 &mdash; then floor freezes at $100,100 forever.</li>
+  <li><strong>Earn2Trade GAU100 (SB lock):</strong> Trail floor moves with EOD highs. New floor = 102,000 &minus; 3,500 = $98,500. Trail keeps moving up with EOD highs until equity hits $103,500 &mdash; then floor freezes at $100,000 exactly forever.</li>
+</ul>
+
+<p>Same trail mechanic (EOD), different lock arithmetic. Apex's floor is $100 higher at lock, but Apex's drawdown is also $500 tighter ($3,000 vs $3,500), so the pre-lock journey is shorter. Mathematically: Apex's path-to-lock is shorter by $500, Apex's post-lock buffer is $100 higher. Different shapes of the same underlying envelope.</p>
+
+<h3>Example 3: Sign-up cost across a 6-month funded run</h3>
+<p>Trader passes eval in month 2, runs funded for 4 months, takes one $2,000 payout in month 6.</p>
+<ul>
+  <li><strong>Apex 4.0:</strong> 2 months of eval subscription + PA activation fee on funding ($85&ndash;$220 by size) + monthly PA fee through month 6. Total out-of-pocket BEFORE the payout: ~$300&ndash;$600 depending on size, all paid before the $2,000 payout lands. Net after payout = $2,000 &times; 100% &minus; ~$400 = ~$1,600 retained on a 100K example.</li>
+  <li><strong>Earn2Trade GAU100:</strong> 2 months of GAU subscription before passing (~$340 if at $170 entry tier) + 4 months on funded subscription. Out-of-pocket BEFORE the payout: subscription only &mdash; no PA activation. At the first payout, $139 deducted: $2,000 &times; 80% = $1,600 gross &minus; $139 = $1,461 net retained.</li>
+</ul>
+
+<div class="key-fact">Apex's per-PA activation is real cash out of pocket before the first payout possibility &mdash; the cluster's standard pattern. Earn2Trade defers $139 of total cost to the moment of first payout, but the flat 80/20 split takes 20% of every dollar from there forward. On small-volume traders the two pricing models end up close; on high-volume traders Apex's 100%-first-$25K carve-out widens the gap heavily in Apex's favor.</p></div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick apex">
+    <h4 class="firm-apex">Pick Apex 4.0 if&hellip;</h4>
+    <ul>
+      <li>You want real Live capital from day one of funding</li>
+      <li>You want EOD or intraday choice freedom per account</li>
+      <li>You're a high-velocity trader who'll benefit from the 100%-first-$25K carve-out</li>
+      <li>You're comfortable trading inside a 30% consistency rule on the funded side</li>
+      <li>You want Tradovate native + the cluster's broadest platform list</li>
+      <li>You're OK paying PA activation upfront for faster eval-to-funded cycles</li>
+    </ul>
+  </div>
+  <div class="pick earn2trade">
+    <h4 class="firm-earn2trade">Pick Earn2Trade if&hellip;</h4>
+    <ul>
+      <li>You want zero upfront activation cost (only monthly subscription)</li>
+      <li>You want a permanent LiveSim track that pays real money without conversion-to-Live</li>
+      <li>You want consistency rule to die at the funded gate (asymmetric days don't penalize)</li>
+      <li>You're OK with EOD-only trail and the flat 80/20 split</li>
+      <li>You need 200K size (GAU200 is the only cluster firm offering it as a fixed-size account)</li>
+      <li>You want weekly Wednesday payouts at a $100 minimum</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Why does Earn2Trade drop the consistency rule on funded accounts but Apex doesn't?</summary>
+  <p>It's a design choice each firm makes about what the consistency rule is FOR. Apex treats it as a permanent risk-shape constraint &mdash; the funded trader must always trade smoothly. Earn2Trade treats it as a one-shot filter that screens out lucky single-day evals; once that filter has done its job at the pass-gate, the rule has no further purpose. Both views are defensible; they produce very different funded-side experiences.</p>
+</details>
+
+<details>
+  <summary>Can I run an Apex PA and an Earn2Trade GAU at the same time?</summary>
+  <p>Yes &mdash; the firms are independent. Cross-firm hedging isn't enforceable by either rulebook (neither firm sees your other firm's positions). But cross-<em>account</em> hedging within Apex's PAs is regulated (copy-trade rules), and Earn2Trade prohibits copy-trading across its own programs. If you run both, do not coordinate equal-and-opposite positions across accounts within the same firm.</p>
+</details>
+
+<details>
+  <summary>What's actually different about LiveSim vs Live on Earn2Trade?</summary>
+  <p>LiveSim is simulated capital &mdash; the firm fills your orders against simulated liquidity, not a live broker. You still get paid real money (80% split) from the firm's balance sheet when you withdraw. Live converts you to real broker capital, where your orders hit live order flow with real fills, real slippage, real spreads. Withdrawal mechanics are identical. The 5.23% of 2025 passers who converted were typically traders who explicitly wanted real-broker execution; the 94.77% who stayed on LiveSim took the lower-friction route.</p>
+</details>
+
+<details>
+  <summary>If I want intraday trail, can I get it on Earn2Trade?</summary>
+  <p>No &mdash; Earn2Trade GAU is EOD-only across every size, and so is TCP. If intraday trail is non-negotiable, Apex 4.0 (per-account choice) is the cluster's answer, along with Bulenox Option 1 and MFFU's intraday tiers. We cover Apex's specific EOD-vs-intraday mechanic in <a href="/blog/apex-4-0-eod-vs-intraday-2026/">the dedicated explainer</a>.</p>
+</details>
+
+<details>
+  <summary>How does the $139 "first withdrawal" activation actually get charged?</summary>
+  <p>When you request your first payout from a funded Earn2Trade account, $139 is deducted from the payout amount before it lands in your payout method (Rise, Deel, Bayzat, or crypto). If your first payout is $500, you receive $361. If you never request a payout, you never pay the $139. The fee applies to non-professional LiveSim conversions per the firm's documentation &mdash; verify current terms with Earn2Trade's help center before relying on this.</p>
+</details>
+
+<details>
+  <summary>Does either firm support automated trading?</summary>
+  <p>Both restrict pure HFT and cross-account copy-trading. Apex's copy-trade rules across its own PAs are explicit and tight. Earn2Trade's clause covers "software, AI, or ultra-fast data entry techniques" &mdash; automated execution requires firm confirmation. Personal EAs that don't constitute HFT are typically tolerated at both firms but always confirm with current TOS before deploying.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio (with eval-vs-funded scope flag for Earn2Trade), and daily loss against either firm's preset in real time as you upload Tradovate / NinjaTrader / Sierra Chart fills. The same journal works across all your accounts and all your firms.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Apex + Earn2Trade accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Apex Trader Funding or Earn2Trade. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/apex-vs-tpt-2026/">Apex vs TPT</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs intraday</a> &middot; <a href="/blog/earn2trade-vs-topstep-2026/">Earn2Trade vs Topstep</a> &middot; <a href="/blog/best-prop-firms-2026/">Best prop firms 2026</a> &middot; <a href="/prop-firms/apex-trader-funding/">Apex landing</a> &middot; <a href="/prop-firms/earn2trade/">Earn2Trade landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
