@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Apex vs Topstep (2026): Honest Side-by-Side Comparison for Futures Traders | Aurafy</title>
+<meta name="description" content="Apex Trader Funding 4.0 vs Topstep — drawdown, trail type, consistency, profit targets, payouts compared side-by-side. Honest 2026 breakdown with worked examples." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/apex-vs-topstep-2026/" />
+<meta property="og:title" content="Apex vs Topstep (2026): Honest Side-by-Side Comparison" />
+<meta property="og:description" content="The complete 2026 comparison of Apex 4.0 and Topstep — drawdown mechanics, lock points, consistency, profit targets, payouts. Free calculators included." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --apex:#ff8a3d;
+    --topstep:#3ddc97;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-apex{color:var(--apex);font-weight:600}
+  .firm-topstep{color:var(--topstep);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.apex{border-left:3px solid var(--apex)}
+  .pick.topstep{border-left:3px solid var(--topstep)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Apex vs Topstep (2026): Honest Side-by-Side Comparison</h1>
+  <p class="lede">Two of the biggest futures prop firms, very different rulebooks. Here's the actual mechanics &mdash; drawdown, trail type, lock points, consistency, payouts &mdash; without the affiliate spin.</p>
+  <div class="meta">
+    <span>~9 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on the firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#drawdown">Trailing drawdown</a>
+  <a href="#consistency">Consistency rule</a>
+  <a href="#targets">Profit targets</a>
+  <a href="#dll">Daily loss limit</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+  <a href="#related">Related comparisons</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick Apex if</strong> you want lower profit targets, smaller drawdown, the option to choose EOD-only trailing (which is friendlier psychologically), and a $100 safety-net lock that gets you off the trail permanently a little earlier.
+</div>
+<div class="verdict">
+  <strong>Pick Topstep if</strong> you want a more polished platform &amp; education ecosystem, are okay with intraday trailing during the Combine, and prefer the cleaner "lock at starting balance" mechanic on the Express Funded Account (XFA).
+</div>
+<div class="verdict">
+  <strong>Both have the same trap:</strong> the trailing drawdown follows your equity high &mdash; not your closed P&amp;L &mdash; on intraday accounts. One spike up that you give back can ratchet your stop-out level higher and end the account on a normal pullback. Most blown accounts die here, not on a big losing trade.
+</div>
+
+<h2 id="sidebyside">Side-by-side at a glance</h2>
+<p>Numbers below come from each firm's public 2026 rulebook. The structural differences (trail type, lock point, consistency %) matter more than the dollar amounts.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="firm-apex">Apex 4.0</th>
+      <th class="firm-topstep">Topstep</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Evaluation style</td><td>1-step eval, no minimum days</td><td>Combine (1-step, no minimum days as of 2024)</td></tr>
+    <tr><td class="label">Account sizes</td><td>25K / 50K / 100K / 150K</td><td>50K / 100K / 150K</td></tr>
+    <tr><td class="label">Profit target (100K)</td><td class="num">$6,000</td><td class="num">$6,000</td></tr>
+    <tr><td class="label">Trailing drawdown (100K)</td><td class="num">$3,000</td><td class="num">$3,000</td></tr>
+    <tr><td class="label">Trail type</td><td>Your choice: EOD or Intraday (set at purchase)</td><td>Intraday (Combine) → EOD (XFA funded)</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting balance + $100</td><td>Starting balance ($0 net P&amp;L)</td></tr>
+    <tr><td class="label">Consistency rule</td><td>30% of total profit</td><td>50% of total profit</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>EOD accounts only (separate from trail)</td><td>Yes &mdash; scales with account ($1k / $2k / $3k)</td></tr>
+    <tr><td class="label">Funded payout style</td><td>Profit split, with first-payout minimum + frequency caps</td><td>Profit split via XFA, with frequency caps</td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.85rem;color:var(--muted)">Numbers verified June 2026. Account sizes &amp; targets are simplified to the headline tiers each firm offers most prominently.</p>
+
+<h2 id="drawdown">Trailing drawdown: the mechanic that ends most accounts</h2>
+
+<p>This is where Apex and Topstep diverge most. Both use a <strong>trailing drawdown</strong> that follows your high-water mark up but never back down &mdash; until it locks. The differences are <em>when</em> it tracks and <em>where</em> it locks.</p>
+
+<h3>Apex 4.0 trailing drawdown</h3>
+<ul>
+  <li><strong>You choose trail type at purchase:</strong> EOD (end-of-day) or Intraday. This is the biggest 4.0 change.</li>
+  <li><strong>EOD trail:</strong> calculated once at 4:59:59pm ET, then fixed for the next session but enforced in real time. Friendlier &mdash; your intraday equity spikes don't ratchet your stop-out higher.</li>
+  <li><strong>Intraday trail:</strong> tracks your live equity high, including unrealized P&amp;L. Spike up, give it back &rarr; your drawdown line moved up with the spike.</li>
+  <li><strong>Lock point:</strong> Starting Balance + $100. On a 100K, the trail stops when EOD balance reaches $103,100 (balance $100k + drawdown $3k + $100 safety net). After that, your stop-out level is fixed at the starting balance, permanently.</li>
+</ul>
+
+<h3>Topstep trailing drawdown</h3>
+<ul>
+  <li><strong>Combine (evaluation):</strong> intraday trailing &mdash; tracks live equity. Same risk as Apex intraday: an unrealized spike that pulls back can move your DD line up and end the eval on a normal trade.</li>
+  <li><strong>XFA (Express Funded Account):</strong> EOD trailing &mdash; recalculated at session close. Once your EOD balance reaches the starting balance ($0 net P&amp;L), the trail <strong>locks at starting balance</strong> permanently. So 100K locks at $100,000.</li>
+  <li><strong>Same number, cleaner threshold:</strong> Topstep's lock at starting balance (vs Apex's SB+$100) means once you're at break-even on EOD, your drawdown is fixed. Conceptually simpler to track in your head.</li>
+</ul>
+
+<div class="key-fact">
+  <strong>Bottom line on drawdown:</strong> Apex 4.0 gives you the choice of EOD from day one (a real edge if you size up). Topstep forces intraday in the Combine, then switches to EOD once funded. If you mostly fear the "unrealized spike ratchet," Apex's EOD option is the friendlier path through the evaluation.
+</div>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Trailing Drawdown Calculator</h4>
+    <p>See your exact lock threshold, current DD line, and the worst trade you can survive on either firm. Both intraday and EOD modeled.</p>
+    <a href="../../tools/trailing-drawdown-calculator/">Open calculator &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Futures P&amp;L Calculator</h4>
+    <p>ES / NQ / CL / GC and 25+ contracts. Get exact $ per tick, gross + net P&amp;L, $ risk, R-multiple &mdash; in the units your firm reports.</p>
+    <a href="../../tools/futures-pnl-calculator/">Open calculator &rarr;</a>
+  </div>
+</div>
+
+<h2 id="consistency">Consistency rule: the second silent killer</h2>
+
+<p>Both firms restrict how much of your total profit can come from a single big day. The thresholds are different and the math matters &mdash; one monster day can lock you out of a payout you'd otherwise be eligible for.</p>
+
+<ul>
+  <li><span class="firm-apex">Apex 4.0:</span> <strong>30%</strong> &mdash; no single day can exceed 30% of your total profit at payout time.</li>
+  <li><span class="firm-topstep">Topstep:</span> <strong>50%</strong> &mdash; no single day can exceed 50% of your total profit at payout time.</li>
+</ul>
+
+<p>Practically, Topstep gives you more headroom for a hero day. Apex forces flatter equity curves, which actually <em>helps</em> long-term consistency &mdash; but it can sting when one great trade pushes you over the threshold and you have to grind out extra "balancing" profit before requesting.</p>
+
+<div class="key-fact">
+  <strong>The formula to remember:</strong> the maximum profit a single day can have without breaking the rule is <code>threshold &times; total / (1 &minus; threshold)</code>. On Apex (30%): if you have $4,000 total profit, your best day can't exceed $1,714.29. On Topstep (50%): same $4k total &rarr; best day cap is $4,000 &mdash; literally the whole stack.
+</div>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Consistency Rule Calculator</h4>
+    <p>Paste your daily P&amp;L. Topstep 50% / Apex 30% / MFFU 40% presets. See if you're eligible and how much extra profit you need to balance the curve.</p>
+    <a href="../../tools/consistency-rule-calculator/">Open calculator &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Apex 4.0 rules guide</h4>
+    <p>Account sizes, lock thresholds, trail type comparison, $100 safety net mechanic, payout cycle &mdash; the full Apex 4.0 reference.</p>
+    <a href="../../prop-firms/apex-trader-funding/">Read the guide &rarr;</a>
+  </div>
+</div>
+
+<h2 id="targets">Profit targets &amp; account sizes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Apex 4.0 target</th>
+      <th>Apex 4.0 DD</th>
+      <th>Topstep target</th>
+      <th>Topstep DD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">25K</td><td class="num">$1,500</td><td class="num">$1,000</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td class="label">50K</td><td class="num">$3,000</td><td class="num">$2,000</td><td class="num">$3,000</td><td class="num">$2,000</td></tr>
+    <tr><td class="label">100K</td><td class="num">$6,000</td><td class="num">$3,000</td><td class="num">$6,000</td><td class="num">$2,000</td></tr>
+    <tr><td class="label">100K</td><td>&nbsp;</td><td>&nbsp;</td><td colspan="2" style="font-size:0.85rem;color:var(--muted)">Topstep 100K uses $3k DD on the standard Combine</td></tr>
+    <tr><td class="label">150K</td><td class="num">$9,000</td><td class="num">$4,000</td><td class="num">$9,000</td><td class="num">$3,000</td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.85rem;color:var(--muted)">Topstep's 150K Combine runs a tighter $3k drawdown vs Apex's $4k on the 150K &mdash; Apex gives you more cushion on the largest account.</p>
+
+<h2 id="dll">Daily loss limit (DLL)</h2>
+<ul>
+  <li><span class="firm-topstep">Topstep</span> applies a hard DLL on every account size: <strong>$1,000 / $2,000 / $3,000</strong> for the 50K / 100K / 150K respectively. Hit it intraday and your day ends; some account states end the account.</li>
+  <li><span class="firm-apex">Apex 4.0</span> only applies a DLL on accounts purchased with the <strong>EOD trail option</strong>. Intraday-trail Apex accounts have no separate DLL &mdash; the trailing drawdown <em>is</em> the floor.</li>
+</ul>
+<p>This is one of the cleanest reasons to prefer Apex if you're a position-sizer who occasionally takes a deep heat in a single direction: no second guillotine.</p>
+
+<h2 id="examples">Two worked examples</h2>
+
+<h3>Example A: same trade, different fates</h3>
+<p>Account: <strong>100K</strong>, both firms. You're up $1,800 by Wednesday. Thursday you push +$2,400 unrealized on a winning NQ runner, then give back to +$900 closed for the day.</p>
+<ul>
+  <li><strong>Apex intraday trail:</strong> high-water mark snapshot includes the $2,400 unrealized &rarr; your DD line moved up by that amount mid-day. End-of-day equity $102,700, DD line at $99,700. You have $3,000 headroom.</li>
+  <li><strong>Apex EOD trail:</strong> only end-of-day equity counts &rarr; DD line moves based on the +$900 close. End-of-day equity $102,700, DD line at $99,700 (same number here because EOD close matched), but tomorrow's DD is calculated from this close, not the unrealized spike.</li>
+  <li><strong>Topstep Combine (intraday):</strong> same as Apex intraday &mdash; the spike ratchets the DD.</li>
+  <li><strong>Topstep XFA (EOD):</strong> same as Apex EOD &mdash; the unrealized spike is ignored.</li>
+</ul>
+<p>Key takeaway: on intraday accounts, <em>your high-water mark is the print &mdash; not the close</em>. The difference is real money.</p>
+
+<h3>Example B: consistency rule blocks a payout</h3>
+<p>You've made <strong>$5,500</strong> total profit on the funded account. Your best day was <strong>$2,800</strong>.</p>
+<ul>
+  <li><span class="firm-apex">Apex 30% rule:</span> max allowed best day = 30% of $5,500 = <strong>$1,650</strong>. You're $1,150 over. To request payout, you need extra profit so the $2,800 day becomes 30% of the new total: $2,800 / 0.30 = $9,333 total needed. <strong>You need ~$3,833 more in profit</strong> before you can request.</li>
+  <li><span class="firm-topstep">Topstep 50% rule:</span> max allowed best day = 50% of $5,500 = <strong>$2,750</strong>. You're $50 over. $2,800 / 0.50 = $5,600 total needed. <strong>You need ~$100 more in profit</strong> before you can request.</li>
+</ul>
+<p>Same trader, same days &mdash; Topstep lets you request payout almost immediately, Apex blocks it for weeks of grind. This is the case <em>for</em> Topstep if you swing for big days. It's also the case <em>against</em> Topstep if you want a discipline mechanism baked in.</p>
+
+<h2 id="pick">Which one should you pick?</h2>
+
+<div class="pick-grid">
+  <div class="pick apex">
+    <h4 class="firm-apex">Apex 4.0 is better if&hellip;</h4>
+    <ul>
+      <li>You want EOD trailing from day one (less psychological pressure on intraday spikes).</li>
+      <li>You prefer a smaller drawdown to trade against on the 100K ($3k vs Topstep's $3k &mdash; tied, but with the safety net lock at SB+$100).</li>
+      <li>You're a flatter, more steady trader &mdash; the 30% consistency suits you.</li>
+      <li>You want a 25K starter account to validate your process at lower cost.</li>
+      <li>You don't want a separate DLL on top of the trail (intraday-trail accounts).</li>
+    </ul>
+  </div>
+  <div class="pick topstep">
+    <h4 class="firm-topstep">Topstep is better if&hellip;</h4>
+    <ul>
+      <li>You want the cleaner "lock at starting balance" math on the XFA &mdash; easier to track mentally.</li>
+      <li>You want the bigger headroom of a 50% consistency rule for hero-day strategies.</li>
+      <li>You value Topstep's education + coaching + performance dashboards (a real ecosystem advantage).</li>
+      <li>You like a hard DLL as a forced stop &mdash; a circuit breaker on tilt days.</li>
+      <li>You want intraday-trail accountability in the Combine to harden your discipline before going funded.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>Don't trade prop on memory.</h3>
+  <p>Drawdown lines, consistency thresholds, payout windows &mdash; one number wrong and the account is gone. Aurafy auto-logs every futures trade from Tradovate / NinjaTrader / Sierra / Rithmic and shows you your real DD headroom, consistency ratio, and per-firm rule state in one dashboard. Free tier covers 30 days &amp; 1 account, no card.</p>
+  <a class="btn" href="https://aurafy.dev?utm_source=tools&utm_medium=apex-vs-topstep-blog&utm_campaign=comparison">Try Aurafy free</a>
+  <a class="btn ghost" href="https://aurafy.dev/pricing?utm_source=tools&utm_medium=apex-vs-topstep-blog&utm_campaign=comparison">See the $19 founder offer</a>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I trade Apex and Topstep at the same time?</summary>
+  <p>Yes &mdash; many traders do. Both allow it, with their own scaling rules on number of contracts per account. Just make sure you can mentally separate the DD math; the worst mistake is bringing one firm's lock point to the other firm's trade.</p>
+</details>
+
+<details>
+  <summary>Which has the cheaper monthly evaluation fee?</summary>
+  <p>It depends on size and active promo cycle, and both run frequent discounts. Don't pick on monthly fee alone &mdash; pick on whether the rule set matches your trading style. A $50 difference in eval fee is rounding error vs blowing a $100K account on a rule you didn't model.</p>
+</details>
+
+<details>
+  <summary>If I'm scalping, which one should I use?</summary>
+  <p>Apex's EOD-trail option is friendlier for scalpers who take a lot of small unrealized swings &mdash; your high-water mark doesn't move on every intraday spike. On Topstep Combine, every spike up matters. Once you're on a Topstep XFA, EOD trailing applies and the disadvantage disappears.</p>
+</details>
+
+<details>
+  <summary>What ends most accounts &mdash; drawdown or consistency?</summary>
+  <p>Drawdown, by a wide margin. Consistency blocks payouts but doesn't end accounts &mdash; you can keep trading. Trailing drawdown ends the account permanently. Spend 80% of your attention on the trail, 20% on consistency.</p>
+</details>
+
+<details>
+  <summary>Are these rules current?</summary>
+  <p>As of June 2026, yes. Apex 4.0 launched March 2026 with the choose-your-trail change and the $100 safety net lock. Topstep's Combine + XFA structure has been stable since the 2024 simplification. <strong>Always verify on the firm's own rulebook before purchase</strong> &mdash; both firms update terms periodically.</p>
+</details>
+
+<details>
+  <summary>Do you work with Apex or Topstep?</summary>
+  <p>No. Aurafy is independent. We don't take affiliate revenue from either firm, and we don't have a horse in this race. We make a trading journal that supports both because that's what futures traders pay for.</p>
+</details>
+
+<h2 id="related">Related comparisons</h2>
+<p style="color:var(--muted);margin:0 0 14px">Side-by-side breakdowns of the other prop-firm pairs futures traders actually weigh against Apex and Topstep.</p>
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Apex vs MyFundedFutures (2026)</h4>
+    <p>Same SB + $100 safety-net lock family &mdash; different consistency thresholds (30% vs 40%) and different payout philosophy.</p>
+    <a href="../apex-vs-mffu-2026/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Topstep vs MyFundedFutures (2026)</h4>
+    <p>Two different lock points (SB vs SB+$100) and two different consistency policies (50% eval-only vs 40% eval+funded).</p>
+    <a href="../topstep-vs-mffu-2026/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Topstep vs Take Profit Trader (2026)</h4>
+    <p>Both lock at starting balance, but Topstep is 2-phase intraday&rarr;EOD; TPT is 3-phase EOD&rarr;intraday&rarr;EOD.</p>
+    <a href="../topstep-vs-tpt-2026/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Earn2Trade vs Topstep (2026)</h4>
+    <p>Topstep's 2-phase XFA real-capital vs Earn2Trade's LiveSim with activation-fee-from-first-withdrawal &mdash; opposite payment philosophies.</p>
+    <a href="../earn2trade-vs-topstep-2026/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>TPT vs Tradeify (2026)</h4>
+    <p>Different lock families (SB vs SB+$100), different lifecycle trail shifts. Useful if you're sizing the SB-lock vs safety-net trade-off.</p>
+    <a href="../tpt-vs-tradeify-2026/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Bulenox vs Tradeify (2026)</h4>
+    <p>Both Rithmic-cleared, both SB + $100 family. Differences are payout cadence, scaling, and program variant flexibility.</p>
+    <a href="../bulenox-vs-tradeify-2026/">Read &rarr;</a>
+  </div>
+</div>
+
+<h2>Further reading</h2>
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Apex Trader Funding 4.0 Rules Explained</h4>
+    <p>Deep dive on the Apex 4.0 rule set &mdash; trail mechanic, $100 safety net lock, 30% consistency, payouts.</p>
+    <a href="../../prop-firms/apex-trader-funding/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Topstep Rules Explained: Combine, XFA &amp; Trailing Drawdown</h4>
+    <p>Combine vs XFA, lock at starting balance, 50% consistency, the daily loss limit &mdash; the complete Topstep reference.</p>
+    <a href="../../prop-firms/topstep/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Best Prop Firms 2026 (Futures)</h4>
+    <p>The full head-to-head across all 7 firms researched &mdash; rule-driven shortlist, not affiliate-ranked.</p>
+    <a href="../best-prop-firms-2026/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Trade Replay vs Screen Recording</h4>
+    <p>Why most "trade replay" only replays the chart and misses what actually decided the trade &mdash; the screen-recording wedge.</p>
+    <a href="../trade-replay-vs-screen-recording/">Read &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <p>Independent guide by <a href="https://aurafy.dev">Aurafy</a> &mdash; futures trading journal + screen recording + bar-replay backtester. Not affiliated with Apex Trader Funding or Topstep. Rules are current as of June 2026 &mdash; always verify on the firm's own site.</p>
+</footer>
+
+</div>
+</body>
+</html>

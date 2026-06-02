@@ -14,6 +14,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 
 | Slug | Title | Status | Published | Updated |
 |---|---|---|---|---|
+| `apex-vs-topstep-2026` | Apex vs Topstep (2026): Honest Side-by-Side Comparison for Futures Traders | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `best-prop-firms-2026` | Best Prop Firms for Futures Traders (2026): Honest Ranking | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 
 **Status values:**
