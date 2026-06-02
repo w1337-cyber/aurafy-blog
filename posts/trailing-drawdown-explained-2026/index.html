@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Trailing Drawdown Explained (2026): The Floor You Can't See That Closes Most Funded Accounts | Aurafy</title>
+<meta name="description" content="A canonical 2026 explainer of how prop-firm trailing drawdown actually works — intraday HWM vs EOD trail, the SB vs SB+$100 lock point, and why most blown funded accounts die to a rule the trader never saw." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/" />
+<meta property="og:title" content="Trailing Drawdown Explained: The Floor You Can't See That Closes Most Funded Accounts" />
+<meta property="og:description" content="The mechanic-level explainer of prop-firm trailing drawdown: how the floor moves, where it locks, and why Topstep, Apex 4.0, MFFU, TPT, Tradeify, Bulenox, and Earn2Trade do it differently." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --eod:#3ddc97;
+    --intra:#ff8a3d;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.92rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-eod{color:var(--eod);font-weight:600}
+  .firm-intra{color:var(--intra);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .flavor-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.flavor-grid{grid-template-columns:1fr 1fr}}
+  .flavor{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .flavor h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .flavor.eod{border-left:3px solid var(--eod)}
+  .flavor.intra{border-left:3px solid var(--intra)}
+  .flavor ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .flavor li{margin-bottom:4px}
+  .scenario{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0}
+  .scenario h4{margin:0 0 10px;font-size:1.02rem;color:#fff}
+  .timeline{font-family:var(--mono);font-size:0.88rem;color:#d6dde6;background:var(--panel-2);padding:12px 14px;border-radius:8px;margin:10px 0;line-height:1.65}
+  .timeline .ok{color:var(--green)}
+  .timeline .bad{color:var(--red)}
+  .timeline .warn{color:var(--amber)}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .related{display:grid;gap:10px;margin:14px 0}
+  @media(min-width:640px){.related{grid-template-columns:1fr 1fr}}
+  .related a{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:block;color:var(--text)}
+  .related a:hover{text-decoration:none;border-color:var(--accent)}
+  .related a strong{display:block;color:#fff;font-size:0.95rem;margin-bottom:4px}
+  .related a span{color:var(--muted);font-size:0.84rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Trailing Drawdown Explained: The Floor You Can't See That Closes Most Funded Accounts</h1>
+  <p class="lede">Trailing drawdown is the single rule that closes more prop-firm accounts than any other — and most traders only learn how it actually works after it closes theirs. Here's the mechanic-level explainer: the two flavors, the lock point, and why six major firms each implement it slightly differently.</p>
+  <div class="meta">
+    <span>~7 min read</span>
+    <span>Published June 2026</span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>Verify with your firm — rules change.</strong> Apex 4.0 landed in March 2026 with a new lock-point convention; Topstep moved off Rithmic in 2024; some firms tweak DD math per program variant. The numbers below were correct at publish time, but always confirm against your firm's current rules page before sizing a trade against a calculated floor.
+</div>
+
+<div class="toc">
+  <a href="#what">What "trailing drawdown" actually means</a>
+  <a href="#flavors">The two flavors — Intraday vs EOD</a>
+  <a href="#lock">The lock point — SB vs SB + $100</a>
+  <a href="#example">Worked example — same trade, two firms</a>
+  <a href="#math">The formula</a>
+  <a href="#firms">By firm — 2026 matrix</a>
+  <a href="#tools">Free calculator</a>
+  <a href="#faq">FAQ</a>
+</div>
+
+<h2 id="what">What "trailing drawdown" actually means</h2>
+<p>A trailing drawdown is a moving floor underneath your account. It starts a fixed distance below the account's starting balance — say, $3,000 below a 100K account, putting the floor at $97,000. As your account grows, the floor moves <em>up</em> behind it. When your account shrinks, the floor stays where it is. Touch the floor with your balance, and the account closes — no warning, no second chance, no "are you sure."</p>
+
+<p>The reason most blown funded accounts die to this rule isn't that traders don't <em>know</em> trailing drawdown exists. It's that they don't track where it currently sits. The floor at the start of today's session is rarely the floor at the start of yesterday's. After a strong session, it's higher. After a clean run of profitable days, it can sit dangerously close to your live balance — close enough that a normal-sized losing trade now becomes account-ending.</p>
+
+<div class="key-fact">
+  <strong>The honest one-liner:</strong> trailing drawdown means the more you make, the smaller your real risk budget becomes — until it locks at a fixed number, after which it stops moving. The unlock is the lock event. Until then, your usable buffer shrinks every winning session.
+</div>
+
+<h2 id="flavors">The two flavors — Intraday HWM vs End-of-Day (EOD)</h2>
+<p>Every firm running a trailing drawdown picks one of two implementations. The headline number can look identical — "$3,000 trail on a 100K account" — but the trigger timing is completely different.</p>
+
+<div class="flavor-grid">
+  <div class="flavor intra">
+    <h4>Intraday HWM trail</h4>
+    <ul>
+      <li>Floor recalculates off the <strong>highest unrealized P&L</strong> reached at any tick during the session.</li>
+      <li>A wick that touches +$1,200 unrealized then pulls back to +$300 closed counts as +$1,200 for floor-movement purposes.</li>
+      <li>Penalizes hold-through-runner style: every favorable spike ratchets the floor up.</li>
+      <li>Used by: <span class="firm-intra">Topstep Combine</span>, Apex 4.0 Intraday option, Bulenox Option 1, MFFU on most plans.</li>
+    </ul>
+  </div>
+  <div class="flavor eod">
+    <h4>End-of-Day (EOD) trail</h4>
+    <ul>
+      <li>Floor recalculates only off the <strong>closed daily P&L</strong> at session end.</li>
+      <li>Wicks that don't survive to the daily close don't count. Only what you actually banked moves the floor.</li>
+      <li>Lets you hold runners without paying the wick-tax for unrealized highs you didn't capture.</li>
+      <li>Used by: <span class="firm-eod">Apex 4.0 EOD option</span>, Bulenox Option 2, Tradeify Growth, some TPT phases.</li>
+    </ul>
+  </div>
+</div>
+
+<p>Intraday HWM is the harsher mechanic for traders who let trades run; EOD is harsher for traders who give back winners into the close. Neither is "better" in absolute terms — they reward different trading styles. The <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs Intraday deep dive</a> walks the exact same-trade comparison for the one firm that lets you choose.</p>
+
+<h2 id="lock">The lock point — SB vs SB + $100</h2>
+<p>The floor doesn't trail forever. At a firm-specific threshold, it freezes — usually at or near the starting balance — and never moves again. The lock is where you finally earn a stable buffer that doesn't shrink with every winning session. There are two conventions in 2026, and which one your firm uses changes the math significantly.</p>
+
+<table>
+  <thead>
+    <tr><th>Lock convention</th><th>What it means</th><th>Used by</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="label">Starting balance (SB)</td>
+      <td>Floor locks exactly at the account's original starting balance. On a 100K account, the floor freezes at $100,000.</td>
+      <td>Topstep, TPT, Earn2Trade</td>
+    </tr>
+    <tr>
+      <td class="label">SB + $100</td>
+      <td>Floor locks $100 above the starting balance — a small "safety net" added by the 4.0-era SB+$100 family of firms. On a 100K account, the floor freezes at $103,100 (after rising $3,100 above SB).</td>
+      <td>Apex 4.0, MFFU, Tradeify, Bulenox</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="key-fact">
+  <strong>Why the $100 matters more than it looks:</strong> on an SB account the locked buffer is exactly the initial DD ($3,000 on 100K). On an SB+$100 account the locked buffer is the initial DD <em>minus</em> the $100 safety-net gain — and you have to clear that extra $100 above SB before the floor stops moving at all. Same headline DD, slightly different real economics. The <a href="/blog/best-prop-firms-2026/#related">lock-family grouping on the firm hub</a> walks the cousin pairs.
+</div>
+
+<h2 id="example">Worked example — same $1,800 profit, two firms</h2>
+<p>Same trader, same Combine size (100K), same winning week of +$1,800 closed P&L spread across five sessions. Two different firms with two different trail-DD conventions: Topstep (intraday HWM, SB lock) and Apex 4.0 EOD (EOD trail, SB+$100 lock).</p>
+
+<div class="scenario">
+  <h4>Day-by-day floor movement</h4>
+  <div class="timeline">
+DAY 1 — closed +$400, peak unrealized hit +$700<br>
+&nbsp;&nbsp;<span class="warn">Topstep:</span> floor moves +$700 (off the wick). New floor = $97,700.<br>
+&nbsp;&nbsp;<span class="ok">Apex 4.0 EOD:</span> floor moves +$400 (off close). New floor = $97,400.<br><br>
+DAY 2 — closed +$500, peak unrealized hit +$800<br>
+&nbsp;&nbsp;<span class="warn">Topstep:</span> floor moves +$800. New floor = $98,500.<br>
+&nbsp;&nbsp;<span class="ok">Apex 4.0 EOD:</span> floor moves +$500. New floor = $97,900.<br><br>
+DAY 3 — closed +$300, peak unrealized hit +$600<br>
+&nbsp;&nbsp;<span class="warn">Topstep:</span> floor moves +$600. New floor = $99,100.<br>
+&nbsp;&nbsp;<span class="ok">Apex 4.0 EOD:</span> floor moves +$300. New floor = $98,200.<br><br>
+DAY 4 — closed +$400, peak unrealized hit +$900<br>
+&nbsp;&nbsp;<span class="warn">Topstep:</span> floor moves +$900. New floor = <strong>$100,000 (LOCKED)</strong>.<br>
+&nbsp;&nbsp;<span class="ok">Apex 4.0 EOD:</span> floor moves +$400. New floor = $98,600.<br><br>
+DAY 5 — closed +$200, peak unrealized hit +$500<br>
+&nbsp;&nbsp;<span class="warn">Topstep:</span> floor LOCKED at $100,000 — no further movement. Buffer = balance − $100,000.<br>
+&nbsp;&nbsp;<span class="ok">Apex 4.0 EOD:</span> floor moves +$200. New floor = $98,800. Still 4,300 below lock.
+   </div>
+</div>
+
+<p>End of week: same trader, same closed P&L, but Topstep's floor has rocketed up 2,300 because of the intraday wicks and has already locked at SB — meaning the trader has a real stable buffer. Apex 4.0 EOD's floor has only moved $1,800 (matching the actual close P&L) and still has ~$4,300 to go before locking at $103,100. The Apex trader has more <em>current</em> buffer-to-floor headroom; the Topstep trader has an earlier <em>locked</em> floor that no future wick can move.</p>
+
+<div class="key-fact">
+  <strong>This is the actual wedge between the two trail conventions.</strong> Intraday HWM punishes the journey but rewards the lock. EOD is forgiving on the journey but the lock takes longer to reach. Neither is strictly better — they reward different trade-management styles.
+</div>
+
+<h2 id="math">The formula</h2>
+<p>For any account on any firm, the live trail-DD floor at any moment is:</p>
+
+<div class="key-fact">
+  <strong>floor = max(starting_balance − initial_DD, peak_balance − initial_DD)</strong>, capped at the lock point.<br><br>
+  Where <em>peak_balance</em> is either the highest closed daily balance (EOD) or the highest intraday balance including unrealized P&L (Intraday HWM), depending on which flavor your firm uses. The lock point is either SB or SB + $100.
+</div>
+
+<p>Two practical consequences:</p>
+<ul>
+  <li><strong>Headroom = current_balance − floor</strong>. This is your <em>real</em> max-loss budget today, not the headline DD. Track this, not the starting DD.</li>
+  <li><strong>Distance to lock = lock_point − floor</strong>. The smaller this gets, the closer you are to having a permanent stable buffer. Until then, every winning session shrinks your usable budget.</li>
+</ul>
+
+<h2 id="firms">By firm — 2026 trail-DD matrix</h2>
+<p>The six largest US prop firms in 2026, side-by-side, on the two questions that matter — flavor and lock point. All numbers are for the most popular Combine / eval size (100K) at publish time; verify with your firm before sizing.</p>
+
+<table>
+  <thead>
+    <tr><th>Firm</th><th>Trail flavor</th><th>Lock point</th><th>Locked buffer (100K)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Topstep</td><td><span class="firm-intra">Intraday HWM</span></td><td>SB ($100,000)</td><td class="num">$3,000</td></tr>
+    <tr><td class="label">Apex 4.0 Intraday</td><td><span class="firm-intra">Intraday HWM</span></td><td>SB + $100 ($103,100)</td><td class="num">$3,100</td></tr>
+    <tr><td class="label">Apex 4.0 EOD</td><td><span class="firm-eod">EOD</span></td><td>SB + $100 ($103,100)</td><td class="num">$3,100</td></tr>
+    <tr><td class="label">MyFundedFutures</td><td><span class="firm-intra">Intraday HWM</span></td><td>SB + $100 ($103,100)</td><td class="num">$3,100</td></tr>
+    <tr><td class="label">TPT (Test/PRO/PRO+)</td><td>Phase-shifts (EOD → Intraday → EOD)</td><td>SB ($100,000)</td><td class="num">$2,500</td></tr>
+    <tr><td class="label">Tradeify Growth</td><td><span class="firm-eod">EOD</span></td><td>SB + $100 ($103,100)</td><td class="num">$3,100</td></tr>
+    <tr><td class="label">Bulenox Option 1 / 2</td><td>Choice: <span class="firm-intra">Intraday</span> or <span class="firm-eod">EOD</span></td><td>SB + $100 ($103,100)</td><td class="num">$3,000</td></tr>
+    <tr><td class="label">Earn2Trade GAU</td><td><span class="firm-eod">EOD</span></td><td>SB ($100,000)</td><td class="num">$3,500</td></tr>
+  </tbody>
+</table>
+
+<p>Two structural patterns in this table worth seeing:</p>
+<ul>
+  <li><strong>Lock family splits the cluster.</strong> Topstep, TPT, and Earn2Trade lock at the original SB (the "SB family"). Apex 4.0, MFFU, Tradeify, and Bulenox lock at SB + $100 (the "SB+$100 family"). The <a href="/blog/best-prop-firms-2026/#related">hub Related-comparisons grid</a> groups every firm-vs-firm comparison by this lock family.</li>
+  <li><strong>Flavor is mostly fixed by firm — Apex 4.0 and Bulenox are the exceptions.</strong> Most firms ship one trail mechanic; only Apex 4.0 (at purchase) and Bulenox (Option 1 vs Option 2) let you pick. That choice is permanent on Apex 4.0, account-specific on Bulenox.</li>
+</ul>
+
+<h2 id="tools">See your real floor — not just the headline DD</h2>
+<p>The headline drawdown number on your firm's marketing page is the starting DD. After three winning sessions, your real floor is somewhere else — and you can't see it from the broker's UI. These tools run in your browser, no login, no card:</p>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Trailing Drawdown Calculator</h4>
+    <p>Topstep, Apex 4.0 (EOD + Intraday), MFFU, TPT, Tradeify, Bulenox, Earn2Trade presets. Enter your closed P&L history → see your real current floor, headroom, and distance-to-lock.</p>
+    <a href="/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=trailing-drawdown-explained">Open the calculator →</a>
+  </div>
+  <div class="tool-card">
+    <h4>Position Size Calculator (Prop-Firm Aware)</h4>
+    <p>Stop in ticks → max contracts, % of trail-DD buffer used per trade, N losses to floor. Same firm presets as the trail calc; pairs naturally.</p>
+    <a href="/tools/position-size-calculator/?utm_source=blog&utm_medium=trailing-drawdown-explained">Open the calculator →</a>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>Track the floor automatically — and the rest of the rule stack with it</h3>
+  <p>Aurafy reads your broker's CSV or Rithmic statement, computes the live trail-DD floor for each account against the correct firm preset (Topstep, Apex 4.0 EOD or Intraday, MFFU, TPT phase-shift-aware, Tradeify, Bulenox, Earn2Trade), and shows you the headroom <em>before</em> you size the next trade. Same tool also covers consistency-rule thresholds, daily loss limits where applicable, and the screen recording the brokers don't ship. Free tier never expires (last 30 days, 1 account, 3 playbooks, no card). First 50 founders: $19/mo locked for life.</p>
+  <a class="btn" href="https://aurafy.dev?utm_source=blog&utm_medium=trailing-drawdown-explained&utm_campaign=cta">Start free — no card</a>
+  <a class="btn ghost" href="https://aurafy.dev/pricing?utm_source=blog&utm_medium=trailing-drawdown-explained&utm_campaign=cta">See $19 founder seat</a>
+</div>
+
+<h2 id="faq">FAQ — trailing drawdown</h2>
+
+<details>
+  <summary>Does the trailing drawdown stop trailing once I pass the eval?</summary>
+  <p>Depends on the firm. On most SB-family firms (Topstep, Earn2Trade), the trail continues into the funded account and locks at the starting balance. On SB+$100 firms (Apex 4.0, MFFU, Tradeify, Bulenox), the trail continues until the lock at SB + $100. TPT shifts the trail mechanic across Test → PRO → PRO+ phases (EOD → Intraday → EOD), keeping the same SB lock. The eval is not the lock event — passing the eval just transitions you into the funded version of the same rule.</p>
+</details>
+
+<details>
+  <summary>Is unrealized P&L the same as "intraday HWM" P&L?</summary>
+  <p>For firms running intraday HWM trail (Topstep, Apex 4.0 Intraday, MFFU, Bulenox Option 1), yes — the floor tracks the highest balance including open positions. A wick to +$1,200 unrealized on a position you closed at +$300 counts as +$1,200 for floor-movement purposes. For EOD-trail firms (Apex 4.0 EOD, Tradeify Growth, Bulenox Option 2, Earn2Trade), unrealized P&L is ignored — only the closed daily balance moves the floor.</p>
+</details>
+
+<details>
+  <summary>What's the difference between trailing drawdown and a daily loss limit?</summary>
+  <p>The trailing drawdown is account-life: one floor, moves up with profits, never moves back down, locks at SB or SB+$100, hitting it closes the account. A daily loss limit (DLL) is session-life: resets every trading day, hitting it ends today's session but doesn't close the account. Some firms run both (Topstep enforces DLL on NinjaTrader but removed it on TopstepX in 2024); some run trail only (Apex 4.0, MFFU); some run neither (MFFU on funded). Track them as two separate floors with two separate consequences. <a href="/blog/topstep-vs-mffu-2026/#dll-vs-no-dll">Topstep vs MFFU walks the DLL contrast in detail.</a></p>
+</details>
+
+<details>
+  <summary>Does the trail lock back if I lose after locking?</summary>
+  <p>No. Lock is permanent. Once your floor reaches SB or SB+$100 (depending on firm), it freezes there. A subsequent losing run that takes your balance below the locked floor closes the account — but the floor doesn't move down. The lock is your reward for the climb; account closure is the only event that ends the rule's life.</p>
+</details>
+
+<details>
+  <summary>If I add to my account or take a payout, does the trail reset?</summary>
+  <p>Trail does not reset on add/withdrawal in general — the floor reference is the starting balance set at purchase. Payouts are deducted from your live balance but do not change the floor's mathematical position. This is the rule that makes consistency-rule + payout-eligibility tracking non-trivial: a payout doesn't give you a fresh DD buffer; it shrinks the buffer above the existing floor. Plan payouts <em>after</em> the trail has locked, not during the climb.</p>
+</details>
+
+<details>
+  <summary>Why does my firm's marketing page show a smaller number than my calculator's floor?</summary>
+  <p>The marketing page shows the starting DD (the gap at purchase between SB and the initial floor — e.g. "$3,000 trailing drawdown on 100K"). Your calculator's floor is the current floor after every closed session's movement. After three winning days, those are two different numbers. The marketing number is the starting condition; the calculator number is the live state. Always track live state for sizing decisions, not the starting condition.</p>
+</details>
+
+<h2>Related deep-dives</h2>
+<div class="related">
+  <a href="/blog/apex-4-0-eod-vs-intraday-2026/"><strong>Apex 4.0 EOD vs Intraday Drawdown</strong><span>The only firm in 2026 that lets you pick your trail flavor at purchase — and locks the choice forever.</span></a>
+  <a href="/blog/best-prop-firms-2026/"><strong>The Best Prop Firms (2026) — Hub</strong><span>Side-by-side rule matrix across all 7 major firms, grouped by lock family.</span></a>
+  <a href="/blog/topstep-vs-mffu-2026/"><strong>Topstep vs MyFundedFutures</strong><span>DLL vs no-DLL, plus the SB vs SB+$100 lock divergence between the two largest non-Apex firms.</span></a>
+  <a href="/blog/trade-replay-vs-screen-recording/"><strong>Trade Replay vs Screen Recording</strong><span>Why "replay your mistakes" means two different things — and which one actually surfaces the moment you mis-sized against the trail-DD floor.</span></a>
+</div>
+
+<footer>
+  <p><strong>Aurafy</strong> — Futures trading journal + screen recording + bar-replay backtester for prop-firm traders.</p>
+  <p>Independent explainer. Topstep, Apex Trader Funding, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and Earn2Trade are trademarks of their respective owners. Aurafy is not affiliated with any of them. Trail-DD math + lock thresholds verified against each firm's published rules as of June 2026 — verify directly with your firm before sizing any trade.</p>
+  <p><a href="https://aurafy.dev?utm_source=blog&utm_medium=trailing-drawdown-explained">aurafy.dev</a></p>
+</footer>
+
+</div>
+</body>
+</html>

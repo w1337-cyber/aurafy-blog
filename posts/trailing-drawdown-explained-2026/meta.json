@@ -1,0 +1,15 @@
+{
+  "slug": "trailing-drawdown-explained-2026",
+  "title": "Trailing Drawdown Explained (2026): The Floor You Can't See That Closes Most Funded Accounts",
+  "description": "A canonical 2026 explainer of how prop-firm trailing drawdown actually works — intraday HWM vs EOD trail, the SB vs SB+$100 lock point, and why most blown funded accounts die to a rule the trader never saw.",
+  "canonical": "https://aurafy.dev/blog/trailing-drawdown-explained-2026/",
+  "published": "2026-06-03",
+  "updated": "2026-06-03",
+  "og": {
+    "title": "Trailing Drawdown Explained: The Floor You Can't See That Closes Most Funded Accounts",
+    "description": "The mechanic-level explainer of prop-firm trailing drawdown: how the floor moves, where it locks, and why Topstep, Apex 4.0, MFFU, TPT, Tradeify, Bulenox, and Earn2Trade do it differently.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "explainer", "trailing-drawdown", "topstep", "apex", "mffu", "tpt", "tradeify", "bulenox", "earn2trade", "2026"],
+  "source_path": "posts/trailing-drawdown-explained-2026/index.html"
+}
