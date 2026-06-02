@@ -35,6 +35,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `apex-vs-tpt-2026` | Apex vs TPT (2026): Pick Your Trail Once vs Pick It Three Times | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `apex-vs-earn2trade-2026` | Apex vs Earn2Trade (2026): Same 30% Consistency Rule, Opposite Lifetime | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `trailing-drawdown-explained-2026` | Trailing Drawdown Explained (2026): The Floor You Can't See That Closes Most Funded Accounts | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
+| `consistency-rule-explained-2026` | Consistency Rule Explained (2026): Why Your Best Days Can Lock Out Your Best Months | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy

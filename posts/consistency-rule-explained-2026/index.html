@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Consistency Rule Explained (2026): Why Your Best Days Can Lock Out Your Best Months | Aurafy</title>
+<meta name="description" content="A canonical 2026 explainer of how prop-firm consistency rules actually work — what the threshold means, when it dies (or doesn't) at the funded gate, and why one $5K day can blow a $9K month at three of the seven major firms." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/consistency-rule-explained-2026/" />
+<meta property="og:title" content="Consistency Rule Explained: Why Your Best Days Can Lock Out Your Best Months" />
+<meta property="og:description" content="The mechanic-level explainer of prop-firm consistency rules: thresholds, lifecycle scope, and where Topstep, Apex 4.0, MFFU, TPT, Tradeify, Bulenox, and Earn2Trade each draw the line." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --eval:#5b8def;
+    --funded:#3ddc97;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.92rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-eval{color:var(--eval);font-weight:600}
+  .firm-funded{color:var(--funded);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .flavor-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.flavor-grid{grid-template-columns:1fr 1fr}}
+  .flavor{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .flavor h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .flavor.eval{border-left:3px solid var(--eval)}
+  .flavor.funded{border-left:3px solid var(--funded)}
+  .flavor ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .flavor li{margin-bottom:4px}
+  .scenario{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0}
+  .scenario h4{margin:0 0 10px;font-size:1.02rem;color:#fff}
+  .timeline{font-family:var(--mono);font-size:0.88rem;color:#d6dde6;background:var(--panel-2);padding:12px 14px;border-radius:8px;margin:10px 0;line-height:1.65}
+  .timeline .ok{color:var(--green)}
+  .timeline .bad{color:var(--red)}
+  .timeline .warn{color:var(--amber)}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .related{display:grid;gap:10px;margin:14px 0}
+  @media(min-width:640px){.related{grid-template-columns:1fr 1fr}}
+  .related a{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:block;color:var(--text)}
+  .related a:hover{text-decoration:none;border-color:var(--accent)}
+  .related a strong{display:block;color:#fff;font-size:0.95rem;margin-bottom:4px}
+  .related a span{color:var(--muted);font-size:0.84rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Consistency Rule Explained: Why Your Best Days Can Lock Out Your Best Months</h1>
+  <p class="lede">The consistency rule is the second-biggest cause of prop-firm payout denials in 2026 — and it's the only rule that can fail you <em>after</em> you've already hit your profit target. Here's the mechanic-level explainer: what the threshold actually measures, why three firms drop it at the funded gate, and the formula that tells you the minimum total profit needed to bank any single day's win.</p>
+  <div class="meta">
+    <span>~7 min read</span>
+    <span>Published June 2026</span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>Verify with your firm — rules change.</strong> Tradeify's 3-archetype inversion was a 2025 rewrite; Earn2Trade dropped the consistency rule from the funded side mid-2024; Topstep raised the Combine threshold to 50% in late 2023. The numbers below were correct at publish time, but always confirm against your firm's current rules page before sizing a single-day push.
+</div>
+
+<div class="toc">
+  <a href="#what">What "consistency rule" actually means</a>
+  <a href="#flavors">The two scopes — eval-only vs lifetime</a>
+  <a href="#thresholds">The threshold values — 30, 35, 40, 50</a>
+  <a href="#example">Worked example — same $4,500 day, four firms</a>
+  <a href="#math">The formula</a>
+  <a href="#firms">By firm — 2026 matrix</a>
+  <a href="#tools">Free calculator</a>
+  <a href="#faq">FAQ</a>
+</div>
+
+<h2 id="what">What "consistency rule" actually means</h2>
+<p>A consistency rule caps how much of your total profit can come from a single day. The cap is expressed as a percentage — usually somewhere between 30% and 50% — of your total accumulated profit at the moment you request a payout (funded) or pass the evaluation. Hit the threshold on any single day and the firm refuses the payout (or fails the eval), regardless of whether you cleared the profit target on paper.</p>
+
+<p>The rule exists to filter a specific archetype the firms want to keep out: the gambler who hits one giant lottery-ticket day, pumps the equity curve above the profit target, and tries to cash out before the next bad day undoes it. From the firm's perspective, a $5,000 day on a $5,500 total profit isn't evidence of edge — it's evidence of a survivorship-biased coin flip they'd rather not pay out on. The threshold is the lever that makes one-day-passes mathematically impossible.</p>
+
+<div class="key-fact">
+  <strong>The honest one-liner:</strong> the consistency rule means you can't have a great day until you've also had several good ones to dilute it. Until your single best day is &le; threshold &times; total profit, the firm treats you as a luck-pumper, not a trader with edge.
+</div>
+
+<h2 id="flavors">The two scopes — eval-only vs lifetime</h2>
+<p>Every firm with a consistency rule picks one of two lifecycle scopes. The threshold percentage can look identical — "50% on the eval" — but the long-term cost is completely different depending on whether the rule dies when you pass the evaluation or follows you through every funded payout for the life of the account.</p>
+
+<div class="flavor-grid">
+  <div class="flavor eval">
+    <h4>Eval-only consistency</h4>
+    <ul>
+      <li>Rule applies to the <strong>evaluation phase only</strong>. Once you pass, the firm explicitly drops the constraint — funded payouts are not subject to any single-day cap.</li>
+      <li>Friendly to trade-by-trade variance after funding: a $5,000 Monday on a $5,500 funded month is fine.</li>
+      <li>Hostile to one-day-wonder evaluations: you cannot pass on a single lottery day.</li>
+      <li>Used by: <span class="firm-eval">Topstep Combine</span>, <span class="firm-eval">TPT Test</span>, <span class="firm-eval">Earn2Trade GAU eval</span>, <span class="firm-eval">Tradeify Select eval</span>.</li>
+    </ul>
+  </div>
+  <div class="flavor funded">
+    <h4>Lifetime consistency</h4>
+    <ul>
+      <li>Rule applies on <strong>every payout request</strong> for the life of the funded account, not just at eval-pass.</li>
+      <li>Forces your equity curve to keep widening: a payout requested after a $5K day blocks the payout unless your total profit has caught up.</li>
+      <li>Pushes trader behavior toward "wait until your total clears the threshold-math floor before requesting the payout."</li>
+      <li>Used by: <span class="firm-funded">Apex 4.0</span> (eval + funded), <span class="firm-funded">MFFU Core</span> (only on the $50K plan), <span class="firm-funded">Bulenox</span> (Master + Funded, not Qualification), <span class="firm-funded">Tradeify Growth</span> (funded only), <span class="firm-funded">Tradeify Lightning</span> (progressive).</li>
+    </ul>
+  </div>
+</div>
+
+<p>Eval-only is the kinder long-term scope — once you've passed, your funded account treats variance honestly. Lifetime is harsher long-term but has a cleaner mental model (the same rule applies forever). The <a href="/blog/earn2trade-vs-topstep-2026/">Earn2Trade vs Topstep deep dive</a> walks the SB-family eval-only cousins side by side, and <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> walks the SB+$100-family lifetime cousins.</p>
+
+<h2 id="thresholds">The threshold values — 30, 35, 40, 50</h2>
+<p>Four threshold tiers are in active use across the seven major firms in 2026. Each one represents a different judgment call about how concentrated a profit history is allowed to be before the firm treats it as gambling rather than edge.</p>
+
+<table>
+  <thead>
+    <tr><th>Threshold</th><th>What it means</th><th>Used by</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="num">30%</td>
+      <td>Single best day &le; 30% of total profit. The tightest live threshold — requires at least 4 "average" days to dilute any standout single day.</td>
+      <td>Apex 4.0 (eval + funded), Earn2Trade GAU eval, Tradeify Lightning (final tier)</td>
+    </tr>
+    <tr>
+      <td class="num">35%</td>
+      <td>Single best day &le; 35% of total profit. Tradeify Growth's funded-side threshold — slightly looser than the 30% tier but still requires deliberate diversification.</td>
+      <td>Tradeify Growth (funded only)</td>
+    </tr>
+    <tr>
+      <td class="num">40%</td>
+      <td>Single best day &le; 40% of total profit. The middle tier. Bulenox applies it on Master + Funded; MFFU applies it on Core ($50K) only; Tradeify Select applies it on eval only.</td>
+      <td>MFFU Core, Bulenox (Master + Funded), Tradeify Select (eval)</td>
+    </tr>
+    <tr>
+      <td class="num">50%</td>
+      <td>Single best day &le; 50% of total profit. The loosest active threshold — only one "good twin" day required to dilute any standout day. Almost only used for evaluation phases.</td>
+      <td>Topstep Combine, TPT Test phase</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="key-fact">
+  <strong>Two firms run no consistency rule on at least one phase:</strong> MFFU Rapid and Pro are consistency-free (only Core has the 40% rule). Tradeify Growth has no eval-side consistency rule (only funded-side 35%). For traders whose edge is precision rather than volume, those program slots are the cluster's escape hatches. <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> walks the program-by-program differences.
+</div>
+
+<h2 id="example">Worked example — same $4,500 day, four firms</h2>
+<p>Same trader, same eval account size (100K), same end-of-week scoreboard: <strong>$9,000 total profit, with $4,500 of that booked on a single Monday</strong>. Four different firms evaluate that exact result.</p>
+
+<div class="scenario">
+  <h4>The verdict at each firm</h4>
+  <div class="timeline">
+TRADER POSTS: $9,000 total, $4,500 on Day 1 (50% of total)<br>
+<br>
+&nbsp;&nbsp;<span class="ok">Topstep (50% threshold):</span> $4,500 / $9,000 = 50.00% — passes by a hair.<br>
+&nbsp;&nbsp;<span class="ok">TPT Test (50% threshold):</span> $4,500 / $9,000 = 50.00% — passes by a hair.<br>
+&nbsp;&nbsp;<span class="warn">MFFU Core (40% threshold):</span> 50.00% &gt; 40% — payout blocked. Need total &ge; $11,250.<br>
+&nbsp;&nbsp;<span class="warn">Bulenox (40% threshold):</span> 50.00% &gt; 40% — payout blocked. Need total &ge; $11,250.<br>
+&nbsp;&nbsp;<span class="bad">Apex 4.0 (30% threshold):</span> 50.00% &gt; 30% — payout blocked. Need total &ge; $15,000.<br>
+&nbsp;&nbsp;<span class="bad">Earn2Trade GAU eval (30% threshold):</span> 50.00% &gt; 30% — fails eval. Need total &ge; $15,000.
+   </div>
+</div>
+
+<p>End of week: same $9,000 in P&L, same trade history, four different verdicts. The two 50% firms pass; the two 40% firms block until the trader earns another $2,250; the two 30% firms block until another $6,000. The single Monday isn't "good" or "bad" in isolation — it's the ratio of that day to the cumulative total that the rule actually measures, and the trader has no way to retroactively shrink Day 1.</p>
+
+<div class="key-fact">
+  <strong>This is the actual wedge between the four threshold tiers.</strong> Higher thresholds let dominant single days through; lower thresholds force you to keep trading until the average dilutes them. Neither is strictly better — they reward different trading temperaments. A scalper who books steady $400 days never trips a consistency rule; a runner-style trader who waits for one $4K day per month trips them at 30% firms constantly.
+</div>
+
+<h2 id="math">The formula</h2>
+<p>For any account on any firm with a consistency rule, the test on a payout request (or eval-pass attempt) is:</p>
+
+<div class="key-fact">
+  <strong>single_best_day &divide; total_profit &le; threshold</strong> &nbsp;&rArr; payout allowed<br><br>
+  Equivalently, to bank a payout right now with your current best day already in the books:<br>
+  <strong>required_total_profit &ge; single_best_day &divide; threshold</strong><br><br>
+  Or — to plan the maximum safe push for tomorrow given a current total:<br>
+  <strong>max_safe_next_day &le; threshold &times; current_total_profit &divide; (1 − threshold)</strong>
+</div>
+
+<p>Two practical consequences:</p>
+<ul>
+  <li><strong>Your single best day sets a floor on your required total.</strong> Once you book a $4,500 day, you cannot bank a payout until the total clears $4,500 &divide; threshold. At 30%, that's $15,000. At 40%, $11,250. At 50%, $9,000. The rule retroactively makes that one day expensive.</li>
+  <li><strong>Two-day-push planning is the safer mental model than total-target.</strong> Forget "I need to hit $5K total" — instead, ask "given the day I'm in, what's the max I can safely close without forcing tomorrow into a corner?" The third formula above is the safe ceiling.</li>
+</ul>
+
+<h2 id="firms">By firm — 2026 consistency matrix</h2>
+<p>The seven largest US prop firms in 2026, side-by-side, on the two questions that matter — threshold and lifecycle scope. Each row reflects the most popular plan size and the default phase (eval first, then funded behavior). Verify with your firm before requesting a payout.</p>
+
+<table>
+  <thead>
+    <tr><th>Firm / program</th><th>Eval threshold</th><th>Funded threshold</th><th>Scope</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Topstep Combine</td><td class="num">50%</td><td>none</td><td><span class="firm-eval">Eval-only</span></td></tr>
+    <tr><td class="label">Apex 4.0</td><td class="num">30%</td><td class="num">30%</td><td><span class="firm-funded">Lifetime</span></td></tr>
+    <tr><td class="label">MyFundedFutures Core ($50K)</td><td class="num">40%</td><td class="num">40%</td><td><span class="firm-funded">Lifetime</span></td></tr>
+    <tr><td class="label">MyFundedFutures Rapid / Pro</td><td>none</td><td>none</td><td>No rule</td></tr>
+    <tr><td class="label">TPT Test</td><td class="num">50%</td><td>none</td><td><span class="firm-eval">Eval-only</span></td></tr>
+    <tr><td class="label">TPT PRO / PRO+</td><td>none</td><td>none</td><td>No rule (post-eval)</td></tr>
+    <tr><td class="label">Tradeify Growth</td><td>none</td><td class="num">35%</td><td><span class="firm-funded">Funded-only</span></td></tr>
+    <tr><td class="label">Tradeify Select</td><td class="num">40%</td><td>none</td><td><span class="firm-eval">Eval-only</span></td></tr>
+    <tr><td class="label">Tradeify Lightning</td><td>n/a (instant-funded)</td><td class="num">20% &rarr; 25% &rarr; 30%</td><td>Progressive (per payout)</td></tr>
+    <tr><td class="label">Bulenox Master + Funded</td><td>none (Qualification)</td><td class="num">40%</td><td><span class="firm-funded">Lifetime (post-Qualification)</span></td></tr>
+    <tr><td class="label">Earn2Trade GAU</td><td class="num">30%</td><td>none</td><td><span class="firm-eval">Eval-only</span></td></tr>
+  </tbody>
+</table>
+
+<p>Three structural patterns in this table worth seeing:</p>
+<ul>
+  <li><strong>Four firms drop consistency at the funded gate.</strong> Topstep, TPT, Earn2Trade, and Tradeify Select all run the rule on the evaluation only — pass the eval and the constraint dies. This is the SB-lock-family pattern (plus Tradeify's Select archetype). The <a href="/blog/best-prop-firms-2026/#related">hub Related-comparisons grid</a> groups firm-vs-firm posts by lock family — the eval-only consistency overlap is a near-superset.</li>
+  <li><strong>Tradeify inverts within its own programs.</strong> Growth (eval-free, funded 35%) is the mirror of Select (eval 40%, funded-free). Pick the wrong program for your style and you trip a rule that wouldn't exist in the other archetype. Lightning runs a third pattern — instant-funded with a progressive 20&rarr;25&rarr;30% schedule that tightens per payout.</li>
+  <li><strong>MFFU's three programs each treat consistency differently.</strong> Core has it on both phases (40%). Rapid + Pro have no consistency rule at all. The choice of program at sign-up is also the choice of whether the rule exists in your trading life.</li>
+</ul>
+
+<h2 id="tools">See whether your best day will pay — before you push tomorrow</h2>
+<p>The consistency rule isn't visible on most firms' dashboards. You're left to do the arithmetic in your head — and the math is asymmetric (a single bad assumption costs you a payout, not a session). These tools run in your browser, no login, no card:</p>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Consistency-Rule Calculator</h4>
+    <p>Topstep 50%, Apex 4.0 30%, MFFU Core 40%, TPT Test 50%, Tradeify Growth 35%, Bulenox 40%, Earn2Trade GAU 30% presets. Enter total profit + your single best day &rarr; see whether you can request the payout and the minimum total to clear it.</p>
+    <a href="/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=consistency-rule-explained">Open the calculator &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Trailing Drawdown Calculator</h4>
+    <p>The other rule that closes funded accounts. Same firm presets; pairs naturally with the consistency calc when you're sizing the trade that books today's profit.</p>
+    <a href="/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=consistency-rule-explained">Open the calculator &rarr;</a>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>Track consistency automatically — and the rest of the rule stack with it</h3>
+  <p>Aurafy reads your broker's CSV or Rithmic statement, computes the live consistency ratio for each account against the correct firm preset (Topstep 50%, Apex 4.0 30%, MFFU Core 40%, TPT phase-aware, Tradeify archetype-aware, Bulenox 40%, Earn2Trade 30%), and shows you the max-safe next-day push <em>before</em> you size the next session. Same tool also covers trailing drawdown, daily loss limits where applicable, and the screen recording the brokers don't ship. Free tier never expires (last 30 days, 1 account, 3 playbooks, no card). First 50 founders: $19/mo locked for life.</p>
+  <a class="btn" href="https://aurafy.dev?utm_source=blog&utm_medium=consistency-rule-explained&utm_campaign=cta">Start free &mdash; no card</a>
+  <a class="btn ghost" href="https://aurafy.dev/pricing?utm_source=blog&utm_medium=consistency-rule-explained&utm_campaign=cta">See $19 founder seat</a>
+</div>
+
+<h2 id="faq">FAQ &mdash; consistency rule</h2>
+
+<details>
+  <summary>Does the consistency rule reset between payouts on lifetime-scope firms?</summary>
+  <p>No &mdash; the test is always against your <em>total accumulated profit</em> for the funded account, not the per-payout window. On Apex 4.0, MFFU Core, and Bulenox Master+Funded, you carry your single best day forward forever; the rule loosens only as your total profit grows enough to dilute that one day below the threshold. Some traders intentionally let a small "best day" sit untouched for months while the cumulative average catches up.</p>
+</details>
+
+<details>
+  <summary>Can I just request a smaller payout to dodge the rule?</summary>
+  <p>No on most firms. The test is against the ratio of your <em>single best day to your total profit</em>, not the payout amount. Requesting $500 vs $5,000 doesn't change either number. The only way to clear a tripped consistency rule is to keep trading until your total profit grows enough to dilute the standout day, or to wait until your firm's policy resets it (rare &mdash; most don't).</p>
+</details>
+
+<details>
+  <summary>What counts as "a day" for the consistency rule?</summary>
+  <p>Each firm uses the platform's calendar trading day for its time zone. Topstep + TPT use CT close (4:00 PM CT for futures); Apex + MFFU + Bulenox follow CME's electronic close (5:00 PM ET = 4:00 PM CT). Earn2Trade uses the platform-recorded daily P&L. If you have an overnight position that closes the next morning, the realized P&L counts on the day of close &mdash; not the day of entry. Verify your firm's exact session boundary if you trade Globex hours.</p>
+</details>
+
+<details>
+  <summary>How is consistency different from the trailing drawdown rule?</summary>
+  <p>The trailing drawdown is account-life: a moving floor underneath your balance that closes the account if you touch it. Consistency is payout-life: a ratio test that blocks a withdrawal but does not close the account &mdash; trip it, you keep trading, you just can't bank the money yet. Different consequences, different lifecycles, often different lifecycle scopes. The <a href="/blog/trailing-drawdown-explained-2026/">trailing drawdown explainer</a> walks the floor-mechanic side; this post walks the payout-block side.</p>
+</details>
+
+<details>
+  <summary>Why does Tradeify invert the rule between Growth and Select?</summary>
+  <p>Tradeify's structural wedge across the 2026 firm cluster is the 3-archetype lineup &mdash; Growth (no eval consistency, 35% funded), Select (40% eval, no funded consistency), and Lightning (instant-funded, progressive consistency per payout). Each archetype targets a different trader profile: Growth attracts traders confident they can scrape through a long eval, Select attracts traders who want a tight eval but freedom after passing, Lightning attracts traders who want to skip eval entirely. Picking the wrong archetype for your style trips a rule that wouldn't exist in the other. <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> walks the archetype-pick contrast vs Apex's at-purchase trail-mechanic lock.</p>
+</details>
+
+<details>
+  <summary>If I have a giant day at start of the week, can I ever request a payout for that week?</summary>
+  <p>Only if your remaining sessions add enough total profit to dilute the giant day below the threshold. On Apex 4.0 (30%), a $3,000 Monday requires &ge; $10,000 total profit before payout request. On MFFU Core or Bulenox (40%), the same Monday requires &ge; $7,500 total. On Topstep / TPT (50%), &ge; $6,000. If you can't realistically book the remaining total in the week, the payout has to wait until later. This is exactly the math the calculator above runs &mdash; it tells you the minimum total to clear without retrying it in your head.</p>
+</details>
+
+<h2>Related deep-dives</h2>
+<div class="related">
+  <a href="/blog/trailing-drawdown-explained-2026/"><strong>Trailing Drawdown Explained (2026)</strong><span>The other rule that closes most funded accounts &mdash; the moving floor under your balance, by firm.</span></a>
+  <a href="/blog/best-prop-firms-2026/"><strong>The Best Prop Firms (2026) &mdash; Hub</strong><span>Side-by-side rule matrix across all 7 major firms, grouped by lock family.</span></a>
+  <a href="/blog/apex-vs-tradeify-2026/"><strong>Apex 4.0 vs Tradeify</strong><span>One-shot trail-mechanic lock vs 3-archetype consistency inversion &mdash; the two rigidity-driven choice forks.</span></a>
+  <a href="/blog/earn2trade-vs-topstep-2026/"><strong>Earn2Trade vs Topstep</strong><span>The two eval-only-consistency SB-lock cousins &mdash; 30% vs 50% on the same scope.</span></a>
+</div>
+
+<footer>
+  <p><strong>Aurafy</strong> &mdash; Futures trading journal + screen recording + bar-replay backtester for prop-firm traders.</p>
+  <p>Independent explainer. Topstep, Apex Trader Funding, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and Earn2Trade are trademarks of their respective owners. Aurafy is not affiliated with any of them. Consistency-rule thresholds + scope verified against each firm's published rules as of June 2026 &mdash; verify directly with your firm before requesting a payout.</p>
+  <p><a href="https://aurafy.dev?utm_source=blog&utm_medium=consistency-rule-explained">aurafy.dev</a></p>
+</footer>
+
+</div>
+</body>
+</html>
