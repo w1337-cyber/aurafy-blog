@@ -1,0 +1,15 @@
+{
+  "slug": "apex-vs-tpt-2026",
+  "title": "Apex vs TPT (2026): Pick Your Trail Once vs Pick It Three Times",
+  "description": "Apex 4.0 vs Take Profit Trader — identical $3K trailing drawdown on 100K, but Apex picks your trail mechanic once at purchase while TPT switches it three times across the lifecycle. Plus the SB+$100 vs SB lock-floor split. Honest 2026 side-by-side.",
+  "canonical": "https://aurafy.dev/blog/apex-vs-tpt-2026/",
+  "published": "2026-06-03",
+  "updated": "2026-06-03",
+  "og": {
+    "title": "Apex vs TPT (2026): Pick Your Trail Once vs Pick It Three Times",
+    "description": "Same $3K DD on 100K. Same Test/Eval-only consistency drop. But Apex locks the trail mechanic at purchase for the life of the account, while TPT auto-shifts EOD → intraday → EOD across Test → PRO → PRO+. The governance is the story.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "comparison", "apex", "apex-trader-funding", "tpt", "take-profit-trader", "2026"],
+  "source_path": "posts/apex-vs-tpt-2026/index.html"
+}

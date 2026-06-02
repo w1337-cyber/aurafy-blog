@@ -32,6 +32,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `apex-vs-bulenox-2026` | Apex vs Bulenox (2026): Same SB+$100 Lock, Opposite Eval Ladders | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `topstep-vs-bulenox-2026` | Topstep vs Bulenox (2026): SB Lock vs SB+$100 Lock, Phase-Shift vs Fork-Lock Trail | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `topstep-vs-tradeify-2026` | Topstep vs Tradeify (2026): Phase-Shift Trail vs Archetype-Inverse Consistency | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
+| `apex-vs-tpt-2026` | Apex vs TPT (2026): Pick Your Trail Once vs Pick It Three Times | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy

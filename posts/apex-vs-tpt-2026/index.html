@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Apex vs TPT (2026): Pick Your Trail Once vs Pick It Three Times | Aurafy</title>
+<meta name="description" content="Apex 4.0 vs Take Profit Trader — identical $3K trailing drawdown on 100K, but Apex picks your trail mechanic once at purchase while TPT switches it three times across the lifecycle. Plus the SB+$100 vs SB lock-floor split. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/apex-vs-tpt-2026/" />
+<meta property="og:title" content="Apex vs TPT (2026): Pick Your Trail Once vs Pick It Three Times" />
+<meta property="og:description" content="Same $3K DD on 100K. Same Test/Eval-only consistency drop. But Apex locks the trail mechanic at purchase for the life of the account, while TPT auto-shifts EOD → intraday → EOD across Test → PRO → PRO+. The governance is the story." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --apex:#3ddc97;
+    --tpt:#ffb454;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-apex{color:var(--apex);font-weight:600}
+  .firm-tpt{color:var(--tpt);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--red);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.apex{border-left:3px solid var(--apex)}
+  .pick.tpt{border-left:3px solid var(--tpt)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.apex{border-top:2px solid var(--apex)}
+  .axis-side.tpt{border-top:2px solid var(--tpt)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Apex vs TPT (2026): Pick Your Trail Once vs Pick It Three Times</h1>
+  <p class="lede">Both ship a <strong>$3,000 trailing drawdown</strong> on the 100K class. Both stop applying their consistency rule once you reach the live-funded tier. But Apex 4.0 makes you pick the trail mechanic <strong>once at purchase</strong> and locks it forever, while TPT switches it on you <strong>three times</strong> as you walk the Test &rarr; PRO &rarr; PRO+ ladder. The governance is the wedge.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Prop-firm rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#governance">Trail governance</a>
+  <a href="#lock">Lock archetype</a>
+  <a href="#consistency">Consistency rule</a>
+  <a href="#dll">Daily loss limit</a>
+  <a href="#payouts">Payouts &amp; cost</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR verdict</h2>
+
+<div class="verdict">
+  <strong class="firm-apex"><a href="https://aurafy.dev/prop-firms/apex-trader-funding/">Apex 4.0</a> &mdash; pick if you want one-shot trail-mechanic governance, a 1-step eval, and you're comfortable on Rithmic-compatible platforms.</strong>
+  Pick EOD or intraday trail <em>at purchase</em>; the choice is locked for the life of the account. 1-step eval with $3K target &rarr; Sim-funded with the same trail you picked &rarr; cash payouts via 80/90 split. Lock floor freezes at <strong>SB + $100</strong> safety net ($103,100 on a 100K). 30% consistency applies <em>lifetime</em> &mdash; including on funded payout requests. 4 sizes (25K / 50K / 100K / 150K). Monthly subscription model with frequent reset promos.
+</div>
+
+<div class="verdict">
+  <strong class="firm-tpt"><a href="https://aurafy.dev/prop-firms/take-profit-trader/">Take Profit Trader (TPT)</a> &mdash; pick if you want a 3-phase ladder, no daily loss limit anywhere, and you trade on TradingView / Tradovate / NinjaTrader / Rithmic.</strong>
+  Test (EOD trail, 50% consistency, 5-day minimum, $130 activation per account) &rarr; PRO simulated funded (<em>intraday</em> trail, no consistency, 80/20 split) &rarr; PRO+ live-funded promotion (back to EOD, 90/10 split, auto-promotion since 2026-03-18). Lock floor freezes at <strong>SB</strong> ($100,000 on a 100K) &mdash; Topstep family, not Apex family. 5 sizes (adds 25K + 75K). News-trading banned on PRO/PRO+.
+</div>
+
+<div class="verdict">
+  <strong>The wedge is governance, not numbers.</strong> Apex hands you the trail-mechanic decision once and respects it; TPT hands you no decision at all and shifts the mechanic underneath you twice across the lifecycle. Identical $3K trailing drawdown on the 100K class, opposite philosophies of who controls the trail rule.
+</div>
+
+<h2 id="sidebyside">Side-by-side: Apex vs TPT (2026)</h2>
+
+<table>
+  <thead>
+    <tr><th>Axis</th><th><span class="firm-apex">Apex 4.0</span></th><th><span class="firm-tpt">Take Profit Trader</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Lifecycle</td><td><strong>2 phases:</strong> Eval &rarr; Sim-funded (PA)</td><td><strong>3 phases:</strong> Test &rarr; PRO &rarr; PRO+</td></tr>
+    <tr><td class="label">Eval structure</td><td>1-step Eval; no consistency on eval pass itself (eval has no minimum days fixed; verify)</td><td>1-step Test; <strong>5-day minimum</strong>; 50% consistency at pass</td></tr>
+    <tr><td class="label">Trail governance</td><td><strong>Pick once at purchase:</strong> EOD or intraday &mdash; locked for account life</td><td><strong>Forced shift:</strong> EOD &rarr; intraday &rarr; EOD across Test, PRO, PRO+</td></tr>
+    <tr><td class="label">Trailing drawdown (100K)</td><td>$3,000</td><td>$3,000 (Test)</td></tr>
+    <tr><td class="label">Lock archetype</td><td>Locks at <strong>SB + $100</strong> ($103,100 on 100K)</td><td>Locks at <strong>SB</strong> ($100,000 on 100K)</td></tr>
+    <tr><td class="label">Consistency rule</td><td><strong>30% lifetime</strong> &mdash; applies on eval pass AND every funded payout request</td><td><strong>50% Test only</strong> &mdash; dropped on PRO and PRO+</td></tr>
+    <tr><td class="label">Account sizes</td><td>4 sizes: 25K / 50K / 100K / 150K</td><td>5 sizes: 25K / 50K / 75K / 100K / 150K</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>Yes</strong> on EOD accounts only; intraday Apex accounts have no DLL</td><td><strong>None firmwide</strong> &mdash; removed January 2025. Trail is the only hard guardrail</td></tr>
+    <tr><td class="label">Activation / cost</td><td>Monthly subscription per account (Eval) + activation fee on first funded payout request (~$85&ndash;$140; verify current)</td><td>$130 one-time per account on Test signup; no monthly subscription</td></tr>
+    <tr><td class="label">Capital backing</td><td><strong>Simulated</strong> on PA &mdash; cash payouts from firm capital</td><td><strong>Simulated</strong> on PRO (80/20 split) &rarr; live-funded on PRO+ (90/10 split, auto-promoted)</td></tr>
+    <tr><td class="label">Profit split (funded)</td><td>100% of first $25K profits to trader; 90/10 thereafter</td><td>80/20 on PRO; 90/10 on PRO+</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Every 8 days minimum once you've cleared 10 winning days each &gt; $50; verify current Apex payout policy</td><td><strong>Daily on PRO/PRO+</strong> once buffer above SB cleared; <strong>7-day minimum</strong> between payouts; 1&ndash;2 business days processing</td></tr>
+    <tr><td class="label">Platforms</td><td>Rithmic-family (Tradovate, NinjaTrader, R&#124;Trader, Quantower); no TradingView native</td><td>NinjaTrader, Tradovate, TradingView, Rithmic</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted (subject to platform-broker risk policies)</td><td><strong>Banned on PRO/PRO+</strong> &mdash; no trades 1 min before/during/after FOMC, NFP, CPI</td></tr>
+    <tr><td class="label">Overnight holds</td><td>Banned &mdash; flat by 5 PM ET Mon&ndash;Fri</td><td>Banned &mdash; flat by 5 PM ET Mon&ndash;Fri</td></tr>
+    <tr><td class="label">Max funded accounts</td><td>Up to 20 PAs allowed (verify current Apex cap)</td><td>5</td></tr>
+    <tr><td class="label">Reset on bust</td><td>Eval reset allowed; PA bust = account closed</td><td>Test reset allowed; PRO bust = closed; PRO+ bust = closed permanently (no reset)</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact">Both firms ship a 100K class with a <strong>$3,000 trailing drawdown</strong> on the entry tier. Both drop their consistency rule on the live-funded tier. After that, almost every other axis diverges &mdash; including the two that matter most for daily execution: <strong>who picks the trail mechanic</strong> and <strong>where the trail locks</strong>.</div>
+
+<h2 id="governance">Trail governance: one-shot lifetime choice vs forced lifecycle shift</h2>
+
+<p>Every prop firm decides three things about its trailing drawdown: <em>which mechanic</em> (EOD or intraday), <em>who picks it</em>, and <em>when it can change</em>. Apex and TPT diverge on all three.</p>
+
+<div class="axis">
+  <div class="axis-side apex">
+    <strong>Apex 4.0 &mdash; you pick once, it's yours forever</strong>
+    <p style="margin:0">At purchase you select either EOD trail or intraday trail. That choice is locked for the life of the account &mdash; Eval and PA both inherit it. EOD Apex accounts get a daily loss limit; intraday Apex accounts don't. The mechanic never shifts under you. If your style fits EOD, pick EOD and the floor only advances on session close. If your style fits intraday, pick intraday and accept that wicks above EOD advance the floor &mdash; in exchange for no DLL.</p>
+  </div>
+  <div class="axis-side tpt">
+    <strong>TPT &mdash; the firm picks for you, three times</strong>
+    <p style="margin:0">Test phase trails EOD &mdash; floor advances only on a new daily-close high. Pass the Test and get auto-promoted to PRO, which switches to <em>intraday</em> trail &mdash; floor advances on every live equity high during the session. Hit the PRO performance review and get auto-promoted to PRO+ (since 2026-03-18) &mdash; trail switches back to EOD. You make no decision; the lifecycle shifts the mechanic underneath you twice.</p>
+  </div>
+</div>
+
+<p>This matters because the trail mechanic determines which trade styles are safe at which stage of the funded ladder:</p>
+
+<ul>
+  <li><strong>Apex intraday-picker:</strong> the wick tax applies forever. You build the habit of scaling out on the way up rather than holding through a fade, because the trail advances on intraday highs regardless of close. No phase shift to retrain against.</li>
+  <li><strong>Apex EOD-picker:</strong> wicks are invisible to the trail forever. You can hold through a runup-and-fade as long as the EOD close doesn't make a new high. Trade-off: you accept a daily loss limit you wouldn't have on the intraday path.</li>
+  <li><strong>TPT trader, lifecycle view:</strong> Test rewards intraday spike-and-give-back (EOD trail), PRO punishes it (intraday trail), PRO+ rewards it again (EOD trail). The mechanic is the easiest in phase 1, hardest in phase 2, easiest in phase 3. The middle phase is the squeeze.</li>
+</ul>
+
+<div class="warn"><strong>The 2026 confusion point.</strong> An Apex EOD-picker who migrates to TPT will find Test phase familiar (also EOD), pass it, then get blindsided by the PRO intraday trail. An Apex intraday-picker who migrates to TPT will find Test <em>looser</em> than what they're used to and may over-size on the back of the easier eval &mdash; only to hit the PRO intraday trail again at promotion. The TPT lifecycle re-teaches the trail-mechanic lesson at every phase boundary.</div>
+
+<p>If you're already deep in one trail style and unwilling to retrain, Apex is the right shape &mdash; it respects your one decision. If you want to be force-marched through both styles as part of the lifecycle (and you trust your discipline to switch with it), TPT does that automatically.</p>
+
+<h2 id="lock">Lock archetype: SB + $100 (Apex) vs SB (TPT)</h2>
+
+<p>Once the trail has advanced its full distance, both firms freeze the loss floor permanently. They freeze it in different places.</p>
+
+<div class="axis">
+  <div class="axis-side apex">
+    <strong>Apex 4.0 &mdash; lock at SB + $100 ($103,100 on 100K)</strong>
+    <p style="margin:0">On a 100K Apex account the trail starts at $100,000 &minus; $3,000 = $97,000 floor. Each new high (EOD or intraday, whichever you picked) lifts the floor by the same delta. When the trail's tracking line hits $103,100, the floor freezes at exactly $103,100 (Starting Balance + $100 safety net). From that moment on, every dollar above $103,100 is real headroom; the lock is $3,100 ABOVE the starting balance, not at it.</p>
+  </div>
+  <div class="axis-side tpt">
+    <strong>TPT PRO+ &mdash; lock at SB ($100,000 on 100K)</strong>
+    <p style="margin:0">On a 100K TPT account the trail starts at $97,000 and advances on every new high (EOD in Test, intraday in PRO, EOD in PRO+). When the trail's tracking line hits $100,000, the floor freezes at exactly $100,000 &mdash; the starting balance, no safety-net buffer. Every dollar above $100K is real headroom; every dollar below is a hard stop.</p>
+  </div>
+</div>
+
+<div class="key-fact"><strong>Practical consequence:</strong> after both accounts have locked, an Apex 100K trader has <strong>$3,100 more headroom above the lock</strong> than a TPT 100K trader at the same equity level. If both accounts sit at $103,500 net equity, the Apex account has $400 of trail headroom and the TPT account has $3,500. But the Apex account had to travel further (to $106,100 trail-tracking) to lock the floor in the first place. The trade-off is post-lock breathing room (Apex wins) vs distance-to-lock (TPT wins).</div>
+
+<div class="key-fact"><strong>Family check:</strong> Apex sits in the same lock family as MFFU, Bulenox, and Tradeify (all SB + $100). TPT sits in the same lock family as Topstep and Earn2Trade (all SB exactly). If you've previously traded any of the SB-lock firms, TPT's lock math will feel native. If you've come from Apex's family, expect to adjust by exactly $100 + the safety-net delta.</div>
+
+<div class="cta">
+  <h3>Want to see your exact trail floor + lock distance on either firm?</h3>
+  <p>Our free Prop-Firm Trailing-Drawdown Calculator runs Apex 4.0 EOD, Apex 4.0 intraday, TPT Test (EOD), and TPT PRO (intraday) presets. No login, no card.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_content=trailing-dd">Open trailing-DD calculator</a>
+  <a class="btn ghost" href="https://aurafy.dev/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_content=hero">See Aurafy</a>
+</div>
+
+<h2 id="consistency">Consistency rule: 30% lifetime (Apex) vs 50% Test-only (TPT)</h2>
+
+<p>This is the second high-leverage divergence after trail governance. Both firms apply a consistency rule, but they apply it on opposite shapes of the lifecycle.</p>
+
+<ul>
+  <li><strong>Apex 4.0 &mdash; 30% lifetime.</strong> Your largest profitable day cannot represent more than 30% of total profit. The rule applies on eval pass <em>and</em> on every funded payout request. Even after you're sitting on a profitable PA with $20K of accumulated payouts behind you, a single $5K day can still trip the rule on the next withdrawal if total profit is too low. The constraint never leaves.</li>
+  <li><strong>TPT &mdash; 50% Test only.</strong> Your largest profitable day cannot represent more than 50% of total profit at the moment of submitting the Test pass. Once you're promoted to PRO and PRO+, the rule is gone &mdash; one $10K day on a PRO account is unrestricted as long as you respect trail and trading-day minimums.</li>
+</ul>
+
+<div class="key-fact"><strong>Quick formula.</strong> At a 30% threshold, your largest profitable day cannot exceed total profit &times; 0.3. To request a $5,000 payout on Apex, you need at least $5,000 / 0.3 &asymp; $16,667 total accumulated profit since your last reset point. At TPT's 50% Test threshold, the same $5,000 day on a 100K Test ($6,000 target) only needs $10,000 of total profit &mdash; but only during Test; PRO/PRO+ have no constraint at all.</div>
+
+<p>Translated to lifecycle pressure: Apex's 30%-forever forces a "grinder" cadence even on the funded side &mdash; payouts assume you've banked multiple modest days. TPT's "50% then nothing" lets a single PRO blowout day go straight to the next-week payout. Different risk shapes, different psychology.</p>
+
+<h2 id="dll">Daily loss limit: where the firms diverge again</h2>
+
+<p>The DLL is a third-axis divergence that compounds with the trail-governance choice.</p>
+
+<div class="axis">
+  <div class="axis-side apex">
+    <strong>Apex 4.0 &mdash; DLL tied to your trail-mechanic pick</strong>
+    <p style="margin:0">If you pick EOD trail at purchase, your account has a daily loss limit (size-tier dependent). If you pick intraday trail, you trade without a DLL. Same firm, two different risk profiles depending on the one-shot choice you made at signup. The intraday-no-DLL trade-off is symmetric with the EOD-with-DLL trade-off: you accept one tight constraint to remove the other.</p>
+  </div>
+  <div class="axis-side tpt">
+    <strong>TPT &mdash; no DLL anywhere since Jan 2025</strong>
+    <p style="margin:0">TPT removed the daily loss limit firmwide in January 2025. Test, PRO, and PRO+ all run without a DLL. The trailing drawdown is the only hard-loss guardrail across the lifecycle.</p>
+  </div>
+</div>
+
+<div class="warn"><strong>Cross-firm trap.</strong> An Apex EOD-picker accustomed to a DLL stop will find TPT's no-DLL environment surprisingly permissive on bad days &mdash; the trail can still kill you, but only at the EOD calc (Test/PRO+) or live (PRO). An Apex intraday-picker is already used to no DLL but with a tighter trail; on TPT Test they meet a looser trail and no DLL &mdash; risk feels structurally lower until the PRO intraday phase reintroduces the tighter trail.</div>
+
+<h2 id="payouts">Payouts, profit splits &amp; cost structure</h2>
+
+<p>The way you actually get paid &mdash; and how often &mdash; differs sharply.</p>
+
+<table>
+  <thead>
+    <tr><th>Axis</th><th><span class="firm-apex">Apex 4.0</span></th><th><span class="firm-tpt">TPT</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Funded capital type</td><td>Simulated (Sim-funded PA); cash payouts from firm</td><td>Simulated on PRO; live-funded on PRO+</td></tr>
+    <tr><td class="label">Profit split (initial funded)</td><td>100% of first $25,000 profits to trader</td><td>80/20 on PRO &mdash; trader keeps 80%</td></tr>
+    <tr><td class="label">Profit split (top tier)</td><td>90/10 after the first $25K is paid out</td><td>90/10 on PRO+ &mdash; trader keeps 90%</td></tr>
+    <tr><td class="label">Payout cadence</td><td>8-day minimum gap; need 10 winning days each &gt; $50 to qualify for first payout (verify current Apex rules)</td><td><strong>Daily</strong> on PRO/PRO+ once buffer above SB is cleared; <strong>7-day minimum</strong> gap between payouts</td></tr>
+    <tr><td class="label">Activation timing</td><td>Activation fee paid at first funded payout request, not at eval signup (~$85&ndash;$140; verify)</td><td>Upfront on Test signup ($130 per account)</td></tr>
+    <tr><td class="label">Cost model</td><td>Monthly subscription per Eval account, frequent reset/discount promos</td><td>One-time per Test account &mdash; no recurring monthly subscription</td></tr>
+    <tr><td class="label">Reset on bust</td><td>Eval reset allowed; PA bust = account closed (open a new Eval)</td><td>Test reset allowed; PRO bust = closed; PRO+ bust = permanently closed (no reset)</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact"><strong>Cost-shape honesty.</strong> Apex bills you monthly for the privilege of holding an eval seat and rewards you for passing fast (so you stop paying the subscription). TPT bills you once per Test attempt and rewards you for not busting Test (so you don't have to pay the $130 again). Two different incentive shapes for the same outcome &mdash; reach the funded tier. Don't compare list prices without normalizing for how long you expect to be in the eval phase.</div>
+
+<h2 id="examples">Worked examples on a 100K account</h2>
+
+<p>Same trader, same trade sequence, different firm. Numbers assume a 100K account class at each firm.</p>
+
+<details open>
+  <summary>Example 1: $1,800 intraday spike that closes flat</summary>
+  <p><strong>Setup:</strong> Day 1, equity opens at $100,000, runs to +$1,800 unrealized, closes at +$0.</p>
+  <p><strong>Apex 4.0 EOD (you picked EOD at purchase):</strong> Closing EOD equity = $100,000. No new EOD high. Floor unchanged at $97,000. Intraday wick ignored.</p>
+  <p><strong>Apex 4.0 intraday (you picked intraday at purchase):</strong> Floor advances on the +$1,800 intraday high. New floor = $100,000 + $1,800 &minus; $3,000 = $98,800. The wick taxed $1,800 of headroom despite closing flat.</p>
+  <p><strong>TPT Test (forced EOD):</strong> Same as Apex EOD path. Closing equity = $100,000. No new EOD high. Floor unchanged at $97,000.</p>
+  <p><strong>TPT PRO (forced intraday):</strong> Same as Apex intraday path. New floor = $98,800. The PRO phase taxes the wick the Test ignored.</p>
+  <p><strong>TPT PRO+ (forced EOD again):</strong> Same as Apex EOD path. Floor unchanged at $97,000.</p>
+  <p><strong>Read:</strong> on the EOD path the wick is invisible at both firms. On the intraday path, the wick gives back $1,800 of headroom at both firms. The mechanic determines the math &mdash; the difference is who chose it: at Apex it's you, at TPT it's the lifecycle.</p>
+</details>
+
+<details>
+  <summary>Example 2: 4-day grind to lock the trail</summary>
+  <p><strong>Setup:</strong> Day 1: +$1,000 (EOD close). Day 2: +$1,200. Day 3: +$800. Day 4: +$1,000. Cumulative +$4,000. No intraday spikes above the close.</p>
+  <p><strong>Apex 4.0 (either trail pick):</strong> Profit target is $6,000 (on 100K Eval) &mdash; not yet hit at $4,000 cumulative. Largest day = $1,200; consistency = $1,200 / $4,000 = 30% &mdash; exactly at the threshold. One more $1 day above the average would push consistency over &mdash; the trader needs to keep the largest day under 30% all the way through. The trail has advanced through $3,000 of EOD distance; floor now sits at $100,000 (still climbing toward the $103,100 lock since SB+$100 family).</p>
+  <p><strong>TPT Test:</strong> Profit target is $6,000 (on 100K Test) &mdash; not yet hit at $4,000. Largest day = $1,200; consistency = $1,200 / $4,000 = 30% (well under TPT's 50% threshold). The trail has advanced $3,000 of EOD distance; floor sits at $100,000 (which is also the Test lock point). On TPT, the floor would lock here if the trail had advanced its full distance. For Apex, lock is still $3,100 of equity away.</p>
+  <p><strong>Conclusion:</strong> On a clean grinder pattern, both firms behave nearly identically <em>except</em> for the consistency-rule pressure (Apex's 30% threshold is the binding constraint, not TPT's 50%) and the lock floor (TPT locks $3,100 earlier than Apex). The intraday vs EOD shift doesn't matter on this no-spike pattern &mdash; but it matters on every other pattern.</p>
+</details>
+
+<details>
+  <summary>Example 3: The lifetime-vs-Test consistency trap (after $4K accumulated profit)</summary>
+  <p><strong>Setup:</strong> You've passed Eval/Test and accumulated $4,000 of total profit on the funded account. You want to withdraw $1,500. Today you had a $1,200 day &mdash; your single biggest yet.</p>
+  <p><strong>Apex 4.0 PA (30% lifetime consistency):</strong> $1,200 / $4,000 = 30% &mdash; exactly at the threshold. If today's day had been even $1 higher, you'd fail the consistency check on the withdrawal request. You can submit the $1,500 payout but the largest-day ratio is on the line.</p>
+  <p><strong>TPT PRO+ (no consistency post-Test):</strong> Same $1,200 day, same $4,000 cumulative &mdash; no consistency rule applies. Submit the $1,500 payout without a largest-day check. PRO+ doesn't care what your biggest day was.</p>
+  <p><strong>Closest cross-comparison &rarr;</strong> <a href="https://aurafy.dev/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &mdash; same lock-family fork as Apex vs TPT, but Topstep is the Apex of consistency-rule numbers (50% eval, none on funded) while TPT is the Apex of phase shift (3 phases vs Apex's flat lifecycle). Two different ways the cluster forks.</p>
+  <p><strong>Plan your payout sizing &rarr;</strong> <a href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_content=consistency-tool">Consistency-rule calculator</a> &mdash; model the largest-day ratio for your account size and threshold before submitting the withdrawal. The 30%-lifetime math at Apex is where most traders get caught.</p>
+</details>
+
+<h2 id="pick">Which to pick</h2>
+
+<div class="pick-grid">
+  <div class="pick apex">
+    <h4 class="firm-apex">Pick Apex 4.0 if&hellip;</h4>
+    <ul>
+      <li>You want to <strong>pick your trail mechanic once</strong> and never have it change</li>
+      <li>You're confident which trail style fits your edge (EOD or intraday)</li>
+      <li>You want a 1-step eval flow with simulated funded + cash payouts</li>
+      <li>You prefer the <strong>SB + $100 lock</strong> family ($3,100 of post-lock headroom)</li>
+      <li>You're OK with 30% consistency forever &mdash; even on funded payouts</li>
+      <li>You trade on Rithmic-family platforms (Tradovate, NinjaTrader, R&#124;Trader)</li>
+      <li>You can take advantage of frequent reset/promo discounts</li>
+    </ul>
+  </div>
+  <div class="pick tpt">
+    <h4 class="firm-tpt">Pick TPT if&hellip;</h4>
+    <ul>
+      <li>You want a 3-phase ladder with auto-promotion at each gate</li>
+      <li>You want <strong>no daily loss limit anywhere</strong> (since Jan 2025)</li>
+      <li>You can stomach the EOD &rarr; intraday &rarr; EOD trail shift across phases</li>
+      <li>You trade on <strong>TradingView</strong> (Apex doesn't support it natively)</li>
+      <li>You want <strong>daily payouts</strong> on funded once buffer is cleared</li>
+      <li>You're OK with $130 upfront per Test account, no monthly subscription</li>
+      <li>You want consistency to <strong>die at the funded gate</strong> &mdash; only Test enforces it</li>
+      <li>You're OK with no news-trading on PRO/PRO+</li>
+    </ul>
+  </div>
+</div>
+
+<div class="key-fact"><strong>The cleanest tiebreaker.</strong> If you want to take one decision at signup and never have the rule change underneath you, Apex is the answer (you control the mechanic, the lock floor is forgiving, but the consistency rule never leaves). If you want the firm to walk you through a phase ladder and you trust your discipline to switch styles at each promotion, TPT is the answer (lock is tighter at SB, consistency dies on funded, but the trail mechanic shifts twice). Everything else follows from those two philosophies.</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Do Apex and TPT lock at the same floor?</summary>
+  <p>No &mdash; this is a structural divergence. Apex 4.0 locks the trail at <strong>Starting Balance + $100</strong> safety net (so on a 100K Apex PA the locked floor sits at $103,100). TPT locks the trail at the <strong>Starting Balance</strong> exactly (so on a 100K TPT PRO+ the locked floor sits at $100,000). Apex sits in the "SB + $100" family alongside MFFU, Bulenox, and Tradeify. TPT sits in the "SB" family alongside Topstep and Earn2Trade.</p>
+</details>
+
+<details>
+  <summary>Which firm has the easier eval?</summary>
+  <p>The eval target dollar amount is the same on 100K (both $6,000 vs $3,000 distances modeled differently &mdash; Apex eval $6K target / $3K DD, TPT Test $6K target / $3K DD). The structural difference is consistency: Apex's 30% lifetime is much tighter than TPT's 50% Test-only, but Apex doesn't enforce a 5-day minimum where TPT does. If you tend to win in a single big day, TPT's looser threshold is structurally easier to pass. If you prefer steady grinders, both work but Apex starts pressuring you toward the same 30% shape that will follow you onto the funded side.</p>
+</details>
+
+<details>
+  <summary>Does the consistency rule apply on funded?</summary>
+  <p>Apex: <strong>yes</strong> &mdash; the 30% threshold is checked on every payout request, lifetime. TPT: <strong>no</strong> &mdash; consistency applies on Test only and is fully dropped on PRO and PRO+. This is one of the sharpest funded-experience divergences between the two firms: Apex traders must keep their largest-day ratio under 30% forever; TPT traders are free to take a single blowout day as their best withdrawal source.</p>
+</details>
+
+<details>
+  <summary>Why does Apex tie the DLL to the trail-mechanic pick?</summary>
+  <p>Because Apex 4.0's "pick once at purchase" model spans both the trail mechanic and the risk-cap structure. EOD accounts get a DLL because the trail is loose (won't fire mid-session); intraday accounts skip the DLL because the trail itself fires mid-session. It's a symmetry: you pick which constraint structures your sessions. TPT made the opposite choice in January 2025 &mdash; remove the DLL firmwide and let trail be the only stop, regardless of phase.</p>
+</details>
+
+<details>
+  <summary>What happens if I bust on TPT PRO+?</summary>
+  <p>PRO+ is the live-funded promotion (auto-applied since 2026-03-18). A bust on PRO+ <strong>closes the account permanently</strong> &mdash; no reset is permitted on PRO+. Test resets are allowed and PRO bust closes that PA, but PRO+ is one-way. Apex's analog is the Sim-funded PA &mdash; bust the PA and you open a new Eval (which costs the monthly subscription again), but the firm structure stays intact.</p>
+</details>
+
+<details>
+  <summary>Can I run both firms in parallel?</summary>
+  <p>Yes &mdash; both allow multiple funded accounts (Apex up to 20 PAs; TPT capped at 5). Many traders use Apex on Rithmic-family platforms for the SB+$100 forgiveness and TPT on TradingView for the daily-payout cadence. The combined-portfolio play is real, but be aware the trail mechanics will diverge between accounts (your Apex EOD-pick stays EOD forever; your TPT account walks through three trail types). Aurafy is built to journal across this kind of mixed-firm setup &mdash; every prop firm's trailing line is pre-modeled.</p>
+</details>
+
+<details>
+  <summary>Is one firm "better" overall?</summary>
+  <p>No &mdash; they're optimized for different traders. Apex is best if you want one-shot trail-mechanic governance, the SB+$100 lock-family forgiveness, and you don't mind 30% consistency for the rest of the account's life. TPT is best if you want a forced-phase ladder, no DLL anywhere, and consistency to die at the funded gate. Pick the one whose <em>governance philosophy</em> (one decision vs three forced shifts) matches the way you make decisions.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Apex, TPT, and 5 other prop firms in one journal</h3>
+  <p>Aurafy auto-imports your trades from Tradovate, NinjaTrader, Sierra Chart, and Rithmic. Every prop firm's trailing-drawdown line is pre-modeled &mdash; including Apex's EOD/intraday split and TPT's Test &rarr; PRO &rarr; PRO+ shift. Free tier never expires. No card.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_content=footer-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_content=footer-calc">Open the calculator</a>
+</div>
+
+<h2>Related deep-dives</h2>
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Apex Trader Funding rules (2026)</h4>
+    <p>Full breakdown of Apex 4.0 &mdash; EOD vs intraday pick at purchase, SB+$100 lock, 30% lifetime consistency, Rithmic-family platforms.</p>
+    <a href="https://aurafy.dev/prop-firms/apex-trader-funding/">Read the Apex guide &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Take Profit Trader rules (2026)</h4>
+    <p>Test &rarr; PRO &rarr; PRO+ phase walkthrough, the EOD/intraday/EOD trail shift, news bans, daily payouts.</p>
+    <a href="https://aurafy.dev/prop-firms/take-profit-trader/">Read the TPT guide &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Apex 4.0 EOD vs intraday trail (2026)</h4>
+    <p>The canonical trail-mechanic explainer under Apex's one-shot choice and TPT's phase shifts &mdash; how intraday trail moves on wicks, how EOD trail ignores unrealized give-back, and why the same lock binds harder under one shape than the other.</p>
+    <a href="https://aurafy.dev/blog/apex-4-0-eod-vs-intraday-2026/">Read the trail-mechanic deep-dive &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Topstep vs TPT (2026)</h4>
+    <p>Sibling-family pair &mdash; both SB-lock, both 50%-then-none consistency. The cleanest read on TPT's phase-shift mechanic against a same-family firm.</p>
+    <a href="https://aurafy.dev/blog/topstep-vs-tpt-2026/">Read the comparison &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Apex vs Topstep (2026)</h4>
+    <p>SB+$100 vs SB lock at its cleanest &mdash; the cross-family math without TPT's phase shift, so the lock fork shows up isolated.</p>
+    <a href="https://aurafy.dev/blog/apex-vs-topstep-2026/">Read the comparison &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Apex vs MFFU (2026)</h4>
+    <p>Same lock family (both SB+$100), divergent consistency design (30% lifetime vs 40% on both eval and funded). Apex's consistency twin within its own family.</p>
+    <a href="https://aurafy.dev/blog/apex-vs-mffu-2026/">Read the comparison &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>TPT vs Tradeify (2026)</h4>
+    <p>TPT shifts the trail mechanic across phases; Tradeify shifts the consistency rule across programs. The "pick-your-archetype" axis at both firms.</p>
+    <a href="https://aurafy.dev/blog/tpt-vs-tradeify-2026/">Read the comparison &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Topstep vs Bulenox (2026)</h4>
+    <p>Cross-family pair where the lock cousins also fork the trail-philosophy axis &mdash; Topstep auto-shifts intraday Combine into EOD XFA; Bulenox forks at signup and never moves.</p>
+    <a href="https://aurafy.dev/blog/topstep-vs-bulenox-2026/">Read the comparison &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  Independent comparison guide. Not financial advice. Always verify current rules on each firm's official site.<br/>
+  &copy; 2026 <a href="https://aurafy.dev">Aurafy</a> &mdash; The futures trading journal with native screen recording.
+</footer>
+
+</div>
+</body>
+</html>
