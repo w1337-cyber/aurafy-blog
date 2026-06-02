@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Topstep vs MyFundedFutures (2026): Honest Side-by-Side Comparison | Aurafy</title>
+<meta name="description" content="Topstep vs MyFundedFutures (MFFU) 2026 — daily loss limit vs no DLL, lock at SB vs SB+$100, 50% vs 40% consistency, Combine→XFA vs Core/Rapid/Pro. Full breakdown with worked examples." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/topstep-vs-mffu-2026/" />
+<meta property="og:title" content="Topstep vs MyFundedFutures (2026): Honest Side-by-Side Comparison" />
+<meta property="og:description" content="The complete 2026 comparison of Topstep and MyFundedFutures — DLL vs no-DLL, lock at SB vs SB+$100, plan structures and payout cadence. Free calculators included." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --topstep:#ff5c7c;
+    --mffu:#5b8def;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-topstep{color:var(--topstep);font-weight:600}
+  .firm-mffu{color:var(--mffu);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.topstep{border-left:3px solid var(--topstep)}
+  .pick.mffu{border-left:3px solid var(--mffu)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Topstep vs MyFundedFutures (2026): Honest Side-by-Side Comparison</h1>
+  <p class="lede">Two strong futures prop firms with very different DNA. Topstep enforces a daily loss limit and locks drawdown at your starting balance. MFFU has no DLL on any plan and gives you a $100 lock cushion. Here's the rules, the math, and who each one actually fits &mdash; no affiliate spin.</p>
+  <div class="meta">
+    <span>~9 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>Not affiliated.</strong> Aurafy is a trading journal. We don't take referral money from either firm, which is why this comparison can be flat-honest. Rules change &mdash; <strong>verify everything on each firm's current rulebook</strong> before risking capital.
+</div>
+
+<div class="toc">
+  <a href="#tldr">TL;DR verdicts</a>
+  <a href="#table">Full comparison table</a>
+  <a href="#drawdown">Drawdown deep-dive</a>
+  <a href="#dll">DLL vs no DLL</a>
+  <a href="#consistency">Consistency rules</a>
+  <a href="#payouts">Payouts</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</div>
+
+<h2 id="tldr">TL;DR &mdash; the honest verdict</h2>
+
+<div class="verdict">
+  <strong>Pick <span class="firm-topstep">Topstep</span> if:</strong>
+  You want a strict, structured environment with a hard daily loss limit you can't override. You're learning to size and need the DLL as a forced circuit-breaker. You like the Combine→XFA pathway where the funded account switches to EOD trailing (less psychological pressure mid-session). You value the longest brand history in the prop space.
+</div>
+<div class="verdict">
+  <strong>Pick <span class="firm-mffu">MyFundedFutures</span> if:</strong>
+  You want no daily loss limit so size and stop placement is purely your decision. You like the $100 lock cushion above starting balance. You want to choose your structure: Core (EOD, with consistency), Rapid (intraday, no consistency), or Pro (instant funding, no eval). You want payouts every 5 days instead of monthly cycles.
+</div>
+<div class="verdict">
+  <strong>The 30-second mental model:</strong>
+  <span class="firm-topstep">Topstep = guardrails on</span> (DLL forces discipline, trail locks at SB). <span class="firm-mffu">MFFU = guardrails off</span> (no DLL, trail locks at SB+$100, three structures to match your style). Same audience, opposite philosophy.
+</div>
+
+<h2 id="table">Full side-by-side comparison</h2>
+
+<table>
+  <thead>
+    <tr><th></th><th>Topstep</th><th>MyFundedFutures</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Account sizes</td><td>50K, 100K, 150K</td><td>50K (Core only), 50K/100K/150K (Rapid), 50K/100K/150K (Pro)</td></tr>
+    <tr><td class="label">Evaluation structure</td><td>Combine (eval) → Express Funded Account (XFA)</td><td>Core (eval) / Rapid (eval) / Pro (instant funding, no eval)</td></tr>
+    <tr><td class="label">Trail type (eval)</td><td>Intraday (Combine)</td><td>EOD (Core), Intraday (Rapid)</td></tr>
+    <tr><td class="label">Trail type (funded)</td><td>EOD (XFA)</td><td>Same as your eval plan (Pro = EOD)</td></tr>
+    <tr><td class="label">Trail locks at</td><td>Starting Balance ($0 net P&amp;L)</td><td>Starting Balance + $100</td></tr>
+    <tr><td class="label">Daily Loss Limit</td><td><strong>Yes</strong> — $1,000 / $2,000 / $3,000</td><td><strong>None on any plan</strong></td></tr>
+    <tr><td class="label">Profit target (50K)</td><td>$3,000</td><td>$3,000 (Core or Rapid)</td></tr>
+    <tr><td class="label">Profit target (100K)</td><td>$6,000</td><td>$6,000 (Rapid)</td></tr>
+    <tr><td class="label">Profit target (150K)</td><td>$9,000</td><td>$9,000 (Rapid)</td></tr>
+    <tr><td class="label">Consistency rule</td><td>50% of total (eval)</td><td>40% (Core, eval + funded), none (Rapid)</td></tr>
+    <tr><td class="label">Profit split</td><td>80–90% scaling</td><td>80–90%</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Monthly minimums w/ scaling rules</td><td>Every 5 days (48h after first)</td></tr>
+    <tr><td class="label">Activation fee</td><td>None</td><td>None</td></tr>
+    <tr><td class="label">Brand age</td><td>Founded 2012 (oldest major futures prop)</td><td>Newer firm, post-2020</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact">
+  <strong>The two biggest mechanical differences:</strong> (1) Topstep has a daily loss limit. MFFU has none. (2) Topstep's trailing drawdown locks at your starting balance ($0 net P&amp;L). MFFU's locks at starting balance + $100. The first is about session-level risk control; the second is about lifetime account survivability.
+</div>
+
+<h2 id="drawdown">Drawdown deep-dive &mdash; how the trail actually moves</h2>
+
+<p>Both firms use a <strong>trailing drawdown</strong>, but the trigger and the lock point differ.</p>
+
+<h3>How a trailing drawdown works (refresher)</h3>
+<p>The drawdown floor follows your equity high-water mark up but never down. As your account makes new highs, the "you fail here" line rises with it. Below the floor = blown account.</p>
+
+<h3>Topstep &mdash; Combine (intraday) vs XFA (EOD)</h3>
+<ul>
+  <li><strong>Combine:</strong> Tracks your <em>live</em> equity high-water mark, including unrealized P&amp;L. A mid-trade spike pulls your floor up even if you give it back. This is the strictest mode.</li>
+  <li><strong>Express Funded Account (XFA):</strong> Tracks EOD high-water mark. The trail only moves at session close. Unrealized intraday spikes don't ratchet you up &mdash; only closed daily P&amp;L counts.</li>
+  <li><strong>Lock:</strong> Once your EOD trail reaches Starting Balance ($0 net P&amp;L), it stops moving permanently. From that moment on, you can't blow the account from running profits down &mdash; only from actual losses below SB.</li>
+</ul>
+
+<h3>MFFU &mdash; Core (EOD), Rapid (intraday), Pro (EOD)</h3>
+<ul>
+  <li><strong>Core:</strong> EOD trail. Calculated once per day on closing balance. Trail moves only at session close.</li>
+  <li><strong>Rapid:</strong> Intraday trail. Same mechanic as Topstep Combine &mdash; spikes ratchet the floor up. The trade-off for the larger DD on Rapid is the intraday tracking.</li>
+  <li><strong>Pro:</strong> EOD trail. Instant funding (no eval), $100K total payout cap across all Pro accounts.</li>
+  <li><strong>Lock:</strong> The trail stops permanently at Starting Balance + $100. Slightly more generous than Topstep &mdash; you get a $100 buffer above SB before the lock holds.</li>
+</ul>
+
+<h3>Why the lock point matters in real money</h3>
+<p>Imagine a 100K account at both firms. You build to $105,000 then drift back. Once your trail catches up:</p>
+<ul>
+  <li><strong>Topstep XFA:</strong> Lock holds at <strong>$100,000</strong>. Below that = blown.</li>
+  <li><strong>MFFU (Core or Pro):</strong> Lock holds at <strong>$100,100</strong>. Below that = blown.</li>
+</ul>
+<p>It's only $100 of cushion. But it matters psychologically: with MFFU you can be slightly net-negative on the day and the account survives. With Topstep, your account dies at break-even.</p>
+
+<h2 id="dll">Daily Loss Limit &mdash; the bigger philosophical difference</h2>
+
+<p>This is the headline difference. Topstep enforces a daily loss limit. MFFU does not.</p>
+
+<table>
+  <thead>
+    <tr><th>Size</th><th>Topstep DLL</th><th>MFFU DLL (any plan)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">50K</td><td class="num">$1,000</td><td class="num">None</td></tr>
+    <tr><td class="label">100K</td><td class="num">$2,000</td><td class="num">None</td></tr>
+    <tr><td class="label">150K</td><td class="num">$3,000</td><td class="num">None</td></tr>
+  </tbody>
+</table>
+
+<h3>How the Topstep DLL works</h3>
+<p>It's a hard floor enforced by the platform. Hit it and your account is locked for the session. It's calculated on a "max daily loss" mechanic that's the larger of: (a) the dollar limit, or (b) your trailing drawdown remaining. In practice the dollar limit is the binding constraint early on. The DLL is non-negotiable &mdash; you can't disable it.</p>
+
+<h3>What MFFU's missing DLL means</h3>
+<p>Your only failure condition is the trailing drawdown. You could theoretically lose $4,000 on a 50K Rapid in a single session (which would blow you anyway since the DD is $2,000) &mdash; but you'd have to do it in one move. There's no <em>session-level</em> sub-cap. This means:</p>
+<ul>
+  <li>You have more rope, which is what good traders want and bad traders abuse.</li>
+  <li>Sizing is purely your responsibility &mdash; nothing enforces a per-session limit.</li>
+  <li>Trailing drawdown is doing 100% of the risk gating work.</li>
+</ul>
+
+<div class="key-fact">
+  <strong>Honest take:</strong> If you've ever had a "revenge trade" session where you blew through a DLL and were grateful for the forced stop, you probably want Topstep's DLL as an external commitment device. If you've ever had a perfectly good day cut short by a fluke morning chop that ate your DLL and stranded you for the session, MFFU's no-DLL structure will feel like freedom.
+</div>
+
+<h2 id="consistency">Consistency rules &mdash; 50% vs 40% (and where it applies)</h2>
+
+<p>Both firms use consistency rules to prevent "passing the eval on one lucky day." But the thresholds and scope differ.</p>
+
+<table>
+  <thead>
+    <tr><th>Firm</th><th>Threshold</th><th>Scope</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label firm-topstep">Topstep</td><td class="num">50% of total</td><td>Evaluation (Combine)</td></tr>
+    <tr><td class="label firm-mffu">MFFU Core</td><td class="num">40% of total</td><td>Evaluation AND funded payouts</td></tr>
+    <tr><td class="label firm-mffu">MFFU Rapid</td><td class="num">None</td><td>—</td></tr>
+    <tr><td class="label firm-mffu">MFFU Pro</td><td class="num">Plan-specific</td><td>Confirm with rulebook</td></tr>
+  </tbody>
+</table>
+
+<h3>The math (same formula, different threshold)</h3>
+<p>Best-day-must-be-≤-threshold-of-total translates to a hard formula. Given total P&amp;L <strong>T</strong> and threshold <strong>t</strong>:</p>
+<ul>
+  <li><strong>Max allowed best day:</strong> <code>t × T</code> &mdash; so on Topstep no day can exceed 50% of total; on MFFU Core no day can exceed 40%.</li>
+  <li><strong>Max safe next-day P&amp;L given your current best B:</strong> <code>B / t − T</code></li>
+</ul>
+
+<h3>Topstep example (50% rule)</h3>
+<p>You're at $2,400 total profit on a Combine. Best day = $1,400. Ratio = 58.3% &mdash; over the 50% line. You need additional profit before you can pass: <code>(1,400 ÷ 0.5) − 2,400 = $400</code>. You can't have any day exceed $1,400 either.</p>
+
+<h3>MFFU Core example (40% rule)</h3>
+<p>You're at $2,400 total profit on a Core 50K. Best day = $1,400. Ratio = 58.3% &mdash; over the 40% line. Additional profit needed: <code>(1,400 ÷ 0.4) − 2,400 = $1,100</code>. The lower threshold is <em>stricter</em> &mdash; one big day eats more future profit-runway.</p>
+
+<div class="key-fact">
+  <strong>Counter-intuitive point:</strong> A higher consistency percentage (50%) is more permissive than a lower one (40%). Topstep's 50% means a single day can be half your total. MFFU Core's 40% means no day can be more than 40% &mdash; one fat-tail day costs you more grinding to dilute it.
+</div>
+
+<h2 id="payouts">Payouts &mdash; cadence and split</h2>
+
+<table>
+  <thead>
+    <tr><th>Feature</th><th>Topstep</th><th>MyFundedFutures</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Cadence</td><td>Monthly minimum thresholds, scaling rules apply</td><td>Every 5 days (48h after first)</td></tr>
+    <tr><td class="label">Split</td><td>80–90% with scaling</td><td>80–90% with scaling</td></tr>
+    <tr><td class="label">Minimum payout</td><td>Per Topstep scaling plan</td><td>Per MFFU current rulebook</td></tr>
+    <tr><td class="label">Consistency check at payout</td><td>Eval-stage only</td><td>Core: at every payout. Rapid: no consistency check.</td></tr>
+  </tbody>
+</table>
+
+<p>MFFU's faster cadence is real cash-flow value. Topstep's monthly rhythm forces more capital to sit. But Topstep's funded account model removes intraday trail pressure on the XFA, which has its own kind of value.</p>
+
+<h2 id="examples">Worked examples &mdash; same trade, two firms</h2>
+
+<h3>Example 1 &mdash; deep intraday heat on a 100K, then recover</h3>
+<p>You take ES short, go $800 against you intraday, then ride it back to +$300 close.</p>
+<ul>
+  <li><strong>Topstep Combine (intraday trail):</strong> Drawdown floor was already at $97,000. The intraday spike to −$800 brings you to $99,200 unrealized &mdash; floor untouched (still $97k). You close +$300. <strong>DLL check:</strong> the $800 intraday drawdown stayed under the $2,000 DLL. Account survives.</li>
+  <li><strong>Topstep XFA (EOD trail):</strong> Same DLL check applies. Drawdown floor doesn't move intraday. Close at +$300, EOD floor adjusts up tomorrow.</li>
+  <li><strong>MFFU Rapid (intraday trail, 100K):</strong> DD is $4,000 &mdash; deeper than Topstep's $3,000. The intraday −$800 doesn't even threaten the floor. <strong>No DLL check.</strong> Close at +$300, trail ratcheted up by the intraday spike to your equity HWM.</li>
+  <li><strong>MFFU Core (EOD trail, 50K):</strong> Not applicable at 100K &mdash; Core is 50K only.</li>
+</ul>
+
+<h3>Example 2 &mdash; consistency blocking a payout</h3>
+<p>You earn $3,500 total on a 50K. Best day = $1,800.</p>
+<ul>
+  <li><strong>Topstep Combine (50% rule):</strong> Ratio = 51.4% &mdash; over. Need <code>(1,800 / 0.5) − 3,500 = $100</code> more profit before passing. Tiny fix.</li>
+  <li><strong>MFFU Core (40% rule, also on funded):</strong> Ratio = 51.4% &mdash; over. Need <code>(1,800 / 0.4) − 3,500 = $1,000</code> more profit before the payout is consistent. Much bigger fix &mdash; and remember the rule applies at <em>every</em> funded payout, not just the eval.</li>
+  <li><strong>MFFU Rapid (no consistency):</strong> No issue. Pay yourself.</li>
+</ul>
+
+<h3>Example 3 &mdash; "I had one bad morning" session protection</h3>
+<p>You're up $1,500 for the week on a 50K. Monday: stop hunt at the open, you take three losers, −$1,200 by 9:45am.</p>
+<ul>
+  <li><strong>Topstep:</strong> $1,200 loss is under the $1,000 DLL <em>almost</em> &mdash; actually it's over. <strong>Account locked for the day at the DLL trigger.</strong> You go for a walk. You're forced out, but you also can't dig deeper.</li>
+  <li><strong>MFFU Rapid (any size):</strong> No DLL. You can keep trading. Risk: if you're tilted, you can dig the hole deeper until you hit the full trail. Opportunity: if you genuinely have a setup at 10am, nothing stops you taking it.</li>
+</ul>
+
+<h2 id="pick">Which one should you pick?</h2>
+
+<div class="pick-grid">
+  <div class="pick topstep">
+    <h4>Pick Topstep if&hellip;</h4>
+    <ul>
+      <li>You want the DLL as a circuit-breaker you can't override</li>
+      <li>You like the Combine→XFA pathway (intraday during eval, EOD once funded — less pressure mid-session)</li>
+      <li>You want the longest-standing brand in the prop space</li>
+      <li>You're disciplined about per-day risk and don't mind monthly payout cadence</li>
+      <li>You'd rather have eval-only consistency (free to take any size day once funded)</li>
+    </ul>
+  </div>
+  <div class="pick mffu">
+    <h4>Pick MyFundedFutures if&hellip;</h4>
+    <ul>
+      <li>You don't want a daily loss limit &mdash; you'll manage your own sizing</li>
+      <li>You value the $100 lock cushion above starting balance</li>
+      <li>You want to choose your structure: Core (EOD + consistency), Rapid (intraday, no consistency), or Pro (instant funding)</li>
+      <li>Faster cash flow matters &mdash; payouts every 5 days vs monthly</li>
+      <li>You're OK with consistency rules applying at every funded payout (Core) in exchange for the trade-offs above</li>
+    </ul>
+  </div>
+</div>
+
+<div class="key-fact">
+  <strong>If you can't decide:</strong> Smaller account on each. The DLL question is the one most traders only learn the answer to by feel &mdash; doing both reveals whether you're a "guardrails on" or "guardrails off" trader. Track per-session results in a journal so you can compare honestly.
+</div>
+
+<h2>Free tools to test your math on either firm</h2>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Trailing Drawdown Simulator</h4>
+    <p>Model both Topstep and MFFU presets. Compare intraday vs EOD trail, see how the lock point ($SB vs $SB+100) plays out across simulated weeks.</p>
+    <a href="https://w1337-cyber.github.io/aurafy-growth-assets/tools/trailing-drawdown-calculator/">Open simulator →</a>
+  </div>
+  <div class="tool-card">
+    <h4>Consistency Rule Calculator</h4>
+    <p>Test 50% Topstep vs 40% MFFU Core on your real per-day P&amp;L. Get the exact "additional profit needed" number before you risk a non-consistent payout.</p>
+    <a href="https://w1337-cyber.github.io/aurafy-growth-assets/tools/consistency-rule-calculator/">Open calculator →</a>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Which is easier to pass &mdash; Topstep Combine or MFFU Core?</summary>
+  <p>Different "easier." Topstep Combine has a 50% consistency rule (more permissive) but enforces a DLL, so one bad morning can lock you out for the session. MFFU Core has a stricter 40% consistency rule (applied to eval AND funded) but no DLL. If you take steady measured profits with no one big day, MFFU Core's consistency rule is harder. If you're prone to one breakout-day skews, Topstep's 50% is easier.</p>
+</details>
+
+<details>
+  <summary>If MFFU has no DLL, can I just YOLO and risk everything in one session?</summary>
+  <p>You can, and your account will die when it hits the trailing drawdown. The DLL absence doesn't expand your max loss &mdash; the trail still caps you. It just removes the session-level sub-cap. The "rope" is the same total; it's just whether you can use it all in a day or are forced to spread it.</p>
+</details>
+
+<details>
+  <summary>Is Topstep's XFA model (EOD trail once funded) better than MFFU's any-plan EOD?</summary>
+  <p>Topstep's XFA structure is genuinely nice &mdash; you grind through the intraday Combine, then once funded you switch to a lower-pressure EOD trail. MFFU's Core (EOD) gives you EOD throughout, but with the trade-off of stricter consistency. If you want EOD on the funded account specifically, both work; Topstep just gets there through a different on-ramp.</p>
+</details>
+
+<details>
+  <summary>Why do faster payouts (MFFU every 5 days) matter?</summary>
+  <p>Cash flow timing. If you're treating prop as a real income stream, getting paid every 5 days versus once a month means lower latency between work and reward, which is also a behavioral edge &mdash; profits feel more real, fewer to "give back." Topstep's monthly cadence is more capital-intensive but forces longer-cycle thinking, which some traders prefer.</p>
+</details>
+
+<details>
+  <summary>Does the $100 MFFU lock cushion really matter?</summary>
+  <p>In dollar terms, it's small. In behavioral terms it's notable: you can finish a session a few ticks net-negative without blowing the account. With Topstep XFA, your account dies exactly at $0 net P&amp;L &mdash; one bad close and it's over. It's not a reason to pick MFFU on its own, but it adds a small margin of error.</p>
+</details>
+
+<details>
+  <summary>Can I run both at the same time?</summary>
+  <p>Yes, and many traders do &mdash; it's diversification across rule sets. Just be aware of position-correlation if you're trading the same instruments at both firms. A bad ES day hits two accounts at once. A good journal (e.g. <a href="https://aurafy.dev?utm_source=tools&amp;utm_medium=topstep-vs-mffu-blog&amp;utm_campaign=comparison">Aurafy</a>) lets you tag accounts by firm so you can see real per-firm performance.</p>
+</details>
+
+<details>
+  <summary>I'm new and want lower stakes. Where do I start?</summary>
+  <p>The lowest-fee starting points are Topstep 50K Combine or MFFU 50K Core/Rapid. Both let you learn prop-firm dynamics on a small drawdown ($2,000 or $1,500). Pick by personality: Topstep if you want forced session-level discipline, MFFU Rapid if you want total flexibility, MFFU Core if you want EOD trail + are comfortable with the 40% consistency rule.</p>
+</details>
+
+<div class="cta">
+  <h3>Aurafy &mdash; the journal that tracks both firms' rules automatically</h3>
+  <p>Tag each trade with the firm + account, and Aurafy will alert you when you're approaching your trailing drawdown or about to break consistency on your next payout. Built specifically for prop-firm futures traders.</p>
+  <a class="btn" href="https://aurafy.dev?utm_source=tools&amp;utm_medium=topstep-vs-mffu-blog&amp;utm_campaign=comparison">Start free →</a>
+  <a class="btn ghost" href="https://aurafy.dev/pricing?utm_source=tools&amp;utm_medium=topstep-vs-mffu-blog&amp;utm_campaign=comparison">$19 founder offer (first 50)</a>
+  <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)">Free tier: last 30 days, 1 account, 3 playbooks &mdash; no card required.</p>
+</div>
+
+<h2>Related reading</h2>
+<ul>
+  <li><a href="https://w1337-cyber.github.io/aurafy-growth-assets/prop-firms/topstep/">Topstep landing page &mdash; Combine, XFA, full rules</a></li>
+  <li><a href="https://w1337-cyber.github.io/aurafy-growth-assets/prop-firms/myfundedfutures/">MyFundedFutures landing page &mdash; Core, Rapid, Pro</a></li>
+  <li><a href="https://w1337-cyber.github.io/aurafy-growth-assets/blog/apex-vs-topstep-2026/">Apex vs Topstep (2026) &mdash; the other side of this comparison</a></li>
+  <li><a href="https://w1337-cyber.github.io/aurafy-growth-assets/blog/apex-vs-mffu-2026/">Apex vs MyFundedFutures (2026) &mdash; same lock mechanic, different plan structure</a></li>
+  <li><a href="https://w1337-cyber.github.io/aurafy-growth-assets/blog/best-prop-firms-2026/">Best prop firms for futures traders (2026) &mdash; full ranking hub</a></li>
+</ul>
+
+<footer>
+  <p>Published June 2026 by <a href="https://aurafy.dev">Aurafy</a>. Aurafy is a futures trading journal &mdash; <strong>not affiliated</strong> with Topstep or MyFundedFutures. We make money from journal subscriptions, not from referral kickbacks &mdash; which is why this article doesn't sell you on either firm. Verify all rules on each firm's current rulebook before trading. Trading futures involves substantial risk of loss.</p>
+</footer>
+
+</div>
+</body>
+</html>
