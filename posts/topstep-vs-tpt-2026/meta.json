@@ -1,0 +1,15 @@
+{
+  "slug": "topstep-vs-tpt-2026",
+  "title": "Topstep vs TPT (2026): Same Lock Family, Opposite Trail Trajectory",
+  "description": "Topstep vs Take Profit Trader — both lock funded drawdown at Starting Balance, both drop 50% consistency on the funded phase. But the trail mechanic moves in opposite directions across the lifecycle. Honest 2026 side-by-side.",
+  "canonical": "https://aurafy.dev/blog/topstep-vs-tpt-2026/",
+  "published": "2026-06-02",
+  "updated": "2026-06-02",
+  "og": {
+    "title": "Topstep vs TPT (2026): Same Lock Family, Opposite Trail Trajectory",
+    "description": "Both lock at Starting Balance. Both drop 50% consistency on funded. But Topstep starts intraday and goes EOD as you graduate, while TPT does EOD→intraday→EOD as you climb its phases. The shift is the story.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "comparison", "topstep", "tpt", "take-profit-trader", "2026"],
+  "source_path": "posts/topstep-vs-tpt-2026/index.html"
+}

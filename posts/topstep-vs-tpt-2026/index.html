@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Topstep vs TPT (2026): Same Lock Family, Opposite Trail Trajectory | Aurafy</title>
+<meta name="description" content="Topstep vs Take Profit Trader — both lock funded drawdown at Starting Balance, both drop 50% consistency on the funded phase. But the trail mechanic moves in opposite directions across the lifecycle. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/topstep-vs-tpt-2026/" />
+<meta property="og:title" content="Topstep vs TPT (2026): Same Lock Family, Opposite Trail Trajectory" />
+<meta property="og:description" content="Both lock at Starting Balance. Both drop 50% consistency on funded. But Topstep starts intraday and goes EOD as you graduate, while TPT does EOD→intraday→EOD as you climb its phases. The shift is the story." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --topstep:#5b8def;
+    --tpt:#ffb454;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-topstep{color:var(--topstep);font-weight:600}
+  .firm-tpt{color:var(--tpt);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--red);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.topstep{border-left:3px solid var(--topstep)}
+  .pick.tpt{border-left:3px solid var(--tpt)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.topstep{border-top:2px solid var(--topstep)}
+  .axis-side.tpt{border-top:2px solid var(--tpt)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Topstep vs TPT (2026): Same Lock Family, Opposite Trail Trajectory</h1>
+  <p class="lede">Both lock funded drawdown at the <strong>starting balance</strong>. Both drop the 50% consistency rule once you reach the funded phase. But the trail mechanic shifts in <strong>opposite directions</strong> as you climb the lifecycle. Here's the honest 2026 side-by-side.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Prop-firm rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#trail">The trail trajectory</a>
+  <a href="#lock">Lock archetype</a>
+  <a href="#consistency">Consistency rule</a>
+  <a href="#dll">Daily loss limit</a>
+  <a href="#payouts">Payouts &amp; cost</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR verdict</h2>
+
+<div class="verdict">
+  <strong class="firm-topstep">Topstep &mdash; pick if you want the most established US futures funding brand, a 2-phase Combine&rarr;XFA flow, and you're comfortable trading on TopstepX or NinjaTrader 8.</strong>
+  Combine (intraday trail, 50% consistency, daily loss limit) &rarr; Express Funded Account (EOD trail, no consistency, DLL platform-dependent). Locks at the starting balance. 3 sizes (50K / 100K / 150K). XFA is <strong>real-capital funded</strong> from day one &mdash; no simulated tier. News-trading permitted on XFA with standard guidance.
+</div>
+
+<div class="verdict">
+  <strong class="firm-tpt">Take Profit Trader (TPT) &mdash; pick if you want a 3-phase ladder, no daily loss limit anywhere, and you trade on TradingView / Tradovate / NinjaTrader / Rithmic.</strong>
+  Test (EOD trail, 50% consistency, 5-day minimum) &rarr; PRO simulated funded (<em>intraday</em> trail, no consistency, 80/20 split) &rarr; PRO+ live-funded promotion (back to EOD, 90/10 split, auto-promotion since 2026-03-18). Locks at the starting balance &mdash; <strong>same lock family as Topstep</strong>. 5 sizes (adds 25K + 75K). $130 activation per account. News-trading banned on PRO/PRO+.
+</div>
+
+<div class="verdict">
+  <strong>The trail trajectory is the wedge.</strong> Topstep goes <em>intraday on eval &rarr; EOD on funded</em>: tightest trail at the start, more forgiving once you're paid. TPT goes <em>EOD on eval &rarr; intraday on PRO &rarr; EOD on PRO+</em>: most forgiving on eval, tightest in the middle, forgiving again on the live tier. Same lock target, opposite path to get there.
+</div>
+
+<h2 id="sidebyside">Side-by-side: Topstep vs TPT (2026)</h2>
+
+<table>
+  <thead>
+    <tr><th>Axis</th><th><span class="firm-topstep">Topstep</span></th><th><span class="firm-tpt">Take Profit Trader</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Lifecycle</td><td><strong>2 phases:</strong> Combine &rarr; XFA</td><td><strong>3 phases:</strong> Test &rarr; PRO &rarr; PRO+</td></tr>
+    <tr><td class="label">Eval structure</td><td>1-step Combine, no fixed-day minimum on entry tier (verify current)</td><td>1-step Test, <strong>5-day minimum</strong></td></tr>
+    <tr><td class="label">Trail trajectory</td><td><strong>Intraday &rarr; EOD</strong> (Combine to XFA)</td><td><strong>EOD &rarr; intraday &rarr; EOD</strong> (Test to PRO to PRO+)</td></tr>
+    <tr><td class="label">Lock archetype</td><td>Locks at <strong>Starting Balance</strong></td><td>Locks at <strong>Starting Balance</strong> &mdash; same family</td></tr>
+    <tr><td class="label">Consistency (eval)</td><td>50% (Combine)</td><td>50% (Test)</td></tr>
+    <tr><td class="label">Consistency (funded)</td><td><strong>None</strong> (XFA)</td><td><strong>None</strong> (PRO &amp; PRO+)</td></tr>
+    <tr><td class="label">Account sizes</td><td>3 sizes: 50K / 100K / 150K</td><td>5 sizes: 25K / 50K / 75K / 100K / 150K</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>Yes</strong> on NinjaTrader 8; <strong>removed</strong> on TopstepX (Aug 2024) for both Combine + XFA</td><td><strong>None firmwide</strong> &mdash; removed January 2025. Trail is the only hard guardrail</td></tr>
+    <tr><td class="label">Activation fee</td><td>Upfront on Combine pass &mdash; paid to convert to XFA (amount has shifted historically; verify current)</td><td>$130 one-time per account on eval purchase</td></tr>
+    <tr><td class="label">Capital backing</td><td><strong>Real capital</strong> on XFA from day one</td><td><strong>Simulated</strong> on PRO (80/20 split) &rarr; live-funded on PRO+ (90/10)</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Monthly cadence with platform-defined minimum trading-day counts and buffer requirements (verify current Topstep rules)</td><td><strong>Daily on PRO/PRO+</strong> once buffer above SB is cleared; <strong>7-day minimum</strong> between payouts; 1&ndash;2 business days processing</td></tr>
+    <tr><td class="label">Platforms</td><td>TopstepX (proprietary, default), NinjaTrader 8</td><td>NinjaTrader, Tradovate, TradingView, Rithmic</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted on XFA (standard guidance)</td><td><strong>Banned on PRO/PRO+</strong> &mdash; no trades 1 min before/during/after FOMC, NFP, CPI</td></tr>
+    <tr><td class="label">Overnight holds</td><td>Banned &mdash; flat by 5 PM ET Mon&ndash;Fri</td><td>Banned &mdash; flat by 5 PM ET Mon&ndash;Fri</td></tr>
+    <tr><td class="label">Max funded accounts</td><td>Multiple (verify current Topstep policy)</td><td>5</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact">Both firms drop the 50% consistency rule once you reach the funded phase. Both lock the trail at the starting balance. After that, almost every other rule diverges &mdash; including the two that matter most for execution: <strong>trail trajectory</strong> and <strong>daily loss limit</strong>.</div>
+
+<h2 id="trail">The trail trajectory: opposite paths to the same lock</h2>
+
+<p>Every prop firm's trailing drawdown can be described by two things: <em>when</em> the floor advances (intraday vs end-of-day) and <em>where</em> it locks (starting balance vs starting balance + safety net). Topstep and TPT lock in the same place but advance the floor on opposite schedules across the lifecycle.</p>
+
+<div class="axis">
+  <div class="axis-side topstep">
+    <strong>Topstep &mdash; intraday on Combine, EOD on funded</strong>
+    <p style="margin:0">During the Combine the floor tracks every new <em>intraday</em> equity high &mdash; including unrealized P&amp;L on a wick. Spike up $1,500 and immediately give it back, the floor still advanced by $1,500 against you. Pass the Combine, get an XFA (Express Funded Account), and the trail switches to EOD &mdash; the floor only advances on a new <em>session-close</em> high. Intraday wicks no longer count.</p>
+  </div>
+  <div class="axis-side tpt">
+    <strong>TPT &mdash; EOD on Test, intraday on PRO, EOD on PRO+</strong>
+    <p style="margin:0">Test phase trails EOD &mdash; the floor only advances on a new daily-close high. Pass the Test and get auto-promoted to PRO, which switches to <em>intraday</em> trail (the floor advances on every live equity high during the session). Hit the PRO performance review and get auto-promoted to PRO+ (since 2026-03-18) &mdash; trail switches back to EOD. The mechanic changes underneath you twice.</p>
+  </div>
+</div>
+
+<p>This matters because the trail mechanic dictates which trade styles are safe at which size:</p>
+
+<ul>
+  <li><strong>Topstep Combine punishes intraday spike-and-give-back.</strong> Scaling out into a fade gives back trail headroom that doesn't come back. The eval is harder than the funded account &mdash; an inversion most traders find counterintuitive.</li>
+  <li><strong>TPT Test rewards intraday spike-and-give-back.</strong> EOD trail ignores wicks entirely. The eval is the easiest phase in TPT's flow. The intraday squeeze hits on PRO &mdash; the middle phase &mdash; not at the start.</li>
+  <li><strong>Both are forgiving on the live tier.</strong> Topstep XFA = EOD. TPT PRO+ = EOD. Once you're getting paid by either firm, the wick-trail tax is gone.</li>
+</ul>
+
+<div class="warn"><strong>The bait pattern is opposite at each firm.</strong> A trader who learned to grind on TPT Test (EOD-forgiving) can blow up on PRO (intraday-tight) because the rule changed at promotion. A trader who learned to grind on Topstep Combine (intraday-tight) typically <em>survives</em> XFA at first because the rule loosened on promotion &mdash; the over-tight habits stay safe. The shifts cut in opposite directions.</div>
+
+<h2 id="lock">Lock archetype: same family, same dollar floor</h2>
+
+<p>Once your trail has advanced to lock, both firms freeze the loss floor at the <em>starting balance</em>. This is the "Topstep family" lock pattern &mdash; different from the "Apex family" pattern, where the lock floor freezes at <strong>SB + $100</strong>.</p>
+
+<div class="axis">
+  <div class="axis-side topstep">
+    <strong>Topstep XFA &mdash; lock at SB</strong>
+    <p style="margin:0">On a 100K XFA, the trail starts at $100K&minus;$3,000 = $97,000 floor. Each new EOD high lifts the floor by the same delta. When EOD equity reaches $103,000 net of starting balance (i.e. trail covered the full $3,000 distance), the floor locks at $100,000 (the starting balance) and never moves again. Net profit math becomes simple: equity above $100K is yours, equity below is dead.</p>
+  </div>
+  <div class="axis-side tpt">
+    <strong>TPT PRO+ &mdash; lock at SB</strong>
+    <p style="margin:0">Identical math. On a 100K PRO+ account the trail floor starts at $97,000 and advances on each EOD high. When the EOD trail has consumed the full $3,000 trailing distance the floor locks at exactly $100,000. No SB+$100 safety net like Apex or MFFU &mdash; just the starting balance.</p>
+  </div>
+</div>
+
+<div class="key-fact"><strong>Practical consequence:</strong> drawdown headroom math is the same between a 100K Topstep XFA and a 100K TPT PRO+ once both have locked. Every dollar above $100K equity is real profit; every dollar below is a hard stop. The difference between the firms is upstream &mdash; how you got to the lock, not where it sits.</div>
+
+<div class="cta">
+  <h3>Want to see your exact trail floor + lock distance?</h3>
+  <p>Our free Prop-Firm Trailing-Drawdown Calculator runs Topstep Combine (intraday), Topstep XFA (EOD), and TPT-equivalent presets. No login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_content=trailing-dd">Open trailing-DD calculator</a>
+  <a class="btn ghost" href="https://aurafy.dev/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_content=hero">See Aurafy</a>
+</div>
+
+<h2 id="consistency">Consistency rule: 50% on eval, gone on funded &mdash; both firms</h2>
+
+<p>This is the rare axis where Topstep and TPT actually agree.</p>
+
+<ul>
+  <li><strong>Topstep Combine:</strong> 50% consistency rule. Your largest profitable day cannot represent more than 50% of total profit when you submit for pass.</li>
+  <li><strong>Topstep XFA (funded):</strong> No consistency rule.</li>
+  <li><strong>TPT Test:</strong> 50% consistency rule. Same shape as Topstep.</li>
+  <li><strong>TPT PRO &amp; PRO+ (funded):</strong> No consistency rule on either funded phase.</li>
+</ul>
+
+<p>Both firms cap their 50% threshold at the eval and drop it on funded. This is structurally different from <strong>MFFU Core</strong> (40% on both eval AND funded) and <strong>Apex 4.0</strong> (30% on funded payout requests). If you want a funded phase with the consistency wall completely removed, Topstep XFA and TPT PRO/PRO+ are both clean answers.</p>
+
+<div class="key-fact"><strong>Quick formula:</strong> at a 50% threshold, your largest profitable day in the eval cannot exceed total profit &times; 0.5. To pass the 100K Topstep Combine ($3,000 target) with a single $2,000 day, you need at least $4,000 total &mdash; i.e. an extra $1,000 of cumulative profit beyond the target. Same math at TPT Test.</div>
+
+<h2 id="dll">Daily loss limit: where the firms truly diverge</h2>
+
+<p>The 2026-most-relevant divergence between Topstep and TPT is the daily loss limit (DLL).</p>
+
+<div class="axis">
+  <div class="axis-side topstep">
+    <strong>Topstep &mdash; DLL is platform-dependent</strong>
+    <p style="margin:0">On NinjaTrader 8 connected to Topstep, the DLL is enforced ($1,000 / $2,000 / $3,000 for 50K / 100K / 150K accounts). On TopstepX (Topstep's proprietary platform), the default DLL was <strong>removed in August 2024</strong> for both Combine and XFA. Same firm, two different risk profiles depending on which platform you're connected through.</p>
+  </div>
+  <div class="axis-side tpt">
+    <strong>TPT &mdash; no DLL anywhere since Jan 2025</strong>
+    <p style="margin:0">TPT removed the daily loss limit firmwide in January 2025. Test, PRO, and PRO+ have no DLL on any platform. The trailing drawdown is the only hard-loss guardrail.</p>
+  </div>
+</div>
+
+<div class="warn"><strong>The 2026 confusion point:</strong> a trader migrating from TPT (no DLL) to Topstep on NinjaTrader 8 will hit a DLL they aren't expecting. A trader migrating from Topstep on TopstepX (no default DLL) to NinjaTrader 8 on the same firm will <em>also</em> hit a DLL. The platform choice is the deciding factor at Topstep &mdash; not the firm.</div>
+
+<h2 id="payouts">Payouts, profit splits &amp; cost structure</h2>
+
+<p>The lifecycle that gets you paid &mdash; and how often &mdash; differs sharply.</p>
+
+<table>
+  <thead>
+    <tr><th>Axis</th><th><span class="firm-topstep">Topstep</span></th><th><span class="firm-tpt">TPT</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Funded capital type</td><td>Real capital (XFA)</td><td>Simulated on PRO; live-funded on PRO+</td></tr>
+    <tr><td class="label">Profit split (initial funded)</td><td>Verify current Topstep splits; historically 100% on first tranche then 90/10 then 80/20 &mdash; check current</td><td>80/20 on PRO &mdash; trader keeps 80%</td></tr>
+    <tr><td class="label">Profit split (top tier)</td><td>Same XFA structure</td><td>90/10 on PRO+ &mdash; trader keeps 90%</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Monthly cadence with platform-defined minimum trading-day count and buffer requirements (verify current)</td><td><strong>Daily</strong> on PRO/PRO+ once buffer above SB is cleared; <strong>7-day minimum</strong> gap between payouts</td></tr>
+    <tr><td class="label">Activation timing</td><td>Upfront on Combine pass (to convert to XFA)</td><td>Upfront on eval signup ($130 per account)</td></tr>
+    <tr><td class="label">Reset on bust</td><td>Combine resets allowed (verify current pricing); XFA bust = account closed</td><td>Test reset allowed; PRO/PRO+ bust = account closed permanently</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact"><strong>Cost structure honesty:</strong> Topstep's exact pricing has shifted historically &mdash; the entry-tier 50K Combine is often promoted at $49/mo, with the activation fee paid upfront on pass. TPT's eval is a single one-time fee per account ($130) with no monthly subscription on Test (verify current). The two firms charge in structurally different ways &mdash; don't compare list price without checking what's bundled.</div>
+
+<h2 id="examples">Worked examples on a 100K account</h2>
+
+<p>Same trader, same trade sequence, different firm. Numbers assume a 100K account class at each firm.</p>
+
+<details open>
+  <summary>Example 1: $1,800 intraday spike that closes flat</summary>
+  <p><strong>Setup:</strong> Day 1, equity opens at $100,000, runs to +$1,800 unrealized, closes at +$0.</p>
+  <p><strong>Topstep Combine (intraday trail, 100K eval has $3,000 trailing distance):</strong> Floor advances on the +$1,800 intraday high. New floor = $100,000 + $1,800 &minus; $3,000 = $98,800. Despite closing flat, you've given up $1,800 of trail buffer.</p>
+  <p><strong>Topstep XFA (EOD trail):</strong> Closing EOD equity = $100,000. No new EOD high. Floor unchanged at $97,000. Intraday wick is ignored.</p>
+  <p><strong>TPT Test (EOD trail):</strong> Same as Topstep XFA. Closing EOD equity = $100,000. No new EOD high. Floor unchanged at $97,000.</p>
+  <p><strong>TPT PRO (intraday trail):</strong> Same as Topstep Combine. New floor = $98,800. The PRO phase taxes the same wick the Test ignored.</p>
+  <p><strong>TPT PRO+ (EOD trail):</strong> Same as Topstep XFA. Floor unchanged at $97,000.</p>
+</details>
+
+<details>
+  <summary>Example 2: 4-day grind to pass / lock the trail</summary>
+  <p><strong>Setup:</strong> Day 1: +$1,000 (EOD close). Day 2: +$1,200. Day 3: +$800. Day 4: +$1,000. Cumulative +$4,000. No intraday spikes above the close.</p>
+  <p><strong>Topstep Combine:</strong> Profit target of $3,000 hit on Day 3 ($3,000 cumulative). Largest day = $1,200; consistency check = $1,200 / $3,000 = 40% &mdash; <strong>passes the 50% rule</strong>. Day 4 takes cumulative to $4,000 (extra buffer). Trail has been advancing &mdash; at +$3,000 cumulative the floor reached $100,000 (lock at starting balance).</p>
+  <p><strong>Topstep XFA (post-pass):</strong> Trail had already locked from the Combine. Now operating under EOD-only. Day 1-4 EOD gains continue advancing the floor only if you go above prior EOD highs. The lock at $100,000 is already in place.</p>
+  <p><strong>TPT Test:</strong> Profit target of $6,000 (on 100K Test) NOT yet hit at $4,000 cumulative &mdash; need $2,000 more. Largest day = $1,200; consistency = $1,200 / $4,000 = 30% (well under 50%). Trail advanced to lock-distance from cumulative +$3,000 on EOD close.</p>
+  <p><strong>TPT PRO (intraday, post-promotion):</strong> Trail tracks intraday highs &mdash; on a no-spike trading day this matches EOD behavior. Lock at SB ($100,000) already in place.</p>
+  <p><strong>Conclusion:</strong> On a clean grinder pattern (no intraday spikes above EOD), Topstep Combine and TPT Test behave identically &mdash; both lock at SB after $3,000 of cumulative EOD profit. The intraday vs EOD difference only shows up when intraday equity exceeds EOD equity.</p>
+</details>
+
+<details>
+  <summary>Example 3: The activation-shift trap (TPT Test &rarr; PRO promotion)</summary>
+  <p><strong>Setup:</strong> Trader passed TPT Test by grinding small wins ($800/day average, no big intraday wicks). Auto-promoted to PRO. Day 1 on PRO: scales into a winner, takes equity to +$2,000 unrealized, scales out into the close at +$1,200.</p>
+  <p><strong>What changed:</strong> on Test (EOD trail), the +$2,000 unrealized was invisible to the trail. On PRO (intraday trail), the +$2,000 high advanced the trail floor by $800 beyond where the +$1,200 EOD close would have placed it. The trader thinks they had a $1,200 profitable day &mdash; the trail thinks they had a $2,000 day and tightened accordingly.</p>
+  <p><strong>Closest Topstep parallel:</strong> the <em>opposite</em> direction &mdash; a Topstep Combine&rarr;XFA trader is used to the intraday squeeze and feels the EOD trail on XFA as <em>looser</em>, which can lead to over-sizing now that "wicks no longer count." Both shifts catch traders who learned habits in the prior phase.</p>
+</details>
+
+<h2 id="pick">Which to pick</h2>
+
+<div class="pick-grid">
+  <div class="pick topstep">
+    <h4 class="firm-topstep">Pick Topstep if&hellip;</h4>
+    <ul>
+      <li>You want the most established brand in US futures funding</li>
+      <li>You're comfortable on TopstepX (proprietary) or NinjaTrader 8</li>
+      <li>You want <strong>real-capital</strong> XFA from day one (no simulated tier)</li>
+      <li>You prefer a 2-phase flow over a 3-phase ladder</li>
+      <li>You want the no-DLL TopstepX experience &mdash; or you specifically want NT8's DLL guardrail</li>
+      <li>You're OK with monthly Combine subscription + activation on pass</li>
+      <li>You're OK with monthly payout cadence on funded</li>
+    </ul>
+  </div>
+  <div class="pick tpt">
+    <h4 class="firm-tpt">Pick TPT if&hellip;</h4>
+    <ul>
+      <li>You trade on TradingView, Tradovate, NinjaTrader, or Rithmic</li>
+      <li>You want <strong>no daily loss limit anywhere</strong> (since Jan 2025)</li>
+      <li>You want <strong>daily payouts</strong> on funded once the buffer is cleared</li>
+      <li>You want a 5-size ladder (incl. 25K + 75K options Topstep lacks)</li>
+      <li>You can stomach the EOD&rarr;intraday&rarr;EOD trail shift across phases</li>
+      <li>You're OK with $130 upfront per account on eval signup</li>
+      <li>You're OK with no news-trading on PRO/PRO+</li>
+    </ul>
+  </div>
+</div>
+
+<div class="key-fact"><strong>The cleanest tiebreaker:</strong> if you want real-capital funded from the first day you pass an eval, Topstep XFA is the path. If you want daily payouts and don't mind starting on simulated funded (with a 90/10 split waiting on PRO+), TPT is the path. Everything else flows from those two choices.</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Do Topstep and TPT both lock at the same floor?</summary>
+  <p>Yes. Once each firm's trailing drawdown has covered its full distance, the floor locks at the <strong>starting balance</strong> on both Topstep XFA and TPT PRO+. This is the "Topstep family" lock pattern &mdash; different from the "Apex family" pattern, which locks at <strong>SB + $100</strong> safety net. On a 100K account at either firm, the locked floor sits at exactly $100,000.</p>
+</details>
+
+<details>
+  <summary>Which firm has the easier eval?</summary>
+  <p>On a clean grinder pattern with no intraday spikes above EOD, the eval difficulty is similar &mdash; both firms apply 50% consistency and the same trailing-distance class. The structural difference is the <strong>trail mechanic</strong>: Topstep Combine uses intraday trail (punishes wicks), TPT Test uses EOD trail (ignores wicks). If you tend to give back unrealized profit before close, TPT Test is structurally easier to pass than Topstep Combine at the same dollar drawdown.</p>
+</details>
+
+<details>
+  <summary>Does the 50% consistency rule apply on funded?</summary>
+  <p>No. Both Topstep XFA and TPT PRO/PRO+ <strong>drop</strong> the 50% consistency rule on funded. The rule applies only on the eval phase (Topstep Combine / TPT Test).</p>
+</details>
+
+<details>
+  <summary>Why is the daily loss limit different between platforms on Topstep?</summary>
+  <p>In August 2024, Topstep removed the default daily loss limit on TopstepX (its proprietary platform) for both Combine and XFA accounts. NinjaTrader 8 connected to Topstep still enforces a DLL ($1,000 / $2,000 / $3,000 on 50K / 100K / 150K). This means the same Topstep account behaves differently depending on the platform you connect through. TPT, by contrast, removed the DLL <em>firmwide</em> in January 2025 &mdash; no DLL exists on any TPT phase, regardless of platform.</p>
+</details>
+
+<details>
+  <summary>What happens if I bust on TPT PRO+?</summary>
+  <p>PRO+ is the live-funded promotion (auto-applied since 2026-03-18). A bust on PRO+ <strong>closes the account permanently</strong> &mdash; no reset is permitted on PRO+. Test resets are allowed, and the auto-promotion path means most TPT traders never see an &quot;application&quot; for PRO+; it triggers from TPT's internal review of consistency, risk, and execution metrics on PRO.</p>
+</details>
+
+<details>
+  <summary>Does the TPT auto-promotion mean I can't stay on PRO if I prefer 80/20 simplicity?</summary>
+  <p>The auto-promotion to PRO+ is triggered by TPT's internal review &mdash; not requested. Once promoted, you're on the 90/10 split with live capital backing and the EOD trail. Traders who specifically want to stay on simulated funded can avoid hitting the review threshold, but TPT doesn't expose an opt-out toggle. Treat the promotion as a one-way path.</p>
+</details>
+
+<details>
+  <summary>Is one firm "better" overall?</summary>
+  <p>No &mdash; they're optimized for different traders. Topstep is best if you want the brand, the real-capital XFA, and you're already on TopstepX or NT8. TPT is best if you trade on TradingView (Topstep doesn't support it), want daily payouts, and want zero daily-loss-limit risk. Pick the one whose <em>trail trajectory</em> matches the way you actually trade &mdash; intraday-tight on eval (Topstep) or intraday-tight only in the middle phase (TPT).</p>
+</details>
+
+<div class="cta">
+  <h3>Track Topstep, TPT, and 5 other prop firms in one journal</h3>
+  <p>Aurafy auto-imports your trades from Tradovate, NinjaTrader, Sierra Chart, and Rithmic. Every prop firm's trailing-drawdown line is pre-modeled &mdash; including TPT's phase-shift and Topstep's Combine&rarr;XFA shift. Free tier never expires. No card.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_content=footer-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_content=footer-calc">Open the calculator</a>
+</div>
+
+<h2>Related deep-dives</h2>
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Topstep rules explained (2026)</h4>
+    <p>Full breakdown of Combine vs XFA, intraday vs EOD trail, 50% consistency, platform-specific DLL.</p>
+    <a href="https://aurafy.dev/prop-firms/topstep/">Read the Topstep guide &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Take Profit Trader rules (2026)</h4>
+    <p>Test &rarr; PRO &rarr; PRO+ phase walkthrough, the EOD/intraday/EOD trail shift, news bans, daily payouts.</p>
+    <a href="https://aurafy.dev/prop-firms/take-profit-trader/">Read the TPT guide &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Earn2Trade vs Topstep (2026)</h4>
+    <p>Same lock family (SB), different lifecycle &mdash; LiveSim simulated vs XFA real-capital, and the activation-fee deferral.</p>
+    <a href="https://aurafy.dev/blog/earn2trade-vs-topstep-2026/">Read the comparison &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>TPT vs Tradeify (2026)</h4>
+    <p>TPT shifts the trail mechanic across phases; Tradeify shifts the consistency rule across programs. Same lifecycle-landmine, opposite axis.</p>
+    <a href="https://aurafy.dev/blog/tpt-vs-tradeify-2026/">Read the comparison &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Apex vs Topstep (2026)</h4>
+    <p>SB+$100 lock vs SB lock &mdash; the &quot;Apex family vs Topstep family&quot; mechanic at its cleanest. Cross-family comparison.</p>
+    <a href="https://aurafy.dev/blog/apex-vs-topstep-2026/">Read the comparison &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Topstep vs MFFU (2026)</h4>
+    <p>SB lock vs SB+$100 lock; 50%-then-none consistency vs 40%-on-both. Another cross-family comparison.</p>
+    <a href="https://aurafy.dev/blog/topstep-vs-mffu-2026/">Read the comparison &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  Independent comparison guide. Not financial advice. Always verify current rules on each firm's official site.<br/>
+  &copy; 2026 <a href="https://aurafy.dev">Aurafy</a> &mdash; The futures trading journal with native screen recording.
+</footer>
+
+</div>
+</body>
+</html>
