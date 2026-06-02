@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Apex vs Tradeify (2026): Lock Cousins, Mirror Wedges | Aurafy</title>
+<meta name="description" content="Apex 4.0 vs Tradeify — both lock at SB + $100, but Apex shifts the trail type per purchase (EOD or Intraday) while Tradeify shifts the consistency rule per program. Honest 2026 side-by-side with worked examples." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/apex-vs-tradeify-2026/" />
+<meta property="og:title" content="Apex vs Tradeify (2026): Lock Cousins, Mirror Wedges" />
+<meta property="og:description" content="Apex 4.0 and Tradeify share the SB+$100 lock family — but build their lifecycle landmine on opposite axes. Apex shifts the trail type at purchase. Tradeify shifts the consistency rule per program. Honest 2026 breakdown." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --apex:#ff5c7c;
+    --tradeify:#3ddc97;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-apex{color:var(--apex);font-weight:600}
+  .firm-tradeify{color:var(--tradeify);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--red);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.apex{border-left:3px solid var(--apex)}
+  .pick.tradeify{border-left:3px solid var(--tradeify)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.apex{border-top:2px solid var(--apex)}
+  .axis-side.t{border-top:2px solid var(--tradeify)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Apex vs Tradeify (2026): Lock Cousins, Mirror Wedges</h1>
+  <p class="lede">Apex 4.0 and Tradeify share the rare <strong>SB + $100 lock family</strong> &mdash; but they build their lifecycle landmine on opposite axes. Apex makes you pick the trail type at purchase (irreversible) and keeps the consistency rule uniform. Tradeify keeps the trail type uniform and makes you pick the consistency archetype at signup. Mirror wedges. Here's how they actually compare.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Prop-firm rules change &mdash; always verify on each firm's current rulebook (<a href="https://apextraderfunding.com">apextraderfunding.com</a>, <a href="https://tradeify.co">tradeify.co</a>) before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#mirror">The mirror-wedge story</a>
+  <a href="#lock">Lock archetype</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#consistency">Consistency</a>
+  <a href="#payouts">Payouts &amp; cost</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR verdict</h2>
+
+<div class="verdict">
+  <strong class="firm-apex"><a href="https://aurafy.dev/prop-firms/apex-trader-funding/">Apex Trader Funding (4.0)</a> &mdash; pick if you want to choose your trail mechanic up front, trade NinjaTrader, and live with one consistency rule across the lifecycle.</strong>
+  Single 1-step eval, 4 account sizes (25K&ndash;150K), <strong>30% consistency rule on both eval and funded</strong>, and a choice made at purchase: EOD trail (DLL on, trail moves once at 4:59:59 PM ET) or Intraday trail (no DLL, trail moves on every new equity high). Choice is irreversible per account. NinjaTrader 8, Tradovate, Rithmic, TradingView supported. Locks at <strong>SB + $100</strong>.
+</div>
+
+<div class="verdict">
+  <strong class="firm-tradeify"><a href="https://aurafy.dev/prop-firms/tradeify/">Tradeify</a> &mdash; pick if you want a uniform EOD trail across the lifecycle and you can stay off NinjaTrader.</strong>
+  Three parallel programs at signup: Growth (eval-free consistency &rarr; funded 35%), Select (eval 40% &rarr; funded-free), Lightning instant-funded (progressive 20% &rarr; 25% &rarr; 30%). <strong>EOD trail uniform across all three programs.</strong> $0 activation. Tradesea (Rithmic), Tradovate, WealthCharts &mdash; <strong>no NinjaTrader / TradingView / MetaTrader</strong>. Locks at <strong>SB + $100</strong> &mdash; same lock family as Apex.
+</div>
+
+<div class="verdict">
+  <strong>The mirror-wedge is the story.</strong> Both firms lock the trail floor at the same point (SB + $100), so the math of "when does my drawdown stop tightening" is identical. After that, the wedges run in opposite directions: Apex makes you pick the <em>trail type</em> at purchase (uniform consistency); Tradeify makes you pick the <em>consistency archetype</em> at signup (uniform trail). Pick the firm whose decision axis matches the part of your trading you're most confident in.
+</div>
+
+<h2 id="sidebyside">Side-by-side: Apex vs Tradeify (2026)</h2>
+
+<table>
+  <thead>
+    <tr><th>Axis</th><th><span class="firm-apex">Apex 4.0</span></th><th><span class="firm-tradeify">Tradeify</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Structure</td><td>Single 1-step eval, one rule set</td><td>3 parallel programs at signup: Growth / Select / Lightning</td></tr>
+    <tr><td class="label">Eval format</td><td>1-step eval, no minimum days</td><td>1-step (Growth 1d min / Select 3d min); Lightning is instant-funded (no eval)</td></tr>
+    <tr><td class="label">Trail type</td><td><strong>Pick at purchase:</strong> EOD or Intraday (irreversible per account)</td><td><strong>Uniform EOD</strong> across all three programs</td></tr>
+    <tr><td class="label">Lock archetype</td><td>Locks at <strong>SB + $100</strong> (e.g. 100K: floor freezes at $100,100)</td><td>Locks at <strong>SB + $100</strong> &mdash; same family as Apex</td></tr>
+    <tr><td class="label">Consistency rule</td><td><strong>30% uniform</strong> &mdash; same rule on eval and funded</td><td><strong>Varies by program:</strong> Growth eval-free / funded 35%; Select eval 40% / funded-free; Lightning progressive 20&rarr;25&rarr;30%</td></tr>
+    <tr><td class="label">Account sizes</td><td>4 sizes: 25K / 50K / 100K / 150K</td><td>4 sizes per program: 25K / 50K / 100K / 150K</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>Only on EOD accounts</strong> &mdash; Intraday accounts have no DLL</td><td>Growth eval has DLL; Lightning has DLL on 50K+; Select has none</td></tr>
+    <tr><td class="label">Activation fee</td><td>Per-account activation (verify current price on Apex)</td><td><strong>$0</strong> baseline; Select can upgrade ($1,500 daily / $4,000 flex)</td></tr>
+    <tr><td class="label">Profit split</td><td>100% of first $25K per account, 90/10 thereafter</td><td>90/10 after first $15K on Simulated Funded; 80/20 on Elite Live</td></tr>
+    <tr><td class="label">Payout cadence</td><td>2&times;/month after first payout milestone met; minimum threshold per size</td><td>5-day default; Select upgrades possible (daily/flex); 60-min processing</td></tr>
+    <tr><td class="label">Platforms</td><td>NinjaTrader 8, Tradovate, Rithmic, TradingView</td><td>Tradesea (Rithmic), Tradovate, WealthCharts &mdash; <strong>NO NinjaTrader / TradingView / MetaTrader</strong></td></tr>
+    <tr><td class="label">News trading</td><td>Permitted on eval; funded has some news restriction around US economic releases (verify on Apex)</td><td><strong>Permitted</strong> &mdash; Tradeify explicitly allows news</td></tr>
+    <tr><td class="label">Microscalping floor</td><td>No explicit holding-time floor</td><td>&gt;50% of trades AND &gt;50% of profit must come from positions held &gt;10 seconds</td></tr>
+    <tr><td class="label">Overnight holds</td><td>Banned &mdash; flat by 4:59 PM ET</td><td>Banned &mdash; flat by 5 PM ET; cannot hold through 5&ndash;6 PM ET maintenance window</td></tr>
+    <tr><td class="label">Max funded accounts</td><td>20 (multiple accounts allowed; verify per Apex limits)</td><td>5 (total funded size capped at $1M)</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact">Both firms lock the trail floor at <strong>SB + $100</strong> and ban overnight holds. After that, almost every other rule diverges &mdash; including the two that matter most: <strong>what shifts on you</strong> and <strong>which platform you trade on</strong>.</div>
+
+<h2 id="mirror">The mirror-wedge: which axis is your fork?</h2>
+
+<p>The single most underrated quirk in any prop firm's rulebook is the moment where the rules diverge from "one set of rules to learn" to "you committed to a specific path." Apex and Tradeify each have a hard fork &mdash; on opposite axes.</p>
+
+<div class="axis">
+  <div class="axis-side apex">
+    <strong>Apex &mdash; the trail type forks at purchase</strong>
+    <p style="margin:0">When you buy an Apex account, you choose EOD or Intraday trail. EOD: drawdown floor recalculates once at 4:59:59 PM ET (fixed for the next session, enforced real-time). Comes with a separate Daily Loss Limit. Intraday: floor advances on every new equity high during the session. No DLL. <strong>You cannot switch trail type after purchase &mdash; the choice rides with the account for its lifetime.</strong> Consistency rule is the same 30% either way.</p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; the consistency archetype forks at signup</strong>
+    <p style="margin:0">When you sign up for Tradeify, you choose Growth, Select, or Lightning. Growth: no consistency rule on eval, 35% on funded. Select: 40% consistency on eval, no rule on funded. Lightning: instant-funded, progressive 20% &rarr; 25% &rarr; 30% as payouts accumulate. <strong>The trail stays EOD across all three.</strong> Pick the program whose consistency profile matches your rhythm.</p>
+  </div>
+</div>
+
+<p>This matters because every fork is a place a trader who picked the wrong branch gets caught:</p>
+
+<ul>
+  <li><strong>Apex's trail fork</strong> rewards you for knowing in advance whether you tolerate the EOD setup (one snapshot per day, but a DLL hanging over your worst single session) or the Intraday setup (no DLL, but every intraday spike that doesn't hold gives back trail headroom). Pick wrong for your style and the account gets killed at the rule, not at the strategy.</li>
+  <li><strong>Tradeify's consistency fork</strong> rewards you for knowing in advance whether your edge produces lumpy days (Growth's no-eval-consistency is gold) or uniform days (Select's no-funded-consistency lets you take any size payout). Lightning is the right pick if you can pass an instant-funded gauntlet but want straight-to-payout speed.</li>
+</ul>
+
+<div class="warn"><strong>Apex and Tradeify will look almost identical at the lock-math level</strong> (both freeze the floor at SB + $100). The wedge appears in <em>what you committed to at purchase or signup</em>, not in how the trail mechanic itself behaves once you're trading.</div>
+
+<h2 id="lock">Lock archetype: identical floor, different DLL pairing</h2>
+
+<p>Both firms use a trailing drawdown that locks once equity clears a threshold. The lock <em>point</em> is the same. The DLL <em>pairing</em> is not.</p>
+
+<div class="axis">
+  <div class="axis-side apex">
+    <strong>Apex &mdash; locks at SB + $100, DLL on EOD only</strong>
+    <p style="margin:0">Trail floor stops moving once equity exceeds (Starting Balance + Drawdown + $100). E.g. 100K with $3,000 drawdown: floor advances until equity hits $103,100, then it freezes at $100,100. EOD accounts have a separate Daily Loss Limit on top. Intraday accounts have no DLL.</p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; locks at SB + $100, DLL by program</strong>
+    <p style="margin:0">Trail floor stops moving once equity exceeds (Starting Balance + Drawdown + $100). E.g. 100K Growth with $3,500 drawdown: floor advances until equity hits $103,600, then it freezes at $100,100. Growth eval has a DLL; Lightning has a DLL on 50K+; Select has no DLL.</p>
+  </div>
+</div>
+
+<p>Two consequences worth pricing in:</p>
+
+<ul>
+  <li><strong>The actual lock point is identical:</strong> $100,100 on a 100K account, $50,100 on a 50K. Only the equity threshold for triggering the lock differs (Apex's drawdowns are smaller per size at 100K/150K than Tradeify's Growth program, so Apex locks at a slightly lower equity high than Tradeify Growth does).</li>
+  <li><strong>The DLL pairing is the wedge:</strong> Apex couples DLL with the EOD trail (your trade-off is DLL-on for daily snapshots vs DLL-off for intraday tracking). Tradeify decouples DLL from trail entirely &mdash; trail is always EOD, DLL depends on program. A trader on Tradeify Select trades EOD trail with no DLL <em>at all</em>, which has no equivalent on Apex.</li>
+</ul>
+
+<div class="cta">
+  <h3>See the lock point side-by-side on your size</h3>
+  <p>Our free trailing-drawdown calculator presets Apex (EOD or Intraday) and Tradeify (Growth / Select / Lightning) on the same lock-at-SB+$100 family. Switch between them and watch the lock point converge.</p>
+  <a class="btn" href="/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=apex-vs-tradeify&utm_content=trail-calc">Open Trailing-Drawdown Calculator</a>
+</div>
+
+<h2 id="platforms">Platforms: the biggest gotcha</h2>
+
+<p>This is the most common surprise when traders comparing these two firms make a purchase: Tradeify simply does not support the two most popular futures platforms.</p>
+
+<div class="axis">
+  <div class="axis-side apex">
+    <strong>Apex supports:</strong>
+    <p style="margin:0">NinjaTrader 8, Tradovate, Rithmic, TradingView. The full spectrum of prop-firm-trader-default platforms.</p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify supports:</strong>
+    <p style="margin:0">Tradesea (Rithmic data feed), Tradovate, WealthCharts. <strong>NinjaTrader, TradingView, and MetaTrader are NOT supported.</strong></p>
+  </div>
+</div>
+
+<div class="warn"><strong>If you trade on NinjaTrader 8 or TradingView, Tradeify is off the table.</strong> Same warning we give for the TPT-vs-Tradeify decision. NinjaTrader is the single most common platform among futures traders coming from prop firms; if your charts, indicators, or playbook live on NT8, the right comparison for you is Apex against another NT8-supporting firm (Topstep / TPT / MFFU), not Apex vs Tradeify.</div>
+
+<h2 id="consistency">Consistency: one threshold vs three archetypes</h2>
+
+<p>The single biggest behavioral-rule difference. Apex picks one number and applies it everywhere. Tradeify makes the consistency rule itself the program-selection variable.</p>
+
+<table>
+  <thead>
+    <tr><th>Phase / Program</th><th><span class="firm-apex">Apex 4.0</span></th><th><span class="firm-tradeify">Tradeify</span></th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Eval phase</td><td><strong>30%</strong> (best-day &le; 30% of total profit)</td><td>Growth: <strong>none</strong> &middot; Select: 40% &middot; Lightning: no eval (instant-funded; first payout subject to 20%)</td></tr>
+    <tr><td class="label">Funded phase</td><td><strong>30%</strong> &mdash; same rule, same threshold</td><td>Growth: 35% &middot; Select: <strong>none</strong> &middot; Lightning: tightens to 25% &rarr; 30% over payouts</td></tr>
+    <tr><td class="label">Direction across lifecycle</td><td><strong>Uniform</strong> &mdash; what you practiced on eval is what you live with funded</td><td><strong>Inverts or tightens</strong> &mdash; pick the inversion that suits your style</td></tr>
+  </tbody>
+</table>
+
+<p>Quick formula refresher: <strong>max safe single-day P&amp;L = total profit &times; threshold / (1 &minus; threshold)</strong>. At 30% (Apex) that's <strong>0.429 &times; total</strong>. At 40% (Tradeify Select eval) that's <strong>0.667 &times; total</strong>. At 35% (Tradeify Growth funded) that's <strong>0.538 &times; total</strong>. Apex's 30% is the tightest of the three baseline thresholds &mdash; you get less room for a single big day &mdash; but the trade-off is no surprise rule-flip when you move from eval to funded.</p>
+
+<div class="cta">
+  <h3>Plan your safe daily profit ceiling for both firms</h3>
+  <p>Our consistency calculator presets Apex's 30% and Tradeify's Growth / Select / Lightning rules. Enter your phase total, see the max safe single-day P&amp;L before a violation.</p>
+  <a class="btn" href="/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=apex-vs-tradeify&utm_content=consistency-calc">Open Consistency Calculator</a>
+</div>
+
+<h2 id="payouts">Payouts and total cost</h2>
+
+<div class="axis">
+  <div class="axis-side apex">
+    <strong>Apex &mdash; per-account activation, twice-monthly cadence, first-$25K at 100%</strong>
+    <p style="margin:0">Activation fee is paid per account at the point you convert to a funded PA account (verify current Apex pricing, which changes periodically). Once funded, profit split is 100% of the first $25,000 per account, 90/10 thereafter. Payouts open after a minimum threshold per account size is met, and run twice per month (with cooldown windows around payout dates). Stacking multiple accounts is allowed up to Apex's max.</p>
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; $0 baseline activation, 5-day default cadence, 90/10 from $15K</strong>
+    <p style="margin:0">No activation fee on the base programs. Payouts are 5-day cadence by default. Select offers two optional upgrades &mdash; $1,500 one-time for daily payouts, or $4,000 for "flex" payouts. 60-minute guaranteed processing. Split is 90/10 on Simulated Funded after the first $15K of profits, 80/20 on Elite Live. Max 5 funded accounts, total funded size capped at $1M.</p>
+  </div>
+</div>
+
+<p>The cost shape diverges by use case. If you intend to stack many accounts, Apex's activation-per-account is a real cost at scale &mdash; but the first $25K at 100% on each account materially shifts the ROI calculation if your edge is real and you can clear that threshold reliably. Tradeify's $0 baseline is friendlier for testing the waters; the first $15K-at-90/10 split kicks in earlier than Apex's 100%-then-90% breakpoint, so per-trader-dollar Tradeify monetizes the keep rate sooner but lower.</p>
+
+<h2 id="examples">Worked examples</h2>
+
+<h3>Example 1 &mdash; A 100K trader takes an intraday spike to +$2,800 that closes back at +$1,400</h3>
+
+<p>Identical session across firms: equity wicks to +$2,800 intraday, gives back $1,400, closes the day at +$1,400. Compare the trail-floor outcome.</p>
+
+<ul>
+  <li><strong>Apex EOD (100K, $3,000 trail):</strong> EOD trail recalculates once at 4:59:59 PM ET on the daily close. New floor = 100,000 + 1,400 &minus; 3,000 = <strong>$98,400</strong>. The intraday wick is ignored.</li>
+  <li><strong>Apex Intraday (100K, $3,000 trail):</strong> Intraday trail advances on every new equity high. New floor = max(prior, 100,000 + 2,800 &minus; 3,000) = <strong>$99,800</strong>. The wick costs you $1,400 of trail headroom even though the close is the same. <em>Same firm, opposite floor &mdash; that's the trail-fork in one trade.</em></li>
+  <li><strong>Tradeify Growth (100K, $3,500 trail):</strong> EOD across all programs. New floor = 100,000 + 1,400 &minus; 3,500 = <strong>$97,900</strong>. The wick is ignored. Same EOD logic on Select and Lightning at their respective drawdowns.</li>
+</ul>
+
+<div class="key-fact">Apex's binary trail fork creates the only intra-firm disagreement in this example. The two Tradeify programs match Apex EOD on direction (wick ignored) and only differ by drawdown size. <strong>If you held all three accounts side-by-side on the same trade, Apex EOD and any Tradeify program would behave the same way; Apex Intraday would be the odd one out.</strong></div>
+
+<h3>Example 2 &mdash; A 50K eval trader hits a single +$1,200 day</h3>
+
+<p>Same eval-stage trader takes a single $1,200 winning day on a 50K account. Profit targets are $3,000 on all three (Apex, Tradeify Growth, Tradeify Select).</p>
+
+<ul>
+  <li><strong>Apex 50K eval (30% consistency):</strong> To keep $1,200 within the 30% rule, phase-total profit needs to be at least $1,200 &divide; 0.30 = $4,000. The trader needs another $2,800 of profit (above the target!) before they can pass &mdash; Apex's 30% rule is the only one of the three that forces you to <em>over-shoot</em> the profit target to stay consistent.</li>
+  <li><strong>Tradeify Growth 50K eval (no consistency):</strong> $1,200 day counts in full toward the $3,000 profit target. Trader can finish the entire profit target in two more sessions and pass as fast as the 1-day minimum allows.</li>
+  <li><strong>Tradeify Select 50K eval (40% consistency):</strong> To keep $1,200 within the 40% rule, phase-total profit &ge; $1,200 &divide; 0.40 = $3,000 &mdash; exactly the profit target. Functionally: hit the target with the same $1,200 best-day and you pass right at the line.</li>
+</ul>
+
+<div class="key-fact">The 30% / 35% / 40% / no-rule spread isn't trivial. A trader who spikes lumpy days on eval will pass Tradeify Growth first, Tradeify Select second, Apex third (or never &mdash; Apex's 30% rule on a 50K eval with a single $1,200 day demands $4,000 of total profit, which is $1,000 over the profit target). A trader who grinds uniform $300 days will pass all three at similar speed.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick apex">
+    <h4 class="firm-apex">Pick Apex if&hellip;</h4>
+    <ul>
+      <li>You trade on <strong>NinjaTrader 8</strong> or <strong>TradingView</strong> (Tradeify supports neither)</li>
+      <li>You want to <strong>choose your trail type</strong> at purchase (EOD or Intraday) and commit</li>
+      <li>You prefer <strong>one consistency rule</strong> for the whole lifecycle (no eval-vs-funded surprise)</li>
+      <li>You want the <strong>first $25K at 100% per account</strong> profit split</li>
+      <li>You want the option to <strong>stack many funded accounts</strong> beyond Tradeify's 5-account ceiling</li>
+    </ul>
+  </div>
+  <div class="pick tradeify">
+    <h4 class="firm-tradeify">Pick Tradeify if&hellip;</h4>
+    <ul>
+      <li>You trade on <strong>Tradovate</strong> or <strong>WealthCharts</strong> (and don't need NT8 / TradingView)</li>
+      <li>You want a <strong>$0 activation fee</strong> baseline</li>
+      <li>You want to match your <strong>consistency archetype to your style</strong> (Growth / Select / Lightning)</li>
+      <li>You want a <strong>uniform EOD trail</strong> across the lifecycle (no trail-type decision to make)</li>
+      <li>You can hold positions for <strong>more than 10 seconds</strong> (microscalping floor)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>Run Apex and Tradeify side-by-side</h3>
+  <p>Aurafy auto-detects which trail mode applies to each account (Apex EOD, Apex Intraday, or Tradeify EOD) and tracks the SB+$100 lock floor live. The same journal works across all your prop-firm accounts and surfaces your consistency ratio in real time. Native screen recording. Free tier. No card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=apex-vs-tradeify&utm_content=cta-mid">Try Aurafy free</a>
+  <a class="btn ghost" href="/tools/?utm_source=blog&utm_medium=apex-vs-tradeify&utm_content=tools-mid">Browse free tools</a>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I switch my Apex account from EOD to Intraday after I buy it?</summary>
+  <p>No. The trail-type choice is bound to the account at purchase. If you decide you'd prefer the other trail type, the standard workaround is to buy a new account with the new trail type and let the old one expire or fail. Some traders run one EOD and one Intraday account in parallel to compare; Apex's account-stacking limits let you do this within reason.</p>
+</details>
+
+<details>
+  <summary>Do Apex and Tradeify really lock at the same point?</summary>
+  <p>Yes &mdash; both freeze the trail floor at <strong>Starting Balance + $100</strong> once the trigger condition is met. On a 100K account both lock the floor at $100,100. The trigger conditions differ slightly because Apex's and Tradeify's drawdown numbers per size are different: a 100K Apex account has a $3,000 drawdown so the trigger is at $103,100, while a 100K Tradeify Growth has a $3,500 drawdown so the trigger is at $103,600. But the locked floor is identical. This puts both firms in the same lock family as MFFU and Bulenox &mdash; opposite of Topstep / TPT funded, which lock at the starting balance exactly.</p>
+</details>
+
+<details>
+  <summary>Which firm has the easier path to first payout?</summary>
+  <p>Tradeify Lightning is instant-funded (no eval) and pays on a 5-day cadence, so days-to-first-cash is fastest if Lightning's progressive consistency works for you. Apex requires you to clear the 1-step eval first (no minimum-days enforcement on eval, but the 30% consistency rule applies), then meet the funded payout threshold. Apex's twice-monthly funded payout cadence is less frequent than Tradeify's 5-day default. Lightning wins on raw speed; Apex wins on lifetime per-account-dollar take-home thanks to the first-$25K-at-100% profit split.</p>
+</details>
+
+<details>
+  <summary>Why is Apex's 30% consistency rule the tightest of the three?</summary>
+  <p>Plain math: at 30% threshold, your single best day can be at most 30% of total profit, which means the rest of your trading must produce <em>at least</em> 2.33&times; your best day before that best day is "consistent." Tradeify Select's 40% threshold only demands 1.5&times;, and Growth's funded 35% demands ~1.86&times;. Apex's tighter ratio rewards uniform-day traders and penalizes lumpy-day traders &mdash; on a 50K eval the 30% rule can force you to over-shoot the profit target if you hit a single big day early.</p>
+</details>
+
+<details>
+  <summary>Does Apex have a daily loss limit?</summary>
+  <p>Only on EOD accounts. If you pick the EOD trail variant at purchase, you also accept a separate Daily Loss Limit on top of the trailing drawdown. Intraday accounts have no DLL &mdash; the trail itself is the only hard guardrail. Tradeify's DLL coverage is by program (Growth eval has it; Lightning 50K+ has it; Select has none) and is independent of trail type because trail is always EOD.</p>
+</details>
+
+<details>
+  <summary>What about overnight holds and the maintenance window?</summary>
+  <p>Both firms ban overnight holds. Apex requires positions flat by 4:59 PM ET. Tradeify requires flat by 5:00 PM ET <em>and</em> bans holding through the 5:00&ndash;6:00 PM ET maintenance window. Practically, if you're trading both firms you should treat 4:59 PM ET as the flat-deadline and ignore the after-hours microbar that occasionally fires before the close.</p>
+</details>
+
+<details>
+  <summary>Can I run an Apex account and a Tradeify account at the same time?</summary>
+  <p>Yes &mdash; they're independent firms. Both ban cross-<em>account</em> hedging within the same firm. Cross-firm hedging isn't enforceable by either rulebook (neither can see the other firm's positions), but it's still bad risk practice &mdash; do not coordinate equal-and-opposite positions between them.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy auto-detects which trail mode is active for each account (Apex EOD, Apex Intraday, or Tradeify EOD) and tracks the SB+$100 lock floor separately per account. Multi-firm, multi-account, single journal. Native screen recording (no competitor offers this) lets you review every session like a tape replay without rebuilding the bars. Free tier with no card required.</p>
+</details>
+
+<div class="cta">
+  <h3>Stop guessing your trail floor between firms</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=apex-vs-tradeify&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=apex-vs-tradeify&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Apex Trader Funding or Tradeify. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs Intraday</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/prop-firms/apex-trader-funding/">Apex landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
