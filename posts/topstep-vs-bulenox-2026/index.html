@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Topstep vs Bulenox (2026): SB Lock vs SB+$100 Lock, Phase-Shift vs Fork-Lock Trail | Aurafy</title>
+<meta name="description" content="Topstep vs Bulenox — both ship a $3K drawdown on 100K, both have a 100%-first-$10K payout carve-out. Then opposite lock floors, opposite trail philosophies (Topstep phase-shifts intraday→EOD across Combine and XFA; Bulenox forces a permanent Option 1 vs Option 2 fork at signup). Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/topstep-vs-bulenox-2026/" />
+<meta property="og:title" content="Topstep vs Bulenox (2026): SB Lock vs SB+$100 Lock, Phase-Shift vs Fork-Lock Trail" />
+<meta property="og:description" content="Same $3K drawdown on 100K, opposite lock floors and opposite trail philosophies. Topstep phase-shifts mechanics for you; Bulenox makes you pick at signup forever." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --topstep:#3ddc97;
+    --bulenox:#f04e4e;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-topstep{color:var(--topstep);font-weight:600}
+  .firm-bulenox{color:var(--bulenox);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--bulenox);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.topstep{border-left:3px solid var(--topstep)}
+  .pick.bulenox{border-left:3px solid var(--bulenox)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.a{border-top:2px solid var(--topstep)}
+  .axis-side.b{border-top:2px solid var(--bulenox)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Topstep vs Bulenox (2026): SB Lock vs SB+$100 Lock, Phase-Shift vs Fork-Lock Trail</h1>
+  <p class="lede">Both firms ship a $3,000 trailing drawdown on a 100K account. Both pay the first $10,000 of withdrawals 100% to the trader before profit-split kicks in. After that, opposite lock floors, opposite trail philosophies, opposite consistency-rule scope. Topstep phase-shifts mechanics for you across Combine and XFA. Bulenox forces a permanent Option 1 vs Option 2 fork at signup. Here's the honest side-by-side.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#phases">Phase structure</a>
+  <a href="#trail">Trail philosophy</a>
+  <a href="#lock">Lock floor</a>
+  <a href="#consistency">Consistency rules</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#payouts">Payouts</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/topstep/?utm_source=blog&amp;utm_medium=topstep-vs-bulenox&amp;utm_content=tldr-topstep">Topstep</a> if</strong> you want the cheapest entry to a $3K-DD 100K account (Combine subscription only, no activation fee), don't want to commit to a trail mechanic at signup, are comfortable letting the firm phase-shift you from intraday Combine to EOD XFA automatically, and want consistency dropped once you're funded.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/bulenox/?utm_source=blog&amp;utm_medium=topstep-vs-bulenox&amp;utm_content=tldr-bulenox">Bulenox</a> if</strong> you trade NinjaTrader 8 natively (free license on Master), want a $100 safety net above the lock floor, want to choose your trail mechanic at signup and have it stay fixed for the life of the account, and accept the 40% consistency rule on Master and Funded in exchange for a no-consistency Qualification runway.
+</div>
+<div class="verdict">
+  <strong>Identical $3K drawdown on 100K, opposite lock floors:</strong> Topstep locks at <strong>$100,000</strong> (Starting Balance exactly). Bulenox locks at <strong>$100,100</strong> (SB + $100). $100 sounds small until you ride right up to the lock and break drawdown by less than that &mdash; the Bulenox account survives, the Topstep one doesn't.
+</div>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-topstep">Topstep</th><th class="firm-bulenox">Bulenox</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Phase structure</td><td><strong>2-step:</strong> Combine (eval) &rarr; Express Funded (XFA)</td><td><strong>3-step:</strong> Qualification &rarr; Master &rarr; Funded</td></tr>
+    <tr><td class="label">Trail type</td><td>Combine = <strong>intraday</strong>; XFA = <strong>EOD</strong>. Mechanic shifts automatically when you fund.</td><td>Option 1 = intraday HWM<br>Option 2 = EOD-only. <strong>Picked at signup, permanent.</strong></td></tr>
+    <tr><td class="label">Trail choice rigidity</td><td>None &mdash; the firm decides per phase. You don't pick.</td><td><strong>Permanent for the life of the account</strong> &mdash; cannot switch later.</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance (exact)</td><td>Starting Balance + $100</td></tr>
+    <tr><td class="label">100K drawdown</td><td>$3,000</td><td>$3,000</td></tr>
+    <tr><td class="label">50K drawdown</td><td>$2,000</td><td>$2,500</td></tr>
+    <tr><td class="label">150K drawdown</td><td>$4,500</td><td>$4,500</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>Removed on TopstepX (Aug 2024) for both Combine + XFA. <strong>NinjaTrader still enforces DLL.</strong></td><td>Option 1: <strong>None</strong><br>Option 2: yes ($400&ndash;$4,500 by size)</td></tr>
+    <tr><td class="label">Consistency rule</td><td><strong>50%</strong> on Combine. <strong>Dropped on XFA</strong> &mdash; rare among major firms.</td><td><strong>40%</strong> on Master + Funded.<br>None on Qualification.</td></tr>
+    <tr><td class="label">Minimum trading days</td><td>0 on Combine (used to be 5/2; verify); none on XFA per payout</td><td>0 on Qualification, 10 on Master, 5 per Funded payout cycle</td></tr>
+    <tr><td class="label">Profit split</td><td>First <strong>$10,000</strong> paid 100% to trader, then 90/10</td><td>First <strong>$10,000</strong> paid 100% to trader, then 90/10</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Every 5 business days from XFA day 1 (no waiting window)</td><td>Weekly &mdash; every Wednesday, 8&ndash;12hr processing</td></tr>
+    <tr><td class="label">Pricing model</td><td>Monthly subscription only (Combine $49&ndash;$149/mo). <strong>No activation fee</strong> to convert eval &rarr; XFA.</td><td>Monthly Qualification subscription + one-time <strong>activation fee</strong> to convert Qualification &rarr; Master ($98&ndash;$490 by size)</td></tr>
+    <tr><td class="label">Platforms</td><td><strong>TopstepX</strong> (proprietary, free), NinjaTrader, Rithmic, R&#124;Trader, TradingView (via bridge), Quantower, Sierra Chart</td><td><strong>NinjaTrader 8</strong> (free license on Master), Rithmic, R&#124;Trader, ATAS, Quantower, Sierra Chart, TradingView (via bridge)</td></tr>
+    <tr><td class="label">Tradovate</td><td>Not native</td><td>Not on official list</td></tr>
+    <tr><td class="label">Max active accounts</td><td>5 Combine / 5 XFA simultaneously</td><td>3 starting, scales to 11 Master ($2.75M cap)</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted (Topstep does not restrict news windows in current rules &mdash; verify)</td><td>Permitted</td></tr>
+    <tr><td class="label">Funded-transition risk</td><td>None documented &mdash; XFA conversion is free + automatic on Combine pass</td><td><strong>Yes</strong> &mdash; declining the Funded transition after 3 Master payouts closes Master with no further payout</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="phases">Phase structure: 2-step vs 3-step</h2>
+
+<p>The phase ladder shapes your first 30 days at either firm.</p>
+
+<h3>Topstep &mdash; 2-step Combine &rarr; XFA</h3>
+<p>Topstep runs a single evaluation (the Combine) and a single funded phase (Express Funded Account, or XFA). Hit the profit target on the Combine ($3,000 on 50K, $6,000 on 100K, $9,000 on 150K), survive the trailing drawdown, and you're auto-converted to XFA. There's no second "Master" rung between eval and funded, and there's no activation fee to convert &mdash; the Combine subscription is the only cost until XFA payouts start.</p>
+
+<h3>Bulenox &mdash; 3-step Qualification &rarr; Master &rarr; Funded</h3>
+<p>Bulenox runs three rungs:</p>
+<ul>
+  <li><strong>Qualification:</strong> the entry eval. Hit profit target, no consistency rule, no minimum trading-days lock-in.</li>
+  <li><strong>Master:</strong> a payout-eligible bridge phase. 10 minimum trading days, 40% consistency, must accept transition to Funded after 3 payouts or lose Master.</li>
+  <li><strong>Funded:</strong> 5 minimum trading days per payout cycle, 40% consistency persists.</li>
+</ul>
+
+<div class="key-fact"><strong>The ladder trade-off:</strong> Topstep's 2-step cycle gets you to a payout-eligible account faster and cheaper &mdash; one subscription, one phase shift, no activation fee. Bulenox's 3-step filter is longer (more decisions, more cost, an activation fee at the Master conversion) but the Qualification phase is a no-consistency runway that Topstep doesn't have.</div>
+
+<h2 id="trail">Trail philosophy: phase-shift vs fork-lock</h2>
+
+<p>Both firms support both intraday and EOD trail mechanics. The difference is who decides, and when.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Topstep &mdash; the firm phase-shifts you</strong>
+    On the Combine, the trail is <em>intraday</em> &mdash; it tracks the live equity high-water mark in real time, including unrealized P&amp;L. The moment you fund and move to XFA, the trail becomes <em>EOD</em> &mdash; it only updates at session close, and locks permanently at $0 net P&amp;L (i.e. at starting balance) once that level is reached. You don't pick. The firm imposes the shift.
+  </div>
+  <div class="axis-side b">
+    <strong>Bulenox &mdash; you fork-lock at signup</strong>
+    At signup you pick Option 1 (intraday HWM, no DLL) or Option 2 (EOD-only, has DLL). That choice is permanent for the life of the account &mdash; you cannot switch later. The choice persists across Qualification, Master, and Funded unchanged. The firm doesn't impose a shift; you live with the one you picked.
+  </div>
+</div>
+
+<p>Practically: if you don't know which trail mechanic suits you, Topstep removes the choice and standardises around "fast intraday eval, conservative EOD funded." Bulenox forces you to know your own style up front and live with the answer for the account's life.</p>
+
+<div class="warn"><strong>The hidden Topstep gotcha:</strong> a trader who passes the Combine on aggressive intraday scaling may find the XFA EOD trail surprisingly punishing &mdash; the floor now only advances on closes, which can lag behind the equity highs you were used to. Many funded-side blow-ups come from this mismatch, not from the rule itself.</div>
+
+<h2 id="lock">Lock floor: SB vs SB+$100</h2>
+
+<p>Both firms ship a $3,000 drawdown on 100K, so the lock fires at the same equity level: $103,000 of total equity (Topstep) or $103,100 of total equity (Bulenox). But where the floor freezes is different.</p>
+
+<table>
+  <thead><tr><th>Account size</th><th class="firm-topstep">Topstep lock floor</th><th class="firm-bulenox">Bulenox lock floor</th><th>Floor delta</th></tr></thead>
+  <tbody>
+    <tr><td class="label">50K</td><td class="num">$50,000</td><td class="num">$50,100</td><td class="num">+$100</td></tr>
+    <tr><td class="label">100K</td><td class="num">$100,000</td><td class="num">$100,100</td><td class="num">+$100</td></tr>
+    <tr><td class="label">150K</td><td class="num">$150,000</td><td class="num">$150,100</td><td class="num">+$100</td></tr>
+  </tbody>
+</table>
+
+<p>The $100 sounds like a rounding error, and most of the time it is. The case where it matters: you ride the trail all the way up to lock, lock fires, and you then take a drawdown that clips just below the locked floor. With Bulenox you have an extra $100 of room before the account busts. With Topstep you don't.</p>
+
+<p>Topstep is in the same lock-anchor family as <a href="/blog/topstep-vs-tpt-2026/">TPT</a> (both lock at SB exactly). Bulenox is in the same family as <a href="/blog/apex-vs-bulenox-2026/">Apex 4.0</a>, MyFundedFutures, and Tradeify (all lock at SB + $100).</p>
+
+<div class="cta">
+  <h3>Try the math before you commit</h3>
+  <p>Our free trailing-drawdown calculator models both Topstep and Bulenox presets (EOD and intraday) with both SB lock and SB+$100 lock logic.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_content=tool-cta">Open the calculator</a>
+</div>
+
+<h2 id="consistency">Consistency rules: 50% scoped vs 40% scoped</h2>
+
+<p>Both firms scope their consistency rule &mdash; they don't enforce it across the full lifecycle. But where the scope sits is opposite.</p>
+
+<h3>Topstep &mdash; 50% on Combine, dropped on XFA</h3>
+<ul>
+  <li>Combine (eval): 50% consistency &mdash; single day's profit &divide; total profit at the moment of passing must be &le; 0.50.</li>
+  <li>XFA (funded): <em>no</em> consistency rule. Once funded, you can have asymmetric days &mdash; one big day, several small ones &mdash; and still get paid.</li>
+  <li>Formula on Combine: max safe single-day P&amp;L &asymp; total &times; 0.50 &divide; (1 &minus; 0.50) = total &times; 1.0. On a $6,000 Combine pass, no single day can exceed $6,000 (i.e. you literally cannot pass on a single day).</li>
+</ul>
+
+<h3>Bulenox &mdash; 40% on Master + Funded, none on Qualification</h3>
+<ul>
+  <li>Qualification: <em>no</em> consistency rule. Asymmetric days are fine, as long as you hit the profit target.</li>
+  <li>Master + Funded: 40% rule applies. Single day's profit &divide; total profit balance at payout request must be &le; 0.40.</li>
+  <li>Formula on Master/Funded: max safe single-day P&amp;L &asymp; total &times; 0.40 &divide; (1 &minus; 0.40) = total &times; 0.667. On $10,000 profit, no single day can exceed $6,667.</li>
+</ul>
+
+<div class="key-fact"><strong>The honest math:</strong> the rules are inverted in scope. Topstep loads the consistency check on the eval and lets you off the hook once funded. Bulenox does the opposite &mdash; gives you a free Qualification runway, then locks in 40% on every payout request thereafter. If you're a trader whose edge is one or two outsized days per month, Topstep's post-funded freedom favours you. If your edge is more uniform but you want to take one big swing during eval, Bulenox's Qualification window favours you.</div>
+
+<div class="cta">
+  <h3>Plot your days against the threshold before payout</h3>
+  <p>The consistency calculator handles both 50% (Topstep Combine) and 40% (Bulenox Master / Funded) plus custom thresholds.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="platforms">Platforms: TopstepX proprietary vs NinjaTrader-first</h2>
+
+<p>Topstep ships its own proprietary platform &mdash; TopstepX &mdash; free with every account, and it's the only Topstep route that runs without the daily loss limit (the August 2024 removal applies on TopstepX only; NinjaTrader still enforces DLL). Bulenox doesn't have a proprietary platform &mdash; it's a NinjaTrader / Rithmic-first firm with a free NT8 license bundled on Master.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Topstep supports</strong>
+    TopstepX (proprietary, no DLL), NinjaTrader 8 (DLL still enforced), Rithmic, R&#124;Trader, TradingView (via bridge), Quantower, Sierra Chart.
+  </div>
+  <div class="axis-side b">
+    <strong>Bulenox supports</strong>
+    NinjaTrader 8 (free license on Master), Rithmic, R&#124;Trader, ATAS, Quantower, Tiger Trade, Optimus Flow, MultiCharts, Sierra Chart, TradingView (via bridge).
+  </div>
+</div>
+
+<div class="warn"><strong>The DLL detail:</strong> Topstep removed the default daily loss limit on TopstepX in August 2024 &mdash; for both Combine and XFA. If you want a no-DLL Topstep account, you must trade on TopstepX. Trade NinjaTrader against Topstep and the DLL still fires. Bulenox's equivalent no-DLL route is Option 1 &mdash; but you pick that at signup and can't change later.</div>
+
+<p>Neither firm supports Tradovate natively. If your full workflow lives on Tradovate, neither firm is a clean fit; consider <a href="/blog/apex-vs-tradeify-2026/">Apex or Tradeify</a> instead.</p>
+
+<h2 id="payouts">Payouts: cadence, split, and the activation-fee gap</h2>
+
+<table>
+  <thead><tr><th>Aspect</th><th class="firm-topstep">Topstep</th><th class="firm-bulenox">Bulenox</th></tr></thead>
+  <tbody>
+    <tr><td class="label">Cadence</td><td>Every 5 business days from XFA day 1 &mdash; no payout-window waiting period</td><td>Weekly &mdash; every Wednesday, 8&ndash;12hr processing</td></tr>
+    <tr><td class="label">Split</td><td>First <strong>$10,000</strong> paid 100% to trader, then 90/10</td><td>First <strong>$10,000</strong> paid 100% to trader, then 90/10</td></tr>
+    <tr><td class="label">Minimum withdrawal</td><td>$0 (no documented minimum)</td><td>$1,000 (per third-party tracker)</td></tr>
+    <tr><td class="label">Methods</td><td>ACH, Wire, Plane (Topstep's preferred)</td><td>ACH, Wire, PayPal, Wise</td></tr>
+    <tr><td class="label">Activation fee on funded conversion</td><td><strong>None</strong> &mdash; XFA conversion is free</td><td><strong>$98&ndash;$490</strong> one-time on Qualification &rarr; Master conversion</td></tr>
+    <tr><td class="label">Account scaling</td><td>5 Combine / 5 XFA simultaneously</td><td>3 starting, scales to 11 Master ($2.75M cap)</td></tr>
+  </tbody>
+</table>
+
+<p>The 100%-first-$10K carve-out is identical &mdash; the first ten grand you withdraw at either firm is yours in full before profit-split kicks in. The cadence difference favours Topstep slightly (5 business days vs 7 calendar days). The structural difference favours Topstep more meaningfully: <em>no activation fee</em> when you convert from eval to funded. Bulenox charges $98 on a 10K, $130 on a 25K, $220 on a 50K, and $490 on a 250K Qualification &rarr; Master conversion.</p>
+
+<h2 id="examples">Worked examples</h2>
+
+<h3>Example 1: 100K Combine pass on Topstep vs 100K Qualification pass on Bulenox</h3>
+<p>Trader hits $6,000 profit target on a 100K eval over 14 days. Largest day is $2,400.</p>
+<ul>
+  <li><strong>Topstep Combine (50% rule):</strong> $2,400 &divide; $6,000 = 40% &mdash; <strong>passes</strong> the 50% rule with margin. Combine clears. Auto-converts to XFA with no fee.</li>
+  <li><strong>Bulenox Qualification:</strong> no consistency rule. $2,400 day &mdash; <strong>passes</strong>. Need to pay $215 activation fee to convert to Master.</li>
+  <li><strong>Total cost to "funded":</strong> Topstep &asymp; one month Combine sub ($165 for 100K). Bulenox &asymp; one month Qualification sub ($215) + $215 activation = $430. Topstep is materially cheaper to get to a funded seat.</li>
+</ul>
+
+<h3>Example 2: Intraday wick on a 100K Combine vs Bulenox Option 1</h3>
+<p>Trader on a 100K account spikes to +$2,800 intraday, then closes the day at +$1,400.</p>
+<ul>
+  <li><strong>Topstep Combine (intraday trail):</strong> Floor moves with the $2,800 wick. New floor = 100,000 + 2,800 &minus; 3,000 = $99,800. Wick raises floor whether held or not.</li>
+  <li><strong>Topstep XFA (EOD trail):</strong> If trader had already converted to XFA, only the $1,400 close counts. New floor = 100,000 + 1,400 &minus; 3,000 = $98,400. Intraday wick is ignored.</li>
+  <li><strong>Bulenox Option 1 (intraday):</strong> Identical mechanic to Topstep Combine intraday &mdash; floor = $99,800. And the trader keeps this intraday mechanic for the account's life, not just during eval.</li>
+  <li><strong>Bulenox Option 2 (EOD):</strong> EOD close at 5pm CT &mdash; only $1,400 close counts. Floor = $98,400.</li>
+</ul>
+
+<div class="key-fact">The Topstep trader gets the intraday-friendly mechanic <em>only during eval</em>. The Bulenox Option 1 trader gets it forever. That's the post-funding mismatch Topstep traders sometimes get caught in &mdash; the mechanic they passed eval on is not the mechanic they're trading on once funded.</div>
+
+<h3>Example 3: First $10K withdrawal &mdash; cadence + split</h3>
+<p>Trader on a 100K funded account banks $11,000 over 8 weeks.</p>
+<ul>
+  <li><strong>Topstep XFA:</strong> First $10,000 paid 100% &mdash; trader takes $10,000. Next $1,000 = 90/10 split &mdash; trader takes $900. Total to trader: $10,900. Available via every-5-business-days cadence; first dollar reachable in week 1.</li>
+  <li><strong>Bulenox Funded:</strong> First $10,000 paid 100% &mdash; trader takes $10,000. Next $1,000 = 90/10 &mdash; trader takes $900. Total to trader: $10,900. Available weekly on Wednesdays, but minimum withdrawal is $1,000 per request so trader batches.</li>
+</ul>
+
+<p>The net take-home is identical. The difference is cadence and friction &mdash; Topstep has tighter rhythm and no minimum; Bulenox has a $1,000 minimum and a weekly window.</p>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick topstep">
+    <h4 class="firm-topstep">Pick Topstep if&hellip;</h4>
+    <ul>
+      <li>You want the cheapest entry to a $3K-DD 100K account (no activation fee)</li>
+      <li>You're comfortable with TopstepX as your platform (and the no-DLL it brings)</li>
+      <li>You want consistency dropped once funded (one rule, eval-only)</li>
+      <li>You don't want to commit to a trail mechanic at signup</li>
+      <li>You prefer a 5-business-day payout rhythm with no minimum</li>
+    </ul>
+  </div>
+  <div class="pick bulenox">
+    <h4 class="firm-bulenox">Pick Bulenox if&hellip;</h4>
+    <ul>
+      <li>You trade NinjaTrader 8 natively (free license on Master)</li>
+      <li>You want the $100 lock-floor safety net above starting balance</li>
+      <li>You're confident enough in your style to fork-lock Option 1 vs Option 2 at signup</li>
+      <li>You want a no-consistency Qualification runway before 40% kicks in</li>
+      <li>You prefer the no-DLL Option 1 path over Topstep's mechanic-shift</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I run a Topstep XFA and a Bulenox Funded account at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent. Cross-firm hedging is not enforceable by either firm's rulebook (they can't see your other firm's positions), but cross-<em>account</em> hedging is banned within each firm's own family. If you run both, do not coordinate equal-and-opposite positions across them.</p>
+</details>
+
+<details>
+  <summary>Why does Topstep auto-shift from intraday to EOD when I fund?</summary>
+  <p>Topstep's design intent: an intraday trail during Combine pressure-tests how you handle real-time floor advancement; an EOD trail on XFA gives the firm cleaner risk windows during the funded phase. The trader doesn't get a choice. The honest downside is that a trader who passed on aggressive scaling can find the EOD funded mechanic surprisingly tighter &mdash; the floor lags equity now, where before it tracked it in real time.</p>
+</details>
+
+<details>
+  <summary>If I pick Bulenox Option 1 and regret it, can I switch the account to Option 2?</summary>
+  <p>No &mdash; the choice is set at signup and fixed for the account's life. You can buy a brand new Bulenox account with the other Option (starting from Qualification, with a fresh activation fee on Master conversion), but the existing account stays on the original Option. Topstep's equivalent &mdash; you don't pick at all, so the question doesn't arise.</p>
+</details>
+
+<details>
+  <summary>What's the funded-transition risk at Bulenox &mdash; and is there a Topstep equivalent?</summary>
+  <p>Public reports document a 2025 pattern where declining the Funded transition after 3 successful Master payouts closes the Master account with no further payout. If you intend to keep your Master earnings, accept the Funded transition when offered. We cover this in the <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_content=faq-bulenox">Bulenox landing page</a>. Topstep has no equivalent &mdash; XFA conversion is free, automatic, and doesn't gate prior earnings.</p>
+</details>
+
+<details>
+  <summary>Does either firm allow EA / automated trading?</summary>
+  <p>Both restrict pure HFT and cross-account copy-trading. Personal EAs that don't constitute HFT are tolerated case-by-case at both firms. Read the current TOS before deploying any bot &mdash; both firms have updated their algo rules in the last 12 months.</p>
+</details>
+
+<details>
+  <summary>Which is better for a NinjaTrader 8 native trader?</summary>
+  <p>Bulenox includes a free NT8 license on Master accounts. Topstep does not bundle the NT8 license &mdash; you bring your own. For NT8-first traders Bulenox has the platform-cost edge. Topstep's offsetting advantage is the proprietary TopstepX option (free, no DLL) if you're willing to switch off NT8.</p>
+</details>
+
+<details>
+  <summary>Does Topstep really have no daily loss limit on XFA?</summary>
+  <p>On TopstepX, yes &mdash; the default DLL was removed in August 2024 for both Combine and XFA. On NinjaTrader against Topstep, the DLL still enforces. The no-DLL route requires using TopstepX as your execution platform. Bulenox's equivalent no-DLL route is Option 1 (intraday HWM) &mdash; but with the permanent commitment at signup.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily loss against either firm's preset in real time as you upload Tradovate / NinjaTrader / Sierra Chart fills. The same journal works across all your accounts and all your firms &mdash; track Topstep XFA and Bulenox Funded in the same dashboard, with the right lock-floor math for each.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Topstep + Bulenox accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Topstep or Bulenox. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/topstep-vs-tpt-2026/">Topstep vs TPT</a> &middot; <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/best-prop-firms-2026/">Best prop firms 2026</a> &middot; <a href="/prop-firms/topstep/">Topstep landing</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "slug": "topstep-vs-bulenox-2026",
+  "title": "Topstep vs Bulenox (2026): SB Lock vs SB+$100 Lock, Phase-Shift vs Fork-Lock Trail",
+  "description": "Topstep vs Bulenox — both ship a $3K drawdown on 100K, both have a 100%-first-$10K payout carve-out. Then opposite lock floors, opposite trail philosophies (Topstep phase-shifts intraday→EOD across Combine and XFA; Bulenox forces a permanent Option 1 vs Option 2 fork at signup). Honest 2026 side-by-side.",
+  "canonical": "https://aurafy.dev/blog/topstep-vs-bulenox-2026/",
+  "published": "2026-06-02",
+  "updated": "2026-06-02",
+  "og": {
+    "title": "Topstep vs Bulenox (2026): SB Lock vs SB+$100 Lock, Phase-Shift vs Fork-Lock Trail",
+    "description": "Same $3K drawdown on 100K, opposite lock floors and opposite trail philosophies. Topstep phase-shifts mechanics for you; Bulenox makes you pick at signup forever.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "comparison", "topstep", "bulenox", "2026"],
+  "source_path": "posts/topstep-vs-bulenox-2026/index.html"
+}
