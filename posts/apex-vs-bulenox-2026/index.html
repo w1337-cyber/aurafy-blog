@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Apex vs Bulenox (2026): Same SB+$100 Lock, Opposite Eval Ladders | Aurafy</title>
+<meta name="description" content="Apex 4.0 vs Bulenox — both lock the trailing drawdown at Starting Balance + $100. Both let you pick EOD or intraday. Then everything else — eval ladder, consistency rule, choice rigidity, platforms — diverges. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/apex-vs-bulenox-2026/" />
+<meta property="og:title" content="Apex vs Bulenox (2026): Same SB+$100 Lock, Opposite Eval Ladders" />
+<meta property="og:description" content="Both lock at SB+$100. Both offer EOD or intraday trail. After that, opposite eval ladders, opposite consistency scope, opposite choice rigidity. Here's how to pick." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --apex:#ff5c7c;
+    --bulenox:#f04e4e;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-apex{color:var(--apex);font-weight:600}
+  .firm-bulenox{color:var(--bulenox);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--bulenox);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.apex{border-left:3px solid var(--apex)}
+  .pick.bulenox{border-left:3px solid var(--bulenox)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.a{border-top:2px solid var(--apex)}
+  .axis-side.b{border-top:2px solid var(--bulenox)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Apex vs Bulenox (2026): Same SB+$100 Lock, Opposite Eval Ladders</h1>
+  <p class="lede">Both firms lock the trailing drawdown at Starting Balance + $100. Both let you pick EOD or intraday trail. On a 100K account, both even charge the <em>same</em> $3,000 drawdown. After that, opposite eval ladders, opposite consistency scope, opposite choice rigidity. Here's the honest side-by-side.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#ladder">Eval ladder</a>
+  <a href="#choice">Choice rigidity</a>
+  <a href="#drawdown">Trailing drawdown</a>
+  <a href="#consistency">Consistency rules</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#payouts">Payouts</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/apex-trader-funding/?utm_source=blog&amp;utm_medium=apex-vs-bulenox&amp;utm_content=tldr-apex">Apex 4.0</a> if</strong> you want a 1-step eval, a per-account EOD-vs-intraday choice you can change every time you buy a new account, native Tradovate and Rithmic support, and you trade fast enough that a 30% lifetime consistency rule doesn't bind hard.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/bulenox/?utm_source=blog&amp;utm_medium=apex-vs-bulenox&amp;utm_content=tldr-bulenox">Bulenox</a> if</strong> you trade NinjaTrader 8 natively, want a no-DLL Option 1 path, accept the permanent Option 1 vs Option 2 commitment at signup, and want a no-consistency Qualification window before the 40% rule kicks in on Master and Funded.
+</div>
+<div class="verdict">
+  <strong>Same lock, identical numbers on 100K:</strong> both lock the trailing drawdown at <strong>Starting Balance + $100</strong>. On 100K, both charge an identical $3,000 drawdown &mdash; the lock fires at $103,100 of equity and freezes the floor at $100,100 forever. Same lock family as MyFundedFutures and Tradeify. NOT the same family as Topstep or TPT (which lock at SB exactly).
+</div>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-apex">Apex 4.0</th><th class="firm-bulenox">Bulenox</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Phase structure</td><td><strong>1-step eval</strong> &rarr; PA (Performance Account)</td><td><strong>3-step:</strong> Qualification &rarr; Master &rarr; Funded</td></tr>
+    <tr><td class="label">Trail type</td><td>EOD or intraday &mdash; <strong>chosen per-account at purchase</strong></td><td>Option 1 = intraday HWM<br>Option 2 = EOD-only</td></tr>
+    <tr><td class="label">Trail choice rigidity</td><td>Per-account &mdash; <em>change freely on each new account purchase</em></td><td><strong>Permanent for the life of the account</strong> &mdash; cannot switch later</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance + $100</td><td>Starting Balance + $100</td></tr>
+    <tr><td class="label">100K drawdown</td><td>$3,000</td><td>$3,000</td></tr>
+    <tr><td class="label">50K drawdown</td><td>$2,000</td><td>$2,500</td></tr>
+    <tr><td class="label">150K drawdown</td><td>$4,000</td><td>$4,500</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>EOD accounts: yes ($625&ndash;$2,500 by size)<br>Intraday: <strong>None</strong></td><td>Option 1: <strong>None</strong><br>Option 2: yes ($400&ndash;$4,500 by size)</td></tr>
+    <tr><td class="label">Consistency rule</td><td><strong>30%</strong> on PA (funded). Lifetime &mdash; one rule from day one.</td><td><strong>40%</strong> on Master + Funded only.<br>None on Qualification.</td></tr>
+    <tr><td class="label">Minimum trading days</td><td>7 on eval, 7 per PA payout window</td><td>0 on Qualification, 10 on Master, 5 per Funded payout cycle</td></tr>
+    <tr><td class="label">Profit split (PA / Funded)</td><td>First $25K paid 100%, then 90/10</td><td>First $10K paid 100%, then 90/10</td></tr>
+    <tr><td class="label">Payout cadence</td><td>2&times;/month from day 8 of each payout window</td><td>Weekly &mdash; every Wednesday, 8&ndash;12hr processing</td></tr>
+    <tr><td class="label">Platforms</td><td><strong>Tradovate</strong>, NinjaTrader 8, Rithmic, R&#124;Trader, TradingView (via bridge), Quantower, Sierra Chart</td><td><strong>NinjaTrader 8</strong>, Rithmic, R&#124;Trader, ATAS, Quantower, Sierra Chart, TradingView (via bridge)</td></tr>
+    <tr><td class="label">Platforms NOT supported</td><td>WealthCharts (not native)</td><td><strong>Tradovate</strong> (not on official list)</td></tr>
+    <tr><td class="label">Max active PA / Funded accounts</td><td>Up to 20 (with per-PA copy-trade rules)</td><td>3 starting, scales to 11 Master ($2.75M cap)</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted on PA (banned on eval high-impact 2 min window per current rules &mdash; verify)</td><td>Permitted</td></tr>
+    <tr><td class="label">Funded-transition risk</td><td>Standard PA activation fee per account; no documented decline-trap</td><td><strong>Yes</strong> &mdash; declining the Funded transition after 3 Master payouts closes Master with no payout</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="ladder">Eval ladder: 1-step vs 3-step</h2>
+
+<p>This is the structural difference that decides most pairwise picks.</p>
+
+<h3>Apex &mdash; 1-step eval, fast cycle</h3>
+<p>Apex 4.0 runs a single evaluation phase. Hit the profit target ($1,500 / $3,000 / $6,000 / $9,000 by size), survive the trailing drawdown, log at least 7 trading days, and you're cleared to take a PA (Performance Account). The PA is the funded account &mdash; no second "Master" rung. From signup to first PA payout window, the typical timeline is 7&ndash;14 days for a competent trader.</p>
+
+<h3>Bulenox &mdash; 3-step ladder, longer filter</h3>
+<p>Bulenox runs three rungs: <strong>Qualification</strong> (the entry eval) &rarr; <strong>Master</strong> (a payout-eligible bridge phase) &rarr; <strong>Funded</strong> (the live-paid phase). Each rung has its own minimum trading days and its own rule profile:</p>
+<ul>
+  <li>Qualification: hit profit target, no consistency rule, no minimum trading-days lock-in.</li>
+  <li>Master: 10 minimum trading days, 40% consistency, payout-eligible, must accept transition to Funded after 3 payouts.</li>
+  <li>Funded: 5 minimum trading days per payout cycle, 40% consistency persists.</li>
+</ul>
+
+<div class="key-fact"><strong>The ladder trade-off:</strong> Apex's 1-step cycle gets you to a payout-eligible account fast but stacks the entire risk in one eval &mdash; one bad week and you reset. Bulenox's 3-step filter is longer (more decisions, more activation cost) but the Qualification phase is a no-consistency runway where you can take asymmetric days without ratio penalty.</div>
+
+<h2 id="choice">Choice rigidity: per-account vs lifetime</h2>
+
+<p>Both firms let you choose between EOD and intraday trail mechanics. The difference is whether you can change your mind later.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Apex 4.0 &mdash; per-account choice</strong>
+    You pick EOD or intraday at the moment of purchase. The next account you buy can be the other type. You can run multiple PAs simultaneously, mixing EOD and intraday across them. Cost of switching = one new account activation.
+  </div>
+  <div class="axis-side b">
+    <strong>Bulenox &mdash; lifetime choice</strong>
+    You pick Option 1 (intraday, no DLL) or Option 2 (EOD, has DLL) at signup. That choice is permanent for the life of that account &mdash; you cannot move that account to the other Option later. Cost of switching = a brand new account at full activation, with no carryover from the prior one.
+  </div>
+</div>
+
+<p>Practically: if you're not sure which trail style fits you, Apex lets you test both cheaply by buying one of each. Bulenox forces a real commitment from day one.</p>
+
+<p>This is Bulenox's defining structural quirk and the single biggest decision at signup. No other prop firm in this dataset (Apex, Topstep, MFFU, TPT, Tradeify) forces a comparable lifetime binary commitment.</p>
+
+<h2 id="drawdown">Trailing drawdown: same lock, two implementations</h2>
+
+<p>Both firms lock the trail at <strong>Starting Balance + $100</strong>. This is the same lock archetype as MyFundedFutures and Tradeify &mdash; and a different family from Topstep and TPT (both of which lock exactly at the starting balance).</p>
+
+<p>On a 100K account, the lock fires at $103,100 of equity (100,000 + 3,000 drawdown + 100), and the trail floor freezes at $100,100 forever. From that point on, the drawdown stops moving up with profit &mdash; the only stop-out is the locked floor. Math is identical between Apex 4.0 100K and Bulenox 100K.</p>
+
+<h3>The implementation difference: when does the floor move?</h3>
+<ul>
+  <li><strong>Apex 4.0 intraday:</strong> Floor moves with intraday highs in real-time before the lock. A wick to +$2,800 raises the floor regardless of the close.</li>
+  <li><strong>Apex 4.0 EOD:</strong> Floor only updates at session close (4:59:59pm ET on a market day). Intraday wicks are ignored; only the day's final equity counts.</li>
+  <li><strong>Bulenox Option 1 (intraday):</strong> Identical mechanic to Apex 4.0 intraday &mdash; floor moves with intraday highs.</li>
+  <li><strong>Bulenox Option 2 (EOD):</strong> EOD close at 5pm CT (one hour later than Apex's ET-based close); otherwise identical to Apex EOD.</li>
+</ul>
+
+<p>EOD is more forgiving for traders who take heat intraday but exit flat or in profit by the close. Intraday is more forgiving for traders who scale out and want their open profit to immediately raise the floor.</p>
+
+<div class="cta">
+  <h3>Try the math before you commit</h3>
+  <p>Our free trailing-drawdown calculator models both Apex 4.0 and Bulenox presets (EOD and intraday) with SB+$100 lock logic.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=apex-vs-bulenox&utm_content=tool-cta">Open the calculator</a>
+</div>
+
+<h2 id="consistency">Consistency rules: 30% lifetime vs 40% scoped</h2>
+
+<p>Same lock floor, opposite consistency philosophies. Apex enforces a tighter threshold across the entire lifecycle; Bulenox enforces a looser threshold but only on the back-half of the ladder.</p>
+
+<h3>Apex 4.0 &mdash; 30% on PA (lifetime)</h3>
+<ul>
+  <li>One rule from day one of the PA. No phase where the rule is off.</li>
+  <li>Formula: max safe single-day P&amp;L &asymp; total &times; 0.30 &divide; (1 &minus; 0.30) = total &times; 0.4286.</li>
+  <li>On a $10,000 funded profit balance, no single day can be more than $4,286 of total P&amp;L without violating.</li>
+</ul>
+
+<h3>Bulenox &mdash; 40% on Master + Funded only</h3>
+<ul>
+  <li>Qualification phase: <em>no</em> consistency rule. Run a $500 day and a $50 day &mdash; fine, as long as you hit the profit target.</li>
+  <li>Master + Funded: 40% rule applies. Single day's profit &divide; total profit balance at payout request must be &le; 0.40.</li>
+  <li>Formula: max safe single-day P&amp;L &asymp; total &times; 0.40 &divide; (1 &minus; 0.40) = total &times; 0.667.</li>
+  <li>On $10,000 funded profit, no single day can be more than $6,667.</li>
+</ul>
+
+<div class="key-fact"><strong>The honest math:</strong> Bulenox's 40% number sounds <em>looser</em> than Apex's 30%, and on the same profit balance it is &mdash; $6,667 max-safe-day vs $4,286. But Apex applies it from PA day one across the entire lifetime, while Bulenox only applies it on Master + Funded. The Qualification window is a no-consistency runway you don't get at Apex.</div>
+
+<div class="cta">
+  <h3>Plot your days against the threshold before payout</h3>
+  <p>The consistency calculator handles both 30% (Apex PA) and 40% (Bulenox Master / Funded) plus custom thresholds.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=apex-vs-bulenox&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="platforms">Platforms: overlap with one sharp exception</h2>
+
+<p>Both firms ecosystem-overlap on the NinjaTrader / Rithmic axis. The cleavage is Tradovate.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Apex 4.0 supports</strong>
+    Tradovate (native), NinjaTrader 8, Rithmic, R&#124;Trader Pro, TradingView (via bridge), Quantower, Sierra Chart, MotiveWave.
+  </div>
+  <div class="axis-side b">
+    <strong>Bulenox supports</strong>
+    NinjaTrader 8 (free license on Master), Rithmic, R&#124;Trader, ATAS, Quantower, Tiger Trade, Optimus Flow, MultiCharts, Sierra Chart, TradingView (via bridge).
+  </div>
+</div>
+
+<div class="warn"><strong>The trap:</strong> Bulenox has <em>no native Tradovate</em>. If your full workflow lives on Tradovate &mdash; mobile app, web UI, MT-style integrations &mdash; that decides this comparison before any other rule does. Apex supports Tradovate native; you keep your workflow.</div>
+
+<p>For Tradovate-first traders &mdash; Apex. For NinjaTrader-first traders &mdash; either, but Bulenox includes a free NT8 license on Master accounts that Apex does not. If you trade primarily on the Rithmic interface itself, either firm works.</p>
+
+<h2 id="payouts">Payouts: cadence and split</h2>
+
+<table>
+  <thead><tr><th>Aspect</th><th class="firm-apex">Apex 4.0</th><th class="firm-bulenox">Bulenox</th></tr></thead>
+  <tbody>
+    <tr><td class="label">Cadence</td><td>2&times;/month per PA &mdash; payout windows from day 8 onward</td><td>Weekly &mdash; every Wednesday, 8&ndash;12hr processing</td></tr>
+    <tr><td class="label">Split</td><td>First <strong>$25,000</strong> paid 100% to trader, then 90/10</td><td>First <strong>$10,000</strong> paid 100% to trader, then 90/10</td></tr>
+    <tr><td class="label">Minimum withdrawal</td><td>$500 (per PA)</td><td>$1,000 (per third-party tracker)</td></tr>
+    <tr><td class="label">Methods</td><td>ACH, Wire, PayPal</td><td>ACH, Wire, PayPal, Wise</td></tr>
+    <tr><td class="label">Account scaling</td><td>Up to 20 PAs simultaneously per trader</td><td>$2,500 / $5,000 / $10,000 / $15,000 / $25,000 funded balance caps per size</td></tr>
+  </tbody>
+</table>
+
+<p>Apex's 100%-first-$25K threshold is the cluster's highest dollar carve-out before profit-split kicks in. Bulenox's $10K threshold is also unusually generous (most prop firms start at 80&ndash;90% from dollar one). On a high-velocity trader, the Apex carve-out is materially larger; on a slower trader who plateaus near $10K, Bulenox's payout cadence (weekly vs Apex's bi-monthly) gets the dollars in your hand faster.</p>
+
+<h2 id="examples">Worked examples</h2>
+
+<h3>Example 1: First payout after one big day on a 100K funded account</h3>
+<p>Trader is funded on 100K, racks up $4,500 of profit over 8 trading days. One day was $2,500, the other 7 days averaged ~$285 each.</p>
+<ul>
+  <li><strong>Apex 4.0 PA (30% rule):</strong> $2,500 &divide; $4,500 = 55.6% &mdash; <strong>violates</strong> the 30% rule. Must trade more days &lt; $1,350 to bring the largest day's share under 30%, OR build total profit to where $2,500 represents &le;30% (need $8,334 total profit).</li>
+  <li><strong>Bulenox Funded (40% rule):</strong> $2,500 &divide; $4,500 = 55.6% &mdash; <strong>violates</strong> the 40% rule. Need total profit of $6,250 to bring $2,500 to exactly 40%, or trade smaller days to dilute.</li>
+  <li><strong>Same trader, Bulenox Qualification:</strong> No consistency rule on Qualification. The $2,500 day clears no flag &mdash; just hit profit target and progress.</li>
+</ul>
+
+<h3>Example 2: Intraday wick on a 100K account</h3>
+<p>Trader on a 100K account spikes to +$2,800 intraday, then closes the day at +$1,400.</p>
+<ul>
+  <li><strong>Apex 4.0 intraday:</strong> Trail floor moves with the $2,800 wick. New floor = 100,000 + 2,800 &minus; 3,000 = $99,800. Wick raises floor whether held or not.</li>
+  <li><strong>Apex 4.0 EOD:</strong> Floor only updates on session close at 4:59:59 ET. The $1,400 close becomes the new high &mdash; floor advances to 100,000 + 1,400 &minus; 3,000 = $98,400. The $2,800 wick is ignored.</li>
+  <li><strong>Bulenox Option 1 (intraday):</strong> Same outcome as Apex intraday &mdash; floor = $99,800.</li>
+  <li><strong>Bulenox Option 2 (EOD):</strong> Same outcome as Apex EOD &mdash; floor = $98,400. (Bulenox EOD close is 5pm CT, one hour after Apex's ET close.)</li>
+</ul>
+
+<div class="key-fact">Same trail mechanic, same numbers, two different closing times. If you trade NY-close sessions, Apex's 4:59:59 ET cutoff captures more of your trading day than Bulenox's 5pm CT (which is 6pm ET &mdash; one hour past most US futures cash session moves).</div>
+
+<h3>Example 3: The decline-trap at Bulenox vs Apex</h3>
+<p>Trader at Bulenox Master takes 3 payouts, then decides to skip the Funded transition because the Master is producing.</p>
+<ul>
+  <li><strong>Bulenox:</strong> Declining the Funded transition after 3 Master payouts <strong>closes Master with no further payout</strong>. The fourth payout cycle never opens. Documented in public Bulenox community reports.</li>
+  <li><strong>Apex 4.0:</strong> No equivalent transition trap &mdash; the PA <em>is</em> the funded account. You stay on it as long as you keep paying the monthly PA activation fee and don't bust the drawdown.</li>
+</ul>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick apex">
+    <h4 class="firm-apex">Pick Apex 4.0 if&hellip;</h4>
+    <ul>
+      <li>You trade Tradovate natively</li>
+      <li>You want a 1-step eval &rarr; PA cycle (fastest to funded)</li>
+      <li>You want EOD or intraday choice freedom on every new account purchase</li>
+      <li>You're a high-velocity trader who'll benefit from the 100%-first-$25K carve-out</li>
+      <li>You're comfortable trading inside a single 30% lifetime consistency rule</li>
+    </ul>
+  </div>
+  <div class="pick bulenox">
+    <h4 class="firm-bulenox">Pick Bulenox if&hellip;</h4>
+    <ul>
+      <li>You trade NinjaTrader 8 natively (free license on Master)</li>
+      <li>You want the no-DLL Option 1 path (intraday, no circuit breaker)</li>
+      <li>You're confident in your style and OK with the permanent Option 1 vs Option 2 commitment</li>
+      <li>You want a no-consistency Qualification window before the 40% rule kicks in</li>
+      <li>You prefer weekly payouts over bi-monthly</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I run an Apex PA and a Bulenox account at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent. Cross-firm hedging is not enforceable by either firm's rulebook (they can't see your other firm's positions), but cross-<em>account</em> hedging within Apex's PAs is regulated (copy-trade rules), and Bulenox bans cross-account hedging within its own family. If you run both, do not coordinate equal-and-opposite positions across them.</p>
+</details>
+
+<details>
+  <summary>Which firm has a lower failure rate &mdash; Apex eval or Bulenox Qualification?</summary>
+  <p>We're not going to make up a stat. Anecdotal patterns from public forums: Apex's 1-step eval concentrates risk in a single phase &mdash; you either pass quickly or reset. Bulenox's Qualification is a longer no-consistency runway, but you still have to clear the Master rung where the 40% rule kicks in. The honest answer is failure rate tracks style fit, not the firm's logo.</p>
+</details>
+
+<details>
+  <summary>If I pick Apex EOD and regret it, can I switch the account to intraday?</summary>
+  <p>No &mdash; the EOD vs intraday choice is set at purchase and fixed for that account's life. But Apex lets you buy a new account with the other choice at any time, and run both simultaneously. Bulenox's equivalent &mdash; Option 1 vs Option 2 &mdash; is also fixed per account, but Bulenox doesn't let you cheaply experiment because every new account is a fresh 3-step Qualification &rarr; Master &rarr; Funded cycle. Apex's iteration cost is lower.</p>
+</details>
+
+<details>
+  <summary>Does either firm allow EA / automated trading?</summary>
+  <p>Both restrict pure HFT and cross-account copy-trading. Personal EAs that don't constitute HFT are tolerated case-by-case at both firms. Apex's rules around copy-trading across your own PAs are tighter &mdash; read the current TOS before deploying any bot.</p>
+</details>
+
+<details>
+  <summary>What's the funded-transition risk at Bulenox &mdash; and is there an Apex equivalent?</summary>
+  <p>Public reports document a 2025 pattern where declining the Funded transition after 3 successful Master payouts closes the Master account with no further payout. If you intend to keep your Master earnings, accept the Funded transition when offered. We cover this in the <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=apex-vs-bulenox&utm_content=faq-bulenox">Bulenox landing page</a>. Apex has no equivalent &mdash; the PA <em>is</em> the funded account, and there's no transition gate to decline. You stay on the PA as long as you meet payout rules and pay monthly activation.</p>
+</details>
+
+<details>
+  <summary>Which is better for a NinjaTrader 8 native trader?</summary>
+  <p>Bulenox includes a free NT8 license on Master accounts. Apex does not bundle the NT8 license &mdash; you bring your own (or rent via a third-party broker). For NT8-first traders, Bulenox has the platform-cost edge. Apex's offsetting advantage is the 1-step eval and the wider per-account choice freedom.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily loss against either firm's preset in real time as you upload Tradovate / NinjaTrader / Sierra Chart fills. The same journal works across all your accounts and all your firms.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Apex + Bulenox accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=apex-vs-bulenox&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=apex-vs-bulenox&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Apex Trader Funding or Bulenox. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs intraday</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/best-prop-firms-2026/">Best prop firms 2026</a> &middot; <a href="/prop-firms/apex-trader-funding/">Apex landing</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>

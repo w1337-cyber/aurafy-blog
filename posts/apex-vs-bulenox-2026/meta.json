@@ -1,0 +1,15 @@
+{
+  "slug": "apex-vs-bulenox-2026",
+  "title": "Apex vs Bulenox (2026): Same SB+$100 Lock, Opposite Eval Ladders",
+  "description": "Apex 4.0 vs Bulenox — both lock the trailing drawdown at Starting Balance + $100. Both let you pick EOD or intraday. Then everything else — eval ladder, consistency rule, choice rigidity, platforms — diverges. Honest 2026 side-by-side.",
+  "canonical": "https://aurafy.dev/blog/apex-vs-bulenox-2026/",
+  "published": "2026-06-02",
+  "updated": "2026-06-02",
+  "og": {
+    "title": "Apex vs Bulenox (2026): Same SB+$100 Lock, Opposite Eval Ladders",
+    "description": "Both lock at SB+$100. Both offer EOD or intraday trail. After that, opposite eval ladders, opposite consistency scope, opposite choice rigidity. Here's how to pick.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "comparison", "apex", "bulenox", "2026"],
+  "source_path": "posts/apex-vs-bulenox-2026/index.html"
+}
