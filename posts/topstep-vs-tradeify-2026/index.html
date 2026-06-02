@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Topstep vs Tradeify (2026): Phase-Shift Trail vs Archetype-Inverse Consistency | Aurafy</title>
+<meta name="description" content="Topstep vs Tradeify — Topstep ships one product (Combine→XFA) with a firm-imposed intraday→EOD phase-shift; Tradeify ships three programs (Growth, Select, Lightning) with archetype-inverse consistency you pick at signup. Same $3K-DD ballpark, opposite philosophies on where the choice complexity sits. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/topstep-vs-tradeify-2026/" />
+<meta property="og:title" content="Topstep vs Tradeify (2026): Phase-Shift Trail vs Archetype-Inverse Consistency" />
+<meta property="og:description" content="One product two phases vs three products one phase. Topstep shifts the rule mechanic on you mid-lifecycle; Tradeify makes you pick the rule archetype at signup and keeps it uniform." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --topstep:#3ddc97;
+    --tradeify:#ffa64d;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-topstep{color:var(--topstep);font-weight:600}
+  .firm-tradeify{color:var(--tradeify);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(255,166,77,0.06);border-left:3px solid var(--tradeify);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0d8b8}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.topstep{border-left:3px solid var(--topstep)}
+  .pick.tradeify{border-left:3px solid var(--tradeify)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.a{border-top:2px solid var(--topstep)}
+  .axis-side.b{border-top:2px solid var(--tradeify)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Topstep vs Tradeify (2026): Phase-Shift Trail vs Archetype-Inverse Consistency</h1>
+  <p class="lede">Topstep ships one product &mdash; Combine &rarr; Express Funded &mdash; and shifts the trail mechanic on you mid-lifecycle (intraday &rarr; EOD). Tradeify ships three programs &mdash; Growth, Select, Lightning &mdash; with archetype-inverse consistency rules you pick at signup and uniform EOD trail across the lifecycle. Same drawdown ballpark on 100K, opposite philosophies on where the choice complexity sits. Here's the honest side-by-side.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#programs">Program structure</a>
+  <a href="#trail">Trail philosophy</a>
+  <a href="#lock">Lock floor</a>
+  <a href="#consistency">Consistency rules</a>
+  <a href="#platforms">Platforms</a>
+  <a href="#micro">Microscalping floor</a>
+  <a href="#payouts">Payouts</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/topstep/?utm_source=blog&amp;utm_medium=topstep-vs-tradeify&amp;utm_content=tldr-topstep">Topstep</a> if</strong> you want a single-product path (Combine &rarr; XFA), don't want to research three program archetypes before you buy, are fine letting the firm phase-shift you from intraday Combine to EOD XFA automatically, want consistency dropped post-funding, and value TopstepX's proprietary no-DLL execution.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="/prop-firms/tradeify/?utm_source=blog&amp;utm_medium=topstep-vs-tradeify&amp;utm_content=tldr-tradeify">Tradeify</a> if</strong> you trade Rithmic or Tradovate (NinjaTrader is not supported), you can hold trades &gt;10 seconds 50%+ of the time (microscalping floor), you want the trail mechanic to stay uniform from signup to last payout (no phase-shift surprises), and you have a clear preference for either eval-strict (Select) or funded-strict (Growth) consistency.
+</div>
+<div class="verdict">
+  <strong>Same drawdown ballpark on 100K, opposite choice architecture:</strong> Topstep removes the choice up front (one program, one $3K-DD path) and adds it mid-lifecycle (firm shifts trail). Tradeify forces the choice up front (Growth $3.5K / Select $3K / Lightning $4K DD with inverse consistency rules) and keeps the mechanic uniform afterward.
+</div>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-topstep">Topstep</th><th class="firm-tradeify">Tradeify</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Product structure</td><td><strong>1 program, 2 phases:</strong> Combine (eval) &rarr; Express Funded (XFA)</td><td><strong>3 programs, 1&ndash;2 phases each:</strong> Growth, Select, Lightning (instant-funded)</td></tr>
+    <tr><td class="label">Trail type</td><td>Combine = <strong>intraday</strong>; XFA = <strong>EOD</strong>. Mechanic shifts automatically when you fund.</td><td><strong>EOD across all three programs</strong> and all phases. No phase-shift.</td></tr>
+    <tr><td class="label">Trail mechanic stability</td><td>Shifts at funding event &mdash; you trade two mechanics across the lifecycle.</td><td>Uniform from signup to last payout. Whatever you sign up for is what you trade for the account's life.</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance (exact)</td><td>Starting Balance + $100</td></tr>
+    <tr><td class="label">100K drawdown</td><td>$3,000</td><td>Growth $3,500 / Select $3,000 / Lightning $4,000</td></tr>
+    <tr><td class="label">50K drawdown</td><td>$2,000</td><td>Growth $2,000 / Select $2,000 / Lightning $2,500</td></tr>
+    <tr><td class="label">150K drawdown</td><td>$4,500</td><td>Growth $5,000 / Select $4,500 / Lightning $5,500</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>Removed on TopstepX (Aug 2024) for Combine + XFA. <strong>NinjaTrader against Topstep still enforces DLL.</strong></td><td>Yes, per program ($1,250&ndash;$2,500 on 100K depending on program)</td></tr>
+    <tr><td class="label">Consistency rule</td><td><strong>50%</strong> on Combine. <strong>Dropped on XFA.</strong></td><td>Archetype-inverse: Growth <strong>0%/35%</strong> (eval/funded), Select <strong>40%/0%</strong>, Lightning <strong>20%&rarr;25%&rarr;30%</strong> progressive</td></tr>
+    <tr><td class="label">Minimum trading days</td><td>0 on Combine (verify); none on XFA per payout</td><td>Varies by program; payout-eligibility minimums apply</td></tr>
+    <tr><td class="label">Profit split</td><td>First <strong>$10,000</strong> paid 100% to trader, then 90/10</td><td>First payout 100% to trader (smaller carve-out than Topstep), then 90/10</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Every 5 business days from XFA day 1 (no waiting window)</td><td>Bi-weekly to monthly depending on program; payout-cycle eligibility per program rules</td></tr>
+    <tr><td class="label">Pricing model</td><td>Monthly subscription only ($49&ndash;$149/mo on Combine). <strong>No activation fee</strong> on funded conversion.</td><td>Eval subscription + activation fee on funded conversion (varies by program)</td></tr>
+    <tr><td class="label">Platforms</td><td><strong>TopstepX</strong> (proprietary, free, no DLL), NinjaTrader 8, Rithmic, R&#124;Trader, TradingView (bridge), Quantower, Sierra Chart</td><td><strong>Rithmic</strong>, <strong>Tradovate</strong>, WealthCharts. <strong>No NinjaTrader. No TradingView.</strong></td></tr>
+    <tr><td class="label">Microscalping floor</td><td>None</td><td><strong>Yes</strong> &mdash; 50%+ of trades and profit must come from holds &gt;10 seconds</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted (verify current rules)</td><td><strong>Permitted</strong> &mdash; structural differentiator vs TPT (which restricts)</td></tr>
+    <tr><td class="label">Funded-transition risk</td><td>None documented &mdash; XFA conversion is free + automatic</td><td>None documented per archetype &mdash; transition logic varies but is not gating prior earnings</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="programs">Program structure: 1-product-2-phases vs 3-products-1-phase</h2>
+
+<p>The biggest single decision either firm forces on you is what kind of product you're buying.</p>
+
+<h3>Topstep &mdash; one product, two phases</h3>
+<p>Topstep sells the Combine. You buy a Combine subscription, hit the profit target ($3,000 on 50K, $6,000 on 100K, $9,000 on 150K), survive the trailing drawdown, and auto-convert to Express Funded (XFA). There is no second product to research, no "premium" archetype with different consistency rules, no "fast" instant-funded variant. One ladder, two rungs.</p>
+
+<h3>Tradeify &mdash; three products, one phase each</h3>
+<p>Tradeify sells three:</p>
+<ul>
+  <li><strong>Growth:</strong> 1-step eval, NO consistency rule during eval, 35% consistency once funded. The "pass freely, sweat the funded rule" archetype.</li>
+  <li><strong>Select:</strong> 1-step eval, 40% consistency during eval, NO consistency rule once funded. The inverse &mdash; "sweat eval, free post-funding."</li>
+  <li><strong>Lightning:</strong> Instant-funded (no eval), with consistency progressively tightening across payouts (20% &rarr; 25% &rarr; 30%). The "skip eval, accept ratcheting discipline" archetype.</li>
+</ul>
+
+<div class="key-fact"><strong>The choice trade-off:</strong> Topstep removes the up-front research burden &mdash; there's only one product to buy. Tradeify forces the up-front research &mdash; you must know whether your edge prefers eval-strict, funded-strict, or progressive-strict consistency before you click Buy. But Topstep then adds a mid-lifecycle mechanic shift (intraday Combine &rarr; EOD XFA) that Tradeify never adds.</div>
+
+<h2 id="trail">Trail philosophy: phase-shift vs uniform-EOD</h2>
+
+<p>Both firms support EOD trailing. Only Topstep also runs an intraday mechanic &mdash; and only on the eval phase.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Topstep &mdash; the firm shifts you mid-lifecycle</strong>
+    On the Combine, the trail is <em>intraday</em> &mdash; it tracks the live equity high-water mark in real time, including unrealized P&amp;L. The moment you fund and move to XFA, the trail becomes <em>EOD</em> &mdash; it only updates at session close, and locks permanently at $0 net P&amp;L (i.e. at starting balance) once that level is reached. You don't pick. The firm imposes the shift.
+  </div>
+  <div class="axis-side b">
+    <strong>Tradeify &mdash; uniform EOD across the lifecycle</strong>
+    All three Tradeify programs use EOD-only trailing throughout signup, eval, and funded phases. The trail floor moves at session close, never on intraday wicks. The mechanic you trade on day 1 is the same mechanic you trade on day 90. No phase-shift, no post-funding surprise.
+  </div>
+</div>
+
+<p>Practically: a Topstep trader who passes the Combine on aggressive intraday scaling can find the XFA EOD trail surprisingly punishing &mdash; the floor now only advances on closes, where before it tracked the equity highs in real time. A Tradeify trader has no such mismatch &mdash; the trail they passed on is the trail they keep.</p>
+
+<div class="warn"><strong>The hidden Topstep gotcha:</strong> the mechanic shift from intraday to EOD at funding is the most common cause of XFA blow-ups in the cluster. The trader's intuition for "where is my floor right now?" was built on a different mechanic than the one now running. We cover the tactical playbook for both mechanics in <a href="/blog/apex-4-0-eod-vs-intraday-2026/">our Apex 4.0 EOD-vs-intraday explainer</a> &mdash; the playbook applies directly to the Topstep Combine&rarr;XFA transition.</div>
+
+<h2 id="lock">Lock floor: SB vs SB+$100</h2>
+
+<p>Topstep locks the trailing floor at Starting Balance exactly. Tradeify locks at Starting Balance + $100 across all three programs. Same lock-family-pattern as the cluster's other SB+$100 firms (Apex 4.0, MyFundedFutures, Bulenox).</p>
+
+<table>
+  <thead><tr><th>Account size</th><th class="firm-topstep">Topstep lock floor</th><th class="firm-tradeify">Tradeify lock floor</th><th>Floor delta</th></tr></thead>
+  <tbody>
+    <tr><td class="label">50K</td><td class="num">$50,000</td><td class="num">$50,100</td><td class="num">+$100</td></tr>
+    <tr><td class="label">100K</td><td class="num">$100,000</td><td class="num">$100,100</td><td class="num">+$100</td></tr>
+    <tr><td class="label">150K</td><td class="num">$150,000</td><td class="num">$150,100</td><td class="num">+$100</td></tr>
+  </tbody>
+</table>
+
+<p>The $100 is small until it isn't. The case that matters: you ride the trail all the way up to lock, lock fires, and you then take a drawdown that clips just below the locked floor. With Tradeify you have an extra $100 of breathing room before the account busts. With Topstep you don't.</p>
+
+<p>Topstep is in the same lock-anchor family as <a href="/blog/topstep-vs-tpt-2026/">TPT</a> (both lock at SB exactly). Tradeify is in the same family as <a href="/blog/apex-vs-tradeify-2026/">Apex 4.0</a>, <a href="/blog/mffu-vs-tradeify-2026/">MyFundedFutures</a>, and <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox</a> (all lock at SB + $100).</p>
+
+<div class="cta">
+  <h3>Try the math before you commit</h3>
+  <p>Our free trailing-drawdown calculator models Topstep (SB lock, intraday + EOD) and Tradeify (SB+$100 lock, EOD) presets side by side.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=topstep-vs-tradeify&utm_content=tool-cta">Open the calculator</a>
+</div>
+
+<h2 id="consistency">Consistency rules: 50% scoped vs archetype-inverse</h2>
+
+<p>Both firms scope their consistency rules &mdash; neither enforces a single threshold across the full lifecycle. The interesting part is Tradeify's <em>archetype-inverse</em> design &mdash; you literally choose which scope you want at signup.</p>
+
+<h3>Topstep &mdash; 50% on Combine, dropped on XFA</h3>
+<ul>
+  <li>Combine (eval): 50% consistency &mdash; single day's profit &divide; total profit at moment of passing must be &le; 0.50.</li>
+  <li>XFA (funded): <em>no</em> consistency rule. Once funded, you can have asymmetric days &mdash; one big day, several small ones &mdash; and still get paid.</li>
+  <li>Formula on Combine: max safe single-day P&amp;L &asymp; total &times; 0.50 &divide; (1 &minus; 0.50) = total. On a $6,000 Combine pass, no single day can exceed $6,000 (i.e. you literally cannot pass on a single day).</li>
+</ul>
+
+<h3>Tradeify &mdash; archetype-inverse, pick at signup</h3>
+<ul>
+  <li><strong>Growth:</strong> 0% on eval (no rule), 35% on funded. Reach payout-eligibility and the consistency clock starts. Max safe single-day on funded = total &times; 0.35 &divide; 0.65 &asymp; total &times; 0.538.</li>
+  <li><strong>Select:</strong> 40% on eval, 0% on funded. The strict-eval-then-free-funded mirror of Topstep's 50%-then-0% pattern, except Tradeify's eval threshold is tighter.</li>
+  <li><strong>Lightning:</strong> progressive &mdash; 20% on first payout, tightens to 25% then 30% across subsequent payouts. No eval phase.</li>
+</ul>
+
+<div class="key-fact"><strong>The honest math:</strong> Topstep's pattern (strict-eval, free-funded) is structurally identical to Tradeify Select &mdash; the only difference is the eval threshold (50% vs 40%, Tradeify is stricter). If you want the inverse pattern (free-eval, strict-funded) Topstep has no equivalent; you'd pick Tradeify Growth. If you want no eval at all, you'd pick Tradeify Lightning. Topstep simply doesn't offer those archetypes.</div>
+
+<div class="cta">
+  <h3>Plot your days against the threshold before payout</h3>
+  <p>The consistency calculator handles 50% (Topstep Combine), 40% (Tradeify Select), 35% (Tradeify Growth funded), and 20%&ndash;30% (Tradeify Lightning progressive) &mdash; plus custom thresholds.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=topstep-vs-tradeify&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="platforms">Platforms: TopstepX proprietary vs Rithmic / Tradovate only</h2>
+
+<p>Topstep ships a proprietary platform &mdash; TopstepX &mdash; free with every account, and it's the only Topstep route that runs without the daily loss limit (the August 2024 removal applies on TopstepX only; NinjaTrader against Topstep still enforces the DLL). Tradeify doesn't have a proprietary platform &mdash; and notably it does not support NinjaTrader at all.</p>
+
+<div class="axis">
+  <div class="axis-side a">
+    <strong>Topstep supports</strong>
+    TopstepX (proprietary, no DLL), NinjaTrader 8 (DLL still enforced), Rithmic, R&#124;Trader, TradingView (via bridge), Quantower, Sierra Chart.
+  </div>
+  <div class="axis-side b">
+    <strong>Tradeify supports</strong>
+    Rithmic, Tradovate, WealthCharts. <strong>Does not support NinjaTrader.</strong> Does not support TradingView (no bridge documented).
+  </div>
+</div>
+
+<div class="warn"><strong>The platform-stack gap:</strong> if your full workflow lives on NinjaTrader 8 you cannot use Tradeify &mdash; period. Topstep is one of the few firms that pairs a NinjaTrader-friendly route (with DLL) and a proprietary route (TopstepX, no DLL). If you live on Tradovate or Rithmic, Tradeify is the better platform match. If you live on TradingView via bridge, Topstep works and Tradeify doesn't.</div>
+
+<h2 id="micro">The microscalping floor: Tradeify's unique constraint</h2>
+
+<p>Tradeify enforces a rule no other major firm in the 2026 cluster enforces: <strong>50%+ of both your trades and your profit must come from positions held longer than 10 seconds</strong>. Sub-10-second scalp trades count against this ratio.</p>
+
+<p>For most discretionary futures traders the threshold is invisible &mdash; typical scalp holds run 30 seconds to several minutes. For tape-readers and high-frequency-ish manual traders who routinely close inside 10 seconds, this is a real constraint. Topstep has no equivalent &mdash; sub-10-second closes are fine across both Combine and XFA.</p>
+
+<div class="key-fact"><strong>Who this matters for:</strong> if more than half your trades close inside 10 seconds, Tradeify will deny payout requests that violate the rule even after a legitimate pass. Audit your trade-duration distribution before committing to a Tradeify account. Topstep does not check this dimension.</div>
+
+<h2 id="payouts">Payouts: cadence, split, and the activation-fee gap</h2>
+
+<table>
+  <thead><tr><th>Aspect</th><th class="firm-topstep">Topstep</th><th class="firm-tradeify">Tradeify</th></tr></thead>
+  <tbody>
+    <tr><td class="label">Cadence</td><td>Every 5 business days from XFA day 1 &mdash; no payout-window waiting period</td><td>Varies by program (bi-weekly to monthly); per-program eligibility windows</td></tr>
+    <tr><td class="label">Split</td><td>First <strong>$10,000</strong> paid 100% to trader, then 90/10</td><td>First payout 100% to trader (smaller carve-out than Topstep's $10K), then 90/10</td></tr>
+    <tr><td class="label">Activation fee on funded conversion</td><td><strong>None</strong> &mdash; XFA conversion is free</td><td>Yes &mdash; one-time activation fee per program on eval &rarr; funded conversion</td></tr>
+    <tr><td class="label">Account scaling</td><td>5 Combine / 5 XFA simultaneously</td><td>Multi-program permitted; per-program cap applies</td></tr>
+  </tbody>
+</table>
+
+<p>The first-$10K-at-100% carve-out is Topstep's structural edge on payouts. Tradeify's first-payout-100% is meaningful but smaller in absolute terms &mdash; over the first $10K of withdrawals at scale, Topstep's full $10K full-pass beats Tradeify's per-payout-only carve-out. Topstep also has no activation fee, where Tradeify's funded-conversion is gated by an activation fee per program.</p>
+
+<h2 id="examples">Worked examples</h2>
+
+<h3>Example 1: 100K Combine pass on Topstep vs 100K Growth pass on Tradeify</h3>
+<p>Trader hits $6,000 profit target on a 100K eval over 14 days. Largest day is $2,400.</p>
+<ul>
+  <li><strong>Topstep Combine (50% rule):</strong> $2,400 &divide; $6,000 = 40% &mdash; <strong>passes</strong> the 50% rule with margin. Combine clears. Auto-converts to XFA with no fee.</li>
+  <li><strong>Tradeify Growth (no eval consistency):</strong> no rule applies during eval. $2,400 day &mdash; <strong>passes</strong>. Must pay activation fee to convert to funded. Once funded, the 35% rule starts &mdash; the same $2,400 day against a $6,000 cumulative would be 40% (fails 35% threshold), so trader must spread future profit more evenly.</li>
+  <li><strong>Tradeify Select (40% eval, no funded):</strong> $2,400 &divide; $6,000 = 40% &mdash; <strong>marginal</strong> at exactly the threshold. Tightening the day or extending the cumulative would put it safely under. Once funded, no consistency rule applies.</li>
+</ul>
+
+<h3>Example 2: Intraday wick on a 100K Combine vs Tradeify Growth eval</h3>
+<p>Trader on a 100K account spikes to +$2,800 intraday, then closes the day at +$1,400.</p>
+<ul>
+  <li><strong>Topstep Combine (intraday trail):</strong> Floor moves with the $2,800 wick. New floor = 100,000 + 2,800 &minus; 3,000 = $99,800. Wick raises floor whether held or not.</li>
+  <li><strong>Topstep XFA (EOD trail):</strong> If trader had already converted to XFA, only the $1,400 close counts. New floor = 100,000 + 1,400 &minus; 3,000 = $98,400. Intraday wick is ignored.</li>
+  <li><strong>Tradeify Growth eval (EOD trail, $3,500 DD):</strong> Only the $1,400 close counts. New floor = 100,000 + 1,400 &minus; 3,500 = $97,900. Intraday wick is ignored. And this mechanic is the same on funded.</li>
+</ul>
+
+<div class="key-fact">The Topstep trader gets EOD-friendly behaviour <em>only after funding</em>. The Tradeify trader gets it from day 1 and keeps it for the account's life. If your strategy depends on the EOD trail (you take heat intraday but close green), Tradeify gives you that mechanic earlier in the relationship.</div>
+
+<h3>Example 3: Eval consistency &mdash; pick the archetype that matches your edge</h3>
+<p>Trader has an edge that produces one outsized day per week (~$2,000) and 4 small days (~$500 each). Eval target is $6,000 on 100K. Cumulative on the big-day-Friday: $2,000 + 4&times;$500 = $4,000 &mdash; not yet at target.</p>
+<ul>
+  <li><strong>Topstep Combine (50%):</strong> at $4,000 cumulative with a $2,000 single-day, ratio = 50% &mdash; <strong>exactly at threshold</strong>. Must extend more small-day profit before passing.</li>
+  <li><strong>Tradeify Select eval (40%):</strong> at $4,000 cumulative with $2,000 single-day, ratio = 50% &mdash; <strong>over the 40% threshold</strong>. Cannot pass until cumulative grows to $5,000 (40% ratio).</li>
+  <li><strong>Tradeify Growth eval (0%):</strong> no eval rule &mdash; outsized day is fine. <strong>Passes</strong> as soon as cumulative hits $6,000 target. (But 35% applies once funded.)</li>
+</ul>
+
+<div class="key-fact">For an asymmetric-edge trader, Tradeify Growth has the freest eval pass. Topstep is tighter on the eval and freest on the funded. Tradeify Select is the strictest on eval and freest on the funded. Same edge, three different rule shapes &mdash; pick the one whose strict-phase matches when you can afford to be careful.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick topstep">
+    <h4 class="firm-topstep">Pick Topstep if&hellip;</h4>
+    <ul>
+      <li>You want one product to research, not three archetypes</li>
+      <li>You're comfortable with the intraday &rarr; EOD shift at funding</li>
+      <li>You want consistency dropped post-funding (eval-strict only)</li>
+      <li>You trade NinjaTrader or want TopstepX's proprietary no-DLL execution</li>
+      <li>You scalp inside 10 seconds (Tradeify will reject; Topstep doesn't check)</li>
+      <li>You prefer the full $10K first-payout carve-out and 5-business-day cadence</li>
+    </ul>
+  </div>
+  <div class="pick tradeify">
+    <h4 class="firm-tradeify">Pick Tradeify if&hellip;</h4>
+    <ul>
+      <li>You trade Rithmic, Tradovate, or WealthCharts (no NinjaTrader needed)</li>
+      <li>You hold &gt;10 seconds on 50%+ of trades and profit</li>
+      <li>You want the trail mechanic to stay uniform from signup to last payout</li>
+      <li>You have a clear consistency-archetype preference (Growth = free-eval, Select = free-funded, Lightning = no-eval)</li>
+      <li>You want the SB+$100 lock-floor safety net above starting balance</li>
+      <li>You want the option to run multiple program archetypes simultaneously</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I run a Topstep XFA and a Tradeify funded account at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent. Cross-firm hedging is not enforceable by either firm's rulebook (they can't see your other firm's positions), but cross-<em>account</em> hedging is banned within each firm's own family. If you run both, do not coordinate equal-and-opposite positions across them.</p>
+</details>
+
+<details>
+  <summary>Why does Topstep auto-shift from intraday to EOD when I fund?</summary>
+  <p>Topstep's design intent: an intraday trail during Combine pressure-tests how you handle real-time floor advancement; an EOD trail on XFA gives the firm cleaner risk windows during the funded phase. The trader doesn't get a choice. The honest downside is that a trader who passed on aggressive intraday scaling can find the EOD funded mechanic surprisingly tighter &mdash; the floor lags equity now, where before it tracked it in real time. Tradeify avoids this by running EOD from signup.</p>
+</details>
+
+<details>
+  <summary>If I pick Tradeify Growth and regret it, can I switch the account to Select?</summary>
+  <p>No &mdash; the program archetype is fixed at signup for the life of that account. You can buy a separate Select account starting from its eval (with its own activation fee on funded conversion), but the existing Growth account stays on the Growth rule shape. Topstep's equivalent &mdash; the firm controls the mechanic-shift, so there's no archetype to regret picking.</p>
+</details>
+
+<details>
+  <summary>Is the Tradeify microscalping floor really enforced?</summary>
+  <p>Yes &mdash; payout reviews include a trade-duration audit. If more than 50% of your trades or profit comes from sub-10-second holds, the payout request can be denied even after a legitimate threshold pass. Sub-10-second closes don't void the account, but they don't count toward payout-eligible activity. Topstep has no equivalent check.</p>
+</details>
+
+<details>
+  <summary>Why doesn't Tradeify support NinjaTrader?</summary>
+  <p>Tradeify's stack is Rithmic-first with Tradovate and WealthCharts as the front-end options. NinjaTrader is not on the supported list. If your full workflow lives on NT8, Tradeify is a non-starter &mdash; you'd need to migrate to Rithmic / Tradovate, which is a real cost. Topstep is one of the few firms that pairs NT8 (with DLL) and a proprietary platform (TopstepX, no DLL).</p>
+</details>
+
+<details>
+  <summary>Does Topstep really have no daily loss limit on XFA?</summary>
+  <p>On TopstepX, yes &mdash; the default DLL was removed in August 2024 for both Combine and XFA. On NinjaTrader against Topstep, the DLL still enforces. The no-DLL route requires using TopstepX as your execution platform. Tradeify's DLL applies on all programs and is not removable.</p>
+</details>
+
+<details>
+  <summary>Which is better for a Tradovate-native trader?</summary>
+  <p>Tradeify &mdash; Tradovate is a first-class supported platform there. Topstep does not natively support Tradovate. If your workflow lives on Tradovate, Tradeify (or Apex, MFFU, Bulenox) are the better-fit firms. We cover this in <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a>.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily loss against either firm's preset in real time as you upload Tradovate / NinjaTrader / Sierra Chart / Rithmic fills. The same journal works across all your accounts and all your firms &mdash; track Topstep XFA and Tradeify Funded in the same dashboard, with the right lock-floor math and the right consistency-archetype math for each.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Topstep + Tradeify accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=topstep-vs-tradeify&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=topstep-vs-tradeify&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Topstep or Tradeify. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/topstep-vs-tpt-2026/">Topstep vs TPT</a> &middot; <a href="/blog/topstep-vs-bulenox-2026/">Topstep vs Bulenox</a> &middot; <a href="/blog/best-prop-firms-2026/">Best prop firms 2026</a> &middot; <a href="/prop-firms/topstep/">Topstep landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
