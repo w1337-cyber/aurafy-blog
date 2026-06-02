@@ -24,6 +24,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `bulenox-vs-tradeify-2026` | Bulenox vs Tradeify (2026): Same Lock, Opposite Everything Else | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `aurafy-vs-tradersync-2026` | Aurafy vs TraderSync (2026): Honest Side-by-Side for Futures Traders | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 | `aurafy-vs-tradervue-2026` | Aurafy vs Tradervue (2026): Honest Side-by-Side for Futures Traders | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
+| `tpt-vs-tradeify-2026` | TPT vs Tradeify (2026): Both Shift the Rules on You — In Opposite Directions | `ready-to-deploy` | 2026-06-02 | 2026-06-02 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy
