@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Apex vs MyFundedFutures (2026): Honest Side-by-Side Comparison | Aurafy</title>
+<meta name="description" content="Apex Trader Funding 4.0 vs MyFundedFutures (MFFU) — drawdown, trail type, daily loss limit, consistency, payouts compared side-by-side. Honest 2026 breakdown with worked examples." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/apex-vs-mffu-2026/" />
+<meta property="og:title" content="Apex vs MyFundedFutures (2026): Honest Side-by-Side Comparison" />
+<meta property="og:description" content="The complete 2026 comparison of Apex 4.0 and MyFundedFutures — DLL vs no-DLL, trail mechanics, three MFFU plans, payouts every 5 days. Free calculators included." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --apex:#ff8a3d;
+    --mffu:#5b8def;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-apex{color:var(--apex);font-weight:600}
+  .firm-mffu{color:var(--mffu);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.apex{border-left:3px solid var(--apex)}
+  .pick.mffu{border-left:3px solid var(--mffu)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Apex vs MyFundedFutures (2026): Honest Side-by-Side Comparison</h1>
+  <p class="lede">Same lock mechanic, very different plan structures. Here's the actual rules &mdash; DLL or no DLL, three MFFU plans vs Apex's single product, payouts every 5 days vs Apex's monthly cycle &mdash; without affiliate spin.</p>
+  <div class="meta">
+    <span>~9 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on the firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#plans">MFFU's three plans</a>
+  <a href="#drawdown">Trailing drawdown</a>
+  <a href="#dll">Daily loss limit</a>
+  <a href="#consistency">Consistency rule</a>
+  <a href="#payouts">Payouts</a>
+  <a href="#examples">Worked examples</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick Apex if</strong> you want a single proven product with one rule set to memorize, the option of a small 25K starter account, and you're fine with a daily loss limit on EOD accounts as a circuit breaker.
+</div>
+<div class="verdict">
+  <strong>Pick MFFU if</strong> you want <em>no daily loss limit</em> on any account (the trailing drawdown is the only floor), faster payouts (every 5 days vs Apex's cycle), or instant funding via the Pro plan with no evaluation.
+</div>
+<div class="verdict">
+  <strong>Same lock point, same trap:</strong> both firms lock the trailing drawdown at <strong>Starting Balance + $100</strong>. Once your EOD balance hits that threshold, your stop-out is fixed for the life of the account. The mechanic is identical &mdash; what differs is plan flexibility and payout speed.
+</div>
+
+<h2 id="sidebyside">Side-by-side at a glance</h2>
+<p>Numbers below come from each firm's public 2026 rulebook. The structural differences (DLL/no DLL, plan count, payout cadence) matter more than the dollar amounts.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th class="firm-apex">Apex 4.0</th>
+      <th class="firm-mffu">MyFundedFutures</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Plans offered</td><td>One product, trail choice at purchase</td><td>Three: Core / Rapid / Pro</td></tr>
+    <tr><td class="label">Evaluation style</td><td>1-step eval, no minimum days</td><td>Core/Rapid: 1-step eval. Pro: instant funding (no eval)</td></tr>
+    <tr><td class="label">Account sizes</td><td>25K / 50K / 100K / 150K</td><td>Core: 50K only. Rapid &amp; Pro: 50K / 100K / 150K</td></tr>
+    <tr><td class="label">Profit target (100K)</td><td class="num">$6,000</td><td class="num">$6,000 (Rapid)</td></tr>
+    <tr><td class="label">Trailing drawdown (100K)</td><td class="num">$3,000</td><td class="num">$4,000 (Rapid)</td></tr>
+    <tr><td class="label">Trail type</td><td>Your choice: EOD or Intraday (set at purchase)</td><td>Core: EOD. Rapid: Intraday. Pro: EOD.</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting balance + $100</td><td>Starting balance + $100</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>EOD accounts only (separate from trail)</td><td>None on any plan</td></tr>
+    <tr><td class="label">Consistency rule</td><td>30% of total profit</td><td>Core: 40%. Rapid: none. Pro: none.</td></tr>
+    <tr><td class="label">Profit split</td><td>Tiered (typically 90% after first payout milestone)</td><td>80-90% across plans</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Monthly-ish (8-day minimum between payouts)</td><td>Every 5 days (48h after first payout)</td></tr>
+    <tr><td class="label">Activation fee on funded</td><td>One-time, varies by size</td><td>$0 on funded</td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.85rem;color:var(--muted)">Numbers verified June 2026 against each firm's public rulebook. Apex Rapid-equivalent comparison shown for the 100K size; see plan-specific sections below.</p>
+
+<h2 id="plans">The single biggest difference: one Apex, three MFFUs</h2>
+
+<p>Apex sells one product and gives you the trail choice at purchase. MFFU sells <strong>three distinct products</strong> designed for different trader archetypes. Understanding which MFFU plan to compare against Apex is half the decision.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Plan</th>
+      <th>Trail type</th>
+      <th>Consistency</th>
+      <th>Sizes</th>
+      <th>Best for</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong class="firm-mffu">MFFU Core</strong></td><td>EOD</td><td>40%</td><td>50K only</td><td>Conservative swing traders who can't watch intraday</td></tr>
+    <tr><td><strong class="firm-mffu">MFFU Rapid</strong></td><td>Intraday</td><td>None</td><td>50K / 100K / 150K</td><td>Active scalpers who want max flexibility on day-to-day P&amp;L</td></tr>
+    <tr><td><strong class="firm-mffu">MFFU Pro</strong></td><td>EOD</td><td>None</td><td>50K / 100K / 150K</td><td>Already-proven traders who want to skip the eval</td></tr>
+    <tr><td><strong class="firm-apex">Apex 4.0</strong></td><td>Your choice: EOD or Intraday</td><td>30%</td><td>25K / 50K / 100K / 150K</td><td>Traders who want one rule set across the board</td></tr>
+  </tbody>
+</table>
+
+<div class="key-fact">
+  <strong>Practical mapping:</strong> Apex with EOD trail is most similar to <em>MFFU Core</em> (both EOD, both lock at SB+$100). Apex with Intraday trail is most similar to <em>MFFU Rapid</em> (both intraday, both same lock). MFFU Pro has no Apex equivalent &mdash; instant funding doesn't exist at Apex.
+</div>
+
+<h2 id="drawdown">Trailing drawdown: same mechanic, different sizes</h2>
+
+<p>This is where the rules look almost identical &mdash; until you check the numbers.</p>
+
+<h3>The shared mechanic</h3>
+<ul>
+  <li>Both firms run a <strong>trailing drawdown</strong> that follows your high-water mark up but never back down &mdash; until it locks.</li>
+  <li>Both firms <strong>lock the trail at Starting Balance + $100</strong>. On a 100K account, the trail stops moving once your EOD balance reaches $103,100 (balance + drawdown + $100 safety net). After that, your stop-out is fixed at the starting balance, permanently.</li>
+  <li>On <em>intraday-trail</em> accounts (Apex Intraday option, MFFU Rapid), the high-water mark tracks live equity including unrealized P&amp;L. Spike up, give it back &rarr; your stop-out moved up with the spike.</li>
+  <li>On <em>EOD-trail</em> accounts (Apex EOD option, MFFU Core, MFFU Pro), the high-water mark is recalculated only at session close. Friendlier for traders who let winners run.</li>
+</ul>
+
+<h3>Where the numbers differ</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th class="firm-apex">Apex DD</th>
+      <th class="firm-mffu">MFFU Rapid DD</th>
+      <th class="firm-mffu">MFFU Core DD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">25K</td><td class="num">$1,000</td><td>&mdash;</td><td>&mdash;</td></tr>
+    <tr><td class="label">50K</td><td class="num">$2,000</td><td class="num">$2,000</td><td class="num">$1,500</td></tr>
+    <tr><td class="label">100K</td><td class="num">$3,000</td><td class="num">$4,000</td><td>&mdash;</td></tr>
+    <tr><td class="label">150K</td><td class="num">$4,000</td><td class="num">$6,000</td><td>&mdash;</td></tr>
+  </tbody>
+</table>
+<p style="font-size:0.85rem;color:var(--muted)">MFFU Rapid gives you noticeably more drawdown room than Apex on the 100K and 150K. MFFU Core's 50K is the tightest at $1,500 &mdash; that's the trade-off for the 40% consistency and EOD trail.</p>
+
+<div class="key-fact">
+  <strong>Bottom line on drawdown:</strong> MFFU Rapid is the more generous setup on bigger accounts ($4k vs $3k DD on the 100K is a third more room). Apex matches MFFU Rapid on the 50K and offers a 25K starter that MFFU doesn't have at all.
+</div>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Trailing Drawdown Calculator</h4>
+    <p>Both firms lock at SB+$100. See your exact lock threshold, current DD line, and worst trade you can survive. Intraday + EOD modeled.</p>
+    <a href="../../tools/trailing-drawdown-calculator/">Open calculator &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Futures P&amp;L Calculator</h4>
+    <p>ES / NQ / CL / GC and 25+ contracts. Get exact $ per tick, gross + net P&amp;L, $ risk, R-multiple &mdash; in the units your firm reports.</p>
+    <a href="../../tools/futures-pnl-calculator/">Open calculator &rarr;</a>
+  </div>
+</div>
+
+<h2 id="dll">Daily loss limit: the cleanest difference</h2>
+
+<p>This is the single biggest mechanical difference between the two firms.</p>
+<ul>
+  <li><span class="firm-apex">Apex 4.0:</span> applies a DLL <strong>only on accounts purchased with the EOD trail option</strong>. Intraday-trail Apex accounts have no separate DLL &mdash; the trailing drawdown is the only floor.</li>
+  <li><span class="firm-mffu">MFFU:</span> <strong>no daily loss limit on any plan</strong>. Core, Rapid, Pro &mdash; none of them have a DLL. The trailing drawdown is the only floor on every MFFU account.</li>
+</ul>
+
+<div class="key-fact">
+  <strong>Why this matters:</strong> a DLL is a hard intraday stop. If you take a deep heat on a position that's going to come back, a DLL closes you out before recovery. Without a DLL, you have full discretion to ride a trade as far as your trailing drawdown allows. MFFU's "no DLL ever" position is the most permissive at any major firm and is a real edge for position-sizers and counter-trend traders. <em>Whether you want that freedom is a discipline question, not a math question.</em>
+</div>
+
+<h2 id="consistency">Consistency rule: it depends on the MFFU plan</h2>
+
+<p>Apex's 30% rule is the strictest of any major firm. MFFU varies wildly by plan.</p>
+
+<ul>
+  <li><span class="firm-apex">Apex 4.0:</span> <strong>30%</strong> on every account &mdash; no single day can exceed 30% of your total profit at payout time.</li>
+  <li><span class="firm-mffu">MFFU Core:</span> <strong>40%</strong> on both evaluation and funded payouts. Looser than Apex but tighter than Topstep (50%).</li>
+  <li><span class="firm-mffu">MFFU Rapid:</span> <strong>None.</strong> Take a $5,000 day on a $200 base &mdash; no consistency violation.</li>
+  <li><span class="firm-mffu">MFFU Pro:</span> <strong>None.</strong></li>
+</ul>
+
+<div class="key-fact">
+  <strong>The formula to remember:</strong> the maximum profit a single day can have without breaking a consistency rule is <code>threshold &times; total / (1 &minus; threshold)</code>. On Apex (30%): $4,000 total &rarr; best day cap $1,714. On MFFU Core (40%): $4,000 total &rarr; best day cap $2,667. On MFFU Rapid/Pro: no cap at all.
+</div>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Consistency Rule Calculator</h4>
+    <p>Paste your daily P&amp;L. Apex 30% / MFFU Core 40% / Topstep 50% / custom presets. See if you're eligible and how much extra profit you need to balance the curve.</p>
+    <a href="../../tools/consistency-rule-calculator/">Open calculator &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>MyFundedFutures rules guide</h4>
+    <p>Core vs Rapid vs Pro, EOD vs intraday per plan, SB+$100 lock, no DLL, 40% consistency on Core, payouts every 5 days &mdash; the full MFFU reference.</p>
+    <a href="../../prop-firms/myfundedfutures/">Read the guide &rarr;</a>
+  </div>
+</div>
+
+<h2 id="payouts">Payouts: every 5 days vs Apex's cycle</h2>
+
+<p>Cash flow matters when you're scaling a funded account.</p>
+<ul>
+  <li><span class="firm-mffu">MFFU:</span> request payouts <strong>every 5 days</strong>, with 48 hours between the first payout request and the second. Profit split is <strong>80-90%</strong> depending on plan and cumulative payouts. No activation fee on funded accounts.</li>
+  <li><span class="firm-apex">Apex 4.0:</span> minimum 8 days between payout requests, with first-payout minimums and rolling caps. Profit split tiered (typically 100% on first $25K then 90%, varies). One-time activation fee on funded accounts.</li>
+</ul>
+
+<div class="key-fact">
+  <strong>For a profitable scalper running multiple accounts:</strong> MFFU's 5-day cycle compounds into significantly faster cash extraction than Apex's 8-day cycle. Over a year of consistent payouts, you're requesting ~73 times on MFFU vs ~45 times on Apex &mdash; with the same per-payout cap, that's real working capital available sooner.
+</div>
+
+<h2 id="examples">Two worked examples</h2>
+
+<h3>Example A: deep intraday heat on a 100K account</h3>
+<p>You take a long ES position. The market moves against you intraday and you're sitting on <strong>&minus;$1,800 unrealized</strong> before reversing. By close you exit at <strong>&minus;$200 realized</strong>. Account had $1,200 in profit headroom at the start of the day.</p>
+<ul>
+  <li><strong>Apex 100K (EOD trail option):</strong> DLL applies. If the DLL is set lower than &minus;$1,800, you're stopped out intraday and the day ends. If you survive, EOD balance is just &minus;$200 from start and you're fine.</li>
+  <li><strong>Apex 100K (Intraday trail option):</strong> no DLL, but the intraday drawdown floor is your current DD line. If the &minus;$1,800 unrealized breaches it, the account ends permanently. Otherwise you ride it out.</li>
+  <li><strong>MFFU Rapid 100K:</strong> no DLL, intraday trail. Same floor calculation as Apex Intraday &mdash; just with $4k DD instead of $3k. The extra $1,000 of drawdown room might be the difference between surviving and not.</li>
+  <li><strong>MFFU Core 50K (closest EOD equivalent):</strong> no DLL, EOD trail. Intraday heat is irrelevant &mdash; only the EOD close matters. The &minus;$1,800 is invisible to the rules.</li>
+</ul>
+<p>Key takeaway: <em>MFFU Core's "no DLL + EOD trail" combination is the most permissive setup of any plan compared here</em> &mdash; intraday volatility is essentially invisible to the firm.</p>
+
+<h3>Example B: same hero day, different fates</h3>
+<p>You've made <strong>$5,000</strong> total profit on the funded account. Your best day was <strong>$2,500</strong>.</p>
+<ul>
+  <li><span class="firm-apex">Apex 30% rule:</span> max allowed best day = 30% of $5,000 = <strong>$1,500</strong>. You're $1,000 over. To unblock the payout: $2,500 / 0.30 = $8,333 total needed &mdash; <strong>$3,333 more profit</strong> required.</li>
+  <li><span class="firm-mffu">MFFU Core 40% rule:</span> max allowed best day = 40% of $5,000 = <strong>$2,000</strong>. You're $500 over. $2,500 / 0.40 = $6,250 total needed &mdash; <strong>$1,250 more profit</strong> required.</li>
+  <li><span class="firm-mffu">MFFU Rapid (no rule):</span> request immediately. The whole $5,000 is eligible.</li>
+</ul>
+<p>Same trader, same days &mdash; Apex blocks for weeks of grind, MFFU Core blocks for a few days, MFFU Rapid unblocks today. If you trade in bursts and can't reliably grind small daily gains, Rapid is the structural fit.</p>
+
+<h2 id="pick">Which one should you pick?</h2>
+
+<div class="pick-grid">
+  <div class="pick apex">
+    <h4 class="firm-apex">Apex 4.0 is better if&hellip;</h4>
+    <ul>
+      <li>You want one rule set to memorize, not three plans to choose between.</li>
+      <li>You want the 25K starter account to validate your process at low cost (MFFU doesn't offer 25K).</li>
+      <li>You actively want a daily loss limit as a circuit breaker on tilt days.</li>
+      <li>You're a flatter, more steady trader &mdash; the 30% consistency suits you and forces discipline.</li>
+      <li>You prefer choosing trail type per account on a single product, not committing to a whole plan archetype.</li>
+    </ul>
+  </div>
+  <div class="pick mffu">
+    <h4 class="firm-mffu">MFFU is better if&hellip;</h4>
+    <ul>
+      <li>You don't want a DLL on any account &mdash; ever. (Position-sizers, counter-trend traders, anyone who hates intraday stops.)</li>
+      <li>You want faster cash extraction: payouts every 5 days vs Apex's 8.</li>
+      <li>You take big days regularly and don't want a 30% consistency cap bleeding your eligibility &mdash; Rapid has no consistency rule at all.</li>
+      <li>You want the larger 100K/150K drawdown room ($4k/$6k vs Apex's $3k/$4k).</li>
+      <li>You want to skip the evaluation entirely &mdash; Pro is the only true instant-funded plan at a major firm.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>Don't trade prop on memory.</h3>
+  <p>Trail lock points, consistency thresholds, payout windows &mdash; Apex and MFFU look similar but the numbers differ. Aurafy auto-logs every futures trade from Tradovate / NinjaTrader / Sierra / Rithmic and shows you your real DD headroom, consistency ratio, and per-firm rule state in one dashboard. Free tier covers 30 days &amp; 1 account, no card.</p>
+  <a class="btn" href="https://aurafy.dev?utm_source=tools&utm_medium=apex-vs-mffu-blog&utm_campaign=comparison">Try Aurafy free</a>
+  <a class="btn ghost" href="https://aurafy.dev/pricing?utm_source=tools&utm_medium=apex-vs-mffu-blog&utm_campaign=comparison">See the $19 founder offer</a>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I run an Apex account and an MFFU account at the same time?</summary>
+  <p>Yes &mdash; both allow it, each with their own per-account scaling rules. The most common mistake is mentally bringing one firm's rule set to the other firm's trade (e.g. applying Apex's 30% consistency cap to an MFFU Rapid account that has no cap). Keep them isolated mentally or in your journal.</p>
+</details>
+
+<details>
+  <summary>Is "no DLL" actually a good thing?</summary>
+  <p>Depends on your discipline. A DLL is forced risk management &mdash; if you have tilt-day habits, it stops you before things compound. If you have strong self-discipline and the freedom to ride trades is more valuable than the forced stop, no DLL is an edge. There's no objectively right answer &mdash; it's an honest self-assessment.</p>
+</details>
+
+<details>
+  <summary>Which MFFU plan compares closest to Apex?</summary>
+  <p>Apex with the EOD trail option is most similar to MFFU Core (same lock, same trail type, similar consistency strictness). Apex with the Intraday trail option is most similar to MFFU Rapid (same trail type, both lock at SB+$100). MFFU Pro has no Apex equivalent &mdash; there's no instant-funding option at Apex.</p>
+</details>
+
+<details>
+  <summary>What ends most accounts &mdash; drawdown, DLL, or consistency?</summary>
+  <p>Drawdown, by a wide margin. DLL ends accounts on tilt days but a disciplined trader rarely sees one. Consistency blocks payouts but doesn't end accounts &mdash; you can keep trading. Trailing drawdown ends the account permanently. Spend 80% of your attention on the trail, 15% on consistency, 5% on DLL.</p>
+</details>
+
+<details>
+  <summary>How does the SB+$100 lock work in practice?</summary>
+  <p>On a 100K account at both firms: drawdown is $3-4k. Once your <em>EOD balance</em> reaches $100,100 (starting balance + $100 safety net), the trail stops moving permanently. Your stop-out is fixed at $100,000 from that point on. Hit $100,099 on EOD &rarr; trail still trails. Hit $100,100 &rarr; trail is locked forever. The exact threshold matters &mdash; one EOD close above is the difference between a trail that still moves and one that never does again.</p>
+</details>
+
+<details>
+  <summary>Are these rules current?</summary>
+  <p>As of June 2026, yes. Apex 4.0 launched March 2026 with the choose-your-trail change and the $100 safety net lock. MFFU's Core/Rapid/Pro structure has been stable through 2026 with the no-DLL policy intact across all plans. <strong>Always verify on the firm's own rulebook before purchase</strong> &mdash; both firms update terms periodically.</p>
+</details>
+
+<details>
+  <summary>Do you work with Apex or MFFU?</summary>
+  <p>No. Aurafy is independent. We don't take affiliate revenue from either firm, and we don't have a horse in this race. We make a trading journal that supports both because that's what futures traders pay for.</p>
+</details>
+
+<h2>Further reading</h2>
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Apex Trader Funding 4.0 Rules Explained</h4>
+    <p>Deep dive on the Apex 4.0 rule set &mdash; trail mechanic, $100 safety net lock, 30% consistency, payouts.</p>
+    <a href="../../prop-firms/apex-trader-funding/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>MyFundedFutures Rules: Core, Rapid &amp; Pro</h4>
+    <p>Three-plan breakdown, EOD vs intraday per plan, SB+$100 lock, no DLL anywhere, 40% Core consistency, 5-day payout cadence.</p>
+    <a href="../../prop-firms/myfundedfutures/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Apex vs Topstep (2026)</h4>
+    <p>The other half of the comparison &mdash; how Apex stacks up against Topstep on DLL, consistency, and trail mechanics.</p>
+    <a href="../apex-vs-topstep-2026/">Read &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Best Prop Firms for Futures (2026)</h4>
+    <p>Ranked hub page covering Apex, Topstep, MFFU and trader-archetype picks ("I scalp", "I hold overnight", etc).</p>
+    <a href="../best-prop-firms-2026/">Read &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <p>Independent guide by <a href="https://aurafy.dev">Aurafy</a> &mdash; futures trading journal + screen recording + bar-replay backtester. Not affiliated with Apex Trader Funding or MyFundedFutures. Rules are current as of June 2026 &mdash; always verify on the firm's own site.</p>
+</footer>
+
+</div>
+</body>
+</html>
