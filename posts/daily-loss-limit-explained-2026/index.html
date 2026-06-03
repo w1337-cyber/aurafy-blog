@@ -315,12 +315,12 @@ TRADER POSITION: &minus;$1,200 realized at 11:30 AM ET<br>
 <h2 id="faq">FAQ &mdash; daily loss limit</h2>
 
 <details>
-  <summary>Does TPT really have no DLL anymore?</summary>
+  <summary>Does <a href="/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=daily-loss-limit-explained&utm_campaign=inline-faq">TPT</a> really have no DLL anymore?</summary>
   <p>Yes &mdash; firmwide since January 2025. The official rule sheet across Test, PRO, and PRO+ phases now lists trailing drawdown as the sole hard-loss guardrail. The change applied to all existing and new accounts. If you're trading TPT under a 2024-or-earlier mental model that assumed a DLL floor, your daily-risk planning is undersizing relative to what the firm actually enforces today.</p>
 </details>
 
 <details>
-  <summary>What's the difference between the DLL and the trailing drawdown?</summary>
+  <summary>What's the difference between the DLL and the <a href="/blog/trailing-drawdown-explained-2026/">trailing drawdown</a>?</summary>
   <p>The DLL is a per-session floor &mdash; hit it, the session locks, next morning you trade again. The trailing drawdown is an account-life floor &mdash; touch it, the account is closed permanently. DLL is the early-warning floor that fires before the account-ender does. Some firms run both (<a href="/prop-firms/earn2trade/?utm_source=blog&utm_medium=daily-loss-limit-explained&utm_campaign=faq-prose">Earn2Trade</a>, <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=daily-loss-limit-explained&utm_campaign=faq-prose">Bulenox Option 2</a>, <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=daily-loss-limit-explained&utm_campaign=faq-prose">Apex 4.0 EOD</a>). Three firms have decided they only need one: trail-DD, the account-ending floor.</p>
 </details>
 
@@ -340,7 +340,7 @@ TRADER POSITION: &minus;$1,200 realized at 11:30 AM ET<br>
 </details>
 
 <details>
-  <summary>How does DLL interact with the consistency rule?</summary>
+  <summary>How does DLL interact with the <a href="/blog/consistency-rule-explained-2026/">consistency rule</a>?</summary>
   <p>They're independent constraints. DLL caps your downside on a single session; consistency caps your single-best-day P&amp;L as a fraction of your total profit at payout request. They almost never trip on the same day &mdash; DLL fires on losing days, consistency fires on outsized-win days. But they share a planning logic: your daily P&amp;L band is roughly bounded above by what consistency-math allows and below by what DLL allows. The trader who maxes both edges &mdash; pushes consistency-ceiling P&amp;L on wins and DLL-floor losses &mdash; is exactly the gambler profile firms designed both rules to filter. The <a href="/blog/consistency-rule-explained-2026/">consistency rule explainer</a> walks the upside cap side. Both run alongside a third rule with its own clock &mdash; the <a href="/blog/trailing-drawdown-explained-2026/">trailing drawdown</a> is account-life (account closes if hit), independent of the DLL's per-session reset and consistency's payout-time check.</p>
 </details>
 
