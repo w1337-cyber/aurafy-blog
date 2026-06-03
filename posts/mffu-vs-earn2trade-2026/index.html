@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>MFFU vs Earn2Trade (2026): Skip the Eval vs Stay on LiveSim Forever | Aurafy</title>
+<meta name="description" content="MFFU sells a Pro plan that skips the eval entirely &mdash; pay one-time, get an instant-funded simulated account. Earn2Trade defers the live-capital step indefinitely &mdash; 94.77% of 2025 passers stayed on LiveSim. Both paths land the trader on simulated capital forever, by completely opposite mechanics. Different lock families, opposite consistency scopes, opposite trail families. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/mffu-vs-earn2trade-2026/" />
+<meta property="og:title" content="MFFU vs Earn2Trade (2026): Skip the Eval vs Stay on LiveSim Forever" />
+<meta property="og:description" content="MFFU Pro lets you skip the eval entirely. Earn2Trade lets 94.77% of passers stay on simulated capital forever. Same outcome, opposite path. Here's how to pick." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --mffu:#3ddc97;
+    --earn2trade:#5b8def;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-mffu{color:var(--mffu);font-weight:600}
+  .firm-earn2trade{color:var(--earn2trade);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(255,180,84,0.06);border-left:3px solid var(--amber);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0d4a8}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.mffu{border-left:3px solid var(--mffu)}
+  .pick.earn2trade{border-left:3px solid var(--earn2trade)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.m{border-top:2px solid var(--mffu)}
+  .axis-side.e{border-top:2px solid var(--earn2trade)}
+  .path-shift{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.path-shift{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+  .path-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .path-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .path-box.m{border-top:2px solid var(--mffu)}
+  .path-box.e{border-top:2px solid var(--earn2trade)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>MFFU vs Earn2Trade (2026): Skip the Eval vs Stay on LiveSim Forever</h1>
+  <p class="lede">Both firms let a trader land on permanent simulated capital &mdash; but by completely opposite mechanics. <a href="https://aurafy.dev/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=lede-mffu">MyFundedFutures</a> sells a <strong>Pro plan</strong> that skips the eval entirely &mdash; one-time payment, instant-funded simulated account on day one, $100K total payout cap. <a href="https://aurafy.dev/prop-firms/earn2trade/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=lede-earn2trade">Earn2Trade</a> runs a standard 10-day eval, then funds you on <strong>LiveSim</strong> &mdash; simulated capital with real-dollar payouts &mdash; and 94.77% of 2025 passers chose to never convert to live capital. Same destination, opposite path. Different <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=lede-trail&utm_campaign=inline-concept">trail mechanics</a>, opposite <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=lede-consistency&utm_campaign=inline-concept">consistency scope</a>, opposite lock families on top.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#wedge">The wedge</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#paths">The two paths to simulated funding</a>
+  <a href="#trail">Trail mechanics: mixed vs EOD-only</a>
+  <a href="#lock">Lock family: SB+$100 vs SB exactly</a>
+  <a href="#consistency">Consistency: funded-tax vs eval-only</a>
+  <a href="#dll">Daily loss limit</a>
+  <a href="#cost">Cost model: monthly + upfront vs activation-from-withdrawal</a>
+  <a href="#scaling">Account scaling</a>
+  <a href="#examples">Worked scenario</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=tldr-mffu">MFFU</a> if</strong> you want to skip the eval entirely (Pro plan, instant-funded simulated, one-time fee, no profit target, no minimum trading days), or you want choice over the rule shape at signup (Core EOD+40%-consistency, Rapid intraday+no-consistency, Pro instant-funding). Zero upfront activation on Core/Rapid (monthly subscription only on eval). Lock floor at SB+$100 ($50,100 on a 50K stop-out). $100K total Pro payout cap across all Pro accounts. Funded is simulated payouts only on every plan &mdash; never converts to live capital.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/earn2trade/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=tldr-earn2trade">Earn2Trade</a> if</strong> you want the lowest-friction signup in this cluster &mdash; <strong>$0 activation upfront</strong>, $139 deducted only from your <em>first withdrawal</em>, monthly subscription $150&ndash;$550 depending on size. You're comfortable with a 10-day minimum eval. You want the <strong>option</strong> of live exchange routing later but expect to stay on LiveSim simulated capital (5.23% of 2025 passers converted to Live; 94.77% stayed sim). You want EOD-only trail mechanics across every phase &mdash; no intraday trail at any point. You're open to the built-in growth ladder on TCP (account scales internally up to $200K&ndash;$400K through profit milestones). Lock floor at SB exactly ($50,000 on a 50K stop-out).
+</div>
+<div class="verdict">
+  <strong>Different lock families.</strong> MFFU locks at <strong>Starting Balance + $100</strong> (Apex 4.0 / Bulenox / Tradeify family). Earn2Trade locks at <strong>Starting Balance exactly</strong> (Topstep / TPT family). On a 50K account: MFFU stops at $50,100, Earn2Trade GAU50 stops at $50,000. $100 floor delta &mdash; small in absolute terms, structurally significant because it sets the entire lock-family archetype.
+</div>
+
+<h2 id="wedge">The wedge in plain English</h2>
+
+<p>Most prop-firm comparisons rank firms by drawdown size or profit target. MFFU and Earn2Trade have similar account sizes (50K, 100K, 150K) and overlapping drawdown numbers. The structural story is about <em>how the trader avoids the live-capital step</em>, and the two firms route there in completely opposite directions.</p>
+
+<p><strong class="firm-mffu">MFFU bypasses the eval entirely.</strong> Pro plan is sold as instant-funded simulated. Pay one-time, no eval, no profit target, no minimum trading days. The account is simulated funded on day one with an EOD trail and lock at SB+$100. There is no "live capital" step at MFFU &mdash; every funded account is simulated payouts only, on every plan. Hit the $100K total Pro payout cap and the Pro track stops; Core and Rapid funded accounts remain unaffected.</p>
+
+<p><strong class="firm-earn2trade">Earn2Trade defers the live-capital step indefinitely.</strong> Standard 10-day single-phase eval, then funded on LiveSim &mdash; simulated capital with real-dollar 80/20 payouts. Live capital is <em>available</em> as a conversion (PRO+ equivalent), but the trader chooses when to take it. 2025 numbers: 94.77% of passers stayed on LiveSim forever, 5.23% converted to Live. Withdrawal participation was roughly equal across both. The eval is mandatory; live conversion is optional and almost universally declined.</p>
+
+<p>Same destination &mdash; permanent simulated capital with real-dollar payouts &mdash; opposite path. MFFU sells "skip the eval, start simulated funded." Earn2Trade sells "pass the eval, stay simulated funded forever." That's the spine of this comparison.</p>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-mffu">MyFundedFutures (MFFU)</th><th class="firm-earn2trade">Earn2Trade</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Account structure</td><td>Three parallel plans: Core, Rapid, Pro (trader picks at signup)</td><td>Two products: GAU (fixed-size) &middot; TCP (scaling ladder, up to $200K&ndash;$400K)</td></tr>
+    <tr><td class="label">Sizes available</td><td>Core 50K only &middot; Rapid 50K/100K/150K &middot; Pro 50K/100K/150K</td><td>GAU 50K/100K/150K/200K &middot; TCP 25K/50K/100K (scales internally)</td></tr>
+    <tr><td class="label">Phases</td><td>Core/Rapid: 1-step eval &rarr; funded &middot; Pro: instant-funded (no eval)</td><td>Single-phase eval (10-day min) &rarr; LiveSim funded &rarr; (optional) Live</td></tr>
+    <tr><td class="label">Trail type</td><td>Core EOD &middot; Rapid intraday &middot; Pro EOD (plan-fixed)</td><td><strong>EOD only</strong> on every product, every phase</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance + $100</td><td>Starting Balance exactly</td></tr>
+    <tr><td class="label">50K stop-out floor</td><td>$50,100</td><td>$50,000</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>None on any plan</strong></td><td><strong>Yes</strong> &mdash; scales per size (GAU50 $1,100, GAU100 $2,200)</td></tr>
+    <tr><td class="label">Consistency (eval)</td><td>Core 40% &middot; Rapid none &middot; Pro N/A (instant)</td><td><strong>30%</strong> &mdash; same threshold as Apex 4.0</td></tr>
+    <tr><td class="label">Consistency (funded)</td><td>Core 40% &mdash; <strong>same as eval</strong> &middot; Rapid none &middot; Pro none</td><td><strong>None</strong> &mdash; rule explicitly drops on funded</td></tr>
+    <tr><td class="label">Min trading days (eval)</td><td>Core 3 &middot; Rapid 3 &middot; Pro N/A</td><td><strong>10</strong> &mdash; longest minimum in this cluster</td></tr>
+    <tr><td class="label">Profit split</td><td>80% to trader on first $10K, 90% after</td><td>80/20 &mdash; identical on LiveSim and Live</td></tr>
+    <tr><td class="label">Activation fee</td><td><strong>$0 upfront</strong></td><td><strong>$0 upfront</strong> &mdash; $139 deducted from <em>first withdrawal</em></td></tr>
+    <tr><td class="label">Monthly subscription</td><td>Core/Rapid eval: yes &middot; Pro: one-time (no monthly)</td><td>TCP $150&ndash;$350/mo &middot; GAU $170&ndash;$550/mo (continues until passed or canceled)</td></tr>
+    <tr><td class="label">Instant-funding path</td><td><strong>Yes &mdash; Pro plan</strong> ($100K total payout cap)</td><td>No &mdash; every account starts at eval (10-day min)</td></tr>
+    <tr><td class="label">Live-capital step</td><td>Never &mdash; funded is simulated payouts only on every plan</td><td><strong>Optional</strong> &mdash; LiveSim default; 5.23% of 2025 passers chose Live</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Every 5 days (48h after first payout)</td><td><strong>Weekly</strong> &mdash; processed every Wednesday</td></tr>
+    <tr><td class="label">Min payout</td><td>$100</td><td>$100</td></tr>
+    <tr><td class="label">Platforms</td><td>TradingView, NinjaTrader, Tradovate, Rithmic</td><td>NinjaTrader (free during eval), Tradovate, TradingView, R&#124;Trader, Finamark</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted &mdash; no restriction stated</td><td>Permitted &mdash; explicitly allowed in eval</td></tr>
+    <tr><td class="label">Max contracts</td><td>Plan-scaled; no fixed cap stated</td><td>GAU50 6 &middot; GAU100 12 &middot; GAU150 15 &middot; GAU200 16</td></tr>
+    <tr><td class="label">Pass rate (2025)</td><td>Single-digit % band</td><td><strong>8.89%</strong> &mdash; publicly disclosed</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="paths">The two paths to permanent simulated capital</h2>
+
+<p>This is the structural divergence with no analogue between the two paths &mdash; same destination, opposite mechanics. Both firms produce a trader who is paid real US dollars from simulated capital indefinitely; the route taken matters for cost, time, and which gates apply.</p>
+
+<div class="path-shift">
+  <div class="path-box m">
+    <strong>MFFU Pro &mdash; skip the eval</strong>
+    One-time payment. Funded simulated account on day one. EOD trail, lock at SB+$100. No profit target, no minimum trading days. $100K total payout cap across all Pro accounts.
+  </div>
+  <div class="path-box m">
+    <strong>MFFU Core/Rapid &mdash; pass an eval</strong>
+    Monthly subscription on eval. Single-step pass to funded simulated. Core EOD+40%-consistency or Rapid intraday+no-consistency. No live-capital conversion option &mdash; funded is simulated payouts only, permanently.
+  </div>
+  <div class="path-box e">
+    <strong>Earn2Trade &mdash; defer the live step</strong>
+    Monthly subscription. 10-day minimum eval (single-phase). Pass to LiveSim funded. Live-capital conversion offered but optional &mdash; 94.77% of 2025 passers stayed on LiveSim.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The destination is the same on the left and the right:</strong> a trader operating on simulated capital with real-dollar 80%/80%-90% payouts. MFFU Pro reaches it by paying one-time and skipping the eval. Earn2Trade reaches it by passing a 10-day eval and declining the optional Live conversion (which 94.77% of passers do). MFFU Core/Rapid sits in the middle &mdash; an eval phase, but no live-conversion offer on the other side either.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=paths-deepdive&utm_campaign=deep-dive">Trailing drawdown across 7 prop firms</a> &mdash; the trail mechanics differ across these paths. MFFU Pro uses EOD trail. MFFU Rapid uses intraday trail. Earn2Trade uses EOD on every product and every phase. The trail type is fixed for the account's life on both firms &mdash; neither firm shifts trail type mid-account (unlike TPT, which mandates EOD &rarr; intraday &rarr; EOD across its phase ladder).</p>
+
+<h2 id="trail">Trail mechanics: mixed vs EOD-only</h2>
+
+<p>MFFU exposes the trader to BOTH trail types depending on which plan they pick. Earn2Trade uses EOD trail on every product, every phase. This is the deepest structural difference on the trail-mechanic axis.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU &mdash; plan-fixed trail, three flavors</strong>
+    Core: EOD trail. Rapid: intraday trail (recomputes on every new intraday equity high). Pro: EOD trail. The trader picks at signup which mechanic they live under for that account's life. Want intraday? Pick Rapid. Want EOD? Pick Core or Pro. No mid-account shift.
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; EOD only, universal</strong>
+    Every GAU and TCP product, every phase (eval, LiveSim, Live). Trail updates once per day at the session close on the new EOD equity high. Same trail-family as Topstep funded, MFFU Core/Pro, Tradeify. Opposite of Apex 4.0 intraday and MFFU Rapid.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The honest impact:</strong> A trader who knows their style fits EOD has two doors at MFFU (Core or Pro) and one at Earn2Trade. A trader who specifically wants an intraday trail (the "trail pegs my running peak" mechanic) has Rapid at MFFU and nothing at Earn2Trade &mdash; Earn2Trade does not offer intraday trail on any product. For an EOD-only trader, the choice between firms comes down to lock family, consistency scope, and live-conversion availability, not trail mechanics.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=trail-deepdive&utm_campaign=deep-dive">The trailing drawdown explainer</a> walks through every firm's trail type. Earn2Trade joins Topstep, MFFU Core/Pro, and Tradeify in the EOD-only camp; MFFU Rapid joins Apex 4.0 in the intraday camp. The trail-type choice is one of the load-bearing decisions in this entire cluster &mdash; intraday trails punish high-equity-high trades that give back; EOD trails forgive intraday drawdown as long as the close is above the prior EOD high.</p>
+
+<div class="cta">
+  <h3>Model both firms' trail mechanics before you sign up</h3>
+  <p>Our free trailing-drawdown calculator runs MFFU Core (EOD), MFFU Rapid (intraday), and Earn2Trade GAU50 (EOD) presets. See exactly how your worst day plays out under each. No login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=trail-cta">Open the calculator</a>
+</div>
+
+<h2 id="lock">Lock family: SB+$100 vs SB exactly</h2>
+
+<p>The lock floor is where MFFU and Earn2Trade split into different cluster archetypes. The $100 gap is small in dollar terms but defines two distinct lock-family camps across the seven-firm cluster.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU &mdash; SB + $100 (Apex 4.0 family)</strong>
+    Lock fixes $100 above starting balance once the trail unlocks. On 50K: floor at $50,100. On 100K: floor at $100,100. Same archetype as Apex 4.0, Bulenox Option 1, Tradeify. The $100 cushion means a trader who pulls back to flat does not blow the account &mdash; only a small loss below SB triggers stop-out.
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; SB exactly (Topstep family)</strong>
+    Lock fixes at starting balance once the trail unlocks. On GAU50: floor at $50,000. On GAU100: floor at $100,000. Same archetype as Topstep funded, TPT. No cushion &mdash; the trader who pulls back exactly to flat is at the floor. One tick below SB closes the account.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The honest impact of the $100 gap:</strong> Most traders never test the difference because they never run the account to the exact-flat boundary. The $100 matters in two specific situations: (a) a trader who hovers around break-even during a slump &mdash; at MFFU they have a tiny buffer, at Earn2Trade they're on the knife-edge; (b) a trader who passes the eval at the exact profit target and immediately wants to start withdrawing &mdash; at MFFU the funded account starts $100 above the trail floor, at Earn2Trade it starts AT the floor. In practice, the bigger consequence of the lock-family split is which cluster the firm rhymes with on every other rule, not the $100 itself.</div>
+
+<h2 id="consistency">Consistency: funded-tax vs eval-only-gate</h2>
+
+<p>Both firms apply a consistency rule on the evaluation phase. The scope on the other side of the eval gate is opposite.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU Core &mdash; 40% on eval AND funded</strong>
+    Single day's profit &le; 40% of total. Applies during the evaluation. <strong>Also applies on every funded payout cycle, for the account's life.</strong> A trader who passes Core eval clean and then has one big payout-cycle day can fail the consistency check at the funded gate, not just eval. MFFU Rapid: no consistency at all. MFFU Pro: N/A (no eval, no consistency rule).
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; 30% on eval ONLY</strong>
+    Single day's profit &le; 30% of total. Applies <em>at the point of passing</em> the evaluation. <strong>Drops entirely on the funded account.</strong> A trader who passes the eval clean has no consistency constraint on LiveSim or Live payouts. Only firm in this dataset that <em>fully</em> releases the rule post-eval (Topstep also drops post-eval; Apex/MFFU/Bulenox keep it on funded).
+  </div>
+</div>
+
+<div class="key-fact"><strong>The threshold and the scope:</strong> Earn2Trade's 30% is stricter than MFFU Core's 40% (lower threshold = tighter geometry on eval days). But Earn2Trade's rule dies at the eval gate, while MFFU Core enforces it on funded too. A grinder who can hold a 40% ratio every payout cycle has a home at MFFU Core. A trader who passes the eval clean but wants no consistency tax on funded payouts has a home at Earn2Trade. Same threshold-region (30&ndash;40%), opposite enforcement scope.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=consistency-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; Earn2Trade joins Topstep and TPT in the rule-dies-at-funded-gate camp. MFFU Core is the cluster's only plan that enforces consistency on funded payouts permanently. Apex 4.0 enforces 30% on both eval AND funded forever. Bulenox 40% applies on Master+Funded but NOT during Qualification. The explainer maps every cluster firm against threshold-and-scope, and Earn2Trade is the cleanest "drops at funded" example.</p>
+
+<div class="cta">
+  <h3>Check your days against any consistency threshold</h3>
+  <p>The consistency calculator runs MFFU Core's 40%, Earn2Trade's 30%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn't fail on geometry.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="dll">Daily loss limit: zero vs scaled-per-size</h2>
+
+<p>This is one of the cleanest "opposite answers" in the comparison. MFFU has zero DLL on any plan; Earn2Trade applies a DLL that scales with account size.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU &mdash; zero DLL, every plan</strong>
+    Core, Rapid, and Pro all have <strong>no daily loss limit</strong>. The trailing drawdown is the only hard-loss guardrail across every plan. Deliberate plan-design choice from day one &mdash; MFFU sells "only the trail matters." A trader can give back any amount intraday until the trail floor is breached.
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; DLL scaled per size</strong>
+    GAU50: $1,100 DLL. GAU100: $2,200. GAU150: $3,300. GAU200: $4,400. TCP25: $550. TCP50: $1,100. TCP100: $2,200. Hard daily session circuit-breaker on every product. Applies on eval and funded (LiveSim). A bad session terminates trading for the day even if the trail floor is intact.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The cluster context:</strong> MFFU is one of only two firms in the seven-firm dataset with zero DLL on every plan (TPT is the other, since removing DLL firmwide in January 2025). Earn2Trade applies a per-size scaling DLL similar to Topstep's per-size structure. For a trader who prefers no session circuit-breaker (high freedom, high tilt risk), MFFU. For a trader who values an automatic daily stop (built-in tilt protection), Earn2Trade.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=dll-deepdive&utm_campaign=deep-dive">Daily loss limit across 7 prop firms</a> &mdash; MFFU sits in the no-DLL archetype alongside TPT; Earn2Trade sits in the per-size-scaling archetype alongside Topstep. The explainer maps which trader profile each DLL archetype rewards and the geometry behind the size-scaled thresholds.</p>
+
+<h2 id="cost">Cost model: monthly + upfront vs activation-from-withdrawal</h2>
+
+<p>Both firms approach activation differently. The key difference: Earn2Trade is the only firm in this cluster where the activation fee is deducted from the trader's <em>first withdrawal</em>, not paid upfront at signup.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU</strong>
+    <strong>$0 upfront activation.</strong> Pay monthly subscription on Core or Rapid eval (price varies by size). On pass, no extra activation fee &mdash; the account transitions to funded with no separate cost. Reset available on the eval phase. Pro plan is a one-time purchase (instant funding, no eval, no monthly subscription).
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade</strong>
+    <strong>$0 upfront activation. $139 deducted from first withdrawal only.</strong> Monthly subscription continues until passed or canceled: TCP $150&ndash;$350/mo, GAU $170&ndash;$550/mo. TCP includes one free reset per rebill cycle; GAU has no free resets (must re-subscribe). Unique in this cluster &mdash; activation is paid in arrears, only if the trader successfully withdraws.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The economic asymmetry:</strong> Both firms have $0 upfront barrier-to-entry, but the recurring cost structure differs. MFFU's monthly stops on pass (account transitions to funded with no extra cost); Earn2Trade's monthly continues until the trader unsubscribes (passing the eval transitions to funded but the monthly subscription continues until manually canceled, per the standard subscription model). On a fast pass, both are cheap. On a multi-month grind, MFFU's monthly is comparable but Earn2Trade's $139 activation-from-withdrawal means the trader who never withdraws never pays activation &mdash; uniquely friendly to traders who fail to pass eval. Earn2Trade is the only firm in the cluster where eval failure costs only the months of subscription, never the activation fee.</div>
+
+<h2 id="scaling">Account scaling: fixed-size vs built-in growth ladder</h2>
+
+<p>MFFU and Earn2Trade GAU sell fixed-size accounts. Earn2Trade TCP is the only product in this cluster with built-in profit-target-driven scaling that increases account size internally.</p>
+
+<ul>
+  <li><strong class="firm-mffu">MFFU</strong> all three plans (Core 50K, Rapid 50K/100K/150K, Pro 50K/100K/150K) sell fixed-size accounts &mdash; size is what you bought at signup, for the account's life. A trader who wants to scale opens a second account on a different plan or size.</li>
+  <li><strong class="firm-earn2trade">Earn2Trade GAU</strong> (Gauntlet Mini) is fixed-size: GAU50/100/150/200. Single-phase eval &rarr; LiveSim funded at the same size. No internal scaling.</li>
+  <li><strong class="firm-earn2trade">Earn2Trade TCP</strong> (Trader Career Path) has <strong>built-in profit-driven scaling</strong>. TCP25 scales internally up to $200K. TCP50 and TCP100 scale up to $400K. Reaching profit milestones increases the account size without buying a new account. Unique product structure in this cluster.</li>
+</ul>
+
+<div class="key-fact"><strong>The scaling consequence:</strong> A trader who wants horizontal scaling (multiple parallel accounts on different rule shapes) has a home at MFFU &mdash; open Core, Rapid, and Pro in parallel, run them as separate experiments. A trader who wants vertical scaling (one account that grows as profits accumulate) has a home at Earn2Trade TCP &mdash; start at TCP25 with $25K, hit profit milestones, watch the account size scale up to $200K without buying a new account. Different scaling axes, different temperaments.</div>
+
+<div class="warn"><strong>MFFU lifecycle landmines:</strong> (a) Core's 40% consistency persists on FUNDED &mdash; a trader who passes Core eval clean and then has one big payout-cycle day can fail the consistency check at the funded gate, not just eval. (b) Pro's $100K total payout cap is across ALL Pro accounts the trader holds, not per account &mdash; opening a second Pro account does not double the cap. (c) Rapid's intraday trail means every new equity high recomputes the floor &mdash; the trader needs to be comfortable with that mechanic before signing up for Rapid (no chance to learn it on EOD first). (d) Every funded account is simulated payouts only &mdash; no live-capital conversion path exists on any plan, ever.</div>
+
+<div class="warn"><strong>Earn2Trade lifecycle landmines:</strong> (a) The 10-day minimum is the longest eval minimum in this cluster &mdash; even a trader who hits the profit target in 2 sessions still has to sit through 8 more trading days before the pass is recognized. (b) The DLL applies on LiveSim too &mdash; not just eval. A bad session on a funded LiveSim account terminates trading for the day even with the trail floor intact. (c) The 30% consistency rule on eval is tighter than most firms' eval thresholds &mdash; max-safe-next-day P&amp;L on a $3,000 target is $1,286 (30%/70%). (d) GAU has no free resets &mdash; eval failure means re-subscribing; TCP has one free reset per rebill cycle.</div>
+
+<h2 id="examples">Worked scenario: the decision-source fork in action</h2>
+
+<p>A trader who has already passed multiple evals at other firms and is confident in their style. They want efficient access to a funded simulated account without another multi-week eval grind. How does the lifecycle play out at each firm?</p>
+
+<h3 class="firm-mffu">Scenario A &mdash; signed up for MFFU Pro 50K</h3>
+<ul>
+  <li>Pays one-time fee for Pro 50K. <strong>No eval phase.</strong> Account is funded simulated on day one with EOD trail and lock at SB+$100 = $50,100. No profit target to meet, no minimum trading days, no consistency rule.</li>
+  <li>Trades for two weeks, accumulates $1,800 in profit. Submits first payout on day 6 (Pro pays every 5 days). Receives 80% of $1,800 = $1,440. No consistency check, no holding period beyond the cadence.</li>
+  <li>Continues trading. Reaches $80K cumulative payouts across Pro accounts over 18 months &mdash; $20K under the $100K total Pro cap.</li>
+  <li>Outcome: zero eval cycle. Funded simulated from day one. Total time-to-first-payout: 6 days (the payout cadence floor). The trader was on simulated capital permanently and the path required no profit-target validation.</li>
+</ul>
+
+<h3 class="firm-earn2trade">Scenario B &mdash; signed up for Earn2Trade GAU50</h3>
+<ul>
+  <li>Pays $170/mo subscription for GAU50. <strong>No upfront activation.</strong> Trades the eval under EOD trail. Passes the eval in 10 sessions at +$3,200 profit &mdash; had to wait the full 10-day minimum even though target was hit in 6.</li>
+  <li>Single biggest eval day was $850 = 27% of total &mdash; cleared the 30% consistency rule.</li>
+  <li>Funded on LiveSim. <strong>Consistency rule drops</strong> &mdash; no longer applies on funded payouts. EOD trail continues with same lock-at-SB ($50,000) mechanics. DLL of $1,100 applies on funded (LiveSim) too.</li>
+  <li>Trades funded for a month, accumulates $1,800 in profit. Submits weekly payout request (Earn2Trade pays every Wednesday). First withdrawal: $1,800 &times; 80% = $1,440, minus $139 activation = $1,301. Subsequent payouts: full 80% with no activation deduction.</li>
+  <li>Trader keeps LiveSim status &mdash; never converts to Live capital (joins the 94.77%). Receives real-dollar payouts indefinitely from simulated capital.</li>
+  <li>Outcome: 10-session eval + $170 monthly subscription paid once + $139 activation paid in arrears on first withdrawal. Total time-to-first-payout: 10 sessions + ~1 week of funded trading. Same simulated-capital outcome as Scenario A, reached by passing an eval and declining the live-conversion offer.</li>
+</ul>
+
+<div class="key-fact">The structural insight: MFFU Pro lets the trader skip the eval entirely by paying one-time upfront for the instant-funded position. Earn2Trade requires the eval but offers $0 upfront cost (activation deducted from first withdrawal) and the live-capital step is optional. Both paths land the trader on simulated capital with real-dollar payouts &mdash; the trade-off is upfront-cost-and-time (MFFU Pro: more upfront, less time) vs subscription-and-eval (Earn2Trade: lower upfront, longer time-to-funded).</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick mffu">
+    <h4 class="firm-mffu">Pick MFFU if&hellip;</h4>
+    <ul>
+      <li>You want to skip the eval entirely (Pro plan instant-funding)</li>
+      <li>You want choice over the rule shape at signup (Core EOD / Rapid intraday / Pro instant)</li>
+      <li>You value parallel-plan flexibility (hold Core + Rapid + Pro simultaneously)</li>
+      <li>You want zero DLL on every plan (no session circuit-breaker)</li>
+      <li>You're comfortable with the SB+$100 lock family (Apex 4.0 / Bulenox / Tradeify rhyme)</li>
+      <li>You can hold a 40% consistency ratio on Core's funded payouts (or avoid consistency by picking Rapid)</li>
+      <li>You don't need live exchange routing (funded is simulated payouts only on every plan)</li>
+    </ul>
+  </div>
+  <div class="pick earn2trade">
+    <h4 class="firm-earn2trade">Pick Earn2Trade if&hellip;</h4>
+    <ul>
+      <li>You want $0 upfront activation AND $0 activation-from-monthly (activation only on first withdrawal)</li>
+      <li>You're comfortable with a 10-day minimum eval (longest in this cluster)</li>
+      <li>You want EOD trail on every product and every phase (no intraday)</li>
+      <li>You value an automatic daily stop (DLL applies on eval AND LiveSim)</li>
+      <li>You want consistency rule to drop on funded payouts (eval-gate-only scope)</li>
+      <li>You want the <em>option</em> of live capital later but expect to stay on LiveSim (94.77% do)</li>
+      <li>You want vertical account scaling via TCP (size scales internally up to $200K&ndash;$400K through profit milestones)</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I hold MFFU and Earn2Trade accounts at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent and cross-firm hedging is not enforceable by either rulebook (they can't see your other firm's positions). Both firms restrict <em>cross-account</em> coordination within their own platform &mdash; do not run equal-and-opposite positions across accounts at the same firm. Across firms, the accounts are practically independent. Many traders run MFFU Core for grinder style and an Earn2Trade GAU for a separate slower-cadence attempt.</p>
+</details>
+
+<details>
+  <summary>What's the difference between LiveSim and Live at Earn2Trade?</summary>
+  <p>LiveSim is simulated capital with real-dollar payouts (80% split). Trades are executed against a simulated environment but the profits paid to the trader are real US dollars from Earn2Trade's funded-account pool. Live is real-capital routing &mdash; trades go to a real exchange, same 80/20 split, real capital backing. The trader chooses whether to convert; 94.77% of 2025 passers stayed on LiveSim, 5.23% converted to Live. Withdrawal participation was roughly equal across both. The two states have the same profit-split, the same payout mechanics, and the same rules &mdash; the only difference is whether the trader's executions hit a real exchange or a simulated one.</p>
+</details>
+
+<details>
+  <summary>What is MFFU Pro and how does it work?</summary>
+  <p>MFFU Pro is an instant-funded simulated account. Pay one-time, no eval, no profit target, no minimum trading days. The account is funded simulated on day one with an EOD trail and lock at SB+$100. The catch: $100K total payout cap across all Pro accounts the trader holds. Hit the cap, no more Pro account payouts. Pro is the only path in this comparison that lets the trader skip the eval phase entirely &mdash; Earn2Trade requires the 10-day minimum eval. Pro suits traders who are confident in their style and want efficient access to a funded simulated account without an eval grind.</p>
+</details>
+
+<details>
+  <summary>Why do 94.77% of Earn2Trade passers stay on LiveSim?</summary>
+  <p>Two reasons. (1) The payout mechanics are identical &mdash; both LiveSim and Live pay 80/20 in real US dollars &mdash; so the trader's take-home is unchanged by the choice. (2) Live conversion exposes the trader to real-market slippage and execution edge cases that LiveSim's simulated fills smooth out. For a trader whose strategy depends on tight fills near the bid/ask, LiveSim's simulated environment often produces cleaner execution than the real exchange would. Combined with the fact that staying on LiveSim has no penalty (rules and split don't change), most passers see no upside to converting. The 5.23% who do convert typically value the "real market" feel for psychological reasons or trade strategies that don't materially differ in execution quality between the two environments.</p>
+</details>
+
+<details>
+  <summary>How does the <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-earn2trade&amp;utm_campaign=inline-faq">trailing drawdown</a> compare on a 50K account?</summary>
+  <p>MFFU Core 50K: $1,500 trailing DD, EOD trail (updates once per day on EOD high), lock at SB+$100 = $50,100. MFFU Rapid 50K: $2,000 trailing DD, intraday trail (recomputes on every new intraday equity high), lock at SB+$100. Earn2Trade GAU50: $2,000 trailing DD, EOD trail, lock at SB = $50,000. The structural difference: Earn2Trade is EOD-only on every product (no intraday option at any size); MFFU offers both EOD (Core, Pro) and intraday (Rapid). The lock floor is $100 lower at Earn2Trade.</p>
+</details>
+
+<details>
+  <summary>Does MFFU have a <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-earn2trade&amp;utm_campaign=inline-faq">daily loss limit</a> on any plan?</summary>
+  <p>No &mdash; MFFU has zero DLL on Core, Rapid, and Pro. The trailing drawdown is the only hard-loss guardrail across every plan. Earn2Trade applies a DLL that scales per size: $1,100 on 50K, $2,200 on 100K, $3,300 on 150K, $4,400 on 200K. The DLL applies on eval AND LiveSim funded. For traders who prefer no session circuit-breaker (high freedom, high tilt risk), MFFU; for traders who value an automatic daily stop (built-in tilt protection), Earn2Trade.</p>
+</details>
+
+<details>
+  <summary>How does the <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-earn2trade&amp;utm_campaign=inline-faq">consistency rule</a> compare?</summary>
+  <p>MFFU Core: 40% on eval AND funded (single day's profit &le; 40% of total &mdash; the only plan in the comparison that enforces consistency post-pass). MFFU Rapid: no consistency. MFFU Pro: no eval, no consistency. Earn2Trade: 30% on eval only, drops entirely on funded LiveSim/Live. So MFFU Core is stricter (40% &lt; 50% TPT but applied on funded too); Earn2Trade is stricter on the eval threshold (30% &lt; 40% MFFU Core) but releases the rule entirely at the funded gate. Earn2Trade is the cluster's only firm that <em>fully</em> drops the rule post-eval &mdash; Topstep drops too, but Apex 4.0 / MFFU Core / Bulenox keep it on funded.</p>
+</details>
+
+<details>
+  <summary>What's the actual cost difference between MFFU Core and Earn2Trade GAU50 on a 3-month grind?</summary>
+  <p>MFFU Core: monthly subscription on the eval (varies by size, see the firm's current pricing) for up to 3 months until pass. Activation $0; transition to funded is free on pass. Earn2Trade GAU50: $170/mo subscription &times; 3 months = $510, plus $139 activation deducted from first withdrawal (only if the trader passes and withdraws). The structural difference: MFFU's cost stops on pass; Earn2Trade's monthly continues until the trader unsubscribes (passing transitions the trader to LiveSim funded but the subscription continues unless canceled). For a trader who passes but never withdraws (no payouts cleared yet), Earn2Trade's activation fee is never charged. For a trader who passes and immediately withdraws, the $139 is netted from the first payout.</p>
+</details>
+
+<details>
+  <summary>What about the other 5 firms in this cluster?</summary>
+  <p>MFFU locks at SB+$100 (Apex 4.0 / Bulenox / Tradeify family). Earn2Trade locks at SB exactly (Topstep / TPT family). Each firm has a dedicated landing page: <a href="/prop-firms/topstep/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=faq-topstep">Topstep</a>, <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=faq-apex">Apex</a>, <a href="/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=faq-tpt">TPT</a>, <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=faq-bulenox">Bulenox</a>, <a href="/prop-firms/tradeify/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=faq-tradeify">Tradeify</a>.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily P&amp;L against either firm's preset in real time as you upload Tradovate, NinjaTrader, or Rithmic fills. MFFU Core (EOD, 40%-funded), MFFU Rapid (intraday), MFFU Pro (EOD instant-funded), Earn2Trade GAU50/100/150/200 (EOD), and Earn2Trade TCP25/50/100 (EOD with scaling milestones) presets all supported &mdash; the journal switches the rule shape automatically when you mark an account as scaled (TCP) or open a new MFFU plan. Multi-account, multi-firm &mdash; one journal across every prop firm you trade.</p>
+</details>
+
+<div class="cta">
+  <h3>Track MFFU + Earn2Trade accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required. Plan-switch and TCP-scaling presets baked in.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=mffu-vs-earn2trade&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with MyFundedFutures or Earn2Trade. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/bulenox-vs-mffu-2026/">Bulenox vs MFFU</a> &middot; <a href="/blog/mffu-vs-tpt-2026/">MFFU vs TPT</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/apex-vs-earn2trade-2026/">Apex vs Earn2Trade</a> &middot; <a href="/blog/bulenox-vs-earn2trade-2026/">Bulenox vs Earn2Trade</a> &middot; <a href="/blog/earn2trade-vs-topstep-2026/">Earn2Trade vs Topstep</a> &middot; <a href="/blog/tpt-vs-earn2trade-2026/">TPT vs Earn2Trade</a> &middot; <a href="/prop-firms/myfundedfutures/">MFFU landing</a> &middot; <a href="/prop-firms/earn2trade/">Earn2Trade landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
