@@ -1,0 +1,15 @@
+{
+  "slug": "tpt-vs-earn2trade-2026",
+  "title": "TPT vs Earn2Trade (2026): Same Lock, Opposite Rule-Shape Lifecycle",
+  "description": "TPT and Earn2Trade both lock the trail at starting balance — but TPT shifts the rule shape TWICE inside one account (Test EOD → PRO intraday → PRO+ EOD) while Earn2Trade shifts it once and then 94.77% of passers stay there forever. Honest 2026 side-by-side.",
+  "canonical": "https://aurafy.dev/blog/tpt-vs-earn2trade-2026/",
+  "published": "2026-06-03",
+  "updated": "2026-06-03",
+  "og": {
+    "title": "TPT vs Earn2Trade (2026): Same Lock, Opposite Rule-Shape Lifecycle",
+    "description": "TPT shifts the trail type three times inside one account; Earn2Trade keeps it EOD forever. Same SB lock, opposite lifecycle volatility. Here's how to pick.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "comparison", "tpt", "take-profit-trader", "earn2trade", "2026"],
+  "source_path": "posts/tpt-vs-earn2trade-2026/index.html"
+}

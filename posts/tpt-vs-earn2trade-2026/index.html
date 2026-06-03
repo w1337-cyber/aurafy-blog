@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>TPT vs Earn2Trade (2026): Same Lock, Opposite Rule-Shape Lifecycle | Aurafy</title>
+<meta name="description" content="TPT and Earn2Trade both lock the trail at starting balance &mdash; but TPT shifts the rule shape TWICE inside one account (Test EOD &rarr; PRO intraday &rarr; PRO+ EOD) while Earn2Trade shifts it once and then 94.77% of passers stay there forever. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/tpt-vs-earn2trade-2026/" />
+<meta property="og:title" content="TPT vs Earn2Trade (2026): Same Lock, Opposite Rule-Shape Lifecycle" />
+<meta property="og:description" content="TPT shifts the trail type three times inside one account; Earn2Trade keeps it EOD forever. Same SB lock, opposite lifecycle volatility. Here's how to pick." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --tpt:#ffb454;
+    --earn2trade:#5b8def;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-tpt{color:var(--tpt);font-weight:600}
+  .firm-earn2trade{color:var(--earn2trade);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(255,180,84,0.06);border-left:3px solid var(--tpt);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0d4a8}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.tpt{border-left:3px solid var(--tpt)}
+  .pick.earn2trade{border-left:3px solid var(--earn2trade)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.t{border-top:2px solid var(--tpt)}
+  .axis-side.e{border-top:2px solid var(--earn2trade)}
+  .phase-shift{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.phase-shift{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+  .phase-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .phase-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>TPT vs Earn2Trade (2026): Same Lock, Opposite Rule-Shape Lifecycle</h1>
+  <p class="lede">Same starting-balance lock (50K stops at $50,000 on both). But <a href="https://aurafy.dev/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=lede-tpt">Take Profit Trader</a> changes the <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=lede-trail&utm_campaign=inline-concept">trail type</a> <em>twice</em> inside one account &mdash; EOD in Test, then INTRADAY at funded PRO, then EOD again at live PRO+. <a href="https://aurafy.dev/prop-firms/earn2trade/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=lede-earn2trade">Earn2Trade</a> keeps one EOD trail across every phase and 94.77% of 2025 passers chose to stay on LiveSim simulated capital forever, never shifting rule shape again.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#wedge">The wedge</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#trail">Trail mechanics &amp; the phase shift</a>
+  <a href="#consistency">Consistency: same scope, different threshold</a>
+  <a href="#dll">Daily loss limit: present vs absent</a>
+  <a href="#payment">Activation model</a>
+  <a href="#livesim">LiveSim vs PRO+ (funded gate)</a>
+  <a href="#examples">Worked scenario</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=tldr-tpt">TPT</a> if</strong> you want a single-attempt $130 upfront fee with no monthly subscription, you trade well under an EOD trail in evaluation and an INTRADAY trail at funded, and you want automatic promotion from simulated PRO to live PRO+ (no application since 2026-03-18, 80/20 split on PRO then 90/10 on PRO+). You also need to be comfortable with the trail TYPE shifting under your feet as you progress through the lifecycle.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/earn2trade/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=tldr-earn2trade">Earn2Trade</a> if</strong> you want zero upfront activation (the $139 fee comes out of your first withdrawal &mdash; if you never pass, you never pay it), one EOD trail mechanic for the life of the account, and you're fine staying on LiveSim simulated capital with real 80% payouts indefinitely (94.77% of 2025 passers did). You pay a monthly subscription ($150&ndash;$550 by product and size) until you pass or quit.
+</div>
+<div class="verdict">
+  <strong>Same lock family.</strong> Both firms lock the trail at <strong>Starting Balance exactly</strong> &mdash; same archetype as Topstep funded. On a 50K account: stop-out fixes at $50,000 at both firms. Same lock; the difference is everything <em>above</em> that floor.
+</div>
+
+<h2 id="wedge">The wedge in plain English</h2>
+
+<p>Most prop-firm comparisons rank firms by drawdown size or profit target. TPT and Earn2Trade have basically identical numbers on the eval phase: 50K account, $2,000 trailing drawdown, $3,000 profit target, 6 mini contracts. Lock at $50,000 both. The structural story is about <em>how many times the rule shape changes</em> inside one account's life.</p>
+
+<p><strong class="firm-tpt">TPT shifts the rule shape twice, mandatorily.</strong> Three phases, three rule profiles: Test (EOD trail, 50% consistency, 5-day min), PRO (INTRADAY trail, no consistency, 1-day-per-week min, 80/20 split), PRO+ (EOD trail again, no consistency, 90/10 split, real capital). The trail TYPE itself changes between phases &mdash; EOD in evaluation, INTRADAY at simulated funded, then EOD again at live funded. This is the highest-confusion event in TPT's lifecycle and the firm's own rulebook flags it.</p>
+
+<p><strong class="firm-earn2trade">Earn2Trade shifts the rule shape once, optionally.</strong> Two states: Eval (EOD trail, 30% consistency, 10-day min) and Funded (EOD trail, no consistency, 80/20 split). The funded state has an optional sub-fork &mdash; stay on LiveSim simulated capital or convert to Live real capital &mdash; but the trail mechanic is identical on both sides of that fork. And 94.77% of 2025 passers chose to stay on LiveSim. So for nearly every trader, the rule shape changes exactly once (at the eval gate) and stays that way forever.</p>
+
+<p>Same lock floor &mdash; opposite lifecycle volatility. That's the spine of this comparison.</p>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-tpt">Take Profit Trader (TPT)</th><th class="firm-earn2trade">Earn2Trade</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Phase structure</td><td>Test &rarr; PRO (simulated funded) &rarr; PRO+ (live funded)</td><td>1-step eval &rarr; LiveSim funded &rarr; (optional) Live capital</td></tr>
+    <tr><td class="label">Trail type</td><td><strong>Shifts:</strong> EOD &rarr; INTRADAY &rarr; EOD across phases</td><td>EOD only, every phase (GAU &amp; TCP)</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance</td><td>Starting Balance</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>None firmwide</strong> since January 2025</td><td>Yes &mdash; $550 / $1,100 / $2,200 / $3,300 / $4,400 by size</td></tr>
+    <tr><td class="label">Consistency (eval)</td><td>50% Test only &mdash; max safe day &asymp; total &times; 1.0</td><td>30% eval only &mdash; max safe day &asymp; total &times; 0.429</td></tr>
+    <tr><td class="label">Consistency (funded)</td><td><strong>None</strong> &mdash; drops on PRO and PRO+</td><td><strong>None</strong> &mdash; drops on LiveSim and Live</td></tr>
+    <tr><td class="label">Min trading days (eval)</td><td>5</td><td>10</td></tr>
+    <tr><td class="label">Profit split</td><td>PRO 80/20 &middot; PRO+ 90/10</td><td>80/20 (LiveSim and Live, identical)</td></tr>
+    <tr><td class="label">Activation fee</td><td><strong>$130 upfront</strong> per account</td><td><strong>$139 deducted from first withdrawal</strong> &mdash; not upfront</td></tr>
+    <tr><td class="label">Monthly subscription</td><td>None &mdash; one-time fee per attempt</td><td>TCP $150&ndash;$350 &middot; GAU $170&ndash;$550</td></tr>
+    <tr><td class="label">PRO+ / Live promotion</td><td><strong>Automatic since 2026-03-18</strong> &mdash; no application</td><td>Optional &mdash; 94.77% of 2025 passers stayed on LiveSim</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Daily on PRO/PRO+ once buffer cleared, 7-day min between</td><td>Weekly Wednesdays, $100 min</td></tr>
+    <tr><td class="label">Platforms</td><td>NinjaTrader, Tradovate, TradingView, Rithmic</td><td>NinjaTrader, Tradovate, R&#124;Trader, TradingView, Finamark</td></tr>
+    <tr><td class="label">News trading</td><td>PRO/PRO+ banned 1 min around FOMC, NFP, CPI</td><td>Permitted &mdash; explicit allowance, no restriction</td></tr>
+    <tr><td class="label">Overnight holding</td><td>None &mdash; all flat by 5pm ET every day</td><td>Standard intraday session hours apply</td></tr>
+    <tr><td class="label">Max funded accounts</td><td>5</td><td>No stated cap</td></tr>
+    <tr><td class="label">2025 pass rate</td><td>Not publicly disclosed (above single-digit-percent band)</td><td>8.89% (publicly disclosed)</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="trail">Trail mechanics &amp; the phase shift</h2>
+
+<p>This is the structural wedge that defines TPT vs Earn2Trade. The lock <em>floor</em> is identical (SB exactly on both). The trail <em>type</em> across the account's lifecycle is structurally inverted.</p>
+
+<h3>TPT &mdash; trail type shifts twice across the lifecycle</h3>
+
+<div class="phase-shift">
+  <div class="phase-box">
+    <strong>Test (eval)</strong>
+    EOD trail. Updates once per day at session close. 50% consistency. 5-day minimum. Pass at $3,000 profit on 50K.
+  </div>
+  <div class="phase-box">
+    <strong>PRO (simulated funded)</strong>
+    <strong style="color:var(--tpt);text-transform:none;letter-spacing:0;font-size:0.92rem;display:inline">INTRADAY trail</strong> &mdash; updates on every new intraday high. No consistency. 80/20 split. 1 trading day per calendar week minimum.
+  </div>
+  <div class="phase-box">
+    <strong>PRO+ (live funded)</strong>
+    EOD trail (reverts). No consistency. 90/10 split. Real capital. Auto-promoted since 2026-03-18.
+  </div>
+</div>
+
+<p>The middle phase is the trap. A trader passes Test on an EOD trail (which forgives intraday wicks), then gets moved to PRO where the trail recomputes on every new intraday high &mdash; the same wick that didn't matter in Test now ratchets the floor up. This is the highest-confusion lifecycle event at TPT and the firm's rulebook flags it specifically.</p>
+
+<h3>Earn2Trade &mdash; one EOD trail, every phase</h3>
+<ul>
+  <li>EOD-only trail across both products (Gauntlet Mini &amp; Trader Career Path).</li>
+  <li>Same EOD mechanic in eval, on LiveSim, on Live. Trail updates once per day on the closing balance.</li>
+  <li>Locks at Starting Balance &mdash; same lock point as TPT.</li>
+  <li>No phase-shift surprise. What you traded under in eval is the same mechanic on every subsequent phase.</li>
+</ul>
+
+<div class="key-fact"><strong>The mechanic that bites:</strong> TPT's PRO phase is structurally aggressive on intraday volatility. A trader whose Test phase looked clean on EOD &mdash; closing flat after some intraday dispersion &mdash; can find the PRO trail recomputing the floor higher every time their session wicks. Earn2Trade keeps the same trail mechanic forever, so a trader who passed eval on EOD doesn't have to re-validate their style under a different rule shape. If you've never traded under an intraday trail, TPT's middle phase is where that learning happens &mdash; on a live-payout simulated account where mistakes cost real money via lost payout cadence.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=trail-deepdive&utm_campaign=deep-dive">Trailing drawdown across 7 prop firms</a> &mdash; TPT is the only firm in the dataset that mandates a trail-TYPE shift inside a single account's lifecycle. Apex 4.0 makes traders pick EOD or intraday at signup (permanent). Bulenox does the same. Earn2Trade locks every phase to EOD. The explainer maps all seven firms against trail timing, lock-point archetype, and lifecycle volatility &mdash; TPT and Earn2Trade sit at opposite ends of the "how many times does the trail type change?" axis.</p>
+
+<div class="cta">
+  <h3>Model the TPT phase shift before you sign up</h3>
+  <p>Our free trailing-drawdown calculator runs the TPT Test (EOD) preset, the TPT PRO (intraday) preset, and the Earn2Trade GAU EOD preset. See exactly how your worst day plays out under each. No login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=trail-cta">Open the calculator</a>
+</div>
+
+<h2 id="consistency">Consistency: same scope, different threshold</h2>
+
+<p>Both firms apply consistency on the eval phase only and drop it on the funded side. The threshold is what differs &mdash; and the threshold flips which trader-type each firm rewards.</p>
+
+<div class="axis">
+  <div class="axis-side t">
+    <strong>TPT &mdash; 50% on Test, dies post-Test</strong>
+    Single day's profit &divide; total profit &le; 0.50 at the point of passing. Loosest threshold in the cluster &mdash; lets a single day be up to half of total profit. On a $3,000 pass target, max single day = $1,500. Drops entirely on PRO and PRO+.
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; 30% on eval, dies on LiveSim</strong>
+    Single day's profit &divide; total profit &le; 0.30 at the moment of passing. Tighter than TPT and same threshold as Apex 4.0. On a $3,000 pass target, max single day = $900. Drops entirely on LiveSim and Live.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The honest take:</strong> TPT's 50% loose-eval consistency is friendly to high-day-spread traders &mdash; the trader who has one big day plus several small days. Earn2Trade's 30% rewards the steady-grinder profile &mdash; consistent smaller days, no single dominant day. Both firms drop the rule entirely once funded, so the consistency question is purely a pass-the-eval question, not a lifetime tax. Pick the threshold that fits how you actually pass evaluations.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=consistency-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; TPT and Earn2Trade are the cluster's clearest demonstration that <em>same scope, different threshold</em> still produces very different trader-fit. Both apply consistency eval-only and drop on funded (same scope archetype as Topstep). But 50% vs 30% is a 67% wider tolerance band on a TPT eval, which rewards a totally different P&amp;L distribution. The explainer maps every cluster firm against threshold-and-scope &mdash; Apex 30% on both phases, MFFU 40% varies by plan, Bulenox 40% Master+Funded only, Tradeify inverted Growth/Select, Topstep 50% eval-only.</p>
+
+<div class="cta">
+  <h3>Check your days against either threshold</h3>
+  <p>The consistency calculator runs TPT's 50%, Earn2Trade's 30%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn't fail on geometry.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="dll">Daily loss limit: present vs absent</h2>
+
+<p>The DLL axis is where TPT and Earn2Trade are most structurally opposite. One firm removed the DLL entirely in 2025; the other applies a strict DLL at every account size.</p>
+
+<div class="axis">
+  <div class="axis-side t">
+    <strong>TPT &mdash; no daily loss limit since January 2025</strong>
+    Removed firmwide. The trailing drawdown is the only hard-loss guardrail. A trader can give back any amount intraday without triggering a session lockout &mdash; until they hit the trail floor. Maximum freedom on daily risk; maximum exposure to a single bad session.
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; DLL on every account size</strong>
+    GAU50 / TCP50: $1,100 daily limit. GAU100 / TCP100: $2,200. GAU150: $3,300. GAU200: $4,400. TCP25: $550. Hitting the limit closes the day. A built-in session circuit-breaker that protects traders from themselves on a tilt day.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The risk-floor inversion:</strong> Most traders assume "no DLL" means TPT is the looser firm and Earn2Trade is the stricter. The honest read is the opposite for tilt-prone traders: Earn2Trade's DLL forces a hard stop before the trail floor is even at risk. TPT gives the trader nothing between "fine" and "blown trail" &mdash; one bad afternoon and the account is dead. A traders who has never been stopped out by a DLL might prefer TPT's freedom; a trader who has ever blown a Topstep on a single tilt session might prefer the Earn2Trade guardrail.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=dll-deepdive&utm_campaign=deep-dive">Daily loss limit across 7 prop firms</a> &mdash; TPT is the only firm in the dataset to have removed its DLL firmwide. Earn2Trade applies a uniform DLL on every account size. The explainer maps the four DLL archetypes (no-DLL, eval-only DLL, uniform DLL, sliding DLL by phase) and which trader profile each archetype rewards.</p>
+
+<h2 id="payment">Activation model: the cleanest cost-of-attempt wedge</h2>
+
+<p>TPT and Earn2Trade approach the cost of attempting from opposite directions. TPT is one-time-fee, no subscription. Earn2Trade is subscription-only, fee deducted from first withdrawal.</p>
+
+<div class="axis">
+  <div class="axis-side t">
+    <strong>TPT</strong>
+    <strong>$130 upfront</strong> activation per Test account &mdash; that's it. No monthly subscription. Pass the Test, you're funded on PRO. Auto-promote to PRO+ (live capital) without an extra fee. Total cost-to-attempt = $130 per Test attempt, capped at the number of attempts you buy. PRO+ reset NOT permitted &mdash; bust the live account, it closes permanently.
+  </div>
+  <div class="axis-side e">
+    <strong>Earn2Trade</strong>
+    Monthly subscription only ($150&ndash;$550 depending on product/size). The $139 activation is <em>deducted from your first withdrawal</em>. If you never pass, you never pay activation. Total cost = monthly subscription &times; months until pass or quit. TCP includes 1 free reset per monthly rebill; GAU has no free resets.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The economic asymmetry:</strong> A trader who passes TPT on their first attempt pays $130 and is done with up-front cost. A trader who passes Earn2Trade in three months pays roughly $450&ndash;$550 (3 &times; subscription) and then $139 from first withdrawal. So <em>on a fast pass, TPT is cheaper</em>. A trader who takes six attempts at TPT pays $780; a trader who grinds Earn2Trade for six months pays $900&ndash;$1,650 + $139. <em>On a slow grind, the answer flips depending on subscription tier.</em> The bigger asymmetry is risk: TPT's $130 is sunk on every attempt regardless of outcome; Earn2Trade's $139 is contingent on actually winning.</div>
+
+<h2 id="livesim">LiveSim vs PRO+: the funded gate</h2>
+
+<p>Both firms have a "real capital" step beyond simulated funded &mdash; but the mandatory-vs-optional structure is opposite.</p>
+
+<ul>
+  <li><strong class="firm-tpt">TPT PRO &rarr; PRO+ is automatic since 2026-03-18.</strong> No application, no extra cost. TPT reviews PRO accounts on internal consistency / risk / execution metrics and promotes qualifying accounts to PRO+ (live capital, 90/10 split, EOD trail). The 80/20 PRO split applies first, then the 90/10 PRO+ split once promoted. <strong>PRO+ reset is NOT permitted</strong> &mdash; bust the live account, it closes permanently.</li>
+  <li><strong class="firm-earn2trade">Earn2Trade LiveSim &rarr; Live is optional.</strong> After passing eval, the trader is funded on simulated capital with a real-dollar 80% profit share paid weekly. The trader can convert to Live capital at any time at no penalty, OR stay on LiveSim forever. Same 80/20 split, same payouts on both sides.</li>
+</ul>
+
+<p>The remarkable Earn2Trade data point: <strong>94.77% of 2025 passers stayed on LiveSim</strong>. Only 5.23% converted to Live. Withdrawal participation was roughly equal across both groups. The funded gate is structurally optional and the data says nearly everyone chooses the simulated side.</p>
+
+<div class="warn"><strong>TPT lifecycle landmines:</strong> (a) The trail TYPE shift from Test (EOD) to PRO (intraday) is the highest-confusion event &mdash; passed-fine-then-blown-after-promote is the documented failure mode. (b) PRO+ promotion is automatic and irrevocable in the sense that PRO+ resets are not permitted &mdash; busting the live account closes it permanently with no option to restart. (c) PRO and PRO+ ban news trading 1 minute before/during/after FOMC, NFP, CPI &mdash; a trader who built a style around news momentum will lose that style at the funded gate. (d) All positions must be flat by 5pm ET every day &mdash; no overnight on any phase.</div>
+
+<h2 id="examples">Worked scenario: the regret-risk fork in action</h2>
+
+<p>A 50K account, EOD-style trader who passes the eval comfortably but has never traded under an intraday trail. How does the lifecycle play out at each firm?</p>
+
+<h3>Scenario A &mdash; signed up for TPT Test</h3>
+<ul>
+  <li>Passes Test in 8 sessions at +$3,200 profit. EOD trail floor sat at $50,000 the whole time because no day closed below SB. Easy pass.</li>
+  <li>Auto-promoted to PRO. <strong>Trail mechanic changes:</strong> now intraday HWM. Same trading style now has the floor recomputing every time the session prints a new equity high.</li>
+  <li>Week 3 of PRO: $1,400 intraday equity high at 11am, trader gives back to +$200 by close. The floor recomputed on the 11am high; the next morning a $1,600 intraday drawdown breaches the floor. Account closed.</li>
+  <li>Outcome: passed-Test-then-blown-PRO is the documented TPT failure mode. The trader didn't learn anything new about their style &mdash; the rule shape changed under them.</li>
+</ul>
+
+<h3>Scenario B &mdash; signed up for Earn2Trade GAU50</h3>
+<ul>
+  <li>Passes eval in 12 sessions at +$3,100 profit. EOD trail across the entire phase. 30% consistency cleared with no single day above $900.</li>
+  <li>Funded on LiveSim. <strong>Trail mechanic does not change</strong> &mdash; same EOD trail as the eval phase. Same DLL on each account size. The only thing that changes is the consistency rule dies.</li>
+  <li>Week 3 of LiveSim: same trading style, same trail mechanic. A $1,400 intraday equity high at 11am that gives back to +$200 by close has zero effect on the trail floor &mdash; only the closing balance moves it.</li>
+  <li>Outcome: zero regret-risk on the trail mechanic transition. The trader keeps trading exactly the style that passed the eval.</li>
+</ul>
+
+<div class="key-fact">The structural insight: TPT's regret-risk lives at the funded gate &mdash; the rule shape itself changes under your feet. Earn2Trade's regret-risk lives at the eval gate &mdash; once past it, the rule shape stabilizes forever. Same lock floor; opposite lifecycle volatility profile.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick tpt">
+    <h4 class="firm-tpt">Pick TPT if&hellip;</h4>
+    <ul>
+      <li>You want one-time-fee structure ($130 upfront, no monthly subscription)</li>
+      <li>You're comfortable transitioning from EOD to intraday trail mid-account-lifecycle</li>
+      <li>You value automatic live-capital promotion (no application, since 2026-03-18)</li>
+      <li>You can pass under a 50% consistency rule (looser threshold, friendlier to high-day-spread)</li>
+      <li>You don't need news-trading flexibility on PRO/PRO+ (FOMC/NFP/CPI banned)</li>
+      <li>You're disciplined on daily risk without an explicit DLL guardrail</li>
+      <li>You only need up to 5 funded accounts</li>
+    </ul>
+  </div>
+  <div class="pick earn2trade">
+    <h4 class="firm-earn2trade">Pick Earn2Trade if&hellip;</h4>
+    <ul>
+      <li>You want zero upfront activation cost (fee deducted from first withdrawal only)</li>
+      <li>You want the trail mechanic to be identical across every phase (no phase-shift surprise)</li>
+      <li>You're fine staying on LiveSim simulated capital with real payouts indefinitely (94.77% of 2025 passers did)</li>
+      <li>You prefer a hard daily-loss circuit-breaker (DLL on every account size)</li>
+      <li>You can pass under a 30% consistency rule (steady-grinder profile)</li>
+      <li>You want news-trading explicitly permitted (no FOMC/NFP/CPI restriction)</li>
+      <li>You value a published 2025 pass rate (8.89%) for honest expectation-setting</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Why does TPT change the <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=tpt-vs-earn2trade&amp;utm_campaign=inline-faq">trail type</a> between phases?</summary>
+  <p>TPT uses the trail-type shift as a phase-differentiator: EOD trail in Test (forgiving evaluation) &rarr; INTRADAY trail in PRO (tightens risk discipline at simulated funded) &rarr; EOD trail again in PRO+ (live-capital phase, reverts to the forgiving mechanic). The firm's logic is that PRO is the discipline-test phase between passing Test and earning real capital at PRO+. Whether that design serves traders is debatable &mdash; passed-Test-then-blown-PRO is the documented failure mode at TPT and is the single biggest source of post-eval regret.</p>
+</details>
+
+<details>
+  <summary>Why doesn't TPT have a <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=tpt-vs-earn2trade&amp;utm_campaign=inline-faq">daily loss limit</a>?</summary>
+  <p>TPT removed the daily loss limit firmwide in January 2025. The official rationale is that the trailing drawdown alone is sufficient as a hard-loss guardrail and that a DLL was creating session-lockout friction without changing aggregate firm risk. The practical effect for traders: there is no session circuit-breaker. A trader can give back any amount intraday without locking the session, until they hit the trail floor. Earn2Trade kept its DLL on every account size ($550&ndash;$4,400 by size) explicitly as a tilt-day guardrail.</p>
+</details>
+
+<details>
+  <summary>What's the actual cost difference between TPT and Earn2Trade on a 3-month grind?</summary>
+  <p>TPT: $130 per Test attempt, no monthly subscription. Three Test attempts over three months = $390. Earn2Trade GAU50: $170/month subscription for three months = $510, plus $139 deducted from first withdrawal if and only if you pass. So a 3-month, multi-attempt TPT grind costs roughly the same as a single Earn2Trade subscription run that pays out. The risk difference: TPT's $130 is sunk on every attempt regardless of pass/fail; Earn2Trade's $139 only hits if you actually win.</p>
+</details>
+
+<details>
+  <summary>Is the Earn2Trade LiveSim "real money"?</summary>
+  <p>The trading is on simulated capital &mdash; meaning your fills are not routed to a live exchange and Earn2Trade hedges or absorbs the trades on its own book. The <em>payouts</em> are real money. 80% of LiveSim profits in real US dollars, paid weekly with a $100 minimum. The 94.77% of 2025 passers who stayed on LiveSim treat it as their permanent funded account.</p>
+</details>
+
+<details>
+  <summary>Is TPT PRO+ "real money"?</summary>
+  <p>Yes &mdash; PRO+ is live capital trading, 90/10 split, EOD trail, real exchange routing. Promotion from PRO to PRO+ is automatic since 2026-03-18 (no application or extra fee) based on TPT's internal review of consistency / risk / execution metrics on the PRO account. PRO+ reset is NOT permitted &mdash; bust the live account and it closes permanently, no option to restart that specific account.</p>
+</details>
+
+<details>
+  <summary>Can I run a TPT account and an Earn2Trade account at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent and cross-firm hedging is not enforceable by either rulebook (they can't see your other firm's positions). Both firms restrict <em>cross-account</em> activity within their own platform &mdash; Earn2Trade prohibits copy-trading across accounts; TPT applies similar restrictions on coordinated multi-account activity. Run accounts at both firms independently; do not coordinate equal-and-opposite positions between them.</p>
+</details>
+
+<details>
+  <summary>How does the <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=tpt-vs-earn2trade&amp;utm_campaign=inline-faq">consistency rule</a> differ in practice?</summary>
+  <p>Same scope (eval-only, drops on funded), different threshold (TPT 50% vs Earn2Trade 30%). On a $3,000 pass target: TPT max single day = $1,500; Earn2Trade max single day = $900. TPT rewards a higher-variance pass &mdash; one big day plus support days. Earn2Trade rewards a steady-grind pass &mdash; multiple smaller days, no single dominant day. Topstep's 50% eval-only matches TPT's threshold; Apex 4.0's 30% on both phases matches Earn2Trade's threshold but applies forever (no funded-side drop). TPT and Earn2Trade are the cleanest cluster examples of "consistency dies at the funded gate," both with that same archetype.</p>
+</details>
+
+<details>
+  <summary>What about the other 5 firms in this cluster?</summary>
+  <p>TPT and Earn2Trade both lock at Starting Balance &mdash; same archetype as Topstep funded. The SB+$100 lock family (Apex 4.0, MFFU, Bulenox, Tradeify) sits at a structurally different floor. Each firm has a dedicated landing page: <a href="/prop-firms/topstep/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=faq-topstep">Topstep</a>, <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=faq-apex">Apex</a>, <a href="/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=faq-mffu">MFFU</a>, <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=faq-bulenox">Bulenox</a>, <a href="/prop-firms/tradeify/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=faq-tradeify">Tradeify</a>.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily loss against either firm's preset in real time as you upload Tradovate, NinjaTrader, or Rithmic fills. TPT Test (EOD), TPT PRO (intraday), and TPT PRO+ (EOD) presets all supported &mdash; the journal switches the trail-type rule automatically when you mark the account as phase-promoted. Earn2Trade GAU and TCP presets both supported. Multi-account, multi-firm &mdash; one journal across every prop firm you trade.</p>
+</details>
+
+<div class="cta">
+  <h3>Track TPT + Earn2Trade accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required. Phase-shift presets baked in for TPT.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=tpt-vs-earn2trade&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Take Profit Trader or Earn2Trade. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/topstep-vs-tpt-2026/">Topstep vs TPT</a> &middot; <a href="/blog/apex-vs-tpt-2026/">Apex vs TPT</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/earn2trade-vs-topstep-2026/">Earn2Trade vs Topstep</a> &middot; <a href="/blog/apex-vs-earn2trade-2026/">Apex vs Earn2Trade</a> &middot; <a href="/blog/bulenox-vs-earn2trade-2026/">Bulenox vs Earn2Trade</a> &middot; <a href="/prop-firms/take-profit-trader/">TPT landing</a> &middot; <a href="/prop-firms/earn2trade/">Earn2Trade landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>

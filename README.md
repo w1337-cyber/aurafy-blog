@@ -39,6 +39,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `daily-loss-limit-explained-2026` | Daily Loss Limit Explained (2026): The Most Fragmented Rule in Prop Trading | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `bulenox-vs-earn2trade-2026` | Bulenox vs Earn2Trade (2026): The Irrevocable Choice, At Opposite Ends | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `bulenox-vs-mffu-2026` | Bulenox vs MyFundedFutures (2026): Same Lock, Opposite Flavor Freedom | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
+| `tpt-vs-earn2trade-2026` | TPT vs Earn2Trade (2026): Same Lock, Opposite Rule-Shape Lifecycle | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy
