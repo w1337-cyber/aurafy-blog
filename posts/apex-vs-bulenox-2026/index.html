@@ -202,9 +202,11 @@
 
 <p>This is Bulenox's defining structural quirk and the single biggest decision at signup. No other prop firm in this dataset (Apex, Topstep, MFFU, TPT, Tradeify) forces a comparable lifetime binary commitment.</p>
 
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-bulenox&amp;utm_campaign=deep-dive">Daily loss limit explained: the 4-archetype taxonomy across the cluster</a> &mdash; the Bulenox Option 1 vs Option 2 fork is as much a <em>DLL</em> choice as a trail choice (Option 1 strips the DLL, Option 2 keeps it), and Apex 4.0 sits in the same archetype: EOD-trail accounts inherit a DLL, intraday-trail accounts don't. The explainer walks all four DLL archetypes &mdash; "trail-coupled" (Apex 4.0 + Bulenox), "deleted firmwide" (TPT + MFFU), "platform-toggled" (Topstep), and "config-per-program" (Tradeify) &mdash; so you can place any new firm onto the map.</p>
+
 <h2 id="drawdown">Trailing drawdown: same lock, two implementations</h2>
 
-<p>Both firms lock the trail at <strong>Starting Balance + $100</strong>. This is the same lock archetype as MyFundedFutures and Tradeify &mdash; and a different family from Topstep and TPT (both of which lock exactly at the starting balance).</p>
+<p>Apex 4.0 and Bulenox are functional twins on the <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-bulenox&amp;utm_campaign=inline-concept">trailing drawdown</a> lock: both freeze the floor at <strong>Starting Balance + $100</strong>. This is the same lock archetype as MyFundedFutures and Tradeify &mdash; and a different family from Topstep and TPT (both of which lock exactly at the starting balance).</p>
 
 <p>On a 100K account, the lock fires at $103,100 of equity (100,000 + 3,000 drawdown + 100), and the trail floor freezes at $100,100 forever. From that point on, the drawdown stops moving up with profit &mdash; the only stop-out is the locked floor. Math is identical between Apex 4.0 100K and Bulenox 100K.</p>
 
@@ -244,6 +246,8 @@
 </ul>
 
 <div class="key-fact"><strong>The honest math:</strong> Bulenox's 40% number sounds <em>looser</em> than Apex's 30%, and on the same profit balance it is &mdash; $6,667 max-safe-day vs $4,286. But Apex applies it from PA day one across the entire lifetime, while Bulenox only applies it on Master + Funded. The Qualification window is a no-consistency runway you don't get at Apex.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-bulenox&amp;utm_campaign=deep-dive">Consistency rule explained: 30/35/40/50 threshold tiers + eval-only vs lifetime scope</a> &mdash; Apex's 30% PA-lifetime and Bulenox's 40% Master-and-Funded sit at TWO DIFFERENT design axes (threshold value + lifecycle scope), not one. The explainer maps where MFFU's 40% Core, Tradeify's 35% Growth, Topstep's 50% Combine, and Earn2Trade's 30% GAU sit relative to this pair &mdash; so you can compare any future firm against the threshold &times; scope grid instead of just memorising one number.</p>
 
 <div class="cta">
   <h3>Plot your days against the threshold before payout</h3>
