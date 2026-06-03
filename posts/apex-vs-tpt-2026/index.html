@@ -173,7 +173,7 @@
 
 <h2 id="governance">Trail governance: one-shot lifetime choice vs forced lifecycle shift</h2>
 
-<p>Every prop firm decides three things about its trailing drawdown: <em>which mechanic</em> (EOD or intraday), <em>who picks it</em>, and <em>when it can change</em>. Apex and TPT diverge on all three.</p>
+<p>Every prop firm decides three things about its <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_campaign=inline-concept">trailing drawdown</a>: <em>which mechanic</em> (EOD or intraday), <em>who picks it</em>, and <em>when it can change</em>. Apex and TPT diverge on all three.</p>
 
 <div class="axis">
   <div class="axis-side apex">
@@ -235,6 +235,8 @@
 
 <div class="key-fact"><strong>Quick formula.</strong> At a 30% threshold, your largest profitable day cannot exceed total profit &times; 0.3. To request a $5,000 payout on Apex, you need at least $5,000 / 0.3 &asymp; $16,667 total accumulated profit since your last reset point. At TPT's 50% Test threshold, the same $5,000 day on a 100K Test ($6,000 target) only needs $10,000 of total profit &mdash; but only during Test; PRO/PRO+ have no constraint at all.</div>
 
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_campaign=deep-dive">Consistency rule explained: 30/35/40/50 threshold tiers + eval-only vs lifetime scope</a> &mdash; Apex 30% and TPT 50% sit at the cluster's OPPOSITE ends of the threshold spectrum, and TPT also flips scope from eval-only to "dropped after Test" while Apex stays lifetime. This pair maps every dimension of the consistency-rule design space in a single comparison: tightest threshold + widest scope (Apex) vs loosest threshold + narrowest scope (TPT). The explainer walks where MFFU's 40%, Tradeify's 35%, and Bulenox's variants sit between them.</p>
+
 <p>Translated to lifecycle pressure: Apex's 30%-forever forces a "grinder" cadence even on the funded side &mdash; payouts assume you've banked multiple modest days. TPT's "50% then nothing" lets a single PRO blowout day go straight to the next-week payout. Different risk shapes, different psychology.</p>
 
 <h2 id="dll">Daily loss limit: where the firms diverge again</h2>
@@ -253,6 +255,8 @@
 </div>
 
 <div class="warn"><strong>Cross-firm trap.</strong> An Apex EOD-picker accustomed to a DLL stop will find TPT's no-DLL environment surprisingly permissive on bad days &mdash; the trail can still kill you, but only at the EOD calc (Test/PRO+) or live (PRO). An Apex intraday-picker is already used to no DLL but with a tighter trail; on TPT Test they meet a looser trail and no DLL &mdash; risk feels structurally lower until the PRO intraday phase reintroduces the tighter trail.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-tpt&amp;utm_campaign=deep-dive">Daily loss limit explained: the 4-archetype taxonomy across the cluster</a> &mdash; Apex 4.0 and TPT sit on TWO of the four DLL archetypes, and they're the two most-distinctive: Apex is the cluster's only "EOD-trail-coupled" DLL (only one trail pick gets the rule, the other doesn't), while TPT is one of the "deleted firmwide" archetype alongside MFFU. The explainer walks the other two archetypes (Topstep's platform-toggled DLL and the Bulenox/Tradeify "config-per-program" archetype) so you can place any new firm onto the map.</p>
 
 <h2 id="payouts">Payouts, profit splits &amp; cost structure</h2>
 
