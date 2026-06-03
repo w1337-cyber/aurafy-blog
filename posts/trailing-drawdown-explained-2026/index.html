@@ -186,7 +186,7 @@
 </div>
 
 <h2 id="example">Worked example — same $1,800 profit, two firms</h2>
-<p>Same trader, same Combine size (100K), same winning week of +$1,800 closed P&L spread across five sessions. Two different firms with two different trail-DD conventions: Topstep (intraday HWM, SB lock) and Apex 4.0 EOD (EOD trail, SB+$100 lock).</p>
+<p>Same trader, same Combine size (100K), same winning week of +$1,800 closed P&L spread across five sessions. Two different firms with two different trail-DD conventions: <a href="/prop-firms/topstep/?utm_source=blog&amp;utm_medium=trailing-drawdown-explained&amp;utm_campaign=worked-example-prose">Topstep</a> (intraday HWM, SB lock) and <a href="/prop-firms/apex-trader-funding/?utm_source=blog&amp;utm_medium=trailing-drawdown-explained&amp;utm_campaign=worked-example-prose">Apex 4.0 EOD</a> (EOD trail, SB+$100 lock).</p>
 
 <div class="scenario">
   <h4>Day-by-day floor movement</h4>
@@ -209,7 +209,7 @@ DAY 5 — closed +$200, peak unrealized hit +$500<br>
    </div>
 </div>
 
-<p>End of week: same trader, same closed P&L, but Topstep's floor has rocketed up 2,300 because of the intraday wicks and has already locked at SB — meaning the trader has a real stable buffer. Apex 4.0 EOD's floor has only moved $1,800 (matching the actual close P&L) and still has ~$4,300 to go before locking at $103,100. The Apex trader has more <em>current</em> buffer-to-floor headroom; the Topstep trader has an earlier <em>locked</em> floor that no future wick can move.</p>
+<p>End of week: same trader, same closed P&L, but <a href="/prop-firms/topstep/?utm_source=blog&amp;utm_medium=trailing-drawdown-explained&amp;utm_campaign=worked-example-prose">Topstep</a>'s floor has rocketed up 2,300 because of the intraday wicks and has already locked at SB — meaning the trader has a real stable buffer. <a href="/prop-firms/apex-trader-funding/?utm_source=blog&amp;utm_medium=trailing-drawdown-explained&amp;utm_campaign=worked-example-prose">Apex 4.0 EOD</a>'s floor has only moved $1,800 (matching the actual close P&L) and still has ~$4,300 to go before locking at $103,100. The Apex trader has more <em>current</em> buffer-to-floor headroom; the Topstep trader has an earlier <em>locked</em> floor that no future wick can move.</p>
 
 <div class="key-fact">
   <strong>This is the actual wedge between the two trail conventions.</strong> Intraday HWM punishes the journey but rewards the lock. EOD is forgiving on the journey but the lock takes longer to reach. Neither is strictly better — they reward different trade-management styles.
