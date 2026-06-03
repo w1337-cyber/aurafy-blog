@@ -94,7 +94,7 @@
 <header>
   <span class="stamp">Updated June 2026</span>
   <h1>Earn2Trade vs Topstep (2026): Same Lock, Different Lifecycle</h1>
-  <p class="lede">Both lock the trailing drawdown at Starting Balance. Both drop the consistency rule on the funded account. After those two facts, the firms diverge hard &mdash; payment timing, funded capital model, platform stack, even when the trail moves. Here's the honest side-by-side.</p>
+  <p class="lede">Both lock the <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=lede-inline&utm_campaign=inline-concept">trailing drawdown</a> at Starting Balance. Both drop the consistency rule on the funded account. After those two facts, the firms diverge hard &mdash; payment timing, funded capital model, platform stack, even when the trail moves. Here's the honest side-by-side.</p>
   <div class="meta">
     <span>~10 min read</span>
     <span>Audience: futures prop traders</span>
@@ -201,6 +201,8 @@
 
 <div class="key-fact"><strong>The honest take:</strong> Topstep's 50% threshold is permissive enough that most traders never hit it; their pass is gated by the trail and the profit target. Earn2Trade's 30% threshold actively shapes how you pace your eval &mdash; one big day can force you to grind several small days to get the ratio back below 0.30 before submission. If you trade in bursts, Topstep's eval is easier to plan around. If you trade in steady singles, Earn2Trade's 30% rule won't bother you.</div>
 
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=consistency-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; Earn2Trade and Topstep form the cluster's only pair sharing the <em>eval-only-then-drops</em> scope archetype: both apply consistency at the pass-gate and both explicitly remove it on funded. That archetype is rare. Apex runs uniform 30% across eval AND funded; MFFU runs split thresholds with 40% on Core both phases; Bulenox keeps 40% on funded; Tradeify runs three different scope models in parallel (Growth inverts 0&rarr;35%, Select inverts 40&rarr;0%, Lightning is progressive 20&rarr;25&rarr;30%). The explainer maps every cluster firm against the scope axis &mdash; useful when this same-scope-very-different-threshold (30% vs 50%) pair turns out to be the cluster's clearest demonstration that <em>scope</em> &ne; <em>threshold</em>.</p>
+
 <div class="cta">
   <h3>Check your days against either threshold</h3>
   <p>The consistency calculator runs Earn2Trade's 30%, Topstep's 50%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn't fail on geometry.</p>
@@ -251,6 +253,8 @@
 </div>
 
 <p>If your workflow is built around NinjaTrader 8, both firms work. If you're on Tradovate, TradingView, or any Rithmic-native interface besides NinjaTrader, only Earn2Trade is native. If you specifically want the no-DLL TopstepX experience, only Topstep offers it.</p>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-topstep&utm_content=dll-deepdive&utm_campaign=deep-dive">Daily loss limits across 6 prop firms</a> &mdash; Earn2Trade and Topstep sit at the architectural extremes of the cluster's DLL design space. Earn2Trade is the cluster's <em>uniform always-on</em> firm: every account size ($550 / $1,100 / $2,200 / $3,300 / $4,400 scaling linearly with GAU size), every platform, no opt-out, no fork at purchase &mdash; the DLL is simply a fixed feature of every Earn2Trade product. Topstep is the cluster's only <em>platform-toggled</em> firm: same firm, same product, but the DLL exists on NinjaTrader and was removed on TopstepX in August 2024 &mdash; your platform choice <em>is</em> your DLL choice. The explainer maps the cluster's DLL archetypes (uniform-always-on / platform-toggled / EOD-trail-coupled / configured-per-program / deleted-firmwide) and where every firm lands.</p>
 
 <h2 id="examples">Worked examples</h2>
 
