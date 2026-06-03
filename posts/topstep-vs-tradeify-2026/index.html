@@ -100,7 +100,7 @@
 <header>
   <span class="stamp">Updated June 2026</span>
   <h1>Topstep vs Tradeify (2026): Phase-Shift Trail vs Archetype-Inverse Consistency</h1>
-  <p class="lede">Topstep ships one product &mdash; Combine &rarr; Express Funded &mdash; and shifts the trail mechanic on you mid-lifecycle (intraday &rarr; EOD). Tradeify ships three programs &mdash; Growth, Select, Lightning &mdash; with archetype-inverse consistency rules you pick at signup and uniform EOD trail across the lifecycle. Same drawdown ballpark on 100K, opposite philosophies on where the choice complexity sits. Here's the honest side-by-side.</p>
+  <p class="lede">Topstep ships one product &mdash; Combine &rarr; Express Funded &mdash; and shifts the <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=topstep-vs-tradeify&amp;utm_campaign=inline-concept">trail mechanic</a> on you mid-lifecycle (intraday &rarr; EOD). Tradeify ships three programs &mdash; Growth, Select, Lightning &mdash; with archetype-inverse consistency rules you pick at signup and uniform EOD trail across the lifecycle. Same drawdown ballpark on 100K, opposite philosophies on where the choice complexity sits. Here's the honest side-by-side.</p>
   <div class="meta">
     <span>~10 min read</span>
     <span>Audience: futures prop traders</span>
@@ -246,6 +246,8 @@
 
 <div class="key-fact"><strong>The honest math:</strong> Topstep's pattern (strict-eval, free-funded) is structurally identical to Tradeify Select &mdash; the only difference is the eval threshold (50% vs 40%, Tradeify is stricter). If you want the inverse pattern (free-eval, strict-funded) Topstep has no equivalent; you'd pick Tradeify Growth. If you want no eval at all, you'd pick Tradeify Lightning. Topstep simply doesn't offer those archetypes.</div>
 
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=topstep-vs-tradeify&amp;utm_campaign=deep-dive">How consistency rules really work across the 2026 cluster</a> &mdash; this pair alone carries <strong>four</strong> distinct scope shapes (Topstep 50% eval-only, Tradeify Growth 35% funded-only, Tradeify Select 40% eval-only, Tradeify Lightning 20%&rarr;25%&rarr;30% progressive no-eval). The wider cluster fills in the remaining slots: Apex 4.0 30% PA-lifetime, Earn2Trade GAU 30% eval-only, MFFU Core 40% both-scope, Bulenox 40% Master+Funded. Threshold value gives you one axis; scope (eval-only / funded-only / both / progressive / lifetime) gives you the other. Picking by threshold alone &mdash; "I want a permissive 50% rule" &mdash; misses the load-bearing decision: when does the rule apply.</p>
+
 <div class="cta">
   <h3>Plot your days against the threshold before payout</h3>
   <p>The consistency calculator handles 50% (Topstep Combine), 40% (Tradeify Select), 35% (Tradeify Growth funded), and 20%&ndash;30% (Tradeify Lightning progressive) &mdash; plus custom thresholds.</p>
@@ -268,6 +270,8 @@
 </div>
 
 <div class="warn"><strong>The platform-stack gap:</strong> if your full workflow lives on NinjaTrader 8 you cannot use Tradeify &mdash; period. Topstep is one of the few firms that pairs a NinjaTrader-friendly route (with DLL) and a proprietary route (TopstepX, no DLL). If you live on Tradovate or Rithmic, Tradeify is the better platform match. If you live on TradingView via bridge, Topstep works and Tradeify doesn't.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=topstep-vs-tradeify&amp;utm_campaign=deep-dive">Daily loss limits and the 4-archetype taxonomy</a> &mdash; Topstep's <em>platform-toggled</em> DLL (removed on TopstepX August 2024, still enforced on NinjaTrader against Topstep) and Tradeify's <em>per-program-configured</em> DLL ($1,250&ndash;$2,500 on 100K, set per archetype across Growth / Select / Lightning) are two structurally distinct mechanisms for the same kind of guardrail. The cluster's other two archetypes: <em>fork-locked-at-signup</em> (Apex 4.0 EOD vs intraday, Bulenox Option 1 vs Option 2 &mdash; you pick at buy and it's locked for the account's life) and <em>firmwide-deleted</em> (TPT, MFFU &mdash; no DLL on any program). "Does this firm have a DLL?" is the wrong question. Ask which archetype the firm uses, because reversibility differs across the four &mdash; platform-toggled is reversible by firm decision, per-program is reversible by buying a different program, fork-locked is irreversible after signup, firmwide-deleted is policy-level.</p>
 
 <h2 id="micro">The microscalping floor: Tradeify's unique constraint</h2>
 
