@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Bulenox vs MyFundedFutures (2026): Same Lock, Opposite Flavor Freedom | Aurafy</title>
+<meta name="description" content="Bulenox and MyFundedFutures both lock the trail at SB+$100 &mdash; but Bulenox forces a PERMANENT Option 1 vs 2 pick at signup, while MFFU lets you run Core, Rapid, and Pro plans in parallel and swap flavors per account. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/bulenox-vs-mffu-2026/" />
+<meta property="og:title" content="Bulenox vs MyFundedFutures (2026): Same Lock, Opposite Flavor Freedom" />
+<meta property="og:description" content="Same SB+$100 lock family. Bulenox forces a permanent intraday-vs-EOD pick at signup. MFFU lets you run Core, Rapid, and Pro in parallel. Here's how to pick." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --bulenox:#f04e4e;
+    --mffu:#5b8def;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-bulenox{color:var(--bulenox);font-weight:600}
+  .firm-mffu{color:var(--mffu);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(240,78,78,0.06);border-left:3px solid var(--bulenox);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0c0c0}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.bulenox{border-left:3px solid var(--bulenox)}
+  .pick.mffu{border-left:3px solid var(--mffu)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.b{border-top:2px solid var(--bulenox)}
+  .axis-side.m{border-top:2px solid var(--mffu)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Bulenox vs MyFundedFutures (2026): Same Lock, Opposite Flavor Freedom</h1>
+  <p class="lede">Both firms lock the <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=lede-trail&utm_campaign=inline-concept">trail</a> at <strong>SB&nbsp;+&nbsp;$100</strong> &mdash; the same lock family as Apex 4.0 and Tradeify. But <a href="https://aurafy.dev/prop-firms/bulenox/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=lede-bulenox">Bulenox</a> forces a permanent Option 1 vs 2 fork at signup that you can never undo, while <a href="https://aurafy.dev/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=lede-mffu">MyFundedFutures</a> lets you run Core, Rapid, and Pro accounts in parallel and swap flavors per account, anytime. Plus &mdash; MFFU has <em>no</em> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=lede-dll&utm_campaign=inline-concept">daily loss limit</a> on any plan; Bulenox enforces one on Option 2.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#wedge">The wedge</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#trail">Trail mechanics</a>
+  <a href="#dll">DLL: present vs absent</a>
+  <a href="#consistency">Consistency timing</a>
+  <a href="#examples">Worked scenario</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/bulenox/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=tldr-bulenox">Bulenox</a> if</strong> you already know your style cold (intraday scaler vs EOD-flat), the permanent Option 1 vs 2 pick at signup is obvious to you, you value the 100% profit-share on your first $10,000 of withdrawals before the 90/10 split kicks in, and you want real-capital funded trading after Master&nbsp;&rarr;&nbsp;Funded.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=tldr-mffu">MyFundedFutures</a> if</strong> you want zero activation fees, no daily loss limit on any plan, the freedom to run Core (40% <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=tldr-consistency&utm_campaign=inline-concept">consistency</a>), Rapid (no consistency), or Pro (instant funding, no eval) in parallel without committing your account life to one flavor, and you trade on Tradovate (which Bulenox doesn't support).
+</div>
+<div class="verdict">
+  <strong>Same lock family.</strong> Both firms lock the trail at <strong>SB&nbsp;+&nbsp;$100</strong> (Apex 4.0 / Tradeify / Bulenox / MFFU). On a 50K account, both stop out at $50,100 once the floor catches up. The cluster's lock-family math is identical; the lifecycle freedom isn't.
+</div>
+
+<h2 id="wedge">The wedge in plain English</h2>
+
+<p>Strip the numbers away and the spine of this comparison is one question: <em>once you've signed up, how much can you still change?</em></p>
+
+<p><strong class="firm-bulenox">Bulenox locks in the flavor pick at the door.</strong> Option 1 (intraday <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=wedge-trail&utm_campaign=inline-concept">trail</a>, no <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=wedge-dll&utm_campaign=inline-concept">daily loss limit</a>, full max contracts day one, no scaling plan) or Option 2 (EOD trail at 5pm CT close, with DLL, scaling plan). You pick at signup, and the pick is permanent for the lifetime of that account. To switch flavors you must fail or close the current account and buy a new one under the other option &mdash; paying the new subscription and the new activation fee. No other firm in the 7-firm cluster forces this binary, lifetime commitment between trail mechanics.</p>
+
+<p><strong class="firm-mffu">MFFU sells three plans in parallel and lets you swap freely.</strong> Core is EOD trail with 40% consistency on both eval and funded. Rapid is intraday trail with no consistency rule. Pro is instant-funding (no eval) with EOD trail. You can hold a Core account, a Rapid account, and a Pro account simultaneously. Decided your style suits Rapid better than Core? Open a Rapid account &mdash; the Core account doesn't have to die first. The flavor-fork at MFFU is per-account, portable, and reversible by simply opening a different plan.</p>
+
+<p>Same SB&nbsp;+&nbsp;$100 lock floor. Opposite answers on lifecycle freedom. That's the spine of this comparison.</p>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-bulenox">Bulenox</th><th class="firm-mffu">MyFundedFutures</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Phase structure</td><td>Qualification &rarr; Master &rarr; Funded</td><td>Eval &rarr; Funded (Core/Rapid) &middot; Instant Funded (Pro)</td></tr>
+    <tr><td class="label">Plan flavors</td><td><strong>2 options</strong>, permanent pick at signup</td><td><strong>3 plans</strong> (Core / Rapid / Pro), parallel + portable</td></tr>
+    <tr><td class="label">Trail type</td><td><strong>Option 1:</strong> intraday HWM &middot; <strong>Option 2:</strong> EOD at 5pm CT</td><td><strong>Core/Pro:</strong> EOD &middot; <strong>Rapid:</strong> intraday</td></tr>
+    <tr><td class="label">Lock point</td><td>SB&nbsp;+&nbsp;$100</td><td>SB&nbsp;+&nbsp;$100</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>Option 1:</strong> none &middot; <strong>Option 2:</strong> $400&ndash;$4,500 by size</td><td><strong>None on any plan</strong></td></tr>
+    <tr><td class="label">Consistency (eval)</td><td><strong>None</strong> &mdash; explicitly off during Qualification</td><td><strong>Core:</strong> 40% &middot; <strong>Rapid:</strong> none &middot; <strong>Pro:</strong> n/a (no eval)</td></tr>
+    <tr><td class="label">Consistency (funded)</td><td>40% on Master AND Funded</td><td><strong>Core:</strong> 40% &middot; <strong>Rapid:</strong> none &middot; <strong>Pro:</strong> not stated, verify</td></tr>
+    <tr><td class="label">Min trading days (Master/Funded)</td><td>10 (Master) &middot; 5 per payout cycle (Funded)</td><td>Plan-dependent &mdash; verify on rulebook</td></tr>
+    <tr><td class="label">Profit split</td><td><strong>First $10K paid 100% to trader</strong>, then 90/10</td><td>80&ndash;90% trader share (plan-dependent)</td></tr>
+    <tr><td class="label">Activation fee</td><td>$98&ndash;$490 upfront on Qualification &rarr; Master</td><td><strong>$0</strong> &mdash; no activation fee on any plan</td></tr>
+    <tr><td class="label">Monthly subscription</td><td>$145&ndash;$535 / mo by account size</td><td>Plan + size dependent &mdash; verify pricing on myfundedfutures.com</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Weekly Wednesdays, $1,000 min</td><td>Every 5 days (48h after first payout)</td></tr>
+    <tr><td class="label">Platforms</td><td>NinjaTrader, Rithmic, R&#124;Trader, ATAS, Quantower, Sierra Chart, MultiCharts (<strong>no Tradovate</strong>)</td><td>TradingView, NinjaTrader, Tradovate, Rithmic</td></tr>
+    <tr><td class="label">Funded capital</td><td>Real capital after Master &rarr; Funded transition</td><td>Verify per plan &mdash; funded model documented as 80&ndash;90% real-dollar payout</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="trail">Trail mechanics &amp; the flavor fork</h2>
+
+<p>Both firms cluster around the same SB&nbsp;+&nbsp;$100 lock floor. The way you <em>get there</em> &mdash; intraday HWM vs EOD &mdash; is the same axis at both, but the commitment shape is opposite.</p>
+
+<h3>Bulenox Option 1 &mdash; intraday HWM, no daily loss limit, full contracts</h3>
+<ul>
+  <li>Trail updates on every new intraday high. A $1,200 wick at 10am moves the floor even if you close the day at +$300.</li>
+  <li>No daily loss limit. You can give back any amount in a session without locking the account &mdash; until you hit the trail floor.</li>
+  <li>Full max contracts available from day one (no scaling plan).</li>
+  <li>Locks at SB&nbsp;+&nbsp;$100 once the floor catches up to that point.</li>
+  <li>Activation fees: $98 / $130 / $220 / &mdash; / &mdash; / $490 for the 10K&ndash;250K range.</li>
+</ul>
+
+<h3>Bulenox Option 2 &mdash; EOD trail at 5pm CT, with daily loss limit, scaling plan</h3>
+<ul>
+  <li>Trail only updates on the EOD balance at 5pm CT session close. Intraday wicks are ignored.</li>
+  <li>Daily loss limit scales by size: $400 / $500 / $1,100 / $2,200 / $3,300 / $4,500. Hitting it locks the session and auto-flattens; does <em>not</em> breach the account.</li>
+  <li>Contract scaling plan applies &mdash; cannot trade max contracts immediately.</li>
+  <li>Locks at SB&nbsp;+&nbsp;$100, same as Option 1.</li>
+</ul>
+
+<h3>MFFU Core &mdash; EOD trail, 40% consistency on eval AND funded, no DLL</h3>
+<ul>
+  <li>EOD-only trail. 50K size: $1,500 trail, $3,000 target. Single account size available (50K) on Core.</li>
+  <li>40% consistency rule applies on BOTH eval and funded &mdash; stricter scope than Bulenox (which has consistency only on Master + Funded).</li>
+  <li>No daily loss limit. Trail floor is the only hard-loss guardrail.</li>
+  <li>Locks at SB&nbsp;+&nbsp;$100.</li>
+</ul>
+
+<h3>MFFU Rapid &mdash; intraday trail, no consistency, no DLL, multiple sizes</h3>
+<ul>
+  <li>Intraday-trail mechanics. 50K / 100K / 150K sizes ($2,000 / $4,000 / $6,000 trail respectively, $3,000 / $6,000 / $9,000 targets).</li>
+  <li>No consistency rule at any phase. Take a single $5,000 day on a $10K month with no payout-geometry issue.</li>
+  <li>No daily loss limit.</li>
+  <li>Locks at SB&nbsp;+&nbsp;$100.</li>
+</ul>
+
+<h3>MFFU Pro &mdash; instant funded, EOD trail, no eval</h3>
+<ul>
+  <li>Instant-funding (no evaluation phase). Pay a setup fee, start trading funded.</li>
+  <li>EOD trail mechanics. Exact target / drawdown numbers vary by size &mdash; verify on the current rulebook before committing.</li>
+  <li>$100K total payout cap across all Pro accounts you hold.</li>
+  <li>Locks at SB&nbsp;+&nbsp;$100.</li>
+</ul>
+
+<div class="key-fact"><strong>The structural symmetry:</strong> MFFU Core ~ Bulenox Option 2 (both EOD with consistency on funded), and MFFU Rapid ~ Bulenox Option 1 (both intraday with permissive in-session rules). The mechanics map cleanly. What does NOT map is the commitment: at Bulenox you pick one flavor for the account's life; at MFFU you can pick Core today and add a Rapid account tomorrow.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=trail-deepdive&utm_campaign=deep-dive">Trailing drawdown across 7 prop firms</a> &mdash; the EOD-vs-intraday axis is the cluster's single most consequential structural choice. Bulenox is the only firm in the dataset that forces this pick AT SIGNUP as a permanent binary; MFFU is the only firm that sells parallel plans on both sides of the axis simultaneously and lets you run multiple in parallel. The explainer maps all seven firms against the trail-timing axis, the lock-point axis, and the scope-of-trail-mechanics axis.</p>
+
+<div class="cta">
+  <h3>Model the floor before you commit to a flavor</h3>
+  <p>Our free trailing-drawdown calculator runs both Bulenox Option 1 / Option 2 presets and the MFFU Core / Rapid presets. Side-by-side, no login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=trail-cta">Open the calculator</a>
+</div>
+
+<h2 id="dll">Daily loss limit: present vs absent</h2>
+
+<p>This is the cleanest single-rule wedge in the comparison. <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=dll-anchor&utm_campaign=inline-concept">Daily loss limits</a> are one of the most-fragmented rules in the cluster &mdash; some firms removed them firmwide, some scale them by size, some only apply them on specific plans. Bulenox and MFFU sit at opposite poles.</p>
+
+<div class="axis">
+  <div class="axis-side b">
+    <strong>Bulenox &mdash; Option 1 has none, Option 2 has one</strong>
+    Option 1 (intraday) has zero daily loss limit &mdash; you can give back any amount intraday without locking the session until you hit the trail floor. Option 2 (EOD) has a DLL scaled by size: $400 / $500 / $1,100 / $2,200 / $3,300 / $4,500 for 10K&ndash;250K. Hitting it locks the session and auto-flattens; does NOT breach. Choose Option 1 vs 2 at signup, lock the DLL presence/absence for the account's life.
+  </div>
+  <div class="axis-side m">
+    <strong>MFFU &mdash; no DLL on any plan</strong>
+    Documented for 2026: no daily loss limit on Core, Rapid, or Pro. Trailing drawdown is the only hard-loss guardrail. Same as TPT (which removed DLLs firmwide January 2025). You can give back any amount intraday or across a session without locking; the only stop-point is the trail floor catching up to your equity.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The behavioral consequence:</strong> traders who use a DLL as a self-enforced "walk away from the desk" circuit-breaker should pick Bulenox Option 2 &mdash; MFFU offers no built-in version of that circuit. Traders who want freedom to take one big drawdown to find a turn (without the firm locking the session at $1,100) should pick MFFU on any plan, or Bulenox Option 1. The choice maps to risk-management style, not just rule preference.</div>
+
+<h2 id="consistency">Consistency: when does the 40% bite?</h2>
+
+<p>Both firms enforce 40% as their consistency threshold &mdash; identical number. The <em>scope</em> is different per plan, and that scope is what actually shapes payout geometry.</p>
+
+<div class="axis">
+  <div class="axis-side b">
+    <strong>Bulenox &mdash; 40% on Master &amp; Funded, OFF during Qualification</strong>
+    Single day's profit &divide; total profit at payout request &le; 0.40. Applies on Master and Funded phases &mdash; NOT during the initial Qualification eval. For total profits of $5,000, your largest single day cannot exceed $2,000.
+  </div>
+  <div class="axis-side m">
+    <strong>MFFU &mdash; depends on plan</strong>
+    <strong>Core:</strong> 40% on BOTH eval AND funded (the stricter scope &mdash; same threshold as Bulenox but enforced earlier). <strong>Rapid:</strong> no consistency rule, ever. <strong>Pro:</strong> instant-funding, consistency scope per current rulebook &mdash; verify before relying.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The honest take:</strong> at the same 40% threshold, Bulenox is more eval-permissive (no consistency during Qualification) but more funded-strict (rule lives on for the account's life). MFFU Core is the opposite: eval-strict (40% applies from day one) but no special funded surprise &mdash; the rule scope you bought at signup is the scope you keep. And MFFU Rapid removes the rule entirely &mdash; the cleanest "no consistency-geometry surprises" option in the cluster.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=consistency-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; Bulenox and MFFU Core share the 40% threshold but split on scope; MFFU Rapid is the cluster's clearest "consistency-free funded" path. The explainer maps every cluster firm against the scope axis: eval-only-then-drops (Earn2Trade, Topstep), uniform-both-phases (Apex, MFFU Core), Master+Funded-only (Bulenox), no-rule-anywhere (MFFU Rapid), and Tradeify's three-program scope split.</p>
+
+<div class="cta">
+  <h3>Check your days against the 40% threshold</h3>
+  <p>The consistency calculator runs Bulenox's 40%, MFFU Core's 40%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn't fail on geometry.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="examples">Worked scenario: when the wrong flavor lands</h2>
+
+<p>A 50K-account trader who later discovers their best edge is one big swing day a week, not steady daily grinding. How does the lifecycle play out at each firm?</p>
+
+<h3>Scenario A &mdash; signed up for Bulenox Option 2 (EOD with DLL)</h3>
+<ul>
+  <li>Picked Option 2 because EOD trail + scaling plan sounded conservative.</li>
+  <li>3 months in, realizes their best days are $2,500 one-shot swings on a $5,000 month &mdash; a 50% concentration that breaks the 40% consistency rule at payout request.</li>
+  <li>Cannot move to a no-consistency Bulenox flavor &mdash; Option 1 (also 40% on Master + Funded) would not help. Cannot switch to Option 1 anyway &mdash; the choice is permanent.</li>
+  <li>Outcome: must either rebalance their style to fit the 40% rule, or fail the account and open a new one. No same-firm path out.</li>
+</ul>
+
+<h3>Scenario B &mdash; signed up for MFFU Core, then added Rapid</h3>
+<ul>
+  <li>Signed up for Core ($1,500 trail on 50K, 40% consistency eval+funded).</li>
+  <li>Same 3-month realization: best edge is concentrated swing days.</li>
+  <li>Opens a Rapid 50K account in parallel ($2,000 trail, no consistency rule) &mdash; Core account stays alive, Rapid handles the swing days.</li>
+  <li>Outcome: zero forced regret. Two flavors run in parallel; consistency-friendly trading on Core, concentrated swings on Rapid. Same lock floor, same firm relationship.</li>
+</ul>
+
+<div class="key-fact">The structural insight: Bulenox's irrevocable choice happens BEFORE you have data about your own style. MFFU's flavor decisions are ALWAYS reversible by opening a different plan in parallel. Same lock family, same threshold numbers, opposite regret-risk profiles.</div>
+
+<div class="warn"><strong>Bulenox lifecycle landmines:</strong> (a) the Option 1 vs Option 2 pick at signup is permanent &mdash; wrong pick locks you in. (b) Declining the Funded transition after 3 Master payouts forfeits the entire Master account. (c) Funded balance caps per size ($2,500 / $5,000 / $10,000 / $15,000 / $25,000 effective 2025-04-28) cap how much real capital sits on a single Funded account &mdash; beyond that, you scale to additional Master accounts (up to 11). Each landmine is documented in the rulebook; each surprises traders who don't read carefully.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick bulenox">
+    <h4 class="firm-bulenox">Pick Bulenox if&hellip;</h4>
+    <ul>
+      <li>You already know your style cold and the Option 1 vs 2 pick is obvious to you</li>
+      <li>You want full max contracts from day one (Option 1)</li>
+      <li>You value 100% of your first $10K of withdrawals before the 90/10 split kicks in</li>
+      <li>You want a DLL circuit-breaker on Option 2 (MFFU has none on any plan)</li>
+      <li>You trade on NinjaTrader, Rithmic, ATAS, Quantower, Sierra Chart, or MultiCharts (NOT Tradovate &mdash; Bulenox does not list it)</li>
+      <li>You want real-capital funded trading after the Master &rarr; Funded transition</li>
+      <li>You're fine with consistency 40% applying on Master AND Funded for the life of the account</li>
+    </ul>
+  </div>
+  <div class="pick mffu">
+    <h4 class="firm-mffu">Pick MyFundedFutures if&hellip;</h4>
+    <ul>
+      <li>You want zero activation fees (Bulenox charges $98&ndash;$490 on Qualification &rarr; Master)</li>
+      <li>You want no daily loss limit on any plan (Bulenox Option 2 enforces one)</li>
+      <li>You want flavor freedom &mdash; run Core, Rapid, and Pro in parallel without committing your account life</li>
+      <li>You want a no-consistency-rule funded path (Rapid) or an instant-funding path (Pro)</li>
+      <li>You trade on Tradovate (Bulenox does not support it)</li>
+      <li>You'd rather discover your style on a flexible account than commit to Option 1 vs 2 before placing a trade</li>
+      <li>You're fine with Core's stricter scope: 40% consistency on BOTH eval AND funded</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I switch Bulenox Option 1 to Option 2 later if I picked wrong?</summary>
+  <p>No. The Option 1 vs Option 2 choice is permanent for the lifetime of that Bulenox account. To switch flavors you must fail or close the current account and purchase a new one under the other option &mdash; paying the new subscription and the new activation fee. This is the single biggest source of regret-risk at Bulenox and the reason the Option pick deserves real thought before checkout.</p>
+</details>
+
+<details>
+  <summary>Can I run MFFU Core and Rapid at the same time?</summary>
+  <p>Yes. MFFU's plan flavors are sold as separate accounts and there's no rule preventing parallel ownership. You can run a Core 50K (EOD, 40% consistency) and a Rapid 50K (intraday, no consistency) simultaneously, with different style allocations per account. Pro (instant-funded) can also run in parallel, with the caveat that all your Pro accounts share a $100K total payout cap.</p>
+</details>
+
+<details>
+  <summary>Does the <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-mffu&amp;utm_campaign=inline-faq">daily loss limit</a> apply at MFFU at all?</summary>
+  <p>No &mdash; MFFU documents zero daily loss limit on Core, Rapid, or Pro. Trailing drawdown is the only hard-loss guardrail. Bulenox Option 1 also has no DLL; Bulenox Option 2 enforces one ($400&ndash;$4,500 by size, locks the session and auto-flattens but does NOT breach). If you want a DLL circuit-breaker, your only path at this pair is Bulenox Option 2.</p>
+</details>
+
+<details>
+  <summary>Is the lock point really the same on both firms?</summary>
+  <p>Yes. Both Bulenox and MFFU lock the trail at <strong>Starting Balance + $100</strong>. On a 50K account both stop out at $50,100 once the trail floor reaches that point. This is the same lock family as Apex 4.0 and Tradeify &mdash; distinct from Topstep / TPT funded / Earn2Trade which all lock at Starting Balance exactly. The $100 difference matters most when comparing across lock families; within this pair, the lock math is identical.</p>
+</details>
+
+<details>
+  <summary>How is the <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-mffu&amp;utm_campaign=inline-faq">consistency rule</a> different at each firm?</summary>
+  <p>Same threshold (40%), different scope. Bulenox: 40% on Master AND Funded, explicitly OFF during the initial Qualification eval. MFFU Core: 40% on BOTH eval AND funded &mdash; stricter eval scope than Bulenox. MFFU Rapid: no consistency rule at any phase. MFFU Pro: instant-funded, consistency scope per current rulebook (verify before relying). If you want eval-permissive and funded-strict, Bulenox fits; if you want eval-strict and funded-predictable, MFFU Core fits; if you want consistency-free entirely, MFFU Rapid fits.</p>
+</details>
+
+<details>
+  <summary>What's the real cost-to-attempt at each firm?</summary>
+  <p>Bulenox: monthly subscription ($145&ndash;$535/mo by account size) during Qualification, plus an upfront activation fee on Qualification &rarr; Master ($98&ndash;$490 by size). Reset fee $78 mid-cycle. MFFU: monthly subscription only (plan + size dependent), zero activation fee on any plan. On a multi-month grind to passing, Bulenox's structure includes an extra one-time activation lump at the eval-to-funded transition; MFFU's structure is monthly-only. Both firms allow account resets and re-attempts; cost geometry depends on how many attempts a trader takes to pass.</p>
+</details>
+
+<details>
+  <summary>What about the other 5 firms in this cluster?</summary>
+  <p>Bulenox and MFFU share their SB+$100 lock with <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=faq-apex">Apex 4.0</a> and <a href="/prop-firms/tradeify/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=faq-tradeify">Tradeify</a>. Distinct lock family (Starting Balance exactly): <a href="/prop-firms/topstep/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=faq-topstep">Topstep</a>, <a href="/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=faq-tpt">Take Profit Trader (PRO+)</a>, <a href="/prop-firms/earn2trade/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=faq-earn2trade">Earn2Trade</a>. Each has its own landing page with the full rulebook breakdown.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily loss against either firm's preset in real time as you upload Tradovate, NinjaTrader, or Rithmic fills. Bulenox Option 1 (intraday HWM) and Option 2 (EOD) presets both supported. MFFU Core, Rapid, and Pro presets supported. Multi-account, multi-firm &mdash; one journal across every prop firm you trade.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Bulenox + MFFU accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=bulenox-vs-mffu&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Bulenox or MyFundedFutures. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/bulenox-vs-earn2trade-2026/">Bulenox vs Earn2Trade</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/topstep-vs-bulenox-2026/">Topstep vs Bulenox</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a> &middot; <a href="/prop-firms/myfundedfutures/">MFFU landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
