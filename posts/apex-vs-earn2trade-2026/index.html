@@ -192,6 +192,8 @@
 
 <p><strong>Deep dive &rarr;</strong> <a href="/blog/apex-vs-mffu-2026/#consistency">Apex 30% vs MFFU 40% &mdash; how the threshold interacts with eval ladder design</a> &mdash; same Apex side, different counterpart firm; helps triangulate where Apex's 30% binds hardest.</p>
 
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_campaign=deep-dive">Consistency rule explained &mdash; by threshold tier and lifecycle scope</a> &mdash; the explainer's scope-axis splits the cluster into &ldquo;uniform lifetime&rdquo; (Apex's 30% never lifts), &ldquo;eval-only-then-drops&rdquo; (Earn2Trade + Topstep), and &ldquo;configured per program&rdquo; (Tradeify, Bulenox). This pair maps the two ends of the lifecycle axis at the <em>same</em> 30% threshold &mdash; the cluster's clearest demonstration that the threshold number alone doesn't predict how the rule actually binds.</p>
+
 <div class="cta">
   <h3>Plot your days against the threshold before payout</h3>
   <p>The consistency calculator has Apex 30% and Earn2Trade 30% eval-only presets built in &mdash; same formula, different scope flag.</p>
@@ -200,7 +202,7 @@
 
 <h2 id="drawdown">Lock anchor + trail: SB+$100 vs SB exact</h2>
 
-<p>Both firms run trailing drawdowns that lock once the account hits a defined equity ceiling. Where the ceiling sits is the structural difference.</p>
+<p>Both firms run <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_campaign=inline-concept">trailing drawdowns</a> that lock once the account hits a defined equity ceiling. Where the ceiling sits is the structural difference.</p>
 
 <div class="axis">
   <div class="axis-side a">
@@ -219,6 +221,8 @@
 <p>Apex 4.0 is the only firm in this dataset that lets you pick EOD or intraday at every account purchase. Earn2Trade GAU is EOD-only across every size &mdash; same trail family as Topstep funded, MFFU, Tradeify EOD-archetype, and Bulenox Option 2. If you only trade intraday and rely on the wick-doesn't-count-til-close mechanic, Earn2Trade still gives you that &mdash; just without the intraday alternative if you ever want it.</p>
 
 <p><strong>Deep dive &rarr;</strong> <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs intraday explainer</a> &mdash; how the per-account trail choice plays out under wicks, holds, and end-of-session profit-pulls.</p>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=apex-vs-earn2trade&utm_campaign=deep-dive">Daily loss limit explained &mdash; the four archetypes</a> &mdash; the same EOD/intraday fork above decides Apex's DLL availability: pick EOD and you inherit a daily loss limit ($625&ndash;$2,500 by size); pick intraday and you have none. Earn2Trade sits at the opposite design &mdash; DLL is always on across every GAU size, scaling linearly $1,100&ndash;$4,400 with no fork. This pair brackets the cluster's most rigid (Apex binary-fork-at-purchase) and least rigid (Earn2Trade uniform always-on) DLL implementations in a single comparison.</p>
 
 <div class="cta">
   <h3>Try the math before you commit</h3>
