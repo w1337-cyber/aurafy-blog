@@ -190,7 +190,7 @@
 
 <h3>The shared mechanic</h3>
 <ul>
-  <li>Both firms run a <strong>trailing drawdown</strong> that follows your high-water mark up but never back down &mdash; until it locks.</li>
+  <li>Both firms run a <strong><a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-mffu&amp;utm_campaign=inline-concept">trailing drawdown</a></strong> that follows your high-water mark up but never back down &mdash; until it locks.</li>
   <li>Both firms <strong>lock the trail at Starting Balance + $100</strong>. On a 100K account, the trail stops moving once your EOD balance reaches $103,100 (balance + drawdown + $100 safety net). After that, your stop-out is fixed at the starting balance, permanently.</li>
   <li>On <em>intraday-trail</em> accounts (Apex Intraday option, MFFU Rapid), the high-water mark tracks live equity including unrealized P&amp;L. Spike up, give it back &rarr; your stop-out moved up with the spike.</li>
   <li>On <em>EOD-trail</em> accounts (Apex EOD option, MFFU Core, MFFU Pro), the high-water mark is recalculated only at session close. Friendlier for traders who let winners run.</li>
@@ -243,6 +243,7 @@
 <div class="key-fact">
   <strong>Why this matters:</strong> a DLL is a hard intraday stop. If you take a deep heat on a position that's going to come back, a DLL closes you out before recovery. Without a DLL, you have full discretion to ride a trade as far as your trailing drawdown allows. MFFU's "no DLL ever" position is the most permissive at any major firm and is a real edge for position-sizers and counter-trend traders. <em>Whether you want that freedom is a discipline question, not a math question.</em>
 </div>
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-mffu&amp;utm_campaign=deep-dive">Daily loss limit explained &mdash; the 4-archetype taxonomy across 2026 prop firms</a> &mdash; MFFU sits in the rare "no DLL on any plan" archetype (with Topstep funded); Apex sits in the "DLL only if you picked EOD" archetype (the trail-mechanic-coupled design). Worked examples of how a $1,800-heat day plays out under each archetype.</p>
 <p><strong>Size it first &rarr;</strong> <a href="https://aurafy.dev/tools/position-size-calculator/?utm_source=blog&amp;utm_medium=apex-vs-mffu&amp;utm_content=position-tool">Position-size calculator</a> &mdash; with no DLL on MFFU, the trailing drawdown is your only floor. Model contract count against stop distance and per-trade risk % before letting a runner breathe.</p>
 
 <h2 id="consistency">Consistency rule: it depends on the MFFU plan</h2>
@@ -259,6 +260,7 @@
 <div class="key-fact">
   <strong>The formula to remember:</strong> the maximum profit a single day can have without breaking a consistency rule is <code>threshold &times; total / (1 &minus; threshold)</code>. On Apex (30%): $4,000 total &rarr; best day cap $1,714. On MFFU Core (40%): $4,000 total &rarr; best day cap $2,667. On MFFU Rapid/Pro: no cap at all.
 </div>
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-mffu&amp;utm_campaign=deep-dive">Consistency rule explained &mdash; where 30%, 40%, and 50% sit on the 2026 threshold axis</a> &mdash; Apex's 30% is the cluster's strictest; MFFU Core's 40% sits between Apex and Topstep's 50%; MFFU Rapid/Pro are in the rare "no consistency rule at all" archetype. Includes the eval-only vs lifetime scope split that changes how the rule actually bites.</p>
 
 <div class="tool-row">
   <div class="tool-card">
