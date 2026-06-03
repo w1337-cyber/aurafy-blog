@@ -41,6 +41,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `bulenox-vs-mffu-2026` | Bulenox vs MyFundedFutures (2026): Same Lock, Opposite Flavor Freedom | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `tpt-vs-earn2trade-2026` | TPT vs Earn2Trade (2026): Same Lock, Opposite Rule-Shape Lifecycle | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `bulenox-vs-tpt-2026` | Bulenox vs TPT (2026): One Irrevocable Choice at Signup vs Three Forced by the Firm | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
+| `mffu-vs-tpt-2026` | MFFU vs TPT (2026): Three Plans You Pick vs Three Phases the Firm Picks | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy

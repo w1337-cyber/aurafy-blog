@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>MFFU vs TPT (2026): Three Plans You Pick vs Three Phases the Firm Picks | Aurafy</title>
+<meta name="description" content="MFFU sells three parallel plans (Core EOD+40%, Rapid intraday+no-consistency, Pro instant-funding) the trader picks at signup and can hold simultaneously. TPT runs one linear lifecycle (Test EOD &rarr; PRO intraday &rarr; PRO+ EOD) with the firm imposing the rule-shape shift at each phase boundary. Different lock families, opposite decision sources. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/mffu-vs-tpt-2026/" />
+<meta property="og:title" content="MFFU vs TPT (2026): Three Plans You Pick vs Three Phases the Firm Picks" />
+<meta property="og:description" content="MFFU lets the trader choose the rule shape at signup. TPT imposes three rule-shape shifts across the lifecycle. Same DLL-free posture, opposite decision source. Here's how to pick." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --mffu:#3ddc97;
+    --tpt:#ffb454;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-mffu{color:var(--mffu);font-weight:600}
+  .firm-tpt{color:var(--tpt);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(255,180,84,0.06);border-left:3px solid var(--tpt);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0d4a8}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.mffu{border-left:3px solid var(--mffu)}
+  .pick.tpt{border-left:3px solid var(--tpt)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.m{border-top:2px solid var(--mffu)}
+  .axis-side.t{border-top:2px solid var(--tpt)}
+  .phase-shift{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.phase-shift{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+  .phase-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .phase-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .plan-fan{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.plan-fan{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+  .plan-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px;border-top:2px solid var(--mffu)}
+  .plan-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>MFFU vs TPT (2026): Three Plans You Pick vs Three Phases the Firm Picks</h1>
+  <p class="lede">Both firms put the trader in front of three rule shapes. <a href="https://aurafy.dev/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=lede-mffu">MyFundedFutures</a> sells them in parallel &mdash; Core (EOD trail, 40% consistency), Rapid (intraday trail, no consistency), Pro (instant funding, no eval) &mdash; and the trader picks at signup, can hold all three simultaneously, can switch between accounts freely. <a href="https://aurafy.dev/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=lede-tpt">Take Profit Trader</a> runs them in series &mdash; Test (EOD), PRO (intraday), PRO+ (EOD) &mdash; with the firm imposing the <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=lede-trail&utm_campaign=inline-concept">trail-type shift</a> at each phase boundary. Same number of rule shapes, opposite decision source. Different lock families on top.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#wedge">The wedge</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#trail">Trail mechanics &amp; the decision source</a>
+  <a href="#lock">Lock family: SB+$100 vs SB</a>
+  <a href="#consistency">Consistency: variable vs eval-only</a>
+  <a href="#dll">Daily loss limit: absent on both</a>
+  <a href="#payment">Activation &amp; cost model</a>
+  <a href="#instant">MFFU Pro instant-funding vs TPT phase ladder</a>
+  <a href="#examples">Worked scenario</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=tldr-mffu">MFFU</a> if</strong> you want to choose the rule shape yourself at signup, lock it for the life of <em>that</em> account, but keep parallel accounts on different plans (Core for grinder style, Rapid for breakout style, Pro for skip-the-eval). Zero upfront activation, monthly subscription only, lock floor at SB+$100 ($50,100 on a 50K stop-out). Pro plan lets you skip the eval entirely and buy a simulated funded account directly &mdash; capped at $100K total payout across all Pro accounts.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=tldr-tpt">TPT</a> if</strong> you want a one-time $130 fee with no monthly subscription, you're comfortable with the firm imposing two mandatory trail-type shifts inside one account (EOD &rarr; intraday &rarr; EOD across Test/PRO/PRO+), and you want automatic promotion from simulated PRO to live PRO+ (no application since 2026-03-18). Lock floor at SB exactly ($50,000 on a 50K stop-out). No instant-funding path &mdash; every account starts at Test.
+</div>
+<div class="verdict">
+  <strong>Different lock families.</strong> MFFU locks at <strong>Starting Balance + $100</strong> (Apex 4.0 / Bulenox / Tradeify family). TPT locks at <strong>Starting Balance exactly</strong> (Topstep / Earn2Trade family). On a 50K account: MFFU stops at $50,100, TPT stops at $50,000. $100 floor delta &mdash; small in absolute terms, structurally significant because it sets the entire lock-family archetype.
+</div>
+
+<h2 id="wedge">The wedge in plain English</h2>
+
+<p>Most prop-firm comparisons rank firms by drawdown size or profit target. MFFU and TPT have similar numbers on the eval phase: 50K account, $1,500&ndash;$2,000 trailing drawdown, $3,000 profit target, 6 mini contracts at TPT. The structural story is about <em>who chooses the rule shape</em> for each account, and <em>when</em> that choice gets made.</p>
+
+<p><strong class="firm-mffu">MFFU sells three rule shapes in parallel at signup.</strong> Three plans, three independent rule profiles: Core (EOD trail, 40% consistency on eval AND funded), Rapid (intraday trail, no consistency at all), Pro (instant-funded EOD trail, no eval, $100K total payout cap across all Pro accounts). The trader picks at signup. The plans are PARALLEL &mdash; a trader can hold accounts on Core, Rapid, and Pro simultaneously. Per-account, the rule shape is locked for that account's life. But the trader's overall posture is fluid: open another plan, change posture.</p>
+
+<p><strong class="firm-tpt">TPT imposes three rule shapes in series after signup.</strong> One linear path: Test (EOD trail, 50% consistency, 5-day min) &rarr; PRO (INTRADAY trail, no consistency, 80/20 split, simulated funded) &rarr; PRO+ (EOD trail again, no consistency, 90/10 split, real capital, AUTO-PROMOTED since 2026-03-18). The trail TYPE shifts twice across the lifecycle, firm-imposed at each phase boundary. The trader cannot opt out, cannot choose a different shape, cannot skip Test.</p>
+
+<p>Same number of rule shapes, opposite decision source. MFFU = trader picks the shape at signup, plan-locked per account, parallel-fluid across the trader's overall book. TPT = firm imposes the shape at each phase boundary, sequential, irrevocable per account. That's the spine of this comparison.</p>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-mffu">MyFundedFutures (MFFU)</th><th class="firm-tpt">Take Profit Trader (TPT)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Plan / phase structure</td><td>Three parallel plans: Core, Rapid, Pro (trader picks at signup)</td><td>One linear path: Test &rarr; PRO &rarr; PRO+ (firm imposes order)</td></tr>
+    <tr><td class="label">Trail type</td><td>Core EOD &middot; Rapid intraday &middot; Pro EOD (plan-fixed)</td><td><strong>Shifts:</strong> EOD &rarr; INTRADAY &rarr; EOD across phases</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance + $100</td><td>Starting Balance</td></tr>
+    <tr><td class="label">50K stop-out floor</td><td>$50,100</td><td>$50,000</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>None on any plan</strong></td><td><strong>None firmwide</strong> since January 2025</td></tr>
+    <tr><td class="label">Consistency (eval)</td><td>Core 40% &middot; Rapid none &middot; Pro N/A (instant)</td><td>Test 50% &mdash; max safe day &asymp; total &times; 1.0</td></tr>
+    <tr><td class="label">Consistency (funded)</td><td>Core 40% &mdash; <strong>same as eval</strong> &middot; Rapid none &middot; Pro none</td><td><strong>None</strong> &mdash; drops on PRO and PRO+</td></tr>
+    <tr><td class="label">Min trading days</td><td>Core 3 &middot; Rapid 3 (eval) &middot; Pro N/A</td><td>Test 5 &middot; PRO 1 day per calendar week</td></tr>
+    <tr><td class="label">Profit split</td><td>80% to trader on first $10K, 90% after</td><td>PRO 80/20 &middot; PRO+ 90/10</td></tr>
+    <tr><td class="label">Activation fee</td><td><strong>$0 upfront</strong></td><td><strong>$130 upfront</strong> per account</td></tr>
+    <tr><td class="label">Monthly subscription</td><td>Core/Rapid: yes (eval only); Pro: one-time (instant funding)</td><td>None &mdash; one-time fee per attempt</td></tr>
+    <tr><td class="label">Instant-funding path</td><td><strong>Yes &mdash; Pro plan</strong> (no eval, capped $100K total payout)</td><td>No &mdash; every account starts at Test</td></tr>
+    <tr><td class="label">Live-capital step</td><td>Funded is simulated payouts only (real $)</td><td>PRO+ is <strong>live exchange routing</strong> (auto-promoted from PRO)</td></tr>
+    <tr><td class="label">Payout cadence</td><td>Every 5 days (48h after first payout)</td><td>Daily on PRO/PRO+ once buffer cleared, 7-day min between</td></tr>
+    <tr><td class="label">Platforms</td><td>TradingView, NinjaTrader, Tradovate, Rithmic</td><td>NinjaTrader, Tradovate, TradingView, Rithmic</td></tr>
+    <tr><td class="label">News trading</td><td>Permitted &mdash; no restriction stated</td><td>PRO/PRO+ banned 1 min around FOMC, NFP, CPI</td></tr>
+    <tr><td class="label">Overnight holding</td><td>Standard intraday session hours apply</td><td>None &mdash; all flat by 5pm ET every day</td></tr>
+    <tr><td class="label">Reset rules</td><td>Reset available on Core/Rapid evals</td><td>Test reset available &middot; <strong>PRO+ reset NOT permitted</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="trail">Trail mechanics &amp; the decision source</h2>
+
+<p>This is the structural wedge that defines MFFU vs TPT. Both firms expose the trader to multiple trail types. The question is: who chooses, and when?</p>
+
+<h3 class="firm-mffu">MFFU &mdash; three trail types, trader-chosen at signup</h3>
+
+<div class="plan-fan">
+  <div class="plan-box">
+    <strong>Core (50K only)</strong>
+    EOD trail. Updates once per day at session close. 40% consistency on eval AND funded. Lock at SB+$100 = $50,100. 3-day minimum.
+  </div>
+  <div class="plan-box">
+    <strong>Rapid (50K, 100K, 150K)</strong>
+    <strong style="color:var(--mffu);text-transform:none;letter-spacing:0;font-size:0.92rem;display:inline">INTRADAY trail</strong> &mdash; recomputes on every new intraday equity high. No consistency rule at all. Lock at SB+$100.
+  </div>
+  <div class="plan-box">
+    <strong>Pro (50K, 100K, 150K)</strong>
+    EOD trail. <strong>No eval</strong> &mdash; instant-funded simulated account. $100K total payout cap across all Pro accounts you hold. Lock at SB+$100.
+  </div>
+</div>
+
+<p>A trader picks the plan that matches their style at signup. Holds the rule shape for that account's life. Can open a second account on a different plan and run them in parallel &mdash; nothing about owning a Core account restricts you from also opening a Rapid or a Pro. The plans never interact within one account, but the trader's overall posture stays fluid.</p>
+
+<h3 class="firm-tpt">TPT &mdash; three trail types, firm-imposed in series</h3>
+
+<div class="phase-shift">
+  <div class="phase-box">
+    <strong>Test (eval)</strong>
+    EOD trail. Updates once per day at session close. 50% consistency. 5-day minimum. Pass at $3,000 profit on 50K.
+  </div>
+  <div class="phase-box">
+    <strong>PRO (simulated funded)</strong>
+    <strong style="color:var(--tpt);text-transform:none;letter-spacing:0;font-size:0.92rem;display:inline">INTRADAY trail</strong> &mdash; recomputes on every new intraday high. No consistency. 80/20 split. 1 trading day per calendar week minimum.
+  </div>
+  <div class="phase-box">
+    <strong>PRO+ (live funded)</strong>
+    EOD trail (reverts). No consistency. 90/10 split. Real exchange routing. Auto-promoted since 2026-03-18.
+  </div>
+</div>
+
+<p>A trader signs up for Test only &mdash; there is no other entry point at TPT. Pass Test, get moved to PRO. Pass PRO's internal review, get moved to PRO+. The trail TYPE itself changes between phases, firm-imposed. The trader does not choose; cannot opt out; cannot skip. The middle-phase intraday trail is the highest-confusion event in TPT's lifecycle, and the firm's own rulebook flags it.</p>
+
+<div class="key-fact"><strong>The decision-source asymmetry:</strong> Both firms expose the trader to EOD and intraday trail mechanics. MFFU lets the trader pick which one to live under by which plan they buy. TPT makes the trader live under one, then the other, then the first again, in a fixed order. A trader who knows their style fits EOD can spend $0 activation at MFFU and buy a Core or Pro account, never touching an intraday trail. The same trader at TPT pays $130 for Test, passes on EOD, then has to re-validate the same style under an intraday PRO trail to keep the account funded.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=trail-deepdive&utm_campaign=deep-dive">Trailing drawdown across 7 prop firms</a> &mdash; MFFU and TPT are the cluster's clearest example of "same mechanics, opposite decision source." Apex 4.0 makes the trader pick EOD or intraday at signup, permanent (similar to MFFU's plan-pick). Bulenox does the same with Option 1 vs Option 2. Earn2Trade locks every phase to EOD. TPT is the only firm in the dataset that mandates a trail-TYPE shift inside a single account's lifecycle.</p>
+
+<div class="cta">
+  <h3>Model both firms' trail mechanics before you sign up</h3>
+  <p>Our free trailing-drawdown calculator runs MFFU Core (EOD), MFFU Rapid (intraday), TPT Test (EOD), and TPT PRO (intraday) presets. See exactly how your worst day plays out under each. No login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=trail-cta">Open the calculator</a>
+</div>
+
+<h2 id="lock">Lock family: SB+$100 vs SB exactly</h2>
+
+<p>The lock floor is where MFFU and TPT split into different cluster archetypes. The $100 gap is small in dollar terms but defines two distinct lock-family camps across the seven-firm cluster.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU &mdash; SB + $100 (Apex 4.0 family)</strong>
+    Lock fixes $100 above starting balance once the trail unlocks. On 50K: floor at $50,100. On 100K: floor at $100,100. Same archetype as Apex 4.0, Bulenox, Tradeify. The $100 cushion functionally means a trader who pulls back to flat does not blow the account &mdash; only a small loss below SB triggers stop-out.
+  </div>
+  <div class="axis-side t">
+    <strong>TPT &mdash; SB exactly (Topstep family)</strong>
+    Lock fixes at starting balance once the trail unlocks. On 50K: floor at $50,000. On 100K: floor at $100,000. Same archetype as Topstep funded, Earn2Trade. No cushion &mdash; the trader who pulls back exactly to flat is at the floor. One tick below SB closes the account.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The honest impact of the $100 gap:</strong> Most traders never test the difference because they never run the account to the exact-flat boundary. The $100 matters in two specific situations: (a) a trader who hovers around break-even during a slump &mdash; at MFFU they have a tiny buffer, at TPT they're on the knife-edge; (b) a trader who passes the eval at the exact profit target and immediately wants to start withdrawing &mdash; at MFFU the funded account starts $100 above the trail floor, at TPT it starts AT the floor. In practice, the bigger consequence of the lock-family split is which cluster the firm rhymes with on every other rule, not the $100 itself.</div>
+
+<h2 id="consistency">Consistency: plan-variable vs phase-locked</h2>
+
+<p>Both firms apply consistency, but the structure is opposite. MFFU's consistency varies by which plan the trader picked at signup. TPT's consistency varies by which phase the firm has put the trader in.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU &mdash; varies by plan, trader chose it</strong>
+    Core: 40% on eval AND funded (single day's profit &le; 40% of total). Rapid: none at all. Pro: N/A (no eval). The trader signs up knowing which consistency regime they live under for that account's life. Want zero consistency tax? Pick Rapid. Want consistency on funded too? Pick Core.
+  </div>
+  <div class="axis-side t">
+    <strong>TPT &mdash; varies by phase, firm chose it</strong>
+    Test: 50% (single day's profit &le; 50% of total). PRO: none. PRO+: none. The trader cannot avoid the 50% rule &mdash; every TPT account starts at Test. Pass Test, the rule dies; on PRO and PRO+, no consistency at all.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The threshold and the scope:</strong> MFFU Core's 40% is stricter than TPT Test's 50% (lower threshold = tighter). But MFFU Core enforces it on FUNDED too &mdash; the only plan in the comparison where consistency persists post-pass. TPT's consistency dies entirely at the eval gate. A grinder who can hold a 40% ratio every payout cycle has a home at MFFU Core. A high-day-spread trader passing one big day then several small ones has a home at TPT Test (50% leaves more room for one dominant day) and at MFFU Rapid (no rule at all). Same threshold-region, opposite enforcement scope.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=consistency-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; MFFU Core is the cluster's only plan that enforces consistency on funded payouts permanently. TPT, Topstep, Earn2Trade all drop consistency at the eval gate. Apex 4.0 enforces 30% on both eval AND funded forever. Bulenox 40% applies on Master+Funded but NOT during Qualification. The explainer maps every cluster firm against threshold-and-scope, and MFFU's plan-variable scope is the most flexible structure in the cluster.</p>
+
+<div class="cta">
+  <h3>Check your days against any consistency threshold</h3>
+  <p>The consistency calculator runs MFFU Core's 40%, TPT Test's 50%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn't fail on geometry.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="dll">Daily loss limit: absent on both, for opposite reasons</h2>
+
+<p>The DLL axis is where MFFU and TPT happen to land on the same answer (no DLL) by different reasoning. Same archetype, different motivation.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU &mdash; never had a DLL on any plan</strong>
+    Core, Rapid, and Pro have zero daily loss limit. The trailing drawdown is the only hard-loss guardrail. This is MFFU's deliberate plan-design choice from day one &mdash; the firm sells "only the trail matters." A trader can give back any amount intraday until the trail floor is breached.
+  </div>
+  <div class="axis-side t">
+    <strong>TPT &mdash; removed DLL firmwide January 2025</strong>
+    Until late 2024, TPT enforced a DLL on Test and PRO. Removed firmwide in January 2025 with the rationale that the trailing drawdown alone is sufficient as a hard-loss guardrail. Same effective posture as MFFU now, but the firm shifted into it rather than launching with it.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The cluster context:</strong> MFFU and TPT are the only two firms in the seven-firm dataset with zero DLL on every plan and every phase. Apex 4.0 still enforces DLL on every account size. Topstep, Bulenox Option 2, Earn2Trade, Tradeify all apply DLLs that vary by phase or plan. For a trader who prefers no session circuit-breaker (high freedom, high tilt risk), MFFU and TPT are the cluster's two cleanest options &mdash; just on different lock families and with opposite decision sources for the rest of the rule shape.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=dll-deepdive&utm_campaign=deep-dive">Daily loss limit across 7 prop firms</a> &mdash; MFFU and TPT are the cluster's no-DLL archetype, but the rest of the dataset shows three other DLL patterns: per-size scaling (Earn2Trade), eval-only DLL (some Bulenox configurations), and firmwide DLL (Apex 4.0). The explainer maps which trader profile each DLL archetype rewards.</p>
+
+<h2 id="payment">Activation &amp; cost model: the cleanest cost-of-attempt wedge</h2>
+
+<p>MFFU and TPT approach the cost of attempting from opposite directions on activation, even though they're structurally similar on the DLL question.</p>
+
+<div class="axis">
+  <div class="axis-side m">
+    <strong>MFFU</strong>
+    <strong>$0 upfront activation.</strong> Pay monthly subscription on Core or Rapid eval (price varies by size). On pass, no extra activation fee &mdash; the account transitions to funded with no separate cost. Reset available on the eval phase. Pro plan is a one-time purchase (instant funding, no eval, monthly-sub-free).
+  </div>
+  <div class="axis-side t">
+    <strong>TPT</strong>
+    <strong>$130 upfront per Test account.</strong> No monthly subscription. Pay the activation once per attempt, pass or fail. Pass Test, auto-promoted to PRO with no extra cost. Auto-promoted to PRO+ since 2026-03-18 with no extra cost. Test reset available; PRO+ reset NOT permitted &mdash; bust live, account closes permanently.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The economic asymmetry:</strong> A trader who passes their first attempt at TPT pays $130 total to get to a funded account. A trader who passes their first attempt at MFFU Core in 30 days pays roughly one month's subscription &mdash; price varies but in a comparable range. <em>On a fast pass, both are cheap, with TPT slightly favored.</em> A trader who takes six attempts at TPT pays $780 sunk regardless. A trader who grinds MFFU Core for six months pays 6&times; subscription &mdash; comparable total, but on a recurring rather than per-attempt structure. The bigger asymmetry: MFFU Pro lets the trader skip the eval entirely by paying one-time for an instant-funded simulated account; TPT has no instant-funded path.</div>
+
+<h2 id="instant">MFFU Pro instant-funding vs TPT phase ladder</h2>
+
+<p>This is the structural divergence with no analogue on either side. MFFU has a "skip the eval" option that TPT does not.</p>
+
+<ul>
+  <li><strong class="firm-mffu">MFFU Pro</strong> is sold as an instant-funded simulated account. Pay one-time, no eval phase, no profit target, no minimum trading days. The account is funded simulated on day one with an EOD trail, lock at SB+$100. The catch: <strong>$100K total payout cap across all Pro accounts</strong> the trader holds. Hit the cap, no more Pro account payouts (additional Core or Rapid accounts on other plans remain unaffected).</li>
+  <li><strong class="firm-tpt">TPT</strong> has no instant-funded path. Every account starts at Test. A trader who knows they're past the eval-style learning curve has no shortcut at TPT &mdash; they pay $130, sit through a 5-day minimum on Test (even if they pass profit target sooner), then get moved to PRO and have to re-validate under an intraday trail. The fastest path to a real-capital payout is at least one Test pass.</li>
+</ul>
+
+<p>For a trader who has already passed multiple evals at other firms and is confident in their style, MFFU Pro is the cluster's most efficient route to a funded simulated account. For a trader who values the validation of an evaluation gate and wants the live-capital step (PRO+ at TPT is real exchange routing, MFFU funded is simulated payouts only), TPT is structurally what they want.</p>
+
+<div class="warn"><strong>TPT lifecycle landmines:</strong> (a) The trail TYPE shift from Test (EOD) to PRO (intraday) is the highest-confusion event &mdash; passed-fine-then-blown-after-promote is the documented failure mode. (b) PRO+ promotion is automatic and irrevocable in the sense that PRO+ resets are not permitted &mdash; busting the live account closes it permanently with no option to restart. (c) PRO and PRO+ ban news trading 1 minute before/during/after FOMC, NFP, CPI. (d) All positions must be flat by 5pm ET every day.</div>
+
+<div class="warn"><strong>MFFU lifecycle landmines:</strong> (a) Core's 40% consistency persists on FUNDED &mdash; a trader who passes Core eval clean and then has one big payout-cycle day can fail the consistency check at the funded gate, not just eval. (b) Pro's $100K total payout cap is across ALL Pro accounts, not per account &mdash; opening a second Pro account does not double the cap. (c) Rapid's intraday trail means every new equity high recomputes the floor &mdash; the trader needs to be comfortable with that mechanic before signing up for Rapid (no chance to learn it on EOD first).</div>
+
+<h2 id="examples">Worked scenario: the decision-source fork in action</h2>
+
+<p>A 50K-equivalent trader who already knows their style fits EOD execution and does not want to live under an intraday trail at any point. How does the lifecycle play out at each firm?</p>
+
+<h3 class="firm-mffu">Scenario A &mdash; signed up for MFFU Core</h3>
+<ul>
+  <li>Pays monthly subscription; $0 upfront activation. Trades the eval under EOD trail. Passes the eval in 8 sessions at +$3,200 profit. Single biggest day was $1,100 = 34% of total &mdash; cleared the 40% consistency rule.</li>
+  <li>Funded on Core. <strong>Trail mechanic does not change</strong> &mdash; same EOD trail as the eval phase. Lock at SB+$100 = $50,100. 40% consistency persists on funded payouts; the trader plans payouts to avoid any single day exceeding 40% of cycle profit.</li>
+  <li>Opens a second account on Pro for $X one-time. Now holds Core (proven, payout-cycled) and Pro (instant-funded, no eval) in parallel. The two accounts have independent equity curves but the trader has 2x funded simulated exposure with one rule shape (EOD trail) across both.</li>
+  <li>Outcome: zero exposure to intraday trail mechanics. The trader stayed inside their style preference for the account's entire life and was able to scale their funded exposure horizontally by buying another Pro account.</li>
+</ul>
+
+<h3 class="firm-tpt">Scenario B &mdash; signed up for TPT Test</h3>
+<ul>
+  <li>Pays $130 upfront activation for Test. Trades under EOD trail. Passes Test in 6 sessions at +$3,200 profit (had to wait 5 sessions minimum even though target was hit in 4). EOD trail floor sat at $50,000 the whole time because no day closed below SB.</li>
+  <li>Auto-promoted to PRO. <strong>Trail mechanic changes:</strong> now intraday HWM. Same trading style now has the floor recomputing every time the session prints a new equity high.</li>
+  <li>Week 3 of PRO: $1,400 intraday equity high at 11am, trader gives back to +$200 by close. The floor recomputed on the 11am high; the next morning a $1,600 intraday drawdown breaches the floor. Account closed.</li>
+  <li>Outcome: passed-Test-then-blown-PRO is the documented TPT failure mode. The trader didn't choose to live under intraday &mdash; the firm imposed it on a style that had only been validated on EOD. No "open another EOD account" escape hatch because every TPT account starts at Test, not at PRO+.</li>
+</ul>
+
+<div class="key-fact">The structural insight: MFFU lets the trader's style preference dictate the rule shape for every account they open &mdash; permanently, with parallel-plan flexibility. TPT lets the firm's lifecycle design dictate the rule shape every account goes through &mdash; sequentially, with no opt-out. Same number of trail mechanics in play across each trader's experience; opposite source of who decides which one applies and when.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick mffu">
+    <h4 class="firm-mffu">Pick MFFU if&hellip;</h4>
+    <ul>
+      <li>You want to choose your own rule shape at signup (Core EOD / Rapid intraday / Pro instant)</li>
+      <li>You value parallel plan flexibility (hold Core + Rapid + Pro simultaneously)</li>
+      <li>You want $0 upfront activation (monthly subscription only)</li>
+      <li>You want the option to skip the eval entirely (Pro plan instant-funding)</li>
+      <li>You're comfortable with the SB+$100 lock family (Apex 4.0 / Bulenox / Tradeify rhyme)</li>
+      <li>You can hold a 40% consistency ratio on Core's funded payouts (or avoid consistency by picking Rapid)</li>
+      <li>You don't need live exchange routing (funded is simulated payouts only)</li>
+    </ul>
+  </div>
+  <div class="pick tpt">
+    <h4 class="firm-tpt">Pick TPT if&hellip;</h4>
+    <ul>
+      <li>You want one-time-fee structure ($130 upfront, no monthly subscription)</li>
+      <li>You're comfortable transitioning from EOD to intraday trail mid-account-lifecycle</li>
+      <li>You value automatic live-capital promotion (no application, since 2026-03-18)</li>
+      <li>You want real exchange routing at PRO+ (live capital, not simulated payouts)</li>
+      <li>You can pass under a 50% consistency rule (looser threshold, friendlier to high-day-spread)</li>
+      <li>You don't need news-trading flexibility on PRO/PRO+ (FOMC/NFP/CPI banned)</li>
+      <li>You only need up to 5 funded accounts</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I hold MFFU and TPT accounts at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent and cross-firm hedging is not enforceable by either rulebook (they can't see your other firm's positions). Both firms restrict <em>cross-account</em> coordination within their own platform &mdash; do not run equal-and-opposite positions across accounts at the same firm. Across firms, the accounts are practically independent. Many traders run MFFU Core for grinder style and a TPT Test for a separate breakout-style attempt.</p>
+</details>
+
+<details>
+  <summary>Why does TPT change the <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tpt&amp;utm_campaign=inline-faq">trail type</a> between phases?</summary>
+  <p>TPT uses the trail-type shift as a phase-differentiator: EOD trail in Test (forgiving evaluation) &rarr; INTRADAY trail in PRO (tightens risk discipline at simulated funded) &rarr; EOD trail again in PRO+ (live-capital phase, reverts to the forgiving mechanic). The firm's logic is that PRO is the discipline-test phase between passing Test and earning real capital at PRO+. Whether that design serves traders is debatable &mdash; passed-Test-then-blown-PRO is the documented failure mode at TPT and is the single biggest source of post-eval regret. MFFU's plan-pick-at-signup avoids this by letting the trader live under one mechanic for an account's life.</p>
+</details>
+
+<details>
+  <summary>Does MFFU have a <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tpt&amp;utm_campaign=inline-faq">daily loss limit</a> on any plan?</summary>
+  <p>No &mdash; MFFU has zero DLL on Core, Rapid, and Pro. The trailing drawdown is the only hard-loss guardrail across every plan. TPT also has no DLL since January 2025 firmwide. The two firms are the cluster's only no-DLL-on-every-plan archetype. Other firms in the cluster (Apex 4.0, Earn2Trade, Topstep, Bulenox Option 2) all apply some form of DLL.</p>
+</details>
+
+<details>
+  <summary>What's the actual cost difference between MFFU Core and TPT Test on a 3-month grind?</summary>
+  <p>MFFU Core: monthly subscription on the eval (varies by size, see the firm's current pricing) for up to 3 months until pass. TPT Test: $130 per attempt &mdash; 3 attempts over 3 months = $390. The structural difference: MFFU's cost stops on pass (you transition to funded with no extra activation), TPT's $130 is per-attempt and sunk regardless of outcome. On a fast first-attempt pass, TPT is competitive. On a multi-attempt grind, MFFU's per-month structure can come out cheaper if the trader settles into a stable pass rhythm.</p>
+</details>
+
+<details>
+  <summary>What is MFFU Pro and how does it work?</summary>
+  <p>MFFU Pro is an instant-funded simulated account. Pay one-time, no eval, no profit target, no minimum trading days. The account is funded simulated on day one with an EOD trail and lock at SB+$100. The catch: $100K total payout cap across all Pro accounts the trader holds. Hit the cap, no more Pro account payouts. Pro is the only path in this comparison that lets the trader skip the eval phase entirely &mdash; TPT has no analogue (every TPT account starts at Test). Pro suits traders who are confident in their style and want efficient access to a funded simulated account without a multi-week eval grind.</p>
+</details>
+
+<details>
+  <summary>Is TPT PRO+ "real money" and is MFFU funded "real money"?</summary>
+  <p>TPT PRO+ is live exchange routing &mdash; trades go to a real exchange, 90/10 profit split, real capital. Promotion from PRO to PRO+ is automatic since 2026-03-18. MFFU funded is simulated capital with real-dollar payouts &mdash; trades are not routed to a live exchange but the profits paid to the trader are real US dollars. Both produce real-money payouts; only TPT PRO+ also produces real-money executions. A trader for whom the "live trading" feel matters will care about this difference; a trader focused purely on payout dollars may not.</p>
+</details>
+
+<details>
+  <summary>How does the <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tpt&amp;utm_campaign=inline-faq">consistency rule</a> compare?</summary>
+  <p>MFFU Core: 40% on eval AND funded (the only plan in the comparison that enforces consistency post-pass). MFFU Rapid: no consistency. MFFU Pro: no eval, no consistency. TPT Test: 50% on eval only, drops on PRO and PRO+. So a trader on MFFU Core lives under a stricter threshold (40%) for the account's entire life, while a trader at TPT lives under a looser threshold (50%) only during eval and gets dropped entirely after. The scope question (does the rule die at the eval gate?) matters more than the threshold for most traders &mdash; MFFU Core is the cluster's only plan where consistency taxes funded payouts every cycle.</p>
+</details>
+
+<details>
+  <summary>What about the other 5 firms in this cluster?</summary>
+  <p>MFFU locks at SB+$100 (Apex 4.0 / Bulenox / Tradeify family). TPT locks at SB exactly (Topstep / Earn2Trade family). Each firm has a dedicated landing page: <a href="/prop-firms/topstep/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=faq-topstep">Topstep</a>, <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=faq-apex">Apex</a>, <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=faq-bulenox">Bulenox</a>, <a href="/prop-firms/tradeify/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=faq-tradeify">Tradeify</a>, <a href="/prop-firms/earn2trade/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=faq-earn2trade">Earn2Trade</a>.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily P&amp;L against either firm's preset in real time as you upload Tradovate, NinjaTrader, or Rithmic fills. MFFU Core (EOD, 40%-funded), MFFU Rapid (intraday), MFFU Pro (EOD instant-funded), TPT Test (EOD), TPT PRO (intraday), and TPT PRO+ (EOD) presets all supported &mdash; the journal switches the trail-type rule automatically when you mark a TPT account as phase-promoted, or when you open a new MFFU plan. Multi-account, multi-firm &mdash; one journal across every prop firm you trade.</p>
+</details>
+
+<div class="cta">
+  <h3>Track MFFU + TPT accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required. Plan-switch and phase-shift presets baked in.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=mffu-vs-tpt&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with MyFundedFutures or Take Profit Trader. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/bulenox-vs-mffu-2026/">Bulenox vs MFFU</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/topstep-vs-tpt-2026/">Topstep vs TPT</a> &middot; <a href="/blog/apex-vs-tpt-2026/">Apex vs TPT</a> &middot; <a href="/blog/bulenox-vs-tpt-2026/">Bulenox vs TPT</a> &middot; <a href="/blog/tpt-vs-earn2trade-2026/">TPT vs Earn2Trade</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/prop-firms/myfundedfutures/">MFFU landing</a> &middot; <a href="/prop-firms/take-profit-trader/">TPT landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>

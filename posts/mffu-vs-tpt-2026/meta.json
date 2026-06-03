@@ -1,0 +1,15 @@
+{
+  "slug": "mffu-vs-tpt-2026",
+  "title": "MFFU vs TPT (2026): Three Plans You Pick vs Three Phases the Firm Picks",
+  "description": "MFFU sells three parallel plans (Core EOD+40%, Rapid intraday+no-consistency, Pro instant-funding) the trader picks at signup and can hold simultaneously. TPT runs one linear lifecycle (Test EOD → PRO intraday → PRO+ EOD) with the firm imposing the rule-shape shift at each phase boundary. Different lock families, opposite decision sources. Honest 2026 side-by-side.",
+  "canonical": "https://aurafy.dev/blog/mffu-vs-tpt-2026/",
+  "published": "2026-06-03",
+  "updated": "2026-06-03",
+  "og": {
+    "title": "MFFU vs TPT (2026): Three Plans You Pick vs Three Phases the Firm Picks",
+    "description": "MFFU lets the trader choose the rule shape at signup. TPT imposes three rule-shape shifts across the lifecycle. Same DLL-free posture, opposite decision source. Here's how to pick.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "comparison", "mffu", "myfundedfutures", "tpt", "take-profit-trader", "2026"],
+  "source_path": "posts/mffu-vs-tpt-2026/index.html"
+}
