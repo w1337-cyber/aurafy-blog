@@ -189,7 +189,7 @@
 
 <h2 id="lock">Lock archetype: identical floor, no MFFU DLL pairing</h2>
 
-<p>Both firms use a trailing drawdown that locks once equity clears a threshold. The lock <em>point</em> is the same. The DLL <em>pairing</em> is not.</p>
+<p>Both firms use a <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tradeify&amp;utm_campaign=inline-concept">trailing drawdown</a> that locks once equity clears a threshold. The lock <em>point</em> is the same. The DLL <em>pairing</em> is not.</p>
 
 <div class="axis">
   <div class="axis-side mffu">
@@ -208,6 +208,8 @@
   <li><strong>The actual lock point is identical:</strong> $100,100 on a 100K account, $50,100 on a 50K. The equity threshold that triggers the lock differs by drawdown size: MFFU Rapid 100K has a $4,000 drawdown so the lock-trigger equity is $104,100; Tradeify Growth 100K has a $3,500 drawdown so the lock-trigger equity is $103,600. Tradeify Growth's tighter drawdown means the floor freezes at a slightly lower equity high &mdash; useful if you climb gradually, less useful if you spike up and back down.</li>
   <li><strong>MFFU has no second tripwire:</strong> trail is the only rule that can kill the account on a single bad session. That's simpler to reason about than a DLL-paired account but also means a $1 trail breach is fatal with no daily cushion to absorb it. Plan accordingly &mdash; on MFFU, the trail floor IS the daily loss limit.</li>
 </ul>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tradeify&amp;utm_campaign=deep-dive">Daily loss limit explained (2026)</a> &mdash; this pair maps two of the cluster's four DLL archetypes in a single comparison. MFFU sits in the <strong>"no DLL anywhere"</strong> archetype (shared only with Topstep funded), where the trail floor IS the daily-loss rule. Tradeify sits in the <strong>"configured per program"</strong> archetype (shared with Bulenox), where DLL presence depends on which sibling program you bought. The explainer walks the full 4-archetype taxonomy &mdash; including Apex 4.0's "EOD-trail-coupled" archetype and TPT's "deleted firmwide" archetype &mdash; so you can place any firm you're evaluating into the same DLL design space.</p>
 
 <div class="cta">
   <h3>See the lock point side-by-side on your size</h3>
@@ -248,6 +250,8 @@
 </table>
 
 <p>Quick formula refresher: <strong>max safe single-day P&amp;L = total profit &times; threshold / (1 &minus; threshold)</strong>. At 40% (MFFU Core, Tradeify Select eval) that's <strong>0.667 &times; total</strong>. At 35% (Tradeify Growth funded) that's <strong>0.538 &times; total</strong>. At 0% (MFFU Rapid, Tradeify Growth eval, Tradeify Select funded) there's no ceiling. The 40% threshold is the most permissive non-zero number in this dataset &mdash; you can have a much bigger single day before tripping &mdash; but MFFU Core forces you to live with it on both phases, while Tradeify lets you choose which phase to keep rule-free.</p>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tradeify&amp;utm_campaign=deep-dive">Consistency rule explained (2026)</a> &mdash; this pair surfaces the cluster's <strong>widest threshold spread inside a single comparison</strong>: 0% (MFFU Rapid, Tradeify Growth eval, Tradeify Select funded), 35% (Tradeify Growth funded), 40% (MFFU Core both phases, Tradeify Select eval), plus Tradeify Lightning's progressive 20&rarr;25&rarr;30% tightening across payouts &mdash; the only progressive-consistency design in the cluster. The explainer walks the 30/35/40/50 tier axis, the eval-only vs funded-only vs lifetime scope axes, and where each archetype hurts which trading style.</p>
 
 <div class="cta">
   <h3>Plan your safe daily profit ceiling for both firms</h3>
@@ -380,7 +384,7 @@
 
 <footer>
   <p>Independent comparison. Not affiliated with MyFundedFutures or Tradeify. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
-  <p>Related: <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/prop-firms/myfundedfutures/">MFFU landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
+  <p>Related: <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/topstep-vs-tradeify-2026/">Topstep vs Tradeify</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/prop-firms/myfundedfutures/">MFFU landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
   <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
 </footer>
 
