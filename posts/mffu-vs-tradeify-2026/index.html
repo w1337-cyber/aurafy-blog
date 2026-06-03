@@ -341,7 +341,7 @@
 </details>
 
 <details>
-  <summary>Why does MFFU not have a daily loss limit?</summary>
+  <summary>Why does MFFU not have a <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tradeify&amp;utm_campaign=inline-faq">daily loss limit</a>?</summary>
   <p>By design. MFFU's risk model treats the trailing drawdown as the single rule that can void an account on a single bad session. Most other firms layer a DLL on top so you can blow a "max day" without blowing the trail. MFFU's stance is that one rule is enough &mdash; if your daily loss puts you on the wrong side of the trail, the account is done; if it doesn't, you can keep trading. Cleaner mental model, but less margin for a single bad session because the trail is also tighter than a typical DLL would be.</p>
 </details>
 
@@ -356,7 +356,7 @@
 </details>
 
 <details>
-  <summary>Why is MFFU Core's 40% consistency rule called "uniform-strict"?</summary>
+  <summary>Why is MFFU Core's 40% <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=mffu-vs-tradeify&amp;utm_campaign=inline-faq">consistency rule</a> called "uniform-strict"?</summary>
   <p>Because MFFU Core is the only plan in this dataset that applies a 40% consistency rule on <em>both</em> eval and funded. Tradeify Select also has a 40% rule, but only on eval (funded is rule-free). Apex's funded rule is 30%. Topstep is 50%. So MFFU Core sits at a unique combination: high threshold + persistent across the full lifecycle. If you got past the eval on Core, the same rule still applies on funded &mdash; no rule-flip surprise.</p>
 </details>
 
