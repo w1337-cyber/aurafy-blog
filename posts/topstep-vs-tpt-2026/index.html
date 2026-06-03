@@ -171,7 +171,7 @@
 
 <h2 id="trail">The trail trajectory: opposite paths to the same lock</h2>
 
-<p>Every prop firm's trailing drawdown can be described by two things: <em>when</em> the floor advances (intraday vs end-of-day) and <em>where</em> it locks (starting balance vs starting balance + safety net). Topstep and TPT lock in the same place but advance the floor on opposite schedules across the lifecycle.</p>
+<p>Every prop firm's <strong><a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_campaign=inline-concept">trailing drawdown</a></strong> can be described by two things: <em>when</em> the floor advances (intraday vs end-of-day) and <em>where</em> it locks (starting balance vs starting balance + safety net). Topstep and TPT lock in the same place but advance the floor on opposite schedules across the lifecycle.</p>
 
 <div class="axis">
   <div class="axis-side topstep">
@@ -233,6 +233,8 @@
 
 <div class="key-fact"><strong>Quick formula:</strong> at a 50% threshold, your largest profitable day in the eval cannot exceed total profit &times; 0.5. To pass the 100K Topstep Combine ($3,000 target) with a single $2,000 day, you need at least $4,000 total &mdash; i.e. an extra $1,000 of cumulative profit beyond the target. Same math at TPT Test.</div>
 
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_campaign=deep-dive">Consistency Rule Explained (2026)</a> &mdash; walks the 30 / 35 / 40 / 50 threshold tier axis (Apex 30%, Tradeify 35%, MFFU 40%, Topstep + TPT 50%) and the eval-only vs lifetime scope split that decides whether the rule actually bites your funded phase. Topstep + TPT sit at the loosest threshold AND the tightest scope (eval-only) &mdash; the explainer shows why that combination is rare across the cluster.</p>
+
 <p><strong>Run your own numbers &rarr;</strong> <a href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_content=consistency-tool">Consistency-rule calculator</a> &mdash; presets for Topstep 50%, TPT 50%, MFFU 40%, and Apex 4.0 30%. Plug your current cumulative profit and biggest day; it returns the max safe next-day P&amp;L and the minimum extra cumulative you need before you can submit. The calc that decides whether tomorrow's session is safe to take.</p>
 
 <h2 id="dll">Daily loss limit: where the firms truly diverge</h2>
@@ -251,6 +253,8 @@
 </div>
 
 <div class="warn"><strong>The 2026 confusion point:</strong> a trader migrating from TPT (no DLL) to Topstep on NinjaTrader 8 will hit a DLL they aren't expecting. A trader migrating from Topstep on TopstepX (no default DLL) to NinjaTrader 8 on the same firm will <em>also</em> hit a DLL. The platform choice is the deciding factor at Topstep &mdash; not the firm.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=topstep-vs-tpt&amp;utm_campaign=deep-dive">Daily Loss Limit Explained (2026)</a> &mdash; walks the 4-archetype DLL taxonomy. TPT's "deleted firmwide Jan 2025" puts it in the same archetype as MFFU (no DLL anywhere). Topstep's NT8-yes / TopstepX-no split is the cluster's only "platform-toggled" archetype. Apex 4.0 sits in the "EOD-trail-coupled" archetype (DLL exists only if you picked the EOD trail option). Bulenox + Tradeify configure DLL per program. The explainer maps which migrations cross archetype lines &mdash; the source of the confusion this warn box names.</p>
 
 <h2 id="payouts">Payouts, profit splits &amp; cost structure</h2>
 
