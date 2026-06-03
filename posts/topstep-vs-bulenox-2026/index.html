@@ -186,7 +186,7 @@
 
 <h2 id="trail">Trail philosophy: phase-shift vs fork-lock</h2>
 
-<p>Both firms support both intraday and EOD trail mechanics. The difference is who decides, and when.</p>
+<p>Both firms support both intraday and EOD <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_campaign=inline-concept">trail mechanics</a>. The difference is who decides, and when.</p>
 
 <div class="axis">
   <div class="axis-side a">
@@ -246,6 +246,8 @@
 
 <div class="key-fact"><strong>The honest math:</strong> the rules are inverted in scope. Topstep loads the consistency check on the eval and lets you off the hook once funded. Bulenox does the opposite &mdash; gives you a free Qualification runway, then locks in 40% on every payout request thereafter. If you're a trader whose edge is one or two outsized days per month, Topstep's post-funded freedom favours you. If your edge is more uniform but you want to take one big swing during eval, Bulenox's Qualification window favours you.</div>
 
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_campaign=deep-dive">Consistency rules explained &mdash; the 30/35/40/50 threshold tiers, and the scope-fork that decides whether the rule binds during eval, during funded, or both</a>. Topstep 50% and Bulenox 40% sit two tiers apart on the threshold axis, but the scope fork is the bigger structural difference: Topstep binds eval-only, Bulenox binds funded-only. MFFU Core 40% binds both, Tradeify Growth 35% binds both, Apex 4.0 30% binds funded-only, Earn2Trade GAU 30% binds eval-only. The threshold-tier × scope grid is what actually separates which trading style each firm rewards.</p>
+
 <div class="cta">
   <h3>Plot your days against the threshold before payout</h3>
   <p>The consistency calculator handles both 50% (Topstep Combine) and 40% (Bulenox Master / Funded) plus custom thresholds.</p>
@@ -268,6 +270,8 @@
 </div>
 
 <div class="warn"><strong>The DLL detail:</strong> Topstep removed the default daily loss limit on TopstepX in August 2024 &mdash; for both Combine and XFA. If you want a no-DLL Topstep account, you must trade on TopstepX. Trade NinjaTrader against Topstep and the DLL still fires. Bulenox's equivalent no-DLL route is Option 1 &mdash; but you pick that at signup and can't change later.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=topstep-vs-bulenox&utm_campaign=deep-dive">Daily loss limit explained &mdash; the 4-archetype taxonomy of how firms handle DLL: platform-toggled (Topstep), fork-locked at signup (Bulenox + Apex 4.0), firmwide-deleted (TPT, MFFU), and per-program-configured (Tradeify)</a>. Topstep's TopstepX-only DLL removal and Bulenox's Option 1/Option 2 fork are structurally different mechanisms for the same end-state ("no DLL on this account") &mdash; Topstep gates it on platform choice (switchable trade-by-trade), Bulenox gates it on lifetime fork (locked at signup). The platform-toggled archetype is the most flexible, the fork-locked archetype is the most irreversible.</p>
 
 <p>Neither firm supports Tradovate natively. If your full workflow lives on Tradovate, neither firm is a clean fit; consider <a href="/blog/apex-vs-tradeify-2026/">Apex or Tradeify</a> instead.</p>
 
@@ -393,7 +397,7 @@
 
 <footer>
   <p>Independent comparison. Not affiliated with Topstep or Bulenox. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
-  <p>Related: <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/topstep-vs-tpt-2026/">Topstep vs TPT</a> &middot; <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/best-prop-firms-2026/">Best prop firms 2026</a> &middot; <a href="/prop-firms/topstep/">Topstep landing</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a></p>
+  <p>Related: <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/blog/topstep-vs-tpt-2026/">Topstep vs TPT</a> &middot; <a href="/blog/topstep-vs-tradeify-2026/">Topstep vs Tradeify</a> &middot; <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/best-prop-firms-2026/">Best prop firms 2026</a> &middot; <a href="/prop-firms/topstep/">Topstep landing</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a></p>
   <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
 </footer>
 
