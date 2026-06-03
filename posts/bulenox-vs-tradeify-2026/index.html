@@ -184,6 +184,8 @@
 
 <div class="key-fact"><strong>The structural inversion:</strong> Tradeify's three programs have <em>opposite</em> rule scopes. Growth is permissive on eval and strict on funded. Select is the reverse. Lightning skips the eval entirely but ratchets the rule tighter each payout. Pick the program that fits the phase of trading you spend the most time in.</div>
 
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-tradeify&amp;utm_campaign=deep-dive">The 4 archetypes of daily loss limit handling</a> &mdash; this pair shows two of them inside one comparison. Bulenox is <em>fork-locked-at-signup</em> (Option 1 strips DLL, Option 2 keeps it, permanent choice) &mdash; same archetype as Apex 4.0 EOD vs Intraday. Tradeify is <em>per-program-configured</em> (Growth eval has DLL, Select eval doesn't, Lightning has it on 50K+, switchable across accounts) &mdash; an archetype only Tradeify uses. The other two archetypes &mdash; firmwide-deleted (TPT, MFFU) and platform-toggled (Topstep TopstepX-only) &mdash; round out the cluster.</p>
+
 <h2 id="platforms">Platforms: opposite stacks</h2>
 
 <p>The platform difference is sharper here than between most prop-firm pairs.</p>
@@ -205,7 +207,7 @@
 
 <h2 id="drawdown">Trailing drawdown: same family, two implementations</h2>
 
-<p>Both firms lock the trail at <strong>Starting Balance + $100</strong>. This is the same lock archetype as Apex 4.0 and MyFundedFutures &mdash; and a different family from Topstep and TPT (both of which lock exactly at the starting balance).</p>
+<p>Both firms lock the <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-tradeify&amp;utm_campaign=inline-concept">trailing drawdown</a> at <strong>Starting Balance + $100</strong>. This is the same lock archetype as Apex 4.0 and MyFundedFutures &mdash; and a different family from Topstep and TPT (both of which lock exactly at the starting balance).</p>
 
 <p>On a 100K account, the lock fires at $103,100 of equity (100,000 + 3,000 drawdown + 100), and the trail floor freezes at $100,100 forever. From that point on, the drawdown stops moving up with profit &mdash; the only stop-out is the locked floor.</p>
 
@@ -242,6 +244,8 @@
 </ul>
 
 <div class="key-fact"><strong>The honest pick:</strong> if you tend to have one giant day and several small ones, Bulenox's Qualification window gives you a no-consistency runway, but you'll need to tighten up on Master + Funded. Tradeify Select gives you a no-consistency <em>funded</em> phase but a strict 40% eval. Match the program to your style, not to which threshold sounds easier.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-tradeify&amp;utm_campaign=deep-dive">How the consistency rule actually works across all 7 firms</a> &mdash; the same 40% threshold sits at THREE different scopes inside this pair alone (Bulenox Master+Funded, Tradeify Select eval, Tradeify Lightning at payout #3+). Across the wider cluster the threshold spans 30% (Apex 4.0 funded-only, Earn2Trade GAU eval-only), 35% (Tradeify Growth funded), 40% (here + MFFU Core both-scope), and 50% (Topstep eval-only). The load-bearing axis is scope, not the percentage.</p>
 
 <div class="cta">
   <h3>Plot your days against the threshold before payout day</h3>
@@ -355,7 +359,7 @@
 
 <footer>
   <p>Independent comparison. Not affiliated with Bulenox or Tradeify. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
-  <p>Related: <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/topstep-vs-bulenox-2026/">Topstep vs Bulenox</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
+  <p>Related: <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/topstep-vs-bulenox-2026/">Topstep vs Bulenox</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/topstep-vs-tradeify-2026/">Topstep vs Tradeify</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/topstep-vs-mffu-2026/">Topstep vs MFFU</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
   <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
 </footer>
 
