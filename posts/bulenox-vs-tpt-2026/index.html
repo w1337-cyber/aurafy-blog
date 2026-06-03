@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Bulenox vs TPT (2026): One Irrevocable Choice at Signup vs Three Forced by the Firm | Aurafy</title>
+<meta name="description" content="Bulenox and TPT both lock you into rule-shape decisions you cannot undo &mdash; but Bulenox makes you pick ONCE at signup (Option 1 vs Option 2, permanent for the account's life) while TPT shifts the trail TYPE under your feet three times across Test &rarr; PRO &rarr; PRO+. Different lock families. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/bulenox-vs-tpt-2026/" />
+<meta property="og:title" content="Bulenox vs TPT (2026): One Irrevocable Choice at Signup vs Three Forced by the Firm" />
+<meta property="og:description" content="Bulenox makes you pick the trail mechanic ONCE at signup (permanent for life). TPT changes it THREE times across the lifecycle (firm-imposed). Honest 2026 side-by-side." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --bulenox:#f04e4e;
+    --tpt:#ffb454;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-bulenox{color:var(--bulenox);font-weight:600}
+  .firm-tpt{color:var(--tpt);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(255,180,84,0.06);border-left:3px solid var(--tpt);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0d4a8}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.bulenox{border-left:3px solid var(--bulenox)}
+  .pick.tpt{border-left:3px solid var(--tpt)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.b{border-top:2px solid var(--bulenox)}
+  .axis-side.t{border-top:2px solid var(--tpt)}
+  .phase-shift{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.phase-shift{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+  .phase-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .phase-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .option-fork{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.option-fork{grid-template-columns:1fr 1fr;gap:10px}}
+  .option-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .option-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Bulenox vs TPT (2026): One Irrevocable Choice at Signup vs Three Forced by the Firm</h1>
+  <p class="lede">Both firms make you live with rule-shape decisions you can&rsquo;t undo. <a href="https://aurafy.dev/prop-firms/bulenox/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=lede-bulenox">Bulenox</a> forces ONE permanent choice at signup &mdash; Option 1 (intraday <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=lede-trail&utm_campaign=inline-concept">trail</a>, no DLL) or Option 2 (EOD trail, with DLL) &mdash; and you cannot switch for the life of the account. <a href="https://aurafy.dev/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=lede-tpt">Take Profit Trader</a> shifts the trail TYPE under your feet three times across Test &rarr; PRO &rarr; PRO+, firm-imposed. Different lock families too (Bulenox SB+$100, TPT SB exact). Same lifetime-decision wedge, opposite source.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We&rsquo;re not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm&rsquo;s current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#wedge">The wedge</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#decision">The irrevocable decision</a>
+  <a href="#trail">Trail mechanics &amp; lock floor</a>
+  <a href="#dll">Daily loss limit: optional vs absent</a>
+  <a href="#consistency">Consistency: same threshold, different scope</a>
+  <a href="#payment">Activation model</a>
+  <a href="#examples">Worked scenario</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/bulenox/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=tldr-bulenox">Bulenox</a> if</strong> you want to make ONE permanent choice at signup and never re-validate your style under a different rule mechanic. Option 1 if you trade an intraday HWM trail with no DLL and want maximum freedom on a single session; Option 2 if you want an EOD trail with a DLL circuit-breaker. You&rsquo;re comfortable with a monthly subscription during Qualification ($145&ndash;$535 by size) and a one-time activation fee at Qualification&rarr;Master. Lock at SB+$100 (50K stops at $50,100). 100% of first $10K of withdrawals paid to you. No news restriction.
+</div>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=tldr-tpt">TPT</a> if</strong> you want one-time $130 upfront cost with no subscription, you trade well under an EOD trail in evaluation AND an INTRADAY trail at funded (the rule shape changes when you pass Test), and you want automatic promotion to live capital (no application since 2026-03-18). You accept that the firm imposes three rule-shape changes across Test (EOD/50% consistency) &rarr; PRO (INTRADAY/no consistency/80/20) &rarr; PRO+ (EOD/no consistency/90/10). Lock at SB exactly (50K stops at $50,000). PRO+ reset NOT permitted &mdash; bust the live account, it closes permanently.
+</div>
+<div class="verdict">
+  <strong>Different lock families.</strong> Bulenox locks at <strong>Starting Balance + $100</strong> (50K floor = $50,100, 100K floor = $100,100) &mdash; same archetype as Apex 4.0, MFFU, Tradeify. TPT locks at <strong>Starting Balance exactly</strong> (50K floor = $50,000) &mdash; same archetype as Topstep funded. The $100 buffer is small in absolute dollars but structurally different in mechanic.
+</div>
+
+<h2 id="wedge">The wedge in plain English</h2>
+
+<p>Most prop-firm comparisons rank firms by drawdown size or profit target. Bulenox and TPT have superficially similar numbers on the entry-tier eval &mdash; both around $2,000&ndash;$2,500 trailing drawdown on 50K, both around $1,500&ndash;$3,000 profit target. The structural story is about <em>who decides when the rule shape changes &mdash; and how many times</em>.</p>
+
+<p><strong class="firm-bulenox">Bulenox &mdash; the trader decides once, permanently, at signup.</strong> Before paying for a Qualification subscription, the trader picks Option 1 (intraday HWM trail, no daily loss limit, full contracts day one, no scaling) or Option 2 (EOD-only trail, daily loss limit enforced, contract scaling plan). This choice is permanent. The same trader cannot switch from Option 1 to Option 2 (or vice-versa) on the same account &mdash; even after Qualification, even at the Master phase, even when funded. The trail mechanic, the DLL presence, and the scaling rules are locked in at signup for the account&rsquo;s entire life.</p>
+
+<p><strong class="firm-tpt">TPT &mdash; the firm imposes rule-shape shifts three times across the lifecycle.</strong> Three phases, three rule profiles: Test (EOD trail, 50% consistency, 5-day min), PRO (INTRADAY trail, no consistency, 1-day-per-week min, 80/20 split), PRO+ (EOD trail again, no consistency, 90/10 split, real capital). The trail TYPE itself changes between phases. The trader has no input on when these shifts happen or which rule mechanic applies at each phase. Auto-promoted since 2026-03-18.</p>
+
+<p>Same irrevocable-decision wedge &mdash; opposite source. Bulenox puts the decision in the trader&rsquo;s hands at the start; TPT keeps the decision with the firm and surprises the trader at every phase boundary. That&rsquo;s the spine of this comparison.</p>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-bulenox">Bulenox</th><th class="firm-tpt">Take Profit Trader (TPT)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Phase structure</td><td>Qualification &rarr; Master &rarr; Funded</td><td>Test &rarr; PRO (simulated funded) &rarr; PRO+ (live funded)</td></tr>
+    <tr><td class="label">Irrevocable decision</td><td><strong>At signup</strong> &mdash; Option 1 vs Option 2 (trader-chosen, permanent)</td><td><strong>At each phase</strong> &mdash; trail TYPE shifts EOD &rarr; INTRADAY &rarr; EOD (firm-imposed)</td></tr>
+    <tr><td class="label">Trail type</td><td>Option 1 INTRADAY (HWM) &middot; Option 2 EOD (5pm CT close)</td><td><strong>Shifts:</strong> EOD &rarr; INTRADAY &rarr; EOD across phases</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance + $100 (50K floor = $50,100)</td><td>Starting Balance exactly (50K floor = $50,000)</td></tr>
+    <tr><td class="label">Daily loss limit</td><td>Option 1: <strong>None</strong> &middot; Option 2: $500&ndash;$4,500 by size</td><td><strong>None firmwide</strong> since January 2025</td></tr>
+    <tr><td class="label">Consistency (eval)</td><td><strong>None on Qualification</strong></td><td>50% Test only &mdash; max safe day &asymp; total &times; 1.0</td></tr>
+    <tr><td class="label">Consistency (funded)</td><td>40% on Master AND Funded</td><td><strong>None</strong> &mdash; drops on PRO and PRO+</td></tr>
+    <tr><td class="label">Min trading days</td><td>0 on Qualification &middot; 10 on Master &middot; 5 per Funded payout cycle</td><td>5 on Test &middot; 1/week on PRO/PRO+</td></tr>
+    <tr><td class="label">Profit split</td><td>First $10K paid 100% to trader, then 90/10</td><td>PRO 80/20 &middot; PRO+ 90/10</td></tr>
+    <tr><td class="label">Activation fee</td><td>$98&ndash;$490 by size (one-time Qualification&rarr;Master)</td><td><strong>$130 upfront</strong> per Test attempt</td></tr>
+    <tr><td class="label">Monthly subscription</td><td>$145&ndash;$535 by size during Qualification</td><td>None &mdash; one-time fee per attempt</td></tr>
+    <tr><td class="label">Reset fee</td><td>$78 mid-cycle &middot; $0 at renewal</td><td>Not stated for Test &middot; PRO+ reset <strong>NOT permitted</strong></td></tr>
+    <tr><td class="label">Payout cadence</td><td>Weekly Wednesdays, 8&ndash;12hr processing, $1,000 min</td><td>Daily on PRO/PRO+ once buffer cleared, 7-day min between</td></tr>
+    <tr><td class="label">Account sizes</td><td>10K, 25K, 50K, 100K, 150K, 250K</td><td>25K, 50K, 75K, 100K, 150K</td></tr>
+    <tr><td class="label">Platforms</td><td>NinjaTrader, Rithmic, R&#124;Trader, ATAS, Quantower, Sierra Chart (no native Tradovate)</td><td>NinjaTrader, Tradovate, TradingView, Rithmic</td></tr>
+    <tr><td class="label">News trading</td><td><strong>No restriction</strong> &mdash; FOMC/CPI/NFP permitted</td><td>PRO/PRO+ banned 1 min around FOMC, NFP, CPI</td></tr>
+    <tr><td class="label">Overnight holding</td><td>Flat by 15:59 CT every day</td><td>Flat by 17:00 ET every day</td></tr>
+    <tr><td class="label">Max funded accounts</td><td>3 initial &middot; 11 Master scaled (cap $2.75M total)</td><td>5</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="decision">The irrevocable decision: signup-time vs phase-shift</h2>
+
+<p>This is the structural wedge that defines Bulenox vs TPT. Both firms force a rule-shape decision the trader cannot reverse. The question is <em>when</em> the decision happens, and <em>who</em> makes it.</p>
+
+<h3>Bulenox &mdash; one permanent fork at signup</h3>
+
+<div class="option-fork">
+  <div class="option-box">
+    <strong>Option 1 (No-Scaling)</strong>
+    INTRADAY HWM trail. NO daily loss limit. Full contracts day one (3 / 7 / 12 / 15 / 25 by size). 40% consistency on Master + Funded only.
+  </div>
+  <div class="option-box">
+    <strong>Option 2 (EOD)</strong>
+    EOD-only trail (5pm CT session close). DLL enforced ($500&ndash;$4,500 by size). Contract scaling plan. 40% consistency on Master + Funded only.
+  </div>
+</div>
+
+<p>Pick wrong &mdash; for example, you pick Option 1 thinking you&rsquo;ll trade intraday HWM but discover your style is actually EOD-friendly &mdash; and you cannot switch the same account to Option 2. You buy a new account, lose your Qualification progress on the old one, restart from zero.</p>
+
+<h3>TPT &mdash; three forced shifts across the lifecycle</h3>
+
+<div class="phase-shift">
+  <div class="phase-box">
+    <strong>Test (eval)</strong>
+    EOD trail. 50% consistency. 5-day minimum. Pass at $3,000 profit on 50K. The forgiving evaluation mechanic.
+  </div>
+  <div class="phase-box">
+    <strong>PRO (simulated funded)</strong>
+    <strong style="color:var(--tpt);text-transform:none;letter-spacing:0;font-size:0.92rem;display:inline">INTRADAY trail</strong> &mdash; rule shape changes. No consistency. 80/20 split. 1 trading day per calendar week minimum.
+  </div>
+  <div class="phase-box">
+    <strong>PRO+ (live funded)</strong>
+    EOD trail (reverts). No consistency. 90/10 split. Real capital. Auto-promoted since 2026-03-18. Reset NOT permitted on bust.
+  </div>
+</div>
+
+<p>The middle phase is the trap. A trader passes Test on an EOD trail (which forgives intraday wicks), then gets moved to PRO where the trail recomputes on every new intraday high &mdash; the same wick that didn&rsquo;t matter in Test now ratchets the floor up. The trader had no input on when this shift happens or which trail type applies. Passed-Test-then-blown-PRO is the documented TPT failure mode.</p>
+
+<div class="key-fact"><strong>The structural symmetry:</strong> Bulenox and TPT both force the trader to live with rule-shape decisions that cannot be undone. The opposite-axis insight: Bulenox front-loads the decision (one choice, made by the trader, before paying for anything) while TPT distributes the decision across the account&rsquo;s life (three changes, made by the firm, with no trader input). A trader who values agency at the cost of signup-paralysis prefers Bulenox; a trader who wants to start trading immediately and adapt as the firm shifts the goalposts prefers TPT.</div>
+
+<h2 id="trail">Trail mechanics &amp; lock floor</h2>
+
+<p>The lock <em>floor</em> differs by $100 per account &mdash; small in absolute dollars, structurally significant because it puts the two firms in different lock-family archetypes.</p>
+
+<div class="axis">
+  <div class="axis-side b">
+    <strong>Bulenox &mdash; locks at SB + $100</strong>
+    50K account: trail floor stops moving once equity reaches $52,100 and fixes at $50,100 for the rest of the account&rsquo;s life. 100K floor = $100,100. Same archetype as Apex 4.0, MFFU, Tradeify. The $100 buffer is the safety net that lets you go +$1 net of starting balance without immediately being at-risk of breach.
+  </div>
+  <div class="axis-side t">
+    <strong>TPT &mdash; locks at SB exactly</strong>
+    50K account: trail floor locks at $50,000 once profit clears the drawdown amount. 100K floor = $100,000. Same archetype as Topstep funded. No $100 buffer &mdash; net $0 from starting balance puts you exactly at the floor with zero margin.
+  </div>
+</div>
+
+<p>The trail TYPE is where the comparison becomes really structural. Bulenox locks the type at signup (Option 1 intraday HWM OR Option 2 EOD &mdash; permanently, for the account&rsquo;s life). TPT mandates shifts (Test EOD &rarr; PRO INTRADAY &rarr; PRO+ EOD) across the lifecycle.</p>
+
+<div class="key-fact"><strong>The trail-style match-up:</strong> Bulenox Option 1 (intraday HWM) trades roughly like TPT&rsquo;s PRO phase &mdash; same risk-mechanic. Bulenox Option 2 (EOD) trades roughly like TPT&rsquo;s Test and PRO+ phases &mdash; same risk-mechanic. The difference is at Bulenox you commit to <em>one</em> mechanic for the account&rsquo;s entire life; at TPT you traverse <em>both</em> (and sometimes the same one twice) across three forced phase changes.</p>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=trail-deepdive&utm_campaign=deep-dive">Trailing drawdown across 7 prop firms</a> &mdash; Bulenox is the only firm in the dataset that forces a permanent trail-mechanic binary at signup. TPT is the only firm that mandates a trail-TYPE shift inside a single account&rsquo;s lifecycle. The explainer maps all seven firms against trail timing, lock-point archetype, and lifecycle volatility &mdash; Bulenox and TPT sit at opposite ends of the "who decides when the trail mechanic locks?" axis.</p>
+
+<div class="cta">
+  <h3>Model both irrevocable forks before you sign up</h3>
+  <p>Our free trailing-drawdown calculator runs the Bulenox Option 1 (intraday), Bulenox Option 2 (EOD), TPT Test (EOD), and TPT PRO (intraday) presets. See exactly how your worst day plays out under each mechanic. No login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=trail-cta">Open the calculator</a>
+</div>
+
+<h2 id="dll">Daily loss limit: trader-chosen vs absent</h2>
+
+<p>The DLL axis is shaped by the irrevocable-decision wedge. Bulenox lets the trader choose whether the account has a DLL at signup (Option 1 = no DLL, Option 2 = with DLL). TPT removed the DLL entirely in 2025.</p>
+
+<div class="axis">
+  <div class="axis-side b">
+    <strong>Bulenox &mdash; trader-chosen at signup</strong>
+    Option 1: no DLL at any size. Option 2: $500 (25K), $1,100 (50K), $2,200 (100K), $3,300 (150K), $4,500 (250K). Hitting the limit on Option 2 closes the day and auto-flattens open positions &mdash; does NOT breach the account. A built-in circuit-breaker the trader opted into at signup.
+  </div>
+  <div class="axis-side t">
+    <strong>TPT &mdash; absent firmwide since January 2025</strong>
+    No DLL on Test, PRO, or PRO+. Removed firmwide in 2025. The trailing drawdown is the only hard-loss guardrail. A trader can give back any amount intraday without triggering a session lockout &mdash; until they hit the trail floor.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The risk-floor asymmetry:</strong> Both firms can be "no DLL" &mdash; that&rsquo;s Bulenox Option 1 vs TPT (any phase). But only Bulenox lets you opt INTO a DLL via Option 2 at signup. TPT doesn&rsquo;t offer the option at all. A tilt-prone trader who wants a session circuit-breaker has Bulenox Option 2 as the only path here; on TPT, the only stopper is the trail floor itself.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=dll-deepdive&utm_campaign=deep-dive">Daily loss limit across 7 prop firms</a> &mdash; Bulenox is the only firm in the dataset where DLL presence is a permanent trader-chosen binary at signup. TPT is the only firm that removed its DLL firmwide. The explainer maps the four DLL archetypes (no-DLL, eval-only DLL, uniform DLL, sliding DLL by phase) and how each archetype interacts with trader-chosen-vs-firm-imposed decision structure.</p>
+
+<h2 id="consistency">Consistency: same threshold-region, different scope</h2>
+
+<p>Bulenox and TPT both apply consistency on a slice of the lifecycle and drop it elsewhere &mdash; but which slice is opposite, and the threshold is different.</p>
+
+<div class="axis">
+  <div class="axis-side b">
+    <strong>Bulenox &mdash; 40% on Master + Funded (NOT Qualification)</strong>
+    Single day&rsquo;s profit &divide; total profit at payout request &le; 0.40. Applies on the Master phase and continues on Funded payouts &mdash; the funded-side tax. Qualification phase is consistency-free. On $5,000 funded profit: max single day = $2,000.
+  </div>
+  <div class="axis-side t">
+    <strong>TPT &mdash; 50% on Test only (drops on PRO and PRO+)</strong>
+    Single day&rsquo;s profit &divide; total profit &le; 0.50 at the point of passing Test. Loosest threshold in the cluster. Drops entirely on PRO and PRO+. On $3,000 pass target: max single day = $1,500. No consistency tax once funded.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The honest take:</strong> Bulenox&rsquo;s consistency rule is the funded-side tax &mdash; the trader must respect it on every payout submission for the account&rsquo;s life. TPT&rsquo;s consistency rule is the eval gate only &mdash; pass once, never see it again. So <em>where</em> the rule lives is opposite: Bulenox front-loads no-rule (Qualification) and back-loads the rule (Master + Funded); TPT does the inverse (rule on Test, no rule on funded). A trader who wants to grind freely on the eval but accept a funded-side tax prefers Bulenox; a trader who wants to clear one consistency hurdle and never see it again prefers TPT.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=consistency-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; Bulenox and TPT demonstrate the cluster&rsquo;s clearest "same general threshold-region (40&ndash;50%), opposite scope" mismatch. Bulenox applies the rule funded-side only (Master + Funded), TPT applies it eval-side only (Test). Apex 4.0 (30% on both phases) and Topstep (50% eval-only) are the other anchors of the scope-and-threshold matrix.</p>
+
+<div class="cta">
+  <h3>Check your days against either threshold</h3>
+  <p>The consistency calculator runs Bulenox&rsquo;s 40%, TPT&rsquo;s 50%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn&rsquo;t fail on geometry.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="payment">Activation model: subscription-during-eval vs upfront-per-attempt</h2>
+
+<p>Bulenox and TPT approach cost-of-attempt from opposite directions. Bulenox is subscription-monthly during Qualification + one-time activation Q&rarr;M. TPT is one-time-fee per Test attempt, no subscription at all.</p>
+
+<div class="axis">
+  <div class="axis-side b">
+    <strong>Bulenox</strong>
+    Monthly subscription during Qualification ($145 / $175 / $215 / $325 / $535 by size). One-time activation fee at Q&rarr;M ($98 / $130 / $220 / $490 stated for 10K / 25K / 50K / 250K). $78 reset mid-cycle, free reset at renewal. Total cost-to-attempt = monthly subscription &times; months in Qualification + activation. 100% of first $10K of withdrawals paid to trader (unique in cluster).
+  </div>
+  <div class="axis-side t">
+    <strong>TPT</strong>
+    <strong>$130 upfront</strong> per Test attempt &mdash; that&rsquo;s it. No monthly subscription. Auto-promote PRO &rarr; PRO+ at no extra cost. PRO+ reset NOT permitted &mdash; bust the live account and it closes permanently. Total cost-to-attempt = $130 &times; attempts purchased.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The economic asymmetry:</strong> A trader who passes Bulenox 50K in 2 months pays roughly $350 (subscription) + $220 (activation) = $570 to get funded. A trader who passes TPT 50K on first attempt pays $130. So <em>on a fast pass, TPT is cheaper</em>. A trader who takes 6 attempts at TPT pays $780; a trader who grinds Bulenox for 6 months pays ~$1,050 + $220. <em>The grind tilts cheaper toward TPT on most accounts.</em> The Bulenox sweetener: first $10K of withdrawals is 100% to the trader, which TPT does not match. Above $10K both firms move toward 80&ndash;90% splits (Bulenox 90/10, TPT 80/20 PRO and 90/10 PRO+).</div>
+
+<h2 id="examples">Worked scenario: the irrevocable-decision moment in action</h2>
+
+<p>A 50K-account trader who has never thought hard about whether they trade intraday HWM or EOD style. How does the lifecycle play out at each firm?</p>
+
+<h3>Scenario A &mdash; signed up for Bulenox Option 1 (intraday HWM)</h3>
+<ul>
+  <li>Pays the 50K subscription ($175/mo) and starts Qualification. Picked Option 1 because "no DLL sounds free."</li>
+  <li>Trades intraday for 3 weeks. Hits +$1,400 equity high one morning, gives back to +$300 by close. Intraday HWM trail recomputed the floor on the morning high.</li>
+  <li>Next day&rsquo;s session opens with a $1,200 intraday wick &mdash; the recomputed floor breaches. Account closed mid-session.</li>
+  <li>Realizes the trading style is actually EOD-friendly. Cannot switch the same account to Option 2 (permanent decision at signup). Has to buy a new Qualification subscription and restart from zero.</li>
+  <li>Outcome: paid for the wrong option and ate the cost of that mismatch.</li>
+</ul>
+
+<h3>Scenario B &mdash; signed up for TPT Test</h3>
+<ul>
+  <li>Pays $130 upfront for a 50K Test. Trades EOD style and passes Test in 8 sessions at +$3,200. Easy pass.</li>
+  <li>Auto-promoted to PRO. <strong>Trail mechanic changes</strong> &mdash; now intraday HWM. Trader had no choice; the firm changed the rule shape.</li>
+  <li>Week 3 of PRO: $1,400 intraday equity high at 11am, trader gives back to +$200 by close. The intraday floor recomputed on the 11am high; the next morning a $1,600 intraday drawdown breaches. Account closed.</li>
+  <li>The trader didn&rsquo;t learn anything new about their style &mdash; the rule shape changed under them. Passed-Test-then-blown-PRO is the documented failure mode.</li>
+</ul>
+
+<div class="key-fact">The structural insight: both firms produced the same outcome &mdash; a blown account because the trader&rsquo;s style mismatched an intraday HWM trail. The Bulenox outcome was the trader&rsquo;s fault (chose Option 1 at signup without knowing their style). The TPT outcome was the firm&rsquo;s fault (imposed the intraday trail at PRO, the trader had no input). Same mechanic ate both accounts; opposite blame attribution. A trader who values "if I fail it was my own decision" prefers Bulenox; a trader who wants the firm to be the gatekeeper prefers TPT.</div>
+
+<div class="warn"><strong>Lifecycle landmines:</strong> (a) <span class="firm-bulenox">Bulenox</span>: declining the transition to Funded after 3 successful Master payouts CLOSES the Master with no further payout &mdash; documented 2025 rug-pull risk. Cross-account hedging banned. Automated/HFT prohibited. (b) <span class="firm-tpt">TPT</span>: PRO+ reset NOT permitted &mdash; bust the live account, it closes permanently. PRO/PRO+ ban news trading 1 min before/during/after FOMC, NFP, CPI. Max 5 funded accounts. All positions flat by 5pm ET.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick bulenox">
+    <h4 class="firm-bulenox">Pick Bulenox if&hellip;</h4>
+    <ul>
+      <li>You know your trading style well enough to commit to Option 1 OR Option 2 at signup, permanently</li>
+      <li>You want maximum freedom on news trading (no FOMC/CPI/NFP restriction)</li>
+      <li>You value the 100% of first $10K of withdrawals (cluster-unique)</li>
+      <li>You&rsquo;re fine paying monthly subscription during Qualification ($145&ndash;$535 by size)</li>
+      <li>You want the choice of trail mechanic AND DLL presence baked in at signup</li>
+      <li>You prefer NinjaTrader / Rithmic / ATAS / Quantower / Sierra Chart (no Tradovate native)</li>
+      <li>You want scaling up to 11 Master accounts and $2.75M total funded</li>
+      <li>You can stomach the funded-transition rug-pull risk if you decline at +3 payouts</li>
+    </ul>
+  </div>
+  <div class="pick tpt">
+    <h4 class="firm-tpt">Pick TPT if&hellip;</h4>
+    <ul>
+      <li>You want one-time-fee structure ($130 upfront, no monthly subscription)</li>
+      <li>You&rsquo;re comfortable having the firm shift the trail TYPE on you mid-lifecycle</li>
+      <li>You value automatic live-capital promotion (no application, since 2026-03-18)</li>
+      <li>You can pass under a 50% consistency rule on Test (looser threshold)</li>
+      <li>You want no consistency tax on funded (drops on PRO and PRO+)</li>
+      <li>You&rsquo;re OK with FOMC/NFP/CPI news bans on funded phases</li>
+      <li>You prefer Tradovate / TradingView / Rithmic / NinjaTrader (Tradovate is native)</li>
+      <li>You only need up to 5 funded accounts and trade daily flat by 5pm ET</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I switch Bulenox Option 1 to Option 2 (or vice-versa) on the same account?</summary>
+  <p>No. The Option 1 vs Option 2 decision is permanent at signup and applies for the account&rsquo;s entire life &mdash; through Qualification, Master, and Funded. To trade under the other option, you buy a new Qualification subscription and start from zero on a new account. This is Bulenox&rsquo;s defining structural quirk and the single biggest source of signup regret. Pick carefully &mdash; or run both options on parallel accounts if your style is genuinely flexible.</p>
+</details>
+
+<details>
+  <summary>Why does TPT change the <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-tpt&amp;utm_campaign=inline-faq">trail type</a> between phases?</summary>
+  <p>TPT uses the trail-type shift as a phase-differentiator: EOD trail in Test (forgiving evaluation) &rarr; INTRADAY trail in PRO (tightens risk discipline at simulated funded) &rarr; EOD trail again in PRO+ (live-capital phase, reverts to the forgiving mechanic). The firm&rsquo;s logic is that PRO is the discipline-test phase between passing Test and earning real capital at PRO+. The practical effect: passed-Test-then-blown-PRO is the documented failure mode at TPT and is the single biggest source of post-eval regret. Bulenox solves the same problem by making the trader pick the mechanic ONCE at signup &mdash; opposite end of the same wedge.</p>
+</details>
+
+<details>
+  <summary>What&rsquo;s the actual cost difference on a 3-month attempt?</summary>
+  <p>Bulenox 50K: ~$175/month subscription &times; 3 months = $525, plus $220 activation if you pass = $745 to get funded. Bulenox 100K: ~$215/month &times; 3 months = $645 + activation. TPT 50K: $130 per Test attempt. Three attempts = $390. TPT is meaningfully cheaper on a typical eval grind. Bulenox makes back ground via the 100% first-$10K withdrawal &mdash; on the FIRST $10K of payouts, you keep all of it (vs TPT&rsquo;s 80/20 PRO or 90/10 PRO+). Past $10K, both firms move to similar splits.</p>
+</details>
+
+<details>
+  <summary>Why doesn&rsquo;t TPT have a <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-tpt&amp;utm_campaign=inline-faq">daily loss limit</a>?</summary>
+  <p>TPT removed the daily loss limit firmwide in January 2025. The official rationale is that the trailing drawdown alone is sufficient as a hard-loss guardrail and that a DLL was creating session-lockout friction without changing aggregate firm risk. The practical effect: no session circuit-breaker &mdash; one bad afternoon can drain to the trail floor without anything stopping it. Bulenox offers the DLL as a trader-chosen feature (Option 2 only) &mdash; a tilt-prone trader who wants the circuit-breaker has Bulenox Option 2 as the only path here.</p>
+</details>
+
+<details>
+  <summary>How does the <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=bulenox-vs-tpt&amp;utm_campaign=inline-faq">consistency rule</a> differ in practice?</summary>
+  <p>Opposite scope. Bulenox applies 40% consistency on Master + Funded (every payout request, for the account&rsquo;s life). TPT applies 50% consistency on Test only (passes once, drops forever on PRO and PRO+). So Bulenox&rsquo;s rule is a permanent funded-side tax; TPT&rsquo;s rule is an eval gate. On the threshold side: Bulenox 40% is mid-cluster tightness, TPT 50% is loosest (Apex 4.0 30% is the cluster floor). The MATH: on a $5,000 funded profit at Bulenox, max single day = $2,000; on TPT&rsquo;s $3,000 Test pass, max single day = $1,500.</p>
+</details>
+
+<details>
+  <summary>Can I run a Bulenox account and a TPT account at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent and cross-firm hedging is not enforceable by either rulebook (they can&rsquo;t see your other firm&rsquo;s positions). Both firms restrict <em>cross-account</em> activity within their own platform &mdash; Bulenox explicitly bans cross-account hedging and copy-trading; TPT applies similar restrictions on coordinated multi-account activity. Run accounts at both firms independently; do not coordinate equal-and-opposite positions between them.</p>
+</details>
+
+<details>
+  <summary>What&rsquo;s the Bulenox &ldquo;funded-transition rug-pull&rdquo; risk?</summary>
+  <p>After 3 successful Master-phase payouts, Bulenox offers the trader the option to transition to a Funded account. <strong>Declining that transition closes the Master account with no further payout &mdash; you keep the 3 payouts already earned, but the account is terminated.</strong> Documented as a rug-pull pattern in 2025 community discussion. The honest read: the firm wants traders to convert to Funded (which has the 40% consistency rule on payouts indefinitely) rather than stay on Master as a forever-payout pipeline. Plan to accept the Funded transition when offered.</p>
+</details>
+
+<details>
+  <summary>Is TPT PRO+ &ldquo;real money&rdquo;?</summary>
+  <p>Yes &mdash; PRO+ is live capital trading, 90/10 split, EOD trail, real exchange routing. Promotion from PRO to PRO+ is automatic since 2026-03-18 (no application or extra fee) based on TPT&rsquo;s internal review of consistency / risk / execution metrics on the PRO account. PRO+ reset is NOT permitted &mdash; bust the live account and it closes permanently, no option to restart that specific account. Bulenox&rsquo;s Funded phase is also real-payout (90/10 after first $10K which is 100% to trader); both firms operate on simulated-then-live-paid models common to the prop industry.</p>
+</details>
+
+<details>
+  <summary>What about the other 5 firms in this cluster?</summary>
+  <p>Bulenox locks at SB+$100 (Apex 4.0, MFFU, Tradeify family). TPT locks at SB exactly (Topstep, Earn2Trade family). Each firm has a dedicated landing page: <a href="/prop-firms/topstep/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=faq-topstep">Topstep</a>, <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=faq-apex">Apex</a>, <a href="/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=faq-mffu">MFFU</a>, <a href="/prop-firms/tradeify/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=faq-tradeify">Tradeify</a>, <a href="/prop-firms/earn2trade/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=faq-earn2trade">Earn2Trade</a>.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and (where applicable) daily loss against either firm&rsquo;s preset in real time as you upload Tradovate, NinjaTrader, or Rithmic fills. Bulenox Option 1 (intraday) and Option 2 (EOD) presets both supported &mdash; the journal honors the permanent choice and tracks Master/Funded consistency. TPT Test (EOD), TPT PRO (intraday), and TPT PRO+ (EOD) presets all supported &mdash; the journal switches the trail-type rule automatically when you mark the account as phase-promoted. Multi-account, multi-firm &mdash; one journal across every prop firm you trade.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Bulenox + TPT accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required. Option-fork and phase-shift presets baked in.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=bulenox-vs-tpt&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Bulenox or Take Profit Trader. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm&rsquo;s current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/bulenox-vs-mffu-2026/">Bulenox vs MFFU</a> &middot; <a href="/blog/bulenox-vs-earn2trade-2026/">Bulenox vs Earn2Trade</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/topstep-vs-bulenox-2026/">Topstep vs Bulenox</a> &middot; <a href="/blog/topstep-vs-tpt-2026/">Topstep vs TPT</a> &middot; <a href="/blog/apex-vs-tpt-2026/">Apex vs TPT</a> &middot; <a href="/blog/tpt-vs-earn2trade-2026/">TPT vs Earn2Trade</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/prop-firms/bulenox/">Bulenox landing</a> &middot; <a href="/prop-firms/take-profit-trader/">TPT landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>
