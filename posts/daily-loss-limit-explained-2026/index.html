@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Daily Loss Limit Explained (2026): The Most Fragmented Rule in Prop Trading | Aurafy</title>
+<meta name="description" content="A canonical 2026 explainer of how prop-firm daily loss limits actually work — what hitting one does to your account, why three of the seven biggest firms have effectively killed the rule, and the four archetypes you need to recognize before signup." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/" />
+<meta property="og:title" content="Daily Loss Limit Explained: The Most Fragmented Rule in Prop Trading" />
+<meta property="og:description" content="The mechanic-level explainer of prop-firm daily loss limits: who still has one, who quietly killed it, and the four presence-archetypes across Topstep, Apex 4.0, MFFU, TPT, Tradeify, Bulenox, and Earn2Trade." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --has:#5b8def;
+    --none:#8a94a3;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.92rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-has{color:var(--has);font-weight:600}
+  .firm-none{color:var(--none);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  .tool-row{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.tool-row{grid-template-columns:1fr 1fr}}
+  .tool-card{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .tool-card h4{margin:0 0 6px;font-size:0.98rem;color:#fff}
+  .tool-card p{margin:0 0 10px;color:var(--muted);font-size:0.88rem}
+  .tool-card a{font-size:0.9rem;font-weight:600}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .flavor-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.flavor-grid{grid-template-columns:1fr 1fr}}
+  .flavor{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .flavor h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .flavor.has{border-left:3px solid var(--has)}
+  .flavor.none{border-left:3px solid var(--none)}
+  .flavor ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .flavor li{margin-bottom:4px}
+  .scenario{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px;margin:14px 0}
+  .scenario h4{margin:0 0 10px;font-size:1.02rem;color:#fff}
+  .timeline{font-family:var(--mono);font-size:0.88rem;color:#d6dde6;background:var(--panel-2);padding:12px 14px;border-radius:8px;margin:10px 0;line-height:1.65}
+  .timeline .ok{color:var(--green)}
+  .timeline .bad{color:var(--red)}
+  .timeline .warn{color:var(--amber)}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .related{display:grid;gap:10px;margin:14px 0}
+  @media(min-width:640px){.related{grid-template-columns:1fr 1fr}}
+  .related a{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:block;color:var(--text)}
+  .related a:hover{text-decoration:none;border-color:var(--accent)}
+  .related a strong{display:block;color:#fff;font-size:0.95rem;margin-bottom:4px}
+  .related a span{color:var(--muted);font-size:0.84rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Daily Loss Limit Explained: The Most Fragmented Rule in Prop Trading</h1>
+  <p class="lede">The daily loss limit is the only one of the three pillar mechanics &mdash; trailing drawdown, consistency rule, daily loss limit &mdash; that can be completely absent at a firm. And in 2026, three of the seven biggest US prop firms have effectively killed it. Here's the mechanic-level explainer: what hitting one actually does to your account, why some firms quietly dropped the rule, and the four presence-archetypes you need to recognize before signing up.</p>
+  <div class="meta">
+    <span>~7 min read</span>
+    <span>Published June 2026</span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>Verify with your firm &mdash; rules change.</strong> TPT removed daily loss limits firmwide in January 2025; Topstep removed default DLL on TopstepX in August 2024 (NinjaTrader users still get one); MFFU has never had a DLL on any 2026 plan; Bulenox forks DLL into a permanent-at-signup binary choice. The numbers below were correct at publish time, but always confirm against your firm's current rules page before sizing your morning risk budget.
+</div>
+
+<div class="toc">
+  <a href="#what">What "daily loss limit" actually means</a>
+  <a href="#absence">The wedge &mdash; three firms killed it</a>
+  <a href="#archetypes">The four presence-archetypes</a>
+  <a href="#example">Worked example &mdash; same &minus;$1,200 day, four firms</a>
+  <a href="#mechanics">What hitting DLL actually does</a>
+  <a href="#math">The formula</a>
+  <a href="#firms">By firm &mdash; 2026 matrix</a>
+  <a href="#tools">Free calculators</a>
+  <a href="#faq">FAQ</a>
+</div>
+
+<h2 id="what">What "daily loss limit" actually means</h2>
+<p>A daily loss limit (DLL) is a calendar-day net P&amp;L floor. Hit it &mdash; usually a fixed dollar amount tied to your account size, calculated session-to-session &mdash; and the firm locks the account for the rest of the trading day. Some firms also auto-flatten any open positions at the moment of the breach; some merely block new orders; a few count it as a hard account-ending violation. The next session resets the counter to zero and you can trade again the following morning.</p>
+
+<p>The rule exists for the same reason every risk rule exists: it caps the firm's per-session downside on any single trader. From the firm's perspective, the trader who blows through their DLL is the trader most likely to also blow through the trailing drawdown shortly after &mdash; so the DLL is the early-warning floor that fires before the account-ending one does. Whether your firm even runs the DLL anymore is now a real question.</p>
+
+<div class="key-fact">
+  <strong>The honest one-liner:</strong> the DLL is the floor that closes your session. The trailing drawdown is the floor that closes your account. They're two different floors with two different consequences &mdash; and the DLL is the only one that some 2026 prop firms have decided to remove.
+</div>
+
+<h2 id="absence">The wedge &mdash; three of the seven biggest firms killed it</h2>
+<p>Among the three pillar mechanics that govern a futures prop-firm account, the daily loss limit is the only one any major firm has fully removed in recent memory. Trailing drawdown is present at all seven major firms in some form (intraday or EOD, locked at SB or SB+$100). Consistency rule is present at most firms in some form (eval-only or lifetime). DLL is the only one where the answer at three major firms in 2026 is &mdash; simply &mdash; <em>no rule at all</em>.</p>
+
+<p><strong>Take Profit Trader</strong> removed the daily loss limit firmwide in January 2025. The official rationale: trailing drawdown is already the binding hard-loss guardrail, and the DLL was redundant friction. Today TPT runs zero DLL across Test, PRO, and PRO+ phases &mdash; the trail is the only hard floor.</p>
+
+<p><strong>Topstep</strong> went further and earlier. As of August 2024, the default DLL was removed on the TopstepX platform for both Combine (evaluation) and Express Funded (XFA) accounts. Traders who route through NinjaTrader still get the DLL enforced at the broker layer ($1,000 on 50K, $2,000 on 100K, $3,000 on 150K). Use Topstep's native platform: no DLL. Use NinjaTrader: DLL applies. The rule's existence depends on which app you log into.</p>
+
+<p><strong>MyFundedFutures</strong> never adopted the rule in the first place. Every plan &mdash; Core, Rapid, and Pro &mdash; runs zero DLL in 2026. The trail is the only daily mechanic that matters. This is the cleanest version of "no DLL": no platform fork, no phase fork, no archetype split. It's just gone.</p>
+
+<div class="key-fact">
+  <strong>Why this matters:</strong> for traders who already manage daily risk through pre-set R-multiples and trade stops &mdash; the discipline most prop coaches teach &mdash; the DLL is mostly a redundant tripwire. Removing it doesn't change how a disciplined trader behaves; it just stops auto-locking the session when they had a bad morning and would have stepped away anyway. The three firms that killed it are betting their traders don't need the artificial training wheel. The firms that kept it are betting they do.
+</div>
+
+<h2 id="archetypes">The four presence-archetypes</h2>
+<p>Across the seven major firms in 2026, DLL presence sorts into four archetypes. Each one is a different answer to "when does the DLL apply?" &mdash; and getting the archetype wrong at signup is the most common source of "wait, I thought my account didn't have a DLL" surprises in the first funded month.</p>
+
+<table>
+  <thead>
+    <tr><th>Archetype</th><th>Firms / programs</th><th>What it means in practice</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="firm-none">NONE (firmwide)</span></td>
+      <td>MFFU (all plans), TPT (firmwide since Jan 2025), Bulenox Option 1 (no-scaling), Tradeify Select</td>
+      <td>The DLL doesn't exist for you at any phase. Trailing drawdown is the only daily floor. Maximum daily-loss flexibility, but bigger blow-up days are possible.</td>
+    </tr>
+    <tr>
+      <td><span class="firm-has">PLATFORM-DEPENDENT</span></td>
+      <td>Topstep (TopstepX = none; NinjaTrader = enforced)</td>
+      <td>Same firm, same account, two different rules &mdash; depending on which broker app you trade through. Traders who switch platforms mid-eval often hit this surprise.</td>
+    </tr>
+    <tr>
+      <td><span class="firm-has">FORKED AT SIGNUP</span></td>
+      <td>Apex 4.0 (EOD-trail = has DLL; Intraday-trail = no DLL), Bulenox Option 2 (has DLL) vs Option 1 (no DLL), Tradeify Growth (eval DLL only) vs Lightning (funded DLL only)</td>
+      <td>The same firm runs both presence states &mdash; your trail-mechanic or program choice at purchase decides which one applies for the life of the account. Bulenox makes this permanent: no switching later.</td>
+    </tr>
+    <tr>
+      <td><span class="firm-has">BOTH STAGES</span></td>
+      <td>Earn2Trade GAU + TCP</td>
+      <td>DLL applies during the evaluation and follows you through the LiveSim/Live funded phase. The only firm in the cluster where a single fixed DLL covers your whole account lifecycle.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="key-fact">
+  <strong>The fragmentation is the story.</strong> Trailing drawdown and consistency rule both have <em>structural</em> wedges (lock family, threshold tier) but they exist <em>everywhere</em>. DLL doesn't even exist everywhere &mdash; and the firms that do run it don't agree on when. Picking your firm is partly an answer to "do I want this rule in my life at all?"
+</div>
+
+<h2 id="example">Worked example &mdash; same &minus;$1,200 day, four firms</h2>
+<p>Same trader, same intraday move that ends the morning at <strong>&minus;$1,200 net P&amp;L</strong> on the equivalent ~50K account size. Four different firms evaluate that exact midday position.</p>
+
+<div class="scenario">
+  <h4>The verdict at each firm</h4>
+  <div class="timeline">
+TRADER POSITION: &minus;$1,200 realized at 11:30 AM ET<br>
+<br>
+&nbsp;&nbsp;<span class="ok">MFFU Core 50K (no DLL):</span> continues trading. Only floor is the trail-DD ($1,500 cushion).<br>
+&nbsp;&nbsp;<span class="ok">TPT Test 50K (no DLL since Jan 2025):</span> continues trading. Trail is the only floor.<br>
+&nbsp;&nbsp;<span class="warn">Tradeify Growth 50K eval (DLL = $1,250):</span> still trading &mdash; but $50 of cushion left. One bad tick away from a session lock.<br>
+&nbsp;&nbsp;<span class="bad">Earn2Trade GAU50 eval (DLL = $1,100):</span> SESSION LOCKED at &minus;$1,100. Auto-flatten. Resume tomorrow.<br>
+&nbsp;&nbsp;<span class="bad">Bulenox Option 2 50K (DLL = $1,100):</span> SESSION LOCKED at &minus;$1,100. Auto-flatten. Does NOT breach account.<br>
+&nbsp;&nbsp;<span class="warn">Topstep 50K via NinjaTrader (DLL = $1,000):</span> SESSION LOCKED at &minus;$1,000 (already past). Account opens fresh tomorrow.<br>
+&nbsp;&nbsp;<span class="ok">Topstep 50K via TopstepX (no DLL since Aug 2024):</span> continues trading. Only floor is the trail-DD.
+   </div>
+</div>
+
+<p>End of session: same &minus;$1,200 realized, same trade history, five different verdicts. Two firms don't even acknowledge the day's loss as a constraint. One firm flags the same trader as 50 cents from a lock. Two firms auto-flatten and end the session. One firm (Topstep) gives the same trader two different verdicts depending on which app they used to place the order.</p>
+
+<div class="key-fact">
+  <strong>This is the actual wedge between the four archetypes.</strong> NONE firms reward already-disciplined traders by removing the training-wheel lock. BOTH STAGES firms (Earn2Trade) protect undisciplined traders by enforcing the lock everywhere. FORKED-AT-SIGNUP firms (Apex, Bulenox, Tradeify) push the decision onto the trader at purchase. PLATFORM-DEPENDENT (Topstep) lets the trader switch presence by switching apps. Same loss, different lifecycle outcome &mdash; entirely because of how that firm defined the floor.
+</div>
+
+<h2 id="mechanics">What hitting DLL actually does</h2>
+<p>"Hitting the DLL" doesn't mean the same thing at every firm that runs the rule. There are three distinct consequences in the 2026 cluster, and the difference matters for how a single bad session affects the rest of your week.</p>
+
+<div class="flavor-grid">
+  <div class="flavor has">
+    <h4>Lock-and-flatten (most common)</h4>
+    <ul>
+      <li>Hitting the DLL <strong>locks the account for the rest of the trading session</strong> and <strong>auto-flattens any open positions</strong> at the moment of breach.</li>
+      <li>Does <strong>NOT</strong> breach the account &mdash; you resume normally the next session.</li>
+      <li>Used by: <span class="firm-has">Bulenox Option 2</span> (explicitly documented: "Hitting DLL locks the account for the remainder of the session and auto-flattens open positions. Does NOT breach the account."), <span class="firm-has">Tradeify Growth</span> (eval-side), <span class="firm-has">Earn2Trade</span>.</li>
+    </ul>
+  </div>
+  <div class="flavor has">
+    <h4>Lock-only / block new orders</h4>
+    <ul>
+      <li>Hitting the DLL blocks any new entry orders for the rest of the session.</li>
+      <li>Existing positions may or may not be auto-flattened depending on platform.</li>
+      <li>Account is not breached; next session you trade normally.</li>
+      <li>Used by: <span class="firm-has">Apex 4.0 EOD accounts</span> (DLL is the floor that locks the session; trail-DD is the separate account-ender), <span class="firm-has">Topstep via NinjaTrader</span>.</li>
+    </ul>
+  </div>
+</div>
+
+<p>One mechanic that no major US futures prop firm in this cluster uses in 2026: <strong>DLL as an account-ending breach</strong>. Hitting the daily loss limit on any of the seven firms here is a session-end event, not an account-end event. That makes the DLL meaningfully different from the trailing drawdown &mdash; which <em>is</em> the account-ender at all of them.</p>
+
+<div class="key-fact">
+  <strong>Watch the post-flatten state.</strong> If you hit DLL on a firm that auto-flattens (Bulenox Option 2 is the most explicit), your unrealized P&amp;L at the moment of breach gets realized at the worst possible price. A &minus;$1,100 floored realized loss can become a &minus;$1,400 floored realized loss if you had &minus;$300 of unrealized in the position when the auto-flatten fired. Plan position sizes assuming the DLL will execute against your worst current open.
+</div>
+
+<h2 id="math">The formula</h2>
+<p>For any account on any firm with a DLL active, the question for the rest of any given session is:</p>
+
+<div class="key-fact">
+  <strong>max_safe_intraday_loss = DLL &minus; today's_realized_pnl &minus; worst_open_position_unrealized</strong><br><br>
+  Or simplified for a flat-position trader:<br>
+  <strong>cushion_left = DLL &minus; today's_realized_pnl</strong><br><br>
+  When cushion_left reaches zero, the next tick that breaches it triggers the session lock.
+</div>
+
+<p>Two practical consequences:</p>
+<ul>
+  <li><strong>The DLL is independent of the trailing drawdown floor.</strong> Both floors run in parallel. Trail-DD can hit before DLL (a slow grinding day that erodes the trail without ever hitting the daily cap). DLL can hit before trail-DD (a fast morning loss that locks the session but leaves the trail floor intact). Either floor closing is enough to end your participation &mdash; in trail-DD's case for the account, in DLL's case for the session.</li>
+  <li><strong>Open-position unrealized counts.</strong> On firms where the DLL is enforced intraday-real-time (most), an unrealized loss that pushes your effective P&amp;L through the DLL triggers the lock even if your realized number is still safe. Pre-stop sizing should assume the worst-case open is your effective DLL ceiling.</li>
+</ul>
+
+<h2 id="firms">By firm &mdash; 2026 DLL matrix</h2>
+<p>The seven major US prop firms in 2026, side-by-side, on the question of DLL presence and amount. Each row reflects the most popular plan size where applicable; "stage" indicates the lifecycle phase the DLL applies to. Verify with your firm before sizing your morning risk budget.</p>
+
+<table>
+  <thead>
+    <tr><th>Firm / program</th><th>Eval DLL</th><th>Funded DLL</th><th>Archetype</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Topstep 100K (TopstepX)</td><td class="num">none</td><td class="num">none</td><td><span class="firm-has">Platform-dependent</span></td></tr>
+    <tr><td class="label">Topstep 100K (NinjaTrader)</td><td class="num">$2,000</td><td class="num">$2,000</td><td><span class="firm-has">Platform-dependent</span></td></tr>
+    <tr><td class="label">Apex 4.0 100K Intraday-trail</td><td class="num">none</td><td class="num">none</td><td><span class="firm-has">Forked at signup</span></td></tr>
+    <tr><td class="label">Apex 4.0 100K EOD-trail</td><td class="label">applies</td><td class="label">applies</td><td><span class="firm-has">Forked at signup</span></td></tr>
+    <tr><td class="label">MFFU Core / Rapid / Pro</td><td class="num">none</td><td class="num">none</td><td><span class="firm-none">None (firmwide)</span></td></tr>
+    <tr><td class="label">TPT Test / PRO / PRO+</td><td class="num">none</td><td class="num">none</td><td><span class="firm-none">None (firmwide since Jan 2025)</span></td></tr>
+    <tr><td class="label">Tradeify Growth 50K</td><td class="num">$1,250</td><td>auto-scaled at 6% profit</td><td><span class="firm-has">Forked at signup</span></td></tr>
+    <tr><td class="label">Tradeify Select 50K</td><td class="num">none</td><td class="num">none</td><td><span class="firm-none">None (firmwide)</span></td></tr>
+    <tr><td class="label">Tradeify Lightning 50K</td><td>n/a (instant-funded)</td><td class="num">$1,250</td><td><span class="firm-has">Forked at signup</span></td></tr>
+    <tr><td class="label">Bulenox Option 1 50K</td><td class="num">none</td><td class="num">none</td><td><span class="firm-none">None (firmwide)</span></td></tr>
+    <tr><td class="label">Bulenox Option 2 50K</td><td class="num">$1,100</td><td class="num">$1,100</td><td><span class="firm-has">Forked at signup</span></td></tr>
+    <tr><td class="label">Earn2Trade GAU50</td><td class="num">$1,100</td><td class="num">$1,100</td><td><span class="firm-has">Both stages</span></td></tr>
+    <tr><td class="label">Earn2Trade GAU100</td><td class="num">$2,200</td><td class="num">$2,200</td><td><span class="firm-has">Both stages</span></td></tr>
+    <tr><td class="label">Earn2Trade TCP50</td><td class="num">$1,100</td><td class="num">$1,100</td><td><span class="firm-has">Both stages</span></td></tr>
+  </tbody>
+</table>
+
+<p>Three structural patterns in this table worth seeing:</p>
+<ul>
+  <li><strong>Four firms run no DLL at all on at least one popular config.</strong> MFFU and TPT are unconditional. Topstep is unconditional if you stay on TopstepX. Tradeify Select is unconditional on either phase. The trader whose primary mental model is trail-DD &mdash; not DLL &mdash; has more than half the cluster to pick from.</li>
+  <li><strong>Three firms make DLL presence a permanent purchase decision.</strong> Apex 4.0 (your EOD/Intraday choice at signup decides), Bulenox (Option 1 vs Option 2 is permanent &mdash; no switching later), Tradeify (Growth vs Select vs Lightning has DLL in completely different phases). Get the wrong choice and you've locked yourself into either a rule you didn't want or a missing safety net you assumed was there.</li>
+  <li><strong>Only Earn2Trade applies DLL identically across both stages.</strong> Same dollar amount in eval, same dollar amount in LiveSim funded. The simplest mental model in the cluster &mdash; one fixed DLL for the account's life &mdash; comes from the firm with the lowest market share.</li>
+</ul>
+
+<h2 id="tools">Check your cushion before tomorrow's open</h2>
+<p>The DLL is rarely visible on most firms' dashboards as a live "cushion remaining" number &mdash; you're left to do the arithmetic in your head, against firm presets you may not have memorized. These tools run in your browser, no login, no card:</p>
+
+<div class="tool-row">
+  <div class="tool-card">
+    <h4>Trailing Drawdown Calculator</h4>
+    <p>The other floor that closes funded accounts &mdash; the moving one underneath your balance. Same firm presets (Topstep, Apex 4.0 EOD + Intraday, MFFU, TPT, Tradeify, Bulenox, Earn2Trade). DLL and trail-DD run in parallel; this calc handles the second one.</p>
+    <a href="/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=daily-loss-limit-explained">Open the calculator &rarr;</a>
+  </div>
+  <div class="tool-card">
+    <h4>Consistency-Rule Calculator</h4>
+    <p>The payout-side rule that pairs with DLL &mdash; same as the rest of the rule stack, computed against your real numbers. Topstep 50%, Apex 30%, MFFU 40%, TPT 50%, Tradeify (Growth 35% / Select 40% / Lightning progressive), Bulenox 40%, Earn2Trade 30%.</p>
+    <a href="/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=daily-loss-limit-explained">Open the calculator &rarr;</a>
+  </div>
+</div>
+
+<div class="cta">
+  <h3>Track DLL automatically &mdash; and the rest of the rule stack with it</h3>
+  <p>Aurafy reads your broker's CSV or Rithmic statement, computes live DLL cushion for each account against the correct firm preset (or correctly reports "no DLL on this account" on the four firms that don't have one), and pairs it with live trailing-drawdown and consistency-rule readouts so you can see all three pillar mechanics at once before sizing the next trade. Same tool also covers screen recording the brokers don't ship and the upcoming bar-replay backtester. Free tier never expires (last 30 days, 1 account, 3 playbooks, no card). First 50 founders: $19/mo locked for life.</p>
+  <a class="btn" href="https://aurafy.dev?utm_source=blog&utm_medium=daily-loss-limit-explained&utm_campaign=cta">Start free &mdash; no card</a>
+  <a class="btn ghost" href="https://aurafy.dev/pricing?utm_source=blog&utm_medium=daily-loss-limit-explained&utm_campaign=cta">See $19 founder seat</a>
+</div>
+
+<h2 id="faq">FAQ &mdash; daily loss limit</h2>
+
+<details>
+  <summary>Does TPT really have no DLL anymore?</summary>
+  <p>Yes &mdash; firmwide since January 2025. The official rule sheet across Test, PRO, and PRO+ phases now lists trailing drawdown as the sole hard-loss guardrail. The change applied to all existing and new accounts. If you're trading TPT under a 2024-or-earlier mental model that assumed a DLL floor, your daily-risk planning is undersizing relative to what the firm actually enforces today.</p>
+</details>
+
+<details>
+  <summary>What's the difference between the DLL and the trailing drawdown?</summary>
+  <p>The DLL is a per-session floor &mdash; hit it, the session locks, next morning you trade again. The trailing drawdown is an account-life floor &mdash; touch it, the account is closed permanently. DLL is the early-warning floor that fires before the account-ender does. Some firms run both (Earn2Trade, Bulenox Option 2, Apex 4.0 EOD). Three firms have decided they only need one: trail-DD, the account-ending floor.</p>
+</details>
+
+<details>
+  <summary>Why do some firms drop the DLL on their native platform but keep it on NinjaTrader?</summary>
+  <p>Topstep is the clearest case: the TopstepX platform was built in-house and gives Topstep direct control over enforced limits, so they removed the default DLL when they decided trail-DD was enough. NinjaTrader is a third-party broker; Topstep doesn't enforce there directly, the broker layer does &mdash; and the broker config still enforces the old DLL. The fragmentation isn't policy fragmentation, it's platform-control fragmentation. Same firm, different code path.</p>
+</details>
+
+<details>
+  <summary>Does hitting DLL close my funded account?</summary>
+  <p>No on every firm in this 2026 dataset. Hitting the DLL on Earn2Trade, Bulenox Option 2, Topstep NinjaTrader, Apex 4.0 EOD, Tradeify Growth, or Tradeify Lightning is a session-end event &mdash; you stop trading for the day, the next morning the counter resets and you trade again. The trailing drawdown is the account-ender; the DLL is the session-ender. The distinction matters because traders sometimes panic-flatten profitable positions thinking they'll breach the account &mdash; on these firms, the DLL just costs you the rest of the day.</p>
+</details>
+
+<details>
+  <summary>Can DLL get hit by unrealized P&amp;L, or only by realized?</summary>
+  <p>Both, on most firms in this dataset. The DLL is generally enforced against your real-time equity (realized + unrealized), not just closed-trade P&amp;L. An open position whose mark-to-market drops your effective P&amp;L through the DLL triggers the session lock even if you haven't closed anything yet &mdash; and on auto-flatten firms (Bulenox Option 2 is most explicit), the unrealized position is then realized at the breach moment, potentially below the floor. Plan position sizes assuming the worst current open is your effective DLL ceiling.</p>
+</details>
+
+<details>
+  <summary>How does DLL interact with the consistency rule?</summary>
+  <p>They're independent constraints. DLL caps your downside on a single session; consistency caps your single-best-day P&amp;L as a fraction of your total profit at payout request. They almost never trip on the same day &mdash; DLL fires on losing days, consistency fires on outsized-win days. But they share a planning logic: your daily P&amp;L band is roughly bounded above by what consistency-math allows and below by what DLL allows. The trader who maxes both edges &mdash; pushes consistency-ceiling P&amp;L on wins and DLL-floor losses &mdash; is exactly the gambler profile firms designed both rules to filter. The <a href="/blog/consistency-rule-explained-2026/">consistency rule explainer</a> walks the upside cap side.</p>
+</details>
+
+<h2>Related deep-dives</h2>
+<div class="related">
+  <a href="/blog/trailing-drawdown-explained-2026/"><strong>Trailing Drawdown Explained (2026)</strong><span>The account-ending floor that runs in parallel with the DLL &mdash; same firms, different consequence.</span></a>
+  <a href="/blog/consistency-rule-explained-2026/"><strong>Consistency Rule Explained (2026)</strong><span>The payout-side rule that caps the upside while DLL caps the downside &mdash; thresholds + lifecycle scope by firm.</span></a>
+  <a href="/blog/apex-4-0-eod-vs-intraday-2026/"><strong>Apex 4.0 EOD vs Intraday</strong><span>The signup-time fork that also decides whether DLL applies &mdash; Intraday accounts have no DLL; EOD accounts do.</span></a>
+  <a href="/blog/topstep-vs-mffu-2026/"><strong>Topstep vs MFFU</strong><span>Two of the three firms that ditched the DLL &mdash; for completely different reasons. The platform-control angle vs the never-had-it angle.</span></a>
+</div>
+
+<footer>
+  <p><strong>Aurafy</strong> &mdash; Futures trading journal + screen recording + bar-replay backtester for prop-firm traders.</p>
+  <p>Independent explainer. Topstep, Apex Trader Funding, MyFundedFutures, Take Profit Trader, Tradeify, Bulenox, and Earn2Trade are trademarks of their respective owners. Aurafy is not affiliated with any of them. Daily loss limit presence + amounts verified against each firm's published rules as of June 2026 &mdash; verify directly with your firm before sizing your morning risk budget.</p>
+  <p><a href="https://aurafy.dev?utm_source=blog&utm_medium=daily-loss-limit-explained">aurafy.dev</a></p>
+</footer>
+
+</div>
+</body>
+</html>

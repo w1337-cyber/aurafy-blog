@@ -1,0 +1,15 @@
+{
+  "slug": "daily-loss-limit-explained-2026",
+  "title": "Daily Loss Limit Explained (2026): The Most Fragmented Rule in Prop Trading",
+  "description": "A canonical 2026 explainer of how prop-firm daily loss limits actually work — what hitting one does to your account, why three of the seven biggest firms have effectively killed the rule, and the four presence-archetypes you need to recognize before signup.",
+  "canonical": "https://aurafy.dev/blog/daily-loss-limit-explained-2026/",
+  "published": "2026-06-03",
+  "updated": "2026-06-03",
+  "og": {
+    "title": "Daily Loss Limit Explained: The Most Fragmented Rule in Prop Trading",
+    "description": "The mechanic-level explainer of prop-firm daily loss limits: who still has one, who quietly killed it, and the four presence-archetypes across Topstep, Apex 4.0, MFFU, TPT, Tradeify, Bulenox, and Earn2Trade.",
+    "type": "article"
+  },
+  "tags": ["prop-firms", "explainer", "daily-loss-limit", "topstep", "apex", "mffu", "tpt", "tradeify", "bulenox", "earn2trade", "2026"],
+  "source_path": "posts/daily-loss-limit-explained-2026/index.html"
+}
