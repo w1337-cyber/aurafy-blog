@@ -189,7 +189,7 @@
 
 <h2 id="lock">Lock archetype: identical floor, different DLL pairing</h2>
 
-<p>Both firms use a trailing drawdown that locks once equity clears a threshold. The lock <em>point</em> is the same. The DLL <em>pairing</em> is not.</p>
+<p>Both firms use a <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-tradeify&amp;utm_campaign=inline-concept">trailing drawdown</a> that locks once equity clears a threshold. The lock <em>point</em> is the same. The DLL <em>pairing</em> is not.</p>
 
 <div class="axis">
   <div class="axis-side apex">
@@ -208,6 +208,8 @@
   <li><strong>The actual lock point is identical:</strong> $100,100 on a 100K account, $50,100 on a 50K. Only the equity threshold for triggering the lock differs (Apex's drawdowns are smaller per size at 100K/150K than Tradeify's Growth program, so Apex locks at a slightly lower equity high than Tradeify Growth does).</li>
   <li><strong>The DLL pairing is the wedge:</strong> Apex couples DLL with the EOD trail (your trade-off is DLL-on for daily snapshots vs DLL-off for intraday tracking). Tradeify decouples DLL from trail entirely &mdash; trail is always EOD, DLL depends on program. A trader on Tradeify Select trades EOD trail with no DLL <em>at all</em>, which has no equivalent on Apex.</li>
 </ul>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-tradeify&amp;utm_campaign=deep-dive">Daily loss limit explained (2026)</a> &mdash; this pair surfaces two different DLL-coupling models in a single comparison. Apex sits in the <strong>"EOD-trail-coupled"</strong> archetype where DLL presence is bound to your irreversible trail-type choice at purchase (EOD on / Intraday off) &mdash; the cluster's only firm where DLL availability is a binary fork inside the same product. Tradeify sits in the <strong>"configured per program"</strong> archetype (shared with Bulenox) where DLL presence is bound to which sibling program you signed up for (Growth eval has it, Select has none, Lightning has it on 50K+). The explainer walks the full 4-archetype taxonomy &mdash; including MFFU's "no DLL anywhere" and TPT's "deleted firmwide" archetypes &mdash; so you can place any firm you're evaluating into the same DLL design space.</p>
 
 <div class="cta">
   <h3>See the lock point side-by-side on your size</h3>
@@ -248,6 +250,8 @@
 </table>
 
 <p>Quick formula refresher: <strong>max safe single-day P&amp;L = total profit &times; threshold / (1 &minus; threshold)</strong>. At 30% (Apex) that's <strong>0.429 &times; total</strong>. At 40% (Tradeify Select eval) that's <strong>0.667 &times; total</strong>. At 35% (Tradeify Growth funded) that's <strong>0.538 &times; total</strong>. Apex's 30% is the tightest of the three baseline thresholds &mdash; you get less room for a single big day &mdash; but the trade-off is no surprise rule-flip when you move from eval to funded.</p>
+
+<p><strong>Deep dive &rarr;</strong> <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-tradeify&amp;utm_campaign=deep-dive">Consistency rule explained (2026)</a> &mdash; this pair maps the cluster's <strong>scope-axis opposites</strong> in a single comparison. Apex is the cluster's strongest "uniform across lifecycle" sample &mdash; one threshold (30%) applied identically across eval and funded, no rule-flip when you cross phases. Tradeify is the cluster's only firm running <strong>three different scope models in parallel programs</strong>: Growth inverts (0% eval &rarr; 35% funded), Select inverts the other direction (40% eval &rarr; 0% funded), and Lightning runs a progressive 20&rarr;25&rarr;30% tightening across payouts &mdash; the only progressive-consistency design in the cluster. The explainer walks the 30/35/40/50 tier axis, the eval-only vs funded-only vs lifetime scope axes, and where each archetype hurts which trading style.</p>
 
 <div class="cta">
   <h3>Plan your safe daily profit ceiling for both firms</h3>
@@ -379,7 +383,7 @@
 
 <footer>
   <p>Independent comparison. Not affiliated with Apex Trader Funding or Tradeify. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
-  <p>Related: <a href="/blog/apex-vs-tpt-2026/">Apex vs TPT</a> &middot; <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs Intraday</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/apex-vs-earn2trade-2026/">Apex vs Earn2Trade</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/prop-firms/apex-trader-funding/">Apex landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
+  <p>Related: <a href="/blog/trailing-drawdown-explained-2026/">Trailing drawdown explained</a> &middot; <a href="/blog/apex-vs-tpt-2026/">Apex vs TPT</a> &middot; <a href="/blog/apex-4-0-eod-vs-intraday-2026/">Apex 4.0 EOD vs Intraday</a> &middot; <a href="/blog/apex-vs-mffu-2026/">Apex vs MFFU</a> &middot; <a href="/blog/apex-vs-bulenox-2026/">Apex vs Bulenox</a> &middot; <a href="/blog/apex-vs-earn2trade-2026/">Apex vs Earn2Trade</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/apex-vs-topstep-2026/">Apex vs Topstep</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/prop-firms/apex-trader-funding/">Apex landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
   <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
 </footer>
 
