@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Earn2Trade vs Tradeify (2026): Pick Your Endgame vs Pick Your Restriction | Aurafy</title>
+<meta name="description" content="Earn2Trade runs one rule archetype across GAU + TCP with two post-eval finish lines &mdash; LiveSim default (94.77% of 2025 passers stayed) or optional Live capital. Tradeify runs three distinct programs with inverted consistency rules &mdash; Growth eval-free/35%-funded, Select 40%-eval/no-funded, Lightning instant-funded progressive 20-25-30%. Pick your endgame (Earn2Trade) vs pick your restriction (Tradeify). Different lock families on top. Honest 2026 side-by-side." />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://aurafy.dev/blog/earn2trade-vs-tradeify-2026/" />
+<meta property="og:title" content="Earn2Trade vs Tradeify (2026): Pick Your Endgame vs Pick Your Restriction" />
+<meta property="og:description" content="One archetype with two finish lines vs three programs that argue with themselves on consistency. Same EOD trail, opposite lock families, opposite decision-timing." />
+<meta property="og:type" content="article" />
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0d10;
+    --panel:#13171c;
+    --panel-2:#181d24;
+    --border:#222932;
+    --text:#e8edf2;
+    --muted:#8a94a3;
+    --accent:#7c5cff;
+    --accent-2:#5b8def;
+    --green:#3ddc97;
+    --amber:#ffb454;
+    --red:#ff5c7c;
+    --earn2trade:#5b8def;
+    --tradeify:#4dd0c4;
+    --radius:12px;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:840px;margin:0 auto;padding:32px 18px 80px}
+  header h1{font-size:1.85rem;margin:0 0 8px;letter-spacing:-0.015em;line-height:1.25}
+  header p.lede{color:var(--muted);margin:0 0 20px;font-size:1rem}
+  .stamp{display:inline-block;font-size:0.74rem;color:var(--muted);background:var(--panel-2);border:1px solid var(--border);padding:3px 10px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:14px}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+  h2{font-size:1.18rem;margin:32px 0 12px;letter-spacing:-0.005em;color:#fff}
+  h3{font-size:1rem;margin:18px 0 8px;color:#fff}
+  p{margin:0 0 12px}
+  ul,ol{margin:0 0 14px;padding-left:22px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:0.93rem}
+  th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:500;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.04em;background:var(--panel-2)}
+  td.num{font-family:var(--mono);font-weight:600;text-align:right}
+  td.label{color:var(--muted);font-weight:500}
+  .firm-earn2trade{color:var(--earn2trade);font-weight:600}
+  .firm-tradeify{color:var(--tradeify);font-weight:600}
+  .disclaim{background:rgba(255,180,84,0.06);border:1px solid rgba(255,180,84,0.25);border-radius:8px;padding:14px 16px;color:#f0d4a8;font-size:0.88rem;margin-bottom:22px}
+  .cta{background:linear-gradient(135deg,rgba(124,92,255,0.08),rgba(91,141,239,0.06));border:1px solid rgba(124,92,255,0.3);border-radius:var(--radius);padding:22px;margin:24px 0}
+  .cta h3{margin:0 0 8px;font-size:1.08rem;color:#fff}
+  .cta p{margin:0 0 14px;color:#c4ccd6;font-size:0.95rem}
+  .cta a.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 18px;border-radius:8px;font-weight:600;font-size:0.94rem;margin-right:8px;margin-bottom:6px}
+  .cta a.btn:hover{text-decoration:none;background:#6a4dee}
+  .cta a.btn.ghost{background:transparent;border:1px solid var(--accent);color:#a890ff}
+  .cta a.btn.ghost:hover{background:rgba(124,92,255,0.08)}
+  details{margin:10px 0;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px 18px}
+  details summary{cursor:pointer;font-weight:600;font-size:0.96rem;color:#fff}
+  details[open] summary{margin-bottom:10px}
+  details p{font-size:0.91rem;color:#c4ccd6;margin:8px 0}
+  .key-fact{background:var(--panel-2);border-left:3px solid var(--accent-2);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#d6dde6}
+  .warn{background:rgba(255,180,84,0.06);border-left:3px solid var(--amber);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.92rem;color:#f0d4a8}
+  .verdict{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:10px 0;font-size:0.95rem}
+  .verdict strong{display:block;margin-bottom:4px}
+  .pick-grid{display:grid;gap:12px;margin:14px 0}
+  @media(min-width:640px){.pick-grid{grid-template-columns:1fr 1fr}}
+  .pick{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:16px}
+  .pick h4{margin:0 0 8px;font-size:1rem;color:#fff}
+  .pick.earn2trade{border-left:3px solid var(--earn2trade)}
+  .pick.tradeify{border-left:3px solid var(--tradeify)}
+  .pick ul{margin:0;padding-left:18px;font-size:0.91rem;color:#c4ccd6}
+  .pick li{margin-bottom:4px}
+  footer{margin-top:40px;color:var(--muted);font-size:0.82rem;text-align:center;line-height:1.7;border-top:1px solid var(--border);padding-top:20px}
+  footer a{color:var(--accent-2)}
+  .toc{font-size:0.9rem;color:var(--muted);margin:14px 0 8px}
+  .toc a{color:#a890ff;margin-right:12px;display:inline-block;margin-bottom:4px}
+  .meta{font-size:0.82rem;color:var(--muted);margin-bottom:18px}
+  .meta span{margin-right:14px}
+  .axis{display:grid;gap:10px;margin:12px 0}
+  @media(min-width:640px){.axis{grid-template-columns:1fr 1fr}}
+  .axis-side{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:0.9rem}
+  .axis-side strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .axis-side.e{border-top:2px solid var(--earn2trade)}
+  .axis-side.t{border-top:2px solid var(--tradeify)}
+  .program-grid{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.program-grid{grid-template-columns:1fr 1fr 1fr;gap:10px}}
+  .program-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .program-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .program-box.t{border-top:2px solid var(--tradeify)}
+  .endgame{display:grid;gap:8px;margin:14px 0;font-size:0.9rem}
+  @media(min-width:640px){.endgame{grid-template-columns:1fr 1fr;gap:10px}}
+  .endgame-box{background:var(--panel-2);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+  .endgame-box strong{display:block;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:4px;color:var(--muted)}
+  .endgame-box.e{border-top:2px solid var(--earn2trade)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="stamp">Updated June 2026</span>
+  <h1>Earn2Trade vs Tradeify (2026): Pick Your Endgame vs Pick Your Restriction</h1>
+  <p class="lede"><a href="https://aurafy.dev/prop-firms/earn2trade/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=lede-earn2trade">Earn2Trade</a> runs <strong>one</strong> rule archetype (GAU + TCP share the same EOD trail / 30%-eval-only consistency / per-size DLL skeleton) with <strong>two</strong> post-eval finish lines &mdash; LiveSim default (94.77% of 2025 passers stayed) or optional Live capital. <a href="https://aurafy.dev/prop-firms/tradeify/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=lede-tradeify">Tradeify</a> runs <strong>three</strong> programs with inverted consistency rules &mdash; Growth (no-eval-consistency / 35%-funded), Select (40%-eval / no-funded), Lightning (instant-funded, progressive 20&rarr;25&rarr;30%). Earn2Trade defers the decision to the funded gate. Tradeify forces it at signup. Different <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=lede-trail&utm_campaign=inline-concept">lock families</a>, same <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=lede-eod&utm_campaign=inline-concept">EOD trail</a>, opposite <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=lede-consistency&utm_campaign=inline-concept">consistency architectures</a>.</p>
+  <div class="meta">
+    <span>~10 min read</span>
+    <span>Audience: futures prop traders</span>
+    <span>By <a href="https://aurafy.dev">Aurafy</a></span>
+  </div>
+</header>
+
+<div class="disclaim">
+  <strong>We're not an affiliate of either firm.</strong> This is an independent breakdown to help you pick. Rules change &mdash; always verify on each firm's current rulebook before you buy an account.
+</div>
+
+<nav class="toc">
+  <strong style="color:#fff;display:block;margin-bottom:6px">Jump to:</strong>
+  <a href="#tldr">TL;DR verdict</a>
+  <a href="#wedge">The wedge</a>
+  <a href="#sidebyside">Side-by-side table</a>
+  <a href="#programs">Tradeify's three inverted programs</a>
+  <a href="#endgame">Earn2Trade's two endgames</a>
+  <a href="#trail">Trail mechanics: both EOD</a>
+  <a href="#lock">Lock family: SB exactly vs SB+$100</a>
+  <a href="#consistency">Consistency: archetype-inverse vs eval-only</a>
+  <a href="#dll">Daily loss limit</a>
+  <a href="#cost">Cost model: monthly + activation vs one-time challenge</a>
+  <a href="#platforms">Platforms: opposite stacks</a>
+  <a href="#examples">Worked scenario</a>
+  <a href="#pick">Which to pick</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<h2 id="tldr">TL;DR &mdash; the 30-second verdict</h2>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/earn2trade/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=tldr-earn2trade">Earn2Trade</a> if</strong> you want one rule archetype across both products (GAU fixed-size or TCP scaling ladder), $0 upfront activation ($139 deducted only from first withdrawal), EOD trail on every product and every phase, 30% consistency that drops entirely on the funded gate, and the option to stay on LiveSim simulated capital forever (94.77% of 2025 passers did). You want NinjaTrader and TradingView support. You're comfortable with a 10-day minimum eval and a per-size DLL on every account ($550&ndash;$4,400 by size).
+</div>
+<div class="verdict">
+  <strong>Pick <a href="https://aurafy.dev/prop-firms/tradeify/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=tldr-tradeify">Tradeify</a> if</strong> you want choice over the rule shape at signup (Growth = no eval consistency / 35% funded, Select = 40% eval / no funded consistency, Lightning = instant-funded with progressive 20&rarr;25&rarr;30% consistency that tightens each payout). You're comfortable with the SB+$100 lock family ($50,100 floor on 50K). You want a one-time challenge cost ($99&ndash;$796 by program) with $0 upfront activation and no monthly subscription. You're fine on Tradesea / Tradovate / WealthCharts (no NinjaTrader, no TradingView). You can hold positions longer than 10 seconds for at least half your trades (microscalping floor).
+</div>
+<div class="verdict">
+  <strong>Different lock families.</strong> Earn2Trade locks at <strong>Starting Balance exactly</strong> (Topstep / TPT family). Tradeify locks at <strong>Starting Balance + $100</strong> (Apex 4.0 / MFFU / Bulenox family). On a 50K account: Earn2Trade GAU50 stops at $50,000, Tradeify Growth or Select 50K stops at $50,100. The $100 floor delta defines two distinct cluster archetypes &mdash; the bigger structural consequence is which other firms each one rhymes with on every other rule.
+</div>
+
+<h2 id="wedge">The wedge in plain English</h2>
+
+<p>Most prop-firm comparisons rank firms by drawdown size or profit target. Earn2Trade and Tradeify have similar account sizes (50K, 100K, 150K) and overlapping drawdown numbers. The structural story is about <em>where the rule-shape decision lives in the account lifecycle</em>, and the two firms place it at completely opposite ends.</p>
+
+<p><strong class="firm-tradeify">Tradeify forces the rule-shape choice at signup.</strong> The trader picks one of three programs &mdash; Growth, Select, or Lightning &mdash; before they pay. Each program has a structurally different consistency rule, and the three rules are inverted against each other. Growth has no consistency on eval but 35% on funded. Select has 40% on eval and no consistency on funded. Lightning skips the eval entirely (instant-funded) and applies a progressive consistency that tightens with each payout (20% on payout 1, 25% on payout 2, 30% from payout 3 onward). Pick wrong &mdash; sign up for Select if your style is naturally streaky, or Lightning if you plan to take many small payouts &mdash; and you'll trip a rule the other two programs don't enforce.</p>
+
+<p><strong class="firm-earn2trade">Earn2Trade defers the rule-shape decision to after the eval.</strong> Both products (GAU fixed-size, TCP scaling) share the same EOD trail, the same 30%-eval-only consistency, the same per-size DLL skeleton. The eval is one shape for everyone. The decision happens at the funded gate: the trader can stay on LiveSim simulated capital with real-dollar 80/20 payouts (94.77% of 2025 passers did), or convert to Live capital with the same split and rules (5.23% did). The eval is mandatory; the endgame choice is optional and almost universally declined.</p>
+
+<p>Same destination archetype &mdash; a trader paid in real US dollars from a funded prop-firm account &mdash; opposite decision-timing. Tradeify makes the trader commit to a rule shape <em>before</em> they know how they'll trade it. Earn2Trade lets the trader run the eval first under one universal shape and only then decide what comes next. That's the spine of this comparison.</p>
+
+<h2 id="sidebyside">Side-by-side: the rules that matter</h2>
+<div class="panel">
+<table>
+  <thead>
+    <tr><th>Rule</th><th class="firm-earn2trade">Earn2Trade</th><th class="firm-tradeify">Tradeify</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="label">Product / program structure</td><td>Two products: GAU (fixed-size) &middot; TCP (scaling ladder)</td><td>Three programs: Growth &middot; Select &middot; Lightning (pick at signup, locked per account)</td></tr>
+    <tr><td class="label">Sizes available</td><td>GAU 50K/100K/150K/200K &middot; TCP 25K/50K/100K (scales to $200K&ndash;$400K)</td><td>Growth 25K/50K/100K/150K &middot; Select 25K/50K/100K/150K &middot; Lightning 25K/50K/100K/150K</td></tr>
+    <tr><td class="label">Phases</td><td>Single-phase eval (10-day min) &rarr; LiveSim funded &rarr; (optional) Live</td><td>Growth/Select: 1-step eval &rarr; Simulated Funded &middot; Lightning: instant-funded (no eval)</td></tr>
+    <tr><td class="label">Trail type</td><td><strong>EOD only</strong> on every product, every phase</td><td><strong>EOD only</strong> on every program (Growth, Select, Lightning)</td></tr>
+    <tr><td class="label">Lock point</td><td>Starting Balance exactly</td><td>Starting Balance + $100</td></tr>
+    <tr><td class="label">50K stop-out floor</td><td>$50,000</td><td>$50,100</td></tr>
+    <tr><td class="label">Daily loss limit</td><td><strong>Yes</strong> &mdash; scales per size (GAU50 $1,100, GAU100 $2,200, TCP25 $550)</td><td>Growth: yes (eval $600&ndash;$3,750 by size) &middot; Select: <strong>none on eval</strong> &middot; Lightning: yes most sizes</td></tr>
+    <tr><td class="label">Consistency (eval)</td><td><strong>30%</strong> &mdash; same threshold as Apex 4.0</td><td>Growth: <strong>none</strong> &middot; Select: <strong>40%</strong> &middot; Lightning: N/A (no eval)</td></tr>
+    <tr><td class="label">Consistency (funded)</td><td><strong>None</strong> &mdash; rule explicitly drops on funded</td><td>Growth: <strong>35%</strong> &middot; Select: <strong>none</strong> &middot; Lightning: progressive <strong>20%&rarr;25%&rarr;30%</strong> (tightens by payout)</td></tr>
+    <tr><td class="label">Min trading days (eval)</td><td><strong>10</strong> &mdash; longest minimum in this cluster</td><td>Growth 1 &middot; Select 3 &middot; Lightning N/A (no eval)</td></tr>
+    <tr><td class="label">Profit split</td><td>80/20 &mdash; identical on LiveSim and Live</td><td>90/10 after first $15K (Simulated Funded) &middot; 80/20 on Elite Live</td></tr>
+    <tr><td class="label">Activation fee</td><td><strong>$0 upfront</strong> &mdash; $139 deducted from first withdrawal</td><td><strong>$0 upfront</strong> &mdash; included in challenge cost</td></tr>
+    <tr><td class="label">Recurring cost</td><td>Monthly subscription: TCP $150&ndash;$350/mo &middot; GAU $170&ndash;$550/mo (continues until passed or canceled)</td><td><strong>None</strong> &mdash; one-time challenge cost: Growth $99&ndash;$369, Select $109&ndash;$369, Lightning $345&ndash;$796</td></tr>
+    <tr><td class="label">Instant-funding path</td><td>No &mdash; every account starts at eval (10-day min)</td><td><strong>Yes &mdash; Lightning program</strong> (instant-funded, no eval)</td></tr>
+    <tr><td class="label">Live-capital step</td><td><strong>Optional</strong> &mdash; LiveSim default; 5.23% of 2025 passers chose Live</td><td>Elite Live offered post-Simulated Funded (split drops 90&rarr;80, real exchange routing)</td></tr>
+    <tr><td class="label">Payout cadence</td><td><strong>Weekly</strong> &mdash; processed every Wednesday</td><td>5-day default (Select can upgrade to daily $1,500 or flex $4,000)</td></tr>
+    <tr><td class="label">Min payout</td><td>$100</td><td>Varies by program (60-min guaranteed processing)</td></tr>
+    <tr><td class="label">Platforms</td><td>NinjaTrader (free during eval), Tradovate, TradingView, R&#124;Trader, Finamark</td><td>Tradesea (Rithmic data feed), Tradovate, WealthCharts &mdash; <strong>NO NinjaTrader, NO TradingView</strong></td></tr>
+    <tr><td class="label">News trading</td><td>Permitted &mdash; explicitly allowed in eval</td><td>Permitted &mdash; explicitly allowed</td></tr>
+    <tr><td class="label">Microscalping floor</td><td>None stated</td><td><strong>&gt;50% of trades AND profit must come from holds &gt;10 seconds</strong></td></tr>
+    <tr><td class="label">Max funded accounts</td><td>Not stated</td><td>5 (max $1M total funded size)</td></tr>
+    <tr><td class="label">Trading-hours restriction</td><td>Standard futures session</td><td>All positions flat by <strong>5 PM ET</strong>; no holds through 5:00&ndash;6:00 PM maintenance window</td></tr>
+    <tr><td class="label">Pass rate (2025)</td><td><strong>8.89%</strong> &mdash; publicly disclosed</td><td>Not publicly disclosed</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="programs">Tradeify's three inverted programs (decision-source)</h2>
+
+<p>This is the structural element with no analogue at Earn2Trade. Tradeify sells three programs that argue with themselves on the consistency axis. The trader picks one at signup, and the pick is locked for the account's life. Each program rewards a different trader profile.</p>
+
+<div class="program-grid">
+  <div class="program-box t">
+    <strong>Growth &mdash; eval-free, 35% funded</strong>
+    EOD trail. <strong>No consistency on eval</strong> (run any single day P&amp;L geometry). <strong>35% consistency on funded</strong> (single day &le; 35% of total funded profit). DLL on eval ($600&ndash;$3,750 by size). 1-day eval minimum. $99&ndash;$369 challenge cost. Rewards: traders who pass eval fast on streaky days but can grind 35% ratio on funded payouts.
+  </div>
+  <div class="program-box t">
+    <strong>Select &mdash; 40% eval, funded-free</strong>
+    EOD trail. <strong>40% consistency on eval</strong> (single day &le; 40% of total eval profit). <strong>No consistency on funded</strong>. <strong>No DLL on eval</strong>. 3-day eval minimum. $109&ndash;$369 challenge. Optional activation upgrade: $1,500 (daily payouts) or $4,000 (flex). Rewards: grinder eval traders who want full funded freedom post-pass.
+  </div>
+  <div class="program-box t">
+    <strong>Lightning &mdash; instant-funded, progressive</strong>
+    EOD trail. <strong>No eval</strong> &mdash; pay one-time and trade simulated funded on day one. <strong>Progressive consistency on funded</strong>: 20% on payout 1, 25% on payout 2, 30% from payout 3 onward. DLL on most sizes. $345&ndash;$796 cost. Rewards: traders who want zero eval grind and front-loaded looser consistency that tightens as the account ages.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The architectural insight:</strong> Tradeify's three programs INVERT consistency between eval and funded. Growth applies it only on funded; Select applies it only on eval; Lightning applies it only on funded but tightens it three steps as the account accumulates payouts. The trader's correct pick depends on which gate they're more confident at. Pick Growth if your eval geometry is naturally streaky but your funded discipline is steady. Pick Select if you can hold a steady eval but want freedom post-pass. Pick Lightning if you don't want to run an eval at all and you're OK with the rule getting stricter over time. There's no neutral default &mdash; the trader has to commit to which program's restriction fits their style before they pay.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=programs-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; Tradeify is the only firm in the cluster that runs three structurally-different consistency rules in parallel programs. Earn2Trade joins Topstep and TPT in the "rule dies at the eval gate" camp. The explainer maps every cluster firm against threshold-and-scope; Tradeify's intra-firm inversion is unique architecture.</p>
+
+<h2 id="endgame">Earn2Trade's two endgames (decision-funded-gate)</h2>
+
+<p>Earn2Trade's structural choice doesn't live at signup &mdash; it lives at the funded gate. The eval is one universal shape (EOD trail, 30% consistency, per-size DLL). After passing, the trader picks where the account lives permanently.</p>
+
+<div class="endgame">
+  <div class="endgame-box e">
+    <strong>LiveSim &mdash; the default (94.77% of 2025 passers)</strong>
+    Simulated capital with real-dollar 80/20 payouts. Trades execute against a simulated environment but payouts are real US dollars from Earn2Trade's funded pool. EOD trail continues with the lock-at-SB mechanics. DLL applies. Consistency rule drops. The trader can stay on LiveSim indefinitely. Default endpoint after the eval. Withdrawal participation: ~18% of LiveSim funded accounts withdrew in 2025.
+  </div>
+  <div class="endgame-box e">
+    <strong>Live &mdash; the optional conversion (5.23%)</strong>
+    Real capital, real exchange routing. Same 80/20 split. Same rules. The trader executes against the real market. Strategy execution depends on real fills, slippage, and market microstructure. 5.23% of 2025 passers chose this path. Withdrawal participation: ~18% of Live accounts withdrew in 2025 &mdash; roughly equal to LiveSim. No financial penalty for choosing LiveSim over Live; the choice is psychological / execution-quality-driven.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The honest impact:</strong> The endgame decision lives at the funded gate, not at signup. The trader runs the eval under one universal shape and only decides what comes next after they've already proven they can pass. This is the opposite decision-timing of Tradeify, which forces the structural commitment before the trader has paid. For risk-averse traders who don't know their style before they trade, Earn2Trade's deferred-decision architecture is structurally friendlier &mdash; the cost of "picking wrong" is bounded by the eval cost (subscription only, $0 upfront).</div>
+
+<h2 id="trail">Trail mechanics: both EOD, different lock floors</h2>
+
+<p>Both firms use EOD trail uniformly across every product / program / phase. This is one of the few rules they fully agree on. The structural difference between them is the lock floor, not the trail mechanic.</p>
+
+<div class="axis">
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; EOD only, universal, SB lock</strong>
+    Every GAU and TCP product, every phase (eval, LiveSim, Live). Trail updates once per day at the session close on the new EOD equity high. Locks at SB exactly when the floor unlocks. Same trail-family as Topstep funded, MFFU Core, TPT Test/PRO+. Opposite of Apex 4.0 intraday.
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; EOD only, universal, SB+$100 lock</strong>
+    Every program (Growth, Select, Lightning), every phase. Trail updates once per day on EOD equity high. Locks at SB+$100 when the floor unlocks. Same trail-family as Earn2Trade above. Same lock family as Apex 4.0, MFFU, Bulenox Option 1.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The lock-floor consequence:</strong> A trader who pulls back to flat at Earn2Trade is at the floor (one tick below and the account closes). At Tradeify, the same flat position has a $100 cushion before stop-out. In practice, the cushion only matters in two specific situations: (a) a trader hovering around break-even during a slump (Tradeify gives a tiny buffer, Earn2Trade is on the knife-edge); (b) a trader passing the eval at exact profit target and immediately withdrawing (Tradeify starts $100 above the trail floor, Earn2Trade starts AT the floor). The bigger consequence is which other cluster firms each one rhymes with on every other rule.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/trailing-drawdown-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=trail-deepdive&utm_campaign=deep-dive">The trailing drawdown explainer</a> walks through every firm's trail type and lock family. Earn2Trade joins Topstep and TPT in the SB-exact lock camp; Tradeify joins Apex 4.0, MFFU, and Bulenox Option 1 in the SB+$100 lock camp. The lock floor is one of the load-bearing decisions across this entire cluster &mdash; SB locks are knife-edge, SB+$100 locks give a $100 break-even cushion.</p>
+
+<div class="cta">
+  <h3>Model both firms' trail floors before you sign up</h3>
+  <p>Our free trailing-drawdown calculator runs Earn2Trade GAU50 (EOD, SB lock) and Tradeify Growth/Select/Lightning 50K (EOD, SB+$100 lock) presets. See exactly how your worst day plays out under each floor. No login.</p>
+  <a class="btn" href="https://aurafy.dev/tools/trailing-drawdown-calculator/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=trail-cta">Open the calculator</a>
+</div>
+
+<h2 id="lock">Lock family: SB exactly vs SB+$100</h2>
+
+<p>The lock floor is where Earn2Trade and Tradeify split into different cluster archetypes. The $100 gap is small in dollar terms but defines two distinct lock-family camps across the seven-firm cluster.</p>
+
+<div class="axis">
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; SB exactly (Topstep family)</strong>
+    Lock fixes at starting balance once the trail unlocks. On GAU50: floor at $50,000. On GAU100: floor at $100,000. Same archetype as Topstep funded, TPT. No cushion. The trader who pulls back exactly to flat is at the floor. One tick below SB closes the account.
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; SB + $100 (Apex 4.0 family)</strong>
+    Lock fixes $100 above starting balance once the trail unlocks. On 50K (Growth or Select): floor at $50,100. On 100K: floor at $100,100. Same archetype as Apex 4.0, Bulenox Option 1, MFFU. The $100 cushion means a trader who pulls back to flat does not blow the account &mdash; only a small loss below SB triggers stop-out.
+  </div>
+</div>
+
+<h2 id="consistency">Consistency: archetype-inverse vs eval-only</h2>
+
+<p>This is the comparison's most structurally distinct axis. Earn2Trade applies one consistency rule on the eval and drops it at the funded gate. Tradeify inverts the rule across three programs.</p>
+
+<div class="axis">
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; 30% on eval ONLY (universal)</strong>
+    Single day's profit &le; 30% of total. Applies <em>at the point of passing</em> the evaluation. <strong>Drops entirely on the funded account.</strong> A trader who passes the eval clean has no consistency constraint on LiveSim or Live payouts. Same threshold as Apex 4.0 but Apex applies it on funded too; Earn2Trade fully releases the rule. Same threshold-region as the cluster minimum.
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; inverted by program</strong>
+    Growth: no consistency on eval; <strong>35% on funded</strong> (single day &le; 35% of funded profit). Select: <strong>40% on eval</strong>; no consistency on funded. Lightning: no eval; <strong>progressive 20%&rarr;25%&rarr;30% on funded payouts</strong> (tightens by payout count). Only firm in the cluster where the rule has different scope and threshold across parallel programs.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The architectural choice:</strong> Earn2Trade gives the trader one rule on the eval and freedom on funded &mdash; the trader knows the rule before they trade and the rule disappears after they pass. Tradeify gives the trader three rules to choose from at signup &mdash; the trader has to commit to which scope they want before they know how they'll trade. A grinder who can hold a 30% ratio every eval day has a home at Earn2Trade. A trader who is naturally streaky on eval but disciplined on funded has a home at Tradeify Growth. A trader who is steady on eval but explosive on funded has a home at Tradeify Select. A trader who wants no eval and accepts tightening consistency over time has Tradeify Lightning.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/consistency-rule-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=consistency-deepdive&utm_campaign=deep-dive">The consistency rule across 6 prop firms</a> &mdash; Earn2Trade joins Topstep and TPT in the "rule dies at the eval gate" camp (cluster minority). Tradeify is the cluster's only firm with intra-firm inverted consistency. The explainer maps every threshold-and-scope combination; Tradeify's progressive Lightning rule is uniquely structured.</p>
+
+<div class="cta">
+  <h3>Check your days against any consistency threshold</h3>
+  <p>The consistency calculator runs Earn2Trade's 30%, Tradeify Growth's 35% funded, Tradeify Select's 40% eval, Tradeify Lightning's progressive 20&rarr;25&rarr;30%, and custom thresholds. Tells you the max-safe-next-day P&amp;L so a payout submission doesn't fail on geometry.</p>
+  <a class="btn" href="https://aurafy.dev/tools/consistency-rule-calculator/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=consistency-cta">Open consistency calculator</a>
+</div>
+
+<h2 id="dll">Daily loss limit: per-size vs program-variable</h2>
+
+<p>Both firms enforce DLL, but the structure differs sharply. Earn2Trade applies one DLL skeleton across all products. Tradeify varies DLL by program.</p>
+
+<div class="axis">
+  <div class="axis-side e">
+    <strong>Earn2Trade &mdash; per-size DLL on every account</strong>
+    GAU50: $1,100. GAU100: $2,200. GAU150: $3,300. GAU200: $4,400. TCP25: $550. TCP50: $1,100. TCP100: $2,200. Hard daily session circuit-breaker on every product. Applies on eval and on funded (LiveSim). A bad session terminates trading for the day even if the trail floor is intact. Universal structure.
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify &mdash; program-variable DLL</strong>
+    Growth eval: $600&ndash;$3,750 by size (25K&ndash;150K). Select eval: <strong>none</strong>. Lightning: DLL on 50K/100K/150K ($1,250&ndash;$3,000), none on 25K. Funded DLL increases when the account reaches 6% profit threshold (matches the trailing drawdown amount on next session). Variable shape by program pick.
+  </div>
+</div>
+
+<div class="key-fact"><strong>The cluster context:</strong> Earn2Trade applies a per-size scaling DLL similar to Topstep's per-size structure. Tradeify Select is one of the cluster's few accounts with no eval DLL (an automatic-tilt-protection skip for traders who can self-manage size). Tradeify Lightning's instant-funded path mostly applies a DLL but is structurally different (sized by program-tier instead of per-size). For a trader who values a hard daily stop on every account, Earn2Trade; for a trader who wants the option of running without an eval DLL, Tradeify Select.</div>
+
+<p><strong>Deep dive &rarr;</strong> <a href="https://aurafy.dev/blog/daily-loss-limit-explained-2026/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=dll-deepdive&utm_campaign=deep-dive">Daily loss limit across 7 prop firms</a> &mdash; Earn2Trade sits in the per-size-scaling archetype alongside Topstep; Tradeify is the cluster's only firm where DLL presence varies by program pick. The explainer maps which trader profile each DLL archetype rewards and the geometry behind the size-scaled thresholds.</p>
+
+<h2 id="cost">Cost model: monthly + activation-arrears vs one-time challenge</h2>
+
+<p>Both firms charge $0 upfront activation. The recurring cost structure is otherwise opposite.</p>
+
+<div class="axis">
+  <div class="axis-side e">
+    <strong>Earn2Trade</strong>
+    <strong>$0 upfront activation. $139 deducted from first withdrawal only.</strong> Monthly subscription continues until passed or canceled: TCP $150&ndash;$350/mo, GAU $170&ndash;$550/mo. TCP includes one free reset per rebill cycle; GAU has no free resets (must re-subscribe). Activation is paid in arrears, only if the trader successfully withdraws.
+  </div>
+  <div class="axis-side t">
+    <strong>Tradeify</strong>
+    <strong>$0 upfront activation. One-time challenge cost.</strong> Growth $99&ndash;$369 by size. Select $109&ndash;$369 by size. Lightning $345&ndash;$796 by size (premium for instant-funded). No monthly subscription &mdash; pay once at signup. Reset available (cost varies). Select has optional activation upgrade post-pass: $1,500 (daily payouts) or $4,000 (flex).
+  </div>
+</div>
+
+<div class="key-fact"><strong>The economic asymmetry:</strong> A trader who passes Tradeify's eval quickly pays less total cost (one-time challenge, no monthly drag). A trader who fails Tradeify's eval pays the challenge cost + reset costs &mdash; no monthly to drag. A trader who passes Earn2Trade's eval but never withdraws pays only subscription &mdash; no activation. A trader who passes Earn2Trade and withdraws pays subscription + $139 from first payout. The cost models are structurally different: Tradeify front-loads the cost at signup; Earn2Trade spreads it across the eval period and defers activation to actual payout. On a long-grind eval, Earn2Trade's monthly accumulates while Tradeify's one-time cost stays flat &mdash; favors Tradeify. On a fast-pass-fast-fail loop (multiple resets), Tradeify's per-attempt cost adds up while Earn2Trade's monthly subscription stays single &mdash; favors Earn2Trade.</div>
+
+<h2 id="platforms">Platforms: opposite stacks</h2>
+
+<p>This is the comparison's least-discussed but most binding axis for many traders. The two firms support almost-opposite platform stacks.</p>
+
+<ul>
+  <li><strong class="firm-earn2trade">Earn2Trade</strong>: NinjaTrader (free during eval), Tradovate, TradingView, R&#124;Trader / R&#124;Trader Pro, Finamark. Mainstream futures-platform stack.</li>
+  <li><strong class="firm-tradeify">Tradeify</strong>: Tradesea (Rithmic data feed), Tradovate, WealthCharts. <strong>NO NinjaTrader.</strong> <strong>NO TradingView.</strong> Distinct platform stack &mdash; the trader has to use Tradesea or WealthCharts for charting (Tradovate is the only overlap with Earn2Trade's stack).</li>
+</ul>
+
+<div class="key-fact"><strong>The platform consequence:</strong> A NinjaTrader trader cannot use Tradeify &mdash; full stop. A TradingView trader cannot use Tradeify either. The trader's existing platform commitment is a hard fork at this firm choice. Earn2Trade fits any major futures-platform user. Tradeify requires the trader to run Tradesea, Tradovate, or WealthCharts. This is the single most binding non-rule decision in the comparison: rule preferences can be worked around with discipline; platform incompatibility cannot.</div>
+
+<div class="warn"><strong>Earn2Trade lifecycle landmines:</strong> (a) The 10-day minimum is the longest eval minimum in this cluster &mdash; even a trader who hits the profit target in 2 sessions still has to sit through 8 more trading days before the pass is recognized. (b) The DLL applies on LiveSim too &mdash; not just eval. A bad session on a funded LiveSim account terminates trading for the day even with the trail floor intact. (c) The 30% consistency on eval is tighter than most firms' eval thresholds &mdash; max-safe-next-day P&amp;L on a $3,000 target is $1,286 (30%/70%). (d) GAU has no free resets &mdash; eval failure means re-subscribing; TCP has one free reset per rebill cycle. (e) Subscription continues after passing until manually canceled &mdash; a trader who passes and forgets to cancel still pays monthly on the funded account.</div>
+
+<div class="warn"><strong>Tradeify lifecycle landmines:</strong> (a) <strong>Microscalping floor</strong> &mdash; &gt;50% of trades AND &gt;50% of profit must come from positions held longer than 10 seconds. A trader whose style depends on sub-10-second scalps will trip this rule structurally. (b) Program choice is locked per account &mdash; cannot switch from Growth to Select mid-account; must open a new account on the other program. (c) Lightning's progressive consistency tightens by payout (20%&rarr;25%&rarr;30%) &mdash; a trader who runs payouts at near-the-limit ratios early will face a stricter rule later. (d) DLL increases at 6% funded profit threshold (matches trailing drawdown) &mdash; the safety net loosens just as the trader has more to lose. (e) All positions flat by 5 PM ET; no holds through the 5:00&ndash;6:00 PM ET maintenance window. (f) No NinjaTrader or TradingView support &mdash; platform fork at signup.</div>
+
+<h2 id="examples">Worked scenario: the decision-timing fork in action</h2>
+
+<p>A trader who has passed multiple evals at other firms and wants efficient access to a funded simulated account. They have a streaky style on the eval (one or two big days, several flat days) but disciplined funded payouts. How does the lifecycle play out at each firm?</p>
+
+<h3 class="firm-tradeify">Scenario A &mdash; signed up for Tradeify Growth 50K</h3>
+<ul>
+  <li>Pays $169 one-time challenge cost for Growth 50K. <strong>No upfront activation.</strong> Trades the eval under EOD trail and the $1,250 DLL. <strong>No eval consistency rule</strong> &mdash; the trader's one big-day session (~$2,400 = 80% of total eval profit) does NOT trip the rule.</li>
+  <li>Passes the eval in 7 sessions at +$3,000 profit. 1-day minimum cleared early.</li>
+  <li>Funded on Simulated Funded. <strong>35% consistency now applies</strong> on funded payouts. EOD trail continues with lock at SB+$100 = $50,100. DLL increases when account reaches 6% profit ($3,000) &mdash; floor matches trailing drawdown.</li>
+  <li>Trades funded for a month, accumulates $1,800 in profit. Submits payout on day 5 (Growth default 5-day cadence). Receives 90% of $1,800 = $1,620 (Simulated Funded split is 90/10 after first $15K). Big day was $560 = 31% of total &mdash; cleared the 35% rule.</li>
+  <li>Outcome: $169 total cost. 7-session eval. Time-to-first-payout: 7 sessions + 5 days. Funded simulated account with no live conversion required.</li>
+</ul>
+
+<h3 class="firm-earn2trade">Scenario B &mdash; signed up for Earn2Trade GAU50</h3>
+<ul>
+  <li>Pays $170/mo subscription for GAU50. <strong>No upfront activation.</strong> Trades the eval under EOD trail and the $1,100 DLL. <strong>30% consistency rule</strong> applies on eval &mdash; the trader's streaky style risks tripping the rule on the big day.</li>
+  <li>Big day during eval was $900 = 30% of $3,000 target &mdash; cleared the 30% rule by 1 percentage point. Passed in 10 sessions (10-day minimum gating).</li>
+  <li>Funded on LiveSim. <strong>Consistency rule drops</strong> &mdash; no longer applies on funded payouts. EOD trail continues with lock at SB ($50,000). DLL of $1,100 applies on funded LiveSim too.</li>
+  <li>Trades funded for a month, accumulates $1,800 in profit. Submits weekly payout (every Wednesday). First withdrawal: $1,800 &times; 80% = $1,440, minus $139 activation = $1,301. Subsequent payouts: full 80% with no activation deduction.</li>
+  <li>Trader stays on LiveSim &mdash; never converts to Live (joins the 94.77%). $170/mo subscription continues on funded account until the trader cancels (otherwise it keeps charging).</li>
+  <li>Outcome: $170 + $139 + ongoing $170/mo. Eval took 10 sessions even though target was hit in 6. Time-to-first-payout: 10 sessions + ~1 week of funded trading. Funded simulated account with optional (declined) live conversion.</li>
+</ul>
+
+<div class="key-fact">The structural insight: the streaky-style trader's eval at Earn2Trade was at risk of tripping the 30% rule (passed by 1 percentage point); at Tradeify Growth they had no eval consistency at all. Post-pass: Earn2Trade's consistency drops entirely (full freedom), Tradeify Growth applies 35% on funded payouts (slightly looser than the trader's eval style). Pick depends on which gate the trader is more confident at &mdash; eval streakiness favors Tradeify Growth; funded discipline favors Earn2Trade. Cost: Tradeify $169 one-time; Earn2Trade $170/mo + $139 activation.</div>
+
+<h2 id="pick">Which firm fits you?</h2>
+
+<div class="pick-grid">
+  <div class="pick earn2trade">
+    <h4 class="firm-earn2trade">Pick Earn2Trade if&hellip;</h4>
+    <ul>
+      <li>You want one universal rule shape during eval (not three programs to choose from)</li>
+      <li>You want consistency to drop entirely on the funded gate (eval-only scope)</li>
+      <li>You're comfortable with a 10-day minimum eval (longest in cluster)</li>
+      <li>You want EOD trail on every product and every phase (no surprises)</li>
+      <li>You value an automatic daily stop (DLL applies on eval AND LiveSim)</li>
+      <li>You want $0 upfront cost AND $0 activation until first withdrawal</li>
+      <li>You want the option of live capital later but expect to stay on LiveSim (94.77% do)</li>
+      <li>You want NinjaTrader, TradingView, or R&#124;Trader support</li>
+      <li>You want TCP's built-in scaling ladder (size scales to $200K&ndash;$400K)</li>
+    </ul>
+  </div>
+  <div class="pick tradeify">
+    <h4 class="firm-tradeify">Pick Tradeify if&hellip;</h4>
+    <ul>
+      <li>You want choice over the rule shape at signup (Growth / Select / Lightning)</li>
+      <li>You want a one-time challenge cost (no monthly subscription drag)</li>
+      <li>You want the option of skipping the eval entirely (Lightning, instant-funded)</li>
+      <li>You're comfortable with the SB+$100 lock family ($50,100 floor on 50K)</li>
+      <li>You hold positions longer than 10 seconds on at least half your trades (microscalping floor)</li>
+      <li>You can use Tradesea, Tradovate, or WealthCharts (no NinjaTrader or TradingView)</li>
+      <li>You want 90/10 profit split after first $15K on Simulated Funded</li>
+      <li>You can pick which consistency scope fits your style and commit at signup</li>
+      <li>You're OK with positions flat by 5 PM ET (no overnight or maintenance-window holds)</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="faq">FAQ</h2>
+
+<details>
+  <summary>Can I hold Earn2Trade and Tradeify accounts at the same time?</summary>
+  <p>Yes &mdash; the two firms are independent and cross-firm hedging is not enforceable by either rulebook. Both firms restrict cross-account coordination within their own platform &mdash; do not run equal-and-opposite positions across accounts at the same firm. Across firms, the accounts are practically independent. Many traders run Earn2Trade for the deferred-decision endgame and Tradeify Growth or Select alongside it for a different rule-shape experiment.</p>
+</details>
+
+<details>
+  <summary>What's the difference between Tradeify Growth, Select, and Lightning?</summary>
+  <p>All three programs use EOD trail and the SB+$100 lock. They differ on consistency. Growth has no consistency on eval and 35% on funded &mdash; rewards traders with streaky eval days and disciplined funded payouts. Select has 40% consistency on eval and no consistency on funded &mdash; rewards traders who can grind a steady eval but want freedom post-pass. Lightning skips the eval entirely (instant-funded) and applies progressive consistency on funded that tightens with each payout (20% on payout 1, 25% on payout 2, 30% from payout 3 onward). Pick locked per account &mdash; cannot switch mid-account.</p>
+</details>
+
+<details>
+  <summary>Why do 94.77% of Earn2Trade passers stay on LiveSim?</summary>
+  <p>Two reasons. (1) The payout mechanics are identical &mdash; both LiveSim and Live pay 80/20 in real US dollars &mdash; so the trader's take-home is unchanged by the choice. (2) Live conversion exposes the trader to real-market slippage and execution edge cases that LiveSim's simulated fills smooth out. For a trader whose strategy depends on tight fills near the bid/ask, LiveSim's simulated environment often produces cleaner execution than the real exchange would. Combined with no penalty for staying (rules and split don't change), most passers see no upside to converting. The 5.23% who do convert typically value the "real market" feel or trade strategies that don't materially differ in execution quality between the two environments.</p>
+</details>
+
+<details>
+  <summary>How does the <a href="/blog/trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=earn2trade-vs-tradeify&amp;utm_campaign=inline-faq">trailing drawdown</a> compare on a 50K account?</summary>
+  <p>Earn2Trade GAU50: $2,000 trailing DD, EOD trail (updates once per day on EOD high), lock at SB = $50,000. Tradeify Growth 50K: $2,000 trailing DD, EOD trail, lock at SB+$100 = $50,100. Tradeify Select 50K: $2,000 trailing DD, EOD trail, lock at SB+$100. Tradeify Lightning 50K: $2,000 trailing DD, EOD trail, lock at SB+$100. The structural difference: both firms are EOD-only universally, but Tradeify's lock floor is $100 higher than Earn2Trade's. Floor delta is the only material difference on the trail axis.</p>
+</details>
+
+<details>
+  <summary>Does Tradeify have a <a href="/blog/daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=earn2trade-vs-tradeify&amp;utm_campaign=inline-faq">daily loss limit</a> on every program?</summary>
+  <p>No &mdash; DLL presence varies by program. Growth: yes on eval ($600&ndash;$3,750 by size). Select: <strong>no DLL on eval</strong>. Lightning: yes on most sizes (none on 25K, $1,250&ndash;$3,000 on 50K&ndash;150K). On funded, DLL increases when the account reaches 6% profit threshold (matches trailing drawdown). Earn2Trade applies DLL on every product and every phase ($550&ndash;$4,400 by size). For traders who value an automatic daily stop on every account, Earn2Trade; for traders who want the option of running without an eval DLL, Tradeify Select.</p>
+</details>
+
+<details>
+  <summary>How does the <a href="/blog/consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=earn2trade-vs-tradeify&amp;utm_campaign=inline-faq">consistency rule</a> compare?</summary>
+  <p>Earn2Trade: 30% on eval ONLY, drops entirely on funded LiveSim/Live. Tradeify: inverted by program. Growth has no consistency on eval and 35% on funded. Select has 40% on eval and no consistency on funded. Lightning has no eval (instant-funded) and progressive consistency on funded that tightens (20%&rarr;25%&rarr;30% by payout count). Earn2Trade is the cluster's only firm that <em>fully</em> releases the rule post-eval. Tradeify is the cluster's only firm with intra-firm inverted consistency across parallel programs.</p>
+</details>
+
+<details>
+  <summary>What's the microscalping floor at Tradeify?</summary>
+  <p>Tradeify requires &gt;50% of trades AND &gt;50% of profit to come from positions held longer than 10 seconds. The rule applies on Simulated Funded and Elite Live. A trader whose style depends on sub-10-second scalps (rapid order flow, queue-jumping, momentary mispricing) will trip this rule structurally regardless of their profit/loss outcome. Earn2Trade does not state a microscalping floor in its rulebook. The rule is one of Tradeify's defining structural constraints &mdash; not present on Earn2Trade, Topstep, Apex, MFFU, Bulenox, or TPT.</p>
+</details>
+
+<details>
+  <summary>What's the actual cost difference between Earn2Trade GAU50 and Tradeify Growth 50K on a 3-month grind?</summary>
+  <p>Tradeify Growth 50K: ~$169 one-time challenge cost (price varies by current promotion). No monthly subscription. Total cost: $169 plus any reset costs. Earn2Trade GAU50: $170/mo subscription &times; 3 months = $510, plus $139 activation deducted from first withdrawal (only if the trader passes and withdraws). For a trader who passes in 7 sessions and grinds steadily, Tradeify is cheaper outright. For a trader who fails and resets multiple times, the relative cost depends on Tradeify's reset cost vs Earn2Trade's monthly continuation. Earn2Trade's $0 upfront is uniquely friendly to traders who fail to pass.</p>
+</details>
+
+<details>
+  <summary>What about the other 5 firms in this cluster?</summary>
+  <p>Earn2Trade locks at SB exactly (Topstep / TPT family). Tradeify locks at SB+$100 (Apex 4.0 / MFFU / Bulenox family). Each firm has a dedicated landing page: <a href="/prop-firms/topstep/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=faq-topstep">Topstep</a>, <a href="/prop-firms/apex-trader-funding/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=faq-apex">Apex</a>, <a href="/prop-firms/take-profit-trader/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=faq-tpt">TPT</a>, <a href="/prop-firms/myfundedfutures/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=faq-mffu">MFFU</a>, <a href="/prop-firms/bulenox/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=faq-bulenox">Bulenox</a>.</p>
+</details>
+
+<details>
+  <summary>How does Aurafy help with either firm?</summary>
+  <p>Aurafy tracks your trail floor, consistency ratio, and daily P&amp;L against either firm's preset in real time as you upload Tradovate, NinjaTrader, or Rithmic fills. Earn2Trade GAU50/100/150/200 (EOD, SB lock, 30%-eval-only, DLL), Earn2Trade TCP25/50/100 (EOD with scaling milestones), Tradeify Growth/Select/Lightning 25K/50K/100K/150K (EOD, SB+$100 lock, program-specific consistency, program-variable DLL, microscalping floor monitoring) all supported &mdash; the journal switches the rule shape automatically when you mark an account as scaled (TCP) or open a new Tradeify program. Multi-account, multi-firm &mdash; one journal across every prop firm you trade.</p>
+</details>
+
+<div class="cta">
+  <h3>Track Earn2Trade + Tradeify accounts in one place</h3>
+  <p>Aurafy is a futures journal built for prop traders. Multi-firm, multi-account, native screen recording, free tier with no card required. Program-switch and TCP-scaling presets baked in.</p>
+  <a class="btn" href="https://aurafy.dev/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=final-cta">Try Aurafy free</a>
+  <a class="btn ghost" href="/prop-firms/?utm_source=blog&utm_medium=earn2trade-vs-tradeify&utm_content=hub-cta">Browse all prop-firm guides</a>
+</div>
+
+<footer>
+  <p>Independent comparison. Not affiliated with Earn2Trade or Tradeify. Rules verified June 2026 from public sources &mdash; <strong>always confirm on the firm's current rulebook before relying on these numbers for trading decisions</strong>.</p>
+  <p>Related: <a href="/blog/apex-vs-earn2trade-2026/">Apex vs Earn2Trade</a> &middot; <a href="/blog/bulenox-vs-earn2trade-2026/">Bulenox vs Earn2Trade</a> &middot; <a href="/blog/earn2trade-vs-topstep-2026/">Earn2Trade vs Topstep</a> &middot; <a href="/blog/tpt-vs-earn2trade-2026/">TPT vs Earn2Trade</a> &middot; <a href="/blog/mffu-vs-earn2trade-2026/">MFFU vs Earn2Trade</a> &middot; <a href="/blog/apex-vs-tradeify-2026/">Apex vs Tradeify</a> &middot; <a href="/blog/bulenox-vs-tradeify-2026/">Bulenox vs Tradeify</a> &middot; <a href="/blog/mffu-vs-tradeify-2026/">MFFU vs Tradeify</a> &middot; <a href="/blog/topstep-vs-tradeify-2026/">Topstep vs Tradeify</a> &middot; <a href="/blog/tpt-vs-tradeify-2026/">TPT vs Tradeify</a> &middot; <a href="/prop-firms/earn2trade/">Earn2Trade landing</a> &middot; <a href="/prop-firms/tradeify/">Tradeify landing</a></p>
+  <p>&copy; <a href="https://aurafy.dev">Aurafy</a> &mdash; the futures journal for prop traders.</p>
+</footer>
+
+</div>
+</body>
+</html>

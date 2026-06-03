@@ -43,6 +43,7 @@ I never push to the aurafy site repo directly. This repo is my sandbox. The depl
 | `bulenox-vs-tpt-2026` | Bulenox vs TPT (2026): One Irrevocable Choice at Signup vs Three Forced by the Firm | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `mffu-vs-tpt-2026` | MFFU vs TPT (2026): Three Plans You Pick vs Three Phases the Firm Picks | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 | `mffu-vs-earn2trade-2026` | MFFU vs Earn2Trade (2026): Skip the Eval vs Stay on LiveSim Forever | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
+| `earn2trade-vs-tradeify-2026` | Earn2Trade vs Tradeify (2026): Pick Your Endgame vs Pick Your Restriction | `ready-to-deploy` | 2026-06-03 | 2026-06-03 |
 
 **Status values:**
 - `draft` — work-in-progress, do NOT deploy
