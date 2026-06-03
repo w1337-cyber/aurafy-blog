@@ -157,7 +157,7 @@
 
 <h2 id="drawdown">Trailing drawdown: the mechanic that ends most accounts</h2>
 
-<p>This is where Apex and Topstep diverge most. Both use a <strong>trailing drawdown</strong> that follows your high-water mark up but never back down &mdash; until it locks. The differences are <em>when</em> it tracks and <em>where</em> it locks.</p>
+<p>This is where Apex and Topstep diverge most. Both use a <strong><a href="../trailing-drawdown-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-topstep&amp;utm_campaign=inline-concept">trailing drawdown</a></strong> that follows your high-water mark up but never back down &mdash; until it locks. The differences are <em>when</em> it tracks and <em>where</em> it locks.</p>
 
 <h3>Apex 4.0 trailing drawdown</h3>
 <ul>
@@ -206,6 +206,8 @@
   <strong>The formula to remember:</strong> the maximum profit a single day can have without breaking the rule is <code>threshold &times; total / (1 &minus; threshold)</code>. On Apex (30%): if you have $4,000 total profit, your best day can't exceed $1,714.29. On Topstep (50%): same $4k total &rarr; best day cap is $4,000 &mdash; literally the whole stack.
 </div>
 
+<p><strong>Deep dive &rarr;</strong> <a href="../consistency-rule-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-topstep&amp;utm_campaign=deep-dive">Consistency rule explained &mdash; thresholds across the cluster</a> &mdash; where Apex's 30% and Topstep's 50% sit on the 30/35/40/50 tier axis, plus why eval-only vs lifetime scope changes how the rule actually bites.</p>
+
 <div class="tool-row">
   <div class="tool-card">
     <h4>Consistency Rule Calculator</h4>
@@ -247,6 +249,7 @@
   <li><span class="firm-apex">Apex 4.0</span> only applies a DLL on accounts purchased with the <strong>EOD trail option</strong>. Intraday-trail Apex accounts have no separate DLL &mdash; the trailing drawdown <em>is</em> the floor.</li>
 </ul>
 <p>This is one of the cleanest reasons to prefer Apex if you're a position-sizer who occasionally takes a deep heat in a single direction: no second guillotine.</p>
+<p><strong>Deep dive &rarr;</strong> <a href="../daily-loss-limit-explained-2026/?utm_source=blog&amp;utm_medium=apex-vs-topstep&amp;utm_campaign=deep-dive">Daily loss limit explained &mdash; presence-by-stage archetypes</a> &mdash; Apex 4.0's firmwide deletion is the cluster's most dramatic DLL move; the explainer walks the 4-archetype taxonomy (none / eval-only / funded-only / both) and where Topstep sits.</p>
 <p><strong>Plan it first &rarr;</strong> <a href="https://aurafy.dev/tools/position-size-calculator/?utm_source=blog&amp;utm_medium=apex-vs-topstep&amp;utm_content=position-tool">Position-size calculator</a> &mdash; given Apex's drawdown cushion vs Topstep's tighter DLL, see how many contracts you can risk per trade before either firm's floor binds.</p>
 
 <h2 id="examples">Two worked examples</h2>
